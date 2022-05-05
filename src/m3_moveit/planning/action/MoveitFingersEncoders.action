@@ -1,0 +1,8 @@
+trajectory_msgs/JointTrajectory trajectory
+---
+int32 error_code
+int32 FAIL=0
+int32 SUCCESSFUL=1
+---
+
+

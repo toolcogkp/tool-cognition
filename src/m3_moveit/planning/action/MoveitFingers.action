@@ -1,0 +1,12 @@
+trajectory_msgs/JointTrajectory trajectory
+bool grasp_tool
+int32 grasp_type
+string side
+int32 mode
+---
+int32 error_code
+int32 FAIL=0
+int32 SUCCESSFUL=1
+---
+
+

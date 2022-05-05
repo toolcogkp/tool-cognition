@@ -1,0 +1,11 @@
+string object_name
+string object_name_to_placeon
+string arm_name
+geometry_msgs/Pose pick_pose
+geometry_msgs/Pose place_pose
+moveit_msgs/CollisionObject collision_object
+---
+int32 error_code
+int32 FAIL=0
+int32 SUCCESSFUL=1
+---

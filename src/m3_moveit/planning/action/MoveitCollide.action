@@ -1,0 +1,8 @@
+string object_name
+moveit_msgs/CollisionObject collision_object
+moveit_msgs/AttachedCollisionObject attached_object
+---
+int32 error_code
+int32 FAIL=0
+int32 SUCCESSFUL=1
+---

@@ -1,0 +1,7 @@
+add_executable(move_group_action_server src/move_group_action_server.cpp)
+target_link_libraries(move_group_action_server ${catkin_LIBRARIES} ${Boost_LIBRARIES})
+# add_dependencies(move_group_action_server joystick_generate_messages_cpp ${m3_moveit_EXPORTED_TARGETS})
+
+add_executable(move_group_action_server_fixed src/move_group_action_server_fixed.cpp)
+target_link_libraries(move_group_action_server_fixed ${catkin_LIBRARIES} ${Boost_LIBRARIES})
+# add_dependencies(move_group_action_server_fixed joystick_generate_messages_cpp ${m3_moveit_EXPORTED_TARGETS})

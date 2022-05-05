@@ -1,0 +1,11 @@
+bool plan_only
+string link_name
+geometry_msgs/Pose end_eff
+trajectory_msgs/JointTrajectory trajectory
+---
+int32 error_code
+int32 FAIL=0
+int32 SUCCESSFUL=1
+---
+
+

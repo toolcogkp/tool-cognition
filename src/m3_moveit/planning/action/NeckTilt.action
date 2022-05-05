@@ -1,0 +1,11 @@
+#goal define
+string head_link_name
+geometry_msgs/PoseArray head_end_eff
+trajectory_msgs/JointTrajectory head_trajectory
+---
+#result define
+int32 error_code
+int32 FAIL=0
+int32 SUCCESSFUL=1
+---
+#feedback define

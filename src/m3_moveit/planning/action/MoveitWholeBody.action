@@ -1,0 +1,24 @@
+bool plan_only
+bool constrain_hand_orientation
+
+string left_link_name
+geometry_msgs/PoseArray left_end_eff
+trajectory_msgs/JointTrajectory left_trajectory
+
+string right_link_name
+geometry_msgs/PoseArray right_end_eff
+trajectory_msgs/JointTrajectory right_trajectory
+
+string torso_link_name
+geometry_msgs/PoseArray torso_end_eff
+trajectory_msgs/JointTrajectory torso_trajectory
+
+string head_link_name
+geometry_msgs/PoseArray head_end_eff
+trajectory_msgs/JointTrajectory head_trajectory
+
+---
+int32 error_code
+int32 FAIL=0
+int32 SUCCESSFUL=1
+---

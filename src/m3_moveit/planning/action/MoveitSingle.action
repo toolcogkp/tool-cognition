@@ -1,0 +1,14 @@
+bool plan_only
+bool constrain_hand_orientation
+string link_name
+geometry_msgs/PoseArray end_eff
+trajectory_msgs/JointTrajectory trajectory
+bool replan
+---
+int32 error_code
+int32 FAIL=0
+int32 SUCCESSFUL=1
+float32 fraction
+---
+int32 state
+
