@@ -37,8 +37,8 @@ std::vector<double> linspace(double start_in, double end_in, int num_in)
     {
       linspaced.push_back(start + delta * i);
     }
-  linspaced.push_back(end); // I want to ensure that start and end
-                            // are exactly the same as the input
+  linspaced.push_back(end); 
+                            
   return linspaced;
 }
 
@@ -97,7 +97,7 @@ Affine3d Manipulate::EstimatePose(double fraction, Affine3d start, Affine3d end)
     //distance 
     double vec_dist = euclidean_distance(pos_a, pos_b);
     double est_dist = vec_dist * fraction;
-    est_dist += 0.01; //just in case collision
+    est_dist += 0.01; 
 
     //angle
     Vector3d diff = pos_b - pos_a;
@@ -123,14 +123,13 @@ sc::result Manipulate::react( const EvMonteCarloExpt2_left & )
 {
     ROS_ERROR_STREAM("DOING LEFT!");
 
-    // WAIST_INIT = 15.0;//45.0
+
     WAIST_INIT = -30.0;
-    WAIST_TOOL = 60.0;//-60.0
+    WAIST_TOOL = 60.0;
 
     OBST_RADIUS = 0.03;
     PUCK_RADIUS = 0.03;
 
-    //HARDCODED! FOR LEFT ONLY! When WAIST AT 0deg angle
     #ifdef USE_LOWER_TORSO
         init_x = 0.27;
         init_y = 0.45;
@@ -152,7 +151,6 @@ sc::result Manipulate::react( const EvMonteCarloExpt2_left & )
     #ifdef USE_LOWER_TORSO
         ActionSwitchTF(3);
     #else
-        // ActionSwitchTF(1);
         ActionSwitchTF(4);
     #endif
     sleep(sleep_time);
@@ -166,7 +164,6 @@ sc::result Manipulate::react( const EvMonteCarloExpt2_left & )
     sleep(sleep_time);
 
     cout << "switch camera_olivia_node to mode 1. continue? _"; 
-    // cin.ignore(); 
     sw.data = 1;
     camera_swap_publisher.publish(sw);
     sleep(sleep_time);
@@ -174,9 +171,7 @@ sc::result Manipulate::react( const EvMonteCarloExpt2_left & )
     //--- main here ---
     if( findObjectTargetLocation2_left() > 0 )
     {
-        // cout << "adding moveit collision..." << endl;    
-        // addVisualToolCollision(toolMeshes.at(0));
-        
+
         addTableCollision();
         addPuckCollision(PUCK_RADIUS);
         if(obstacle_detected)
@@ -186,21 +181,17 @@ sc::result Manipulate::react( const EvMonteCarloExpt2_left & )
         cout << "continue? _"; cin.ignore();
         
         cout << "switch camera_olivia_node to mode 0. continue? _"; 
-        // cin.ignore(); 
+
         sw.data = 0;
         camera_swap_publisher.publish(sw);
         sleep(sleep_time);
 
         cout << "---------------------------------------------" << endl;
         cout << "rotating body CCW! beware of left side! continue? _"; cin.ignore();
-        // MoveWaistFromCurrent(WAIST_TOOL);
-        // sleep(sleep_time);
-        // cout << "tilting head upwards to see! continue? _"; cin.ignore();
+
         #ifdef USE_LOWER_TORSO
-            // TurnHeadTiltPan(-13.3, 0.4);
             neck_and_waist_trunk( -13.3, 0.4, 0.05, WAIST_TOOL, 80.0);
         #else
-            // TurnHeadTiltPan(-13.3, 0.2);
             neck_and_waist_trunk( 0.0, 0.2, 0.05, WAIST_TOOL, 47.44);
         #endif
         sleep(sleep_time);
@@ -216,20 +207,15 @@ sc::result Manipulate::react( const EvMonteCarloExpt2_left & )
             else
             {        
                 cout << "switch camera_olivia_node to mode 0. continue? _"; 
-                // cin.ignore(); 
                 sw.data = 0;
                 camera_swap_publisher.publish(sw);
                 sleep(sleep_time);
 
                 cout << "returning waist to init position: _"; cin.ignore();
-                // MoveWaistTrunkFromCurrent(WAIST_INIT, 65.0);
-                // sleep(sleep_time);
-                // cout << "returning head to init position: _"; cin.ignore();      
+  
                 #ifdef USE_LOWER_TORSO
-                    // TurnHeadTiltPan(-9.0, 0.0);
                    neck_and_waist_trunk( -9.0, 0.0, 0.05, WAIST_INIT, 65.0);
                 #else
-                    // TurnHeadTiltPan(13.3, 0.0);
                     neck_and_waist_trunk( 13.3, 0.0, 0.05, WAIST_INIT, 47.44);
                 #endif
                 sleep(sleep_time);                
@@ -249,7 +235,6 @@ int Manipulate::findObjectTargetLocation2_left()
     ROS_ERROR_STREAM("DOING LEFT!");
 
     //get object and target location!
-
     std_msgs::Int32 req_object_target_msg;
     req_object_target_msg.data = 1;
     
@@ -279,8 +264,6 @@ int Manipulate::findObjectTargetLocation2_left()
         Speech("Found them...");
         cout << "Object and target detected ." << endl;
         
-
-        //snapshot of object and target positions at this moment for current manipulation trial. Not changed by "object_target_positions_callback".
         object_in_base = object_in_base_live;
         target_in_base = target_in_base_live;
 
@@ -331,7 +314,7 @@ int Manipulate::findObjectTargetLocation2_left()
 
 
         float target_tol = 0.05;
-    //            std_msgs::Int32 msg;
+
         std::cout << "==========================" << std::endl;
         std::cout << "object location: "<< object_in_base.pose.position.x 
                     << ", " << object_in_base.pose.position.y << ", " 
@@ -364,9 +347,8 @@ int Manipulate::findObjectTargetLocation2_left()
             cout << ">>>>> cal angle of obj to target <<<<<" << endl;
             //calculate the angle of object to target
             //south angle is negative
-            radian = std::atan2(x_dif,y_dif);       //atan2 is -180 to 180 range; 
-            //round off to int, double hard to sort into range
-            angle = round(radian * 180.0 / PI); //in degree;
+            radian = std::atan2(x_dif,y_dif);      
+            angle = round(radian * 180.0 / PI); 
             ROS_WARN("\nangle obj2tar: deg= %f , radian= %f", angle, radian);
             cout << "==========================================" << endl;
                 
@@ -412,7 +394,7 @@ int Manipulate::mct_tool_experiment2_left()
         cout << joint_values_l[i] << " ";
     cout << "] " << endl;
 
-    joint_values_l[0] =  WAIST_INIT/180 * 3.14159265;   //double check later
+    joint_values_l[0] =  WAIST_INIT/180 * 3.14159265;   
     cout << "fake set waist yaw to be zero for ik state planning ->  no movement" << endl;
 
     cout << "---------------------------------------------------" << endl;
@@ -454,7 +436,6 @@ int Manipulate::mct_tool_experiment2_left()
 
     //KDL_ik_solver
     m_kdl_ik.init(false);
-    //sleep(1.0);
     m_kdl_ik.init_home(joint_values_l, maxJnt, minJnt);
     sleep(1.0);
 
@@ -471,7 +452,7 @@ int Manipulate::mct_tool_experiment2_left()
     sleep(sleep_time);
 
     //main experiment
-    m_tool_expt2.init(&m_create_tool, &m_mct_search2, object_in_base.pose, target_in_base.pose/*, tool_in_base.pose*/);
+    m_tool_expt2.init(&m_create_tool, &m_mct_search2, object_in_base.pose, target_in_base.pose);
     m_tool_expt2.init_params(PUCK_RADIUS*2.0, OBST_RADIUS*2.0, N_VIA_CANDIDATES, obstacle_in_base.pose, MAX_GJK_ITER);
     m_tool_expt2.init_vision( v_list.at(0) );  //use vision module for first tool!
     sleep(sleep_time);
@@ -570,8 +551,8 @@ int Manipulate::perform_experiment2_left()
     Affine3d grab_pose2, grab_pose3;
 
     //note in the tool frame
-    double grab_dist = 0.04 + GRAB_SPACE + current_tool_width;  //0.04 + 0.02 + tool_protrusion
-    tf_grab_hand = create_affine( M_PI, 0, M_PI/2.0, 0.0, 0, grab_dist); //move back by 8cm from center of robot ee to tool center
+    double grab_dist = 0.04 + GRAB_SPACE + current_tool_width;  
+    tf_grab_hand = create_affine( M_PI, 0, M_PI/2.0, 0.0, 0, grab_dist); 
     grab_pose = tool_TF * m_result_grab * tf_grab_hand * tf_hand_atk; //world to tool * tool to grab * grab to hand orientation * hand orient to atk
     
     #ifdef SHOW_ALL_GRASP_LOCI
@@ -606,12 +587,12 @@ int Manipulate::perform_experiment2_left()
     temp_gg(2) = 1.05;
     grab_pose3.translation() = temp_gg;
 
-    double grab_dist1 = 0.04 + 0.12 + current_tool_width + 0.02;  //0.04 + 0.02 + tool_protrusion BUT 8 cm away!
-    tf_grab_hand1 = create_affine( M_PI, 0, M_PI/2.0, 0.0, 0, grab_dist1); //move back by 8cm from center of robot ee to tool center
+    double grab_dist1 = 0.04 + 0.12 + current_tool_width + 0.02;  
+    tf_grab_hand1 = create_affine( M_PI, 0, M_PI/2.0, 0.0, 0, grab_dist1); //move back from center of robot ee to tool center
     grab_pose1 = tool_TF * m_result_grab * tf_grab_hand1 * tf_hand_atk; //world to tool * tool to grab * grab to hand orientation * hand orient to atk
 
-    double return_dist = 0.04 + current_tool_width;  //0.04 + tool_protrusion BUT towards the rack!
-    tf_return_hand = create_affine( M_PI, 0, M_PI/2.0, 0.0, 0.0, return_dist); //move back by 8cm from center of robot ee to tool center
+    double return_dist = 0.04 + current_tool_width;  //towards the rack!
+    tf_return_hand = create_affine( M_PI, 0, M_PI/2.0, 0.0, 0.0, return_dist); //move back from center of robot ee to tool center
     return_pose = tool_TF * m_result_grab * tf_return_hand * tf_hand_atk; //world to tool * tool to grab * grab to hand orientation * hand orient to atk
 
     temp_watever = grab_pose1.translation();
@@ -670,8 +651,8 @@ int Manipulate::perform_experiment2_left()
     }
     sleep(sleep_time);
 
-    ROS_WARN_STREAM("check if position correct, if not ctrl+c here!"); //cihan+jennifer pkg
-    cout << "attach tool planner" << endl; //cihan+jennifer pkg
+    ROS_WARN_STREAM("check if position correct, if not ctrl+c here!"); 
+    cout << "attach tool planner" << endl; 
     ROS_INFO_STREAM("Press anykey to continue...");
     cin.ignore();
     ActionAttachObj("left", "vtool", tool_collision);
@@ -703,7 +684,6 @@ int Manipulate::perform_experiment2_left()
     half_home_pose.translation() = temp_hhp;
     
     home_path_poses.push_back(grab_pose1);
-    // home_path_poses.push_back(grab_pose0);
     home_path_poses.push_back(home_Tool);
     
     cout << "homing" << endl;
@@ -712,7 +692,6 @@ int Manipulate::perform_experiment2_left()
     if( ActionGoToPos( home_path_poses, false, "task_single_right", true, "l_ee") < 1 )
     {
         ROS_ERROR_STREAM("failed to go to home");
-        // finish_v_l(true, false, true);
         sleep(sleep_time);
 
         cout << "homing again" << endl;
@@ -740,18 +719,16 @@ int Manipulate::perform_experiment2_left()
     //-------------------------------------------------------------
 
     cout << "switch camera frame transform to 1. continue? _\n"; 
-    // cin.ignore(); 
     #ifdef USE_LOWER_TORSO
         ActionSwitchTF(3);
     #else
-        // ActionSwitchTF(1);
         ActionSwitchTF(4);
     #endif
     sleep(sleep_time);
 
     std_msgs::Int32 sw;
     cout << "switch camera_olivia_node back to mode 0. continue? _\n"; 
-    // cin.ignore(); 
+
     sw.data = 0;
     camera_swap_publisher.publish(sw);
     sleep(sleep_time);
@@ -759,17 +736,13 @@ int Manipulate::perform_experiment2_left()
     cout << "returning waist to init position: _"; 
     cin.ignore();
     #ifdef USE_LOWER_TORSO
-        // TurnHeadTiltPan(-9.0, 0.0);
        neck_and_waist_trunk( -9.0, 0.0, 0.1, WAIST_INIT, 65.0);
     #else
-        // TurnHeadTiltPan(13.3, 0.0);
         neck_and_waist_trunk( 13.3, 0.0, 0.1, WAIST_INIT, 47.44);
     #endif
-    // TurnHeadToObjTarCenter();
     sleep(sleep_time);    
 
     cout << "switch camera_olivia_node back to mode 1. continue? _"; 
-    // cin.ignore(); 
     sw.data = 1;
     camera_swap_publisher.publish(sw);
     sleep(sleep_time);
@@ -788,7 +761,7 @@ int Manipulate::perform_experiment2_left()
     Vector3d temp_hh = home_pose.translation();
     temp_tran(0) = temp_hh(0) + (temp_tran(0) - temp_hh(0)) * 1.0/3.0;
     temp_tran(1) = temp_hh(1) + (temp_tran(1) - temp_hh(1)) * 1.0/3.0; 
-    temp_tran(2) = temp_hh(2) + (temp_tran(2) - temp_hh(2)) * 1.0/3.0 + 0.10;   //make 2cm higher
+    temp_tran(2) = temp_hh(2) + (temp_tran(2) - temp_hh(2)) * 1.0/3.0 + 0.10;   
     first.translation() = temp_tran;
     sleep(sleep_time);
 
@@ -820,7 +793,6 @@ int Manipulate::perform_experiment2_left()
         cout << "homing" << endl;
         ROS_INFO_STREAM("Press anykey to continue...");
         cin.ignore();
-        // Home( m_result_atk);
         ActionGoToPos( home_pose, false, "task_single_right", true, "l_ee");
         finish_v_l(true, false);
         return -1;
@@ -829,7 +801,6 @@ int Manipulate::perform_experiment2_left()
     {
         ROS_INFO_STREAM("puck removed okay~!\n");
     }
-    // sleep(sleep_time);
     ROS_INFO_STREAM("sleeping");
     sleep(5.0);
 
@@ -873,11 +844,9 @@ int Manipulate::perform_experiment2_left()
 
         if (ActionGoToPos(result_go, &fraction, false, "cart_single_right", true, "l_ee") >= 0)
         {
-            // return_idx = 1;
-            // ROS_INFO_STREAM("movement okay~!\n");
         
                 Affine3d puck_TF = obj_TF;
-                Affine3d via_pt_TF = create_affine( 0, 0, 0, m_result_via_pt);  //doesnt change
+                Affine3d via_pt_TF = create_affine( 0, 0, 0, m_result_via_pt);  
                 int idx = 1;
 
                 failed = !ReAdjustment(idx, result_go, fraction, puck_TF, via_pt_TF);
@@ -903,7 +872,7 @@ int Manipulate::perform_experiment2_left()
             object_in_base.pose.position.y = m_result_via_pt(1);
             object_in_base.pose.position.z = m_result_via_pt(2);
             addPuckCollision(PUCK_RADIUS);
-            sleep(5.0);    //seems necessary to fix bug where collision not recognised!
+            sleep(5.0);    
 
             result_go.clear();
             result_go.push_back(m_result.at(2));
@@ -938,7 +907,6 @@ int Manipulate::perform_experiment2_left()
             {
                 ROS_INFO_STREAM("puck removed okay~!\n");
             }
-            // sleep(sleep_time);
             ROS_INFO_STREAM("sleeping");
             sleep(5.0);
             
@@ -949,11 +917,8 @@ int Manipulate::perform_experiment2_left()
             sleep(sleep_time);
             if (ActionGoToPos(result_go, &fraction, false, "cart_single_right", true, "l_ee" ) >= 0)
             {
-                // return_idx = 3;
-                // ROS_INFO_STREAM("movement okay~!\n");
-
                     Affine3d puck_TF = create_affine( 0, 0, 0, m_result_via_pt);    //start at via_pt
-                    Affine3d finish_TF = tar_TF;  //doesnt change
+                    Affine3d finish_TF = tar_TF;  
                     int idx = 1;
 
                     failed = !ReAdjustment(idx, result_go, fraction, puck_TF, finish_TF);
@@ -980,10 +945,9 @@ int Manipulate::perform_experiment2_left()
     Affine3d last;
     last = m_result.at(return_idx);
     temp_tran = last.translation();
-    temp_tran(2) += 0.12; //temp_tran(0) = 0.3; temp_tran(1) = -0.2;
+    temp_tran(2) += 0.12; 
     last.translation() = temp_tran;
     cout << "return position:" << endl;
-    // sleep(1);
     if (ActionGoToPos(last, false, "task_single_right", true, "l_ee") >= 0)
     {
         ROS_INFO_STREAM("position okay~!\n");
@@ -1017,7 +981,7 @@ void Manipulate::finish_v_l(bool tool_in_hand, bool okay, bool wflag)
         ActionGoToPos( home_pose, false, "task_single_right", true, "l_ee" );
         sleep(sleep_time);
     }
-    else    // still at 60 deg waist
+    else    
     {
         cout << "Return to home_Tool" << endl;
         ROS_INFO_STREAM("Press anykey to return to home...");
@@ -1034,7 +998,7 @@ void Manipulate::finish_v_l(bool tool_in_hand, bool okay, bool wflag)
         OpenFingers("left", 0);
         sleep(sleep_time);
 
-        cout << "detach tool planner" << endl; //cihan+jennifer pkg
+        cout << "detach tool planner" << endl; 
         ROS_INFO_STREAM("Press anykey to continue...");
         cin.ignore();
         ActionDetachObj("left", "vtool");
@@ -1058,7 +1022,7 @@ void Manipulate::finish_v_l(bool tool_in_hand, bool okay, bool wflag)
     CloseFingers("left", 0, 0);
     sleep(sleep_time);
 
-    if(wflag)   //still at 60 deg waist
+    if(wflag)   
     {
         cout << "Move waist back to init" << endl;
         ROS_INFO_STREAM("Press anykey to continue...");
@@ -1093,7 +1057,6 @@ bool Manipulate::ReAdjustment(int idx, vector< Affine3d > gohere, double fractio
     if(fraction <= 0)
     {
         ROS_ERROR_STREAM("FAILED!");
-        // failed = true;
         return false;
     }
     else if(fraction < PATH_THRESHOLD)
@@ -1110,18 +1073,18 @@ bool Manipulate::ReAdjustment(int idx, vector< Affine3d > gohere, double fractio
         object_in_base.pose.position.x = estimated_pos(0);
         object_in_base.pose.position.y = estimated_pos(1);
         object_in_base.pose.position.z = estimated_pos(2);
-        tf::poseMsgToEigen(object_in_base.pose, start_TF); //4x4, updates puck_TF
+        tf::poseMsgToEigen(object_in_base.pose, start_TF); 
         
         cout << func_name << "Add puck collision" << endl;
         ROS_WARN_STREAM("press enter to continue...");
         cin.ignore();
         addPuckCollision(PUCK_RADIUS);
-        sleep(5.0);    //seems necessary to fix bug where collision not recognised!
+        sleep(5.0);   
 
         cout << func_name << "get TF for l_ee... DONT MOVE" << endl;
         ROS_WARN_STREAM("press enter to continue...");
         cin.ignore();
-        //save  l_ee current TF
+
         Affine3d l_ee_affine;
         geometry_msgs::PoseStamped l_ee_pose;
         getCurrentTransform("l_ee", l_ee_pose);
@@ -1133,7 +1096,6 @@ bool Manipulate::ReAdjustment(int idx, vector< Affine3d > gohere, double fractio
         if( ActionGoToPos( home_pose, false, "task_single_right", true, "l_ee" ) < 0)
         {
             ROS_ERROR_STREAM("FAILED!");
-            // failed = true;
             return false;
         }
         sleep(sleep_time);
@@ -1144,7 +1106,6 @@ bool Manipulate::ReAdjustment(int idx, vector< Affine3d > gohere, double fractio
         if( ActionGoToPos( l_ee_affine, false, "task_single_right", true, "l_ee" ) < 0)
         {
             ROS_ERROR_STREAM("FAILED!");
-            // failed = true;
             return false;
         }
         sleep(sleep_time);
@@ -1159,7 +1120,6 @@ bool Manipulate::ReAdjustment(int idx, vector< Affine3d > gohere, double fractio
         if (ActionGoToPos(gohere, &fraction, false, "cart_single_right", true, "l_ee") < 0)
         {  
             ROS_ERROR_STREAM("FAILED!");
-            // failed = true;
             return false;
         }
         else

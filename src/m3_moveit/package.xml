@@ -2,11 +2,15 @@
 <package>
   <name>m3_moveit</name>
   <version>0.5.7</version>
-  <description>The moveit_tutorials package</description>
+  <description>The moveit action server package</description>
 
-  <maintainer email="isucan@willowgarage.com">Ioan Sucan</maintainer>
+  <!--moveit-->
+  <!--maintainer email="isucan@willowgarage.com">Ioan Sucan</maintainer>
   <license>BSD</license>
-  <author email="sachinc@willowgarage.com">Sachin Chitta</author>
+  <author email="sachinc@willowgarage.com">Sachin Chitta</author-->
+  
+  <maintainer email="samuel_cheong@i2r.a-star.edu.sg">Samuel Cheong</maintainer>
+  <license>TBC</license>
 
   <buildtool_depend>catkin</buildtool_depend>
 

@@ -1,0 +1,99 @@
+\hypertarget{machine_8h}{}\section{/home/samuel/\+Desktop/toolcog\+\_\+ws/montecarlo/include/tool\+\_\+expt/machine.h File Reference}
+\label{machine_8h}\index{/home/samuel/\+Desktop/toolcog\+\_\+ws/montecarlo/include/tool\+\_\+expt/machine.\+h@{/home/samuel/\+Desktop/toolcog\+\_\+ws/montecarlo/include/tool\+\_\+expt/machine.\+h}}
+
+
+state machine for olivia  
+
+
+{\ttfamily \#include $<$boost/statechart/event.\+hpp$>$}\newline
+{\ttfamily \#include $<$boost/statechart/state\+\_\+machine.\+hpp$>$}\newline
+{\ttfamily \#include $<$boost/statechart/state.\+hpp$>$}\newline
+{\ttfamily \#include $<$boost/statechart/simple\+\_\+state.\+hpp$>$}\newline
+{\ttfamily \#include $<$boost/statechart/custom\+\_\+reaction.\+hpp$>$}\newline
+{\ttfamily \#include \char`\"{}ros/ros.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$tf/transform\+\_\+listener.\+h$>$}\newline
+{\ttfamily \#include $<$geometry\+\_\+msgs/\+Pose\+Stamped.\+h$>$}\newline
+{\ttfamily \#include $<$geometry\+\_\+msgs/\+Pose\+Array.\+h$>$}\newline
+{\ttfamily \#include $<$std\+\_\+msgs/\+Int32.\+h$>$}\newline
+{\ttfamily \#include $<$std\+\_\+msgs/\+Float64.\+h$>$}\newline
+{\ttfamily \#include $<$std\+\_\+msgs/\+Bool.\+h$>$}\newline
+Include dependency graph for machine.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{machine_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=232pt]{machine_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structEvStart}{Ev\+Start}
+\begin{DoxyCompactList}\small\item\em State machine Event structure\+: \hyperlink{structStartup}{Startup} sequence \& initialization. \end{DoxyCompactList}\item 
+struct \hyperlink{structEvPerceiveObject}{Ev\+Perceive\+Object}
+\begin{DoxyCompactList}\small\item\em State machine Event structure\+: Send request to perception module to detect Object. \end{DoxyCompactList}\item 
+struct \hyperlink{structEvObjectRightOfTarget}{Ev\+Object\+Right\+Of\+Target}
+\begin{DoxyCompactList}\small\item\em State machine Event structure\+: Sequence when object is on the right side of target goal. \end{DoxyCompactList}\item 
+struct \hyperlink{structEvObjectFrontOfTargetRightOfRobot}{Ev\+Object\+Front\+Of\+Target\+Right\+Of\+Robot}
+\begin{DoxyCompactList}\small\item\em State machine Event structure\+: Right Body Sequence when object in front of target goal. \end{DoxyCompactList}\item 
+struct \hyperlink{structEvObjectBackOfTargetRightOfRobot}{Ev\+Object\+Back\+Of\+Target\+Right\+Of\+Robot}
+\begin{DoxyCompactList}\small\item\em State machine Event structure\+: Right Body Sequence when object is behind target goal. \end{DoxyCompactList}\item 
+struct \hyperlink{structEvObjectFrontRightOfTargetTool}{Ev\+Object\+Front\+Right\+Of\+Target\+Tool}
+\begin{DoxyCompactList}\small\item\em State machine Event structure\+: Sequence when object in front right of tool. \end{DoxyCompactList}\item 
+struct \hyperlink{structEvObjectBackRightOfTargetTool}{Ev\+Object\+Back\+Right\+Of\+Target\+Tool}
+\begin{DoxyCompactList}\small\item\em State machine Event structure\+: Sequence when object is on back right of tool. \end{DoxyCompactList}\item 
+struct \hyperlink{structEvObjectFrontOfTargetRightOfRobotTool}{Ev\+Object\+Front\+Of\+Target\+Right\+Of\+Robot\+Tool}
+\begin{DoxyCompactList}\small\item\em State machine Event structure\+: Sequence when object is on the front right of tool. \end{DoxyCompactList}\item 
+struct \hyperlink{structEvObjectFrontOfTargetLeftOfRobotTool}{Ev\+Object\+Front\+Of\+Target\+Left\+Of\+Robot\+Tool}
+\begin{DoxyCompactList}\small\item\em State machine Event structure\+: Sequence when object is on the front left of tool. \end{DoxyCompactList}\item 
+struct \hyperlink{structEvObjectRightOfTargetTool}{Ev\+Object\+Right\+Of\+Target\+Tool}
+\begin{DoxyCompactList}\small\item\em State machine Event structure\+: Sequence when object is on the right side of tool. \end{DoxyCompactList}\item 
+struct \hyperlink{structEvObjectBackOfTargetRightOfRobotTool}{Ev\+Object\+Back\+Of\+Target\+Right\+Of\+Robot\+Tool}
+\begin{DoxyCompactList}\small\item\em State machine Event structure\+: Sequence when object is behind and right of tool. \end{DoxyCompactList}\item 
+struct \hyperlink{structEvReady}{Ev\+Ready}
+\begin{DoxyCompactList}\small\item\em State machine Event structure\+: Ready Sequence. \end{DoxyCompactList}\item 
+struct \hyperlink{structEvTargetNofObject}{Ev\+Target\+Nof\+Object}
+\begin{DoxyCompactList}\small\item\em State machine Event structure\+: Sequence when target goal is North of object. \end{DoxyCompactList}\item 
+struct \hyperlink{structEvTargetSofObject}{Ev\+Target\+Sof\+Object}
+\begin{DoxyCompactList}\small\item\em State machine Event structure\+: Sequence when target goal is South of object. \end{DoxyCompactList}\item 
+struct \hyperlink{structEvTargetOmniObject}{Ev\+Target\+Omni\+Object}
+\begin{DoxyCompactList}\small\item\em State machine Event structure\+: Based on object position with target, transition into selective event sequences. \end{DoxyCompactList}\item 
+struct \hyperlink{structEvMonteCarloExpt}{Ev\+Monte\+Carlo\+Expt}
+\begin{DoxyCompactList}\small\item\em State machine Event structure\+: Monte Carlo search experiment. \end{DoxyCompactList}\item 
+struct \hyperlink{structEvMonteCarloExpt2}{Ev\+Monte\+Carlo\+Expt2}
+\begin{DoxyCompactList}\small\item\em State machine Event structure\+: Monte Carlo search experiment 2. \end{DoxyCompactList}\item 
+struct \hyperlink{structEvMonteCarloExpt2__left}{Ev\+Monte\+Carlo\+Expt2\+\_\+left}
+\begin{DoxyCompactList}\small\item\em State machine Event structure\+: Monte Carlo search experiment 2 with Left Arm of Olivia. \end{DoxyCompactList}\item 
+struct \hyperlink{structEvMonteCarloExpt3__left}{Ev\+Monte\+Carlo\+Expt3\+\_\+left}
+\begin{DoxyCompactList}\small\item\em State machine Event structure\+: Monte Carlo search experiment 3 with Left Arm of Olivia. \end{DoxyCompactList}\item 
+struct \hyperlink{structMachine}{Machine}
+\item 
+struct \hyperlink{structActive}{Active}
+\begin{DoxyCompactList}\small\item\em structure for \hyperlink{structActive}{Active} state \end{DoxyCompactList}\item 
+struct \hyperlink{structStartup}{Startup}
+\begin{DoxyCompactList}\small\item\em structure for \hyperlink{structStartup}{Startup} state -\/$>$ transit to \hyperlink{structActive}{Active} state upon startup \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+state machine for olivia 
+
+\begin{DoxyAuthor}{Author}
+\href{mailto:samuel_cheong@i2r.a-star.edu.sg}{\tt samuel\+\_\+cheong@i2r.\+a-\/star.\+edu.\+sg} 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2019-\/02-\/14
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+Copyright (c) 2019 
+\end{DoxyCopyright}

@@ -15,27 +15,21 @@ using namespace Eigen;
 int Manipulate::display_poses_matrix()
 {    
     cout << "---------------------------------------------" << endl;
-    //cout << "tool pose: \n" << tool_in_base.pose << endl;
-    // Affine3d tool_TF;
-    tf::poseMsgToEigen(tool_in_base.pose, tool_TF); //4x4
+    tf::poseMsgToEigen(tool_in_base.pose, tool_TF); 
     cout << "tool_TF: \n"
          << tool_TF.matrix() << "\n\n"
          << endl;
          
     AddMarker(tool_TF, "tool");
 
-    //cout << "obj pose: \n" << object_in_base.pose << endl;
-    // Affine3d obj_TF;
-    tf::poseMsgToEigen(object_in_base.pose, obj_TF); //4x4
+    tf::poseMsgToEigen(object_in_base.pose, obj_TF); 
     cout << "obj_TF: \n"
          << obj_TF.matrix() << "\n\n"
          << endl;
 
     AddMarker(obj_TF, "object");
 
-    //cout << "target pose: \n" <<target_in_base.pose << endl;
-    // Affine3d tar_TF;
-    tf::poseMsgToEigen(target_in_base.pose, tar_TF); //4x4
+    tf::poseMsgToEigen(target_in_base.pose, tar_TF); 
     cout << "tar_TF: \n"
          << tar_TF.matrix() << "\n\n"
          << endl;
@@ -48,7 +42,6 @@ int Manipulate::display_poses_matrix()
 
 //-------------------------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------------------
-// cb
 void Manipulate::vision_data_callBack(const findtoolontalbe::vision_msgs::Ptr &msg)
 {
     ROS_INFO_STREAM("vision callBack received!");
@@ -212,7 +205,7 @@ int Manipulate::vision_cb_test()
 
     display_poses_matrix();
     Affine3d vtool_TF;
-    tf::poseMsgToEigen(vtool_in_base.pose, vtool_TF); //4x4
+    tf::poseMsgToEigen(vtool_in_base.pose, vtool_TF); 
     cout << "vtool_TF: \n"
          << vtool_TF.matrix() << "\n\n"
          << endl;
@@ -321,7 +314,7 @@ int Manipulate::vision_cb_test()
     Affine3d grab_pose, grab_pose0, tf_grab_hand;
     //note in the tool frame
     double grab_dist = 0.04 + 0.02 + tool_width;
-    tf_grab_hand = create_affine( M_PI, 0, -M_PI/2.0, 0.0, 0.0, grab_dist);  //0.04 + 0.02 + tool_protrusion
+    tf_grab_hand = create_affine( M_PI, 0, -M_PI/2.0, 0.0, 0.0, grab_dist);  //tool_protrusion
     grab_pose = vtool_TF * m_result_grab * tf_grab_hand * tf_hand_atk; //world to tool * tool to grab * grab to hand orientation
     
     grab_pose0 = grab_pose;

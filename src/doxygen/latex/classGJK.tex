@@ -1,0 +1,203 @@
+\hypertarget{classGJK}{}\section{G\+JK Class Reference}
+\label{classGJK}\index{G\+JK@{G\+JK}}
+
+
+\hyperlink{classGJK}{G\+JK} algothrim wrapper Use this class for fast collision check between 2 objects.  
+
+
+
+
+{\ttfamily \#include $<$gjk.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classGJK_ace7ef0c63a492a9ef896c691a0f8eadc}\label{classGJK_ace7ef0c63a492a9ef896c691a0f8eadc}} 
+\hyperlink{classGJK_ace7ef0c63a492a9ef896c691a0f8eadc}{G\+JK} ()
+\begin{DoxyCompactList}\small\item\em Construct a new \hyperlink{classGJK}{G\+JK} object. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classGJK_aa1c552853757d1db1d24d5b43e573e7e}\label{classGJK_aa1c552853757d1db1d24d5b43e573e7e}} 
+\hyperlink{classGJK_aa1c552853757d1db1d24d5b43e573e7e}{$\sim$\+G\+JK} ()
+\begin{DoxyCompactList}\small\item\em Destroy the \hyperlink{classGJK}{G\+JK} object. \end{DoxyCompactList}\item 
+bool \hyperlink{classGJK_aa47f0a72a102236c96251951d5b98c78}{collision\+\_\+check} (\hyperlink{structShape}{Shape} s1, \hyperlink{structShape}{Shape} s2, int iterations)
+\begin{DoxyCompactList}\small\item\em collision checking function \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classGJK_aba173ffe2b0fc0fb5f2bca0bbe5177ef}{pick\+Line} (\hyperlink{structShape}{Shape} s1, \hyperlink{structShape}{Shape} s2, Vector3d v, Vector3d \&a, Vector3d \&b)
+\begin{DoxyCompactList}\small\item\em compute line check \end{DoxyCompactList}\item 
+bool \hyperlink{classGJK_a7e843858e96f401c08a97f40171fab0d}{pick\+Triangle} (\hyperlink{structShape}{Shape} s1, \hyperlink{structShape}{Shape} s2, Vector3d \&a, Vector3d \&b, Vector3d \&c)
+\begin{DoxyCompactList}\small\item\em Compute Triangle check. \end{DoxyCompactList}\item 
+bool \hyperlink{classGJK_a17f529ee6a7ef8fdfd01062523bb97fa}{pick\+Tetrahedron} (\hyperlink{structShape}{Shape} s1, \hyperlink{structShape}{Shape} s2, Vector3d \&a, Vector3d \&b, Vector3d \&c, Vector3d \&d)
+\begin{DoxyCompactList}\small\item\em Compute tetrahedron check. \end{DoxyCompactList}\item 
+Vector3d \hyperlink{classGJK_abf05bc7c7c1f39f72d582e9eeab5226d}{support} (\hyperlink{structShape}{Shape} s1, \hyperlink{structShape}{Shape} s2, Vector3d v)
+\begin{DoxyCompactList}\small\item\em Compute support vector. \end{DoxyCompactList}\item 
+Vector3d \hyperlink{classGJK_af4aea563d6d864cc85fafa050a8510eb}{get\+Furthestln\+Dir} (\hyperlink{structShape}{Shape} s1, Vector3d v)
+\begin{DoxyCompactList}\small\item\em Get the Furthestln\+Dir object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classGJK_a06667bbfe53b1124831d25da58090a01}\label{classGJK_a06667bbfe53b1124831d25da58090a01}} 
+int \hyperlink{classGJK_a06667bbfe53b1124831d25da58090a01}{iteration}
+\begin{DoxyCompactList}\small\item\em number of iteration used in for the \hyperlink{classGJK}{G\+JK} check \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classGJK_afa9c1221d2268f946a11c2ed42de2acb}\label{classGJK_afa9c1221d2268f946a11c2ed42de2acb}} 
+Vector3d \hyperlink{classGJK_afa9c1221d2268f946a11c2ed42de2acb}{vec}
+\begin{DoxyCompactList}\small\item\em Weights used for \hyperlink{classGJK}{G\+JK} algorithm. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{classGJK}{G\+JK} algothrim wrapper Use this class for fast collision check between 2 objects. 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classGJK_aa47f0a72a102236c96251951d5b98c78}\label{classGJK_aa47f0a72a102236c96251951d5b98c78}} 
+\index{G\+JK@{G\+JK}!collision\+\_\+check@{collision\+\_\+check}}
+\index{collision\+\_\+check@{collision\+\_\+check}!G\+JK@{G\+JK}}
+\subsubsection{\texorpdfstring{collision\+\_\+check()}{collision\_check()}}
+{\footnotesize\ttfamily bool G\+J\+K\+::collision\+\_\+check (\begin{DoxyParamCaption}\item[{\hyperlink{structShape}{Shape}}]{s1,  }\item[{\hyperlink{structShape}{Shape}}]{s2,  }\item[{int}]{iterations }\end{DoxyParamCaption})}
+
+
+
+collision checking function 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s1} & \hyperlink{structShape}{Shape} of object 1 \\
+\hline
+{\em s2} & \hyperlink{structShape}{Shape} of object 2 \\
+\hline
+{\em iterations} & number of iterations \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true = collision detected 
+
+false = no collision 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classGJK_af4aea563d6d864cc85fafa050a8510eb}\label{classGJK_af4aea563d6d864cc85fafa050a8510eb}} 
+\index{G\+JK@{G\+JK}!get\+Furthestln\+Dir@{get\+Furthestln\+Dir}}
+\index{get\+Furthestln\+Dir@{get\+Furthestln\+Dir}!G\+JK@{G\+JK}}
+\subsubsection{\texorpdfstring{get\+Furthestln\+Dir()}{getFurthestlnDir()}}
+{\footnotesize\ttfamily Vector3d G\+J\+K\+::get\+Furthestln\+Dir (\begin{DoxyParamCaption}\item[{\hyperlink{structShape}{Shape}}]{s1,  }\item[{Vector3d}]{v }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Get the Furthestln\+Dir object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s1} & shape of object \\
+\hline
+{\em v} & weight \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Vector3d Furthest\+Ln\+Dir vector 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classGJK_aba173ffe2b0fc0fb5f2bca0bbe5177ef}\label{classGJK_aba173ffe2b0fc0fb5f2bca0bbe5177ef}} 
+\index{G\+JK@{G\+JK}!pick\+Line@{pick\+Line}}
+\index{pick\+Line@{pick\+Line}!G\+JK@{G\+JK}}
+\subsubsection{\texorpdfstring{pick\+Line()}{pickLine()}}
+{\footnotesize\ttfamily void G\+J\+K\+::pick\+Line (\begin{DoxyParamCaption}\item[{\hyperlink{structShape}{Shape}}]{s1,  }\item[{\hyperlink{structShape}{Shape}}]{s2,  }\item[{Vector3d}]{v,  }\item[{Vector3d \&}]{a,  }\item[{Vector3d \&}]{b }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+compute line check 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s1} & shape of object 1 \\
+\hline
+{\em s2} & shape of object 2 \\
+\hline
+{\em v} & weight \\
+\hline
+{\em a} & \\
+\hline
+{\em b} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classGJK_a17f529ee6a7ef8fdfd01062523bb97fa}\label{classGJK_a17f529ee6a7ef8fdfd01062523bb97fa}} 
+\index{G\+JK@{G\+JK}!pick\+Tetrahedron@{pick\+Tetrahedron}}
+\index{pick\+Tetrahedron@{pick\+Tetrahedron}!G\+JK@{G\+JK}}
+\subsubsection{\texorpdfstring{pick\+Tetrahedron()}{pickTetrahedron()}}
+{\footnotesize\ttfamily bool G\+J\+K\+::pick\+Tetrahedron (\begin{DoxyParamCaption}\item[{\hyperlink{structShape}{Shape}}]{s1,  }\item[{\hyperlink{structShape}{Shape}}]{s2,  }\item[{Vector3d \&}]{a,  }\item[{Vector3d \&}]{b,  }\item[{Vector3d \&}]{c,  }\item[{Vector3d \&}]{d }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Compute tetrahedron check. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s1} & shape of object 1 \\
+\hline
+{\em s2} & shape of object 2 \\
+\hline
+{\em a} & \\
+\hline
+{\em b} & \\
+\hline
+{\em c} & \\
+\hline
+{\em d} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true = collision detected 
+
+false = no collision 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classGJK_a7e843858e96f401c08a97f40171fab0d}\label{classGJK_a7e843858e96f401c08a97f40171fab0d}} 
+\index{G\+JK@{G\+JK}!pick\+Triangle@{pick\+Triangle}}
+\index{pick\+Triangle@{pick\+Triangle}!G\+JK@{G\+JK}}
+\subsubsection{\texorpdfstring{pick\+Triangle()}{pickTriangle()}}
+{\footnotesize\ttfamily bool G\+J\+K\+::pick\+Triangle (\begin{DoxyParamCaption}\item[{\hyperlink{structShape}{Shape}}]{s1,  }\item[{\hyperlink{structShape}{Shape}}]{s2,  }\item[{Vector3d \&}]{a,  }\item[{Vector3d \&}]{b,  }\item[{Vector3d \&}]{c }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Compute Triangle check. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s1} & shape of object 1 \\
+\hline
+{\em s2} & shape of object 2 \\
+\hline
+{\em a} & \\
+\hline
+{\em b} & \\
+\hline
+{\em c} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true = collision detected 
+
+false = no collision 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classGJK_abf05bc7c7c1f39f72d582e9eeab5226d}\label{classGJK_abf05bc7c7c1f39f72d582e9eeab5226d}} 
+\index{G\+JK@{G\+JK}!support@{support}}
+\index{support@{support}!G\+JK@{G\+JK}}
+\subsubsection{\texorpdfstring{support()}{support()}}
+{\footnotesize\ttfamily Vector3d G\+J\+K\+::support (\begin{DoxyParamCaption}\item[{\hyperlink{structShape}{Shape}}]{s1,  }\item[{\hyperlink{structShape}{Shape}}]{s2,  }\item[{Vector3d}]{v }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Compute support vector. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s1} & shape of object 1 \\
+\hline
+{\em s2} & shape of object 2 \\
+\hline
+{\em v} & weight vector \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Vector3d support vector 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/samuel/\+Desktop/toolcog\+\_\+ws/montecarlo/include/tool\+\_\+expt/\hyperlink{gjk_8h}{gjk.\+h}\item 
+/home/samuel/\+Desktop/toolcog\+\_\+ws/montecarlo/src/gjk.\+cpp\end{DoxyCompactItemize}

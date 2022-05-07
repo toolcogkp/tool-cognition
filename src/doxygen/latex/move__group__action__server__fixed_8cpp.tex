@@ -1,0 +1,223 @@
+\hypertarget{move__group__action__server__fixed_8cpp}{}\section{/home/samuel/\+Desktop/toolcog\+\_\+ws/m3\+\_\+moveit/planning/src/move\+\_\+group\+\_\+action\+\_\+server\+\_\+fixed.cpp File Reference}
+\label{move__group__action__server__fixed_8cpp}\index{/home/samuel/\+Desktop/toolcog\+\_\+ws/m3\+\_\+moveit/planning/src/move\+\_\+group\+\_\+action\+\_\+server\+\_\+fixed.\+cpp@{/home/samuel/\+Desktop/toolcog\+\_\+ws/m3\+\_\+moveit/planning/src/move\+\_\+group\+\_\+action\+\_\+server\+\_\+fixed.\+cpp}}
+
+
+Moveit action server. All the actions of olivia is planned and execute here. version 2.\+0, revised.  
+
+
+{\ttfamily \#include $<$moveit/move\+\_\+group\+\_\+interface/move\+\_\+group.\+h$>$}\newline
+{\ttfamily \#include $<$moveit/planning\+\_\+scene\+\_\+interface/planning\+\_\+scene\+\_\+interface.\+h$>$}\newline
+{\ttfamily \#include $<$moveit\+\_\+msgs/\+Planning\+Scene.\+h$>$}\newline
+{\ttfamily \#include $<$moveit\+\_\+msgs/\+Get\+Planning\+Scene.\+h$>$}\newline
+{\ttfamily \#include $<$moveit\+\_\+msgs/\+Attached\+Collision\+Object.\+h$>$}\newline
+{\ttfamily \#include $<$moveit\+\_\+msgs/\+Collision\+Object.\+h$>$}\newline
+{\ttfamily \#include $<$moveit/planning\+\_\+scene\+\_\+monitor/planning\+\_\+scene\+\_\+monitor.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}geometry\+\_\+msgs/\+Pose.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$actionlib/server/simple\+\_\+action\+\_\+server.\+h$>$}\newline
+{\ttfamily \#include $<$m3\+\_\+moveit/\+Moveit\+Single\+Action.\+h$>$}\newline
+{\ttfamily \#include $<$m3\+\_\+moveit/\+Moveit\+Fingers\+Action.\+h$>$}\newline
+{\ttfamily \#include $<$m3\+\_\+moveit/\+Moveit\+Dual\+Action.\+h$>$}\newline
+{\ttfamily \#include $<$m3\+\_\+moveit/\+Moveit\+Whole\+Body\+Action.\+h$>$}\newline
+{\ttfamily \#include $<$m3\+\_\+moveit/\+Moveit\+Pick\+Place\+Action.\+h$>$}\newline
+{\ttfamily \#include $<$m3\+\_\+moveit/\+Moveit\+Collide\+Action.\+h$>$}\newline
+{\ttfamily \#include $<$moveit/robot\+\_\+trajectory/robot\+\_\+trajectory.\+h$>$}\newline
+{\ttfamily \#include $<$moveit/trajectory\+\_\+processing/iterative\+\_\+time\+\_\+parameterization.\+h$>$}\newline
+{\ttfamily \#include $<$geometric\+\_\+shapes/shape\+\_\+operations.\+h$>$}\newline
+{\ttfamily \#include $<$moveit\+\_\+msgs/\+Motion\+Plan\+Request.\+h$>$}\newline
+{\ttfamily \#include $<$moveit\+\_\+msgs/\+Motion\+Plan\+Response.\+h$>$}\newline
+{\ttfamily \#include $<$moveit\+\_\+msgs/\+Get\+Motion\+Plan.\+h$>$}\newline
+{\ttfamily \#include $<$moveit\+\_\+msgs/\+Robot\+State.\+h$>$}\newline
+{\ttfamily \#include $<$moveit\+\_\+msgs/\+Display\+Trajectory.\+h$>$}\newline
+{\ttfamily \#include $<$kaist\+\_\+msgs/\+Planned\+Move\+Request.\+h$>$}\newline
+{\ttfamily \#include $<$kaist\+\_\+msgs/\+Finger\+Move\+Request.\+h$>$}\newline
+{\ttfamily \#include $<$kaist\+\_\+msgs/\+Joint\+Encoder\+Status.\+h$>$}\newline
+{\ttfamily \#include $<$moveit/robot\+\_\+state/attached\+\_\+body.\+h$>$}\newline
+{\ttfamily \#include $<$moveit/robot\+\_\+model\+\_\+loader/robot\+\_\+model\+\_\+loader.\+h$>$}\newline
+{\ttfamily \#include $<$moveit/robot\+\_\+model/robot\+\_\+model.\+h$>$}\newline
+{\ttfamily \#include $<$moveit/robot\+\_\+state/robot\+\_\+state.\+h$>$}\newline
+{\ttfamily \#include $<$boost/tokenizer.\+hpp$>$}\newline
+{\ttfamily \#include \char`\"{}industrial\+\_\+trajectory\+\_\+filters/uniform\+\_\+sample\+\_\+filter.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$std\+\_\+msgs/\+String.\+h$>$}\newline
+{\ttfamily \#include $<$std\+\_\+msgs/\+Bool.\+h$>$}\newline
+{\ttfamily \#include $<$moveit/collision\+\_\+detection\+\_\+fcl/collision\+\_\+common.\+h$>$}\newline
+{\ttfamily \#include $<$moveit/robot\+\_\+state/conversions.\+h$>$}\newline
+{\ttfamily \#include $<$m3\+\_\+moveit/\+Neck\+Tilt\+Action.\+h$>$}\newline
+{\ttfamily \#include $<$std\+\_\+msgs/\+Int32.\+h$>$}\newline
+Include dependency graph for move\+\_\+group\+\_\+action\+\_\+server\+\_\+fixed.\+cpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{move__group__action__server__fixed_8cpp__incl}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classM3MoveGroup}{M3\+Move\+Group}
+\begin{DoxyCompactList}\small\item\em Moveit action server. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{move__group__action__server__fixed_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{main} (int argc, char $\ast$$\ast$argv)
+\begin{DoxyCompactList}\small\item\em main program, this moveit action server will be running in background. In tool experiment, when Olivia robot needs to move, it will do the planning and execution upon goal recieved. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{move__group__action__server__fixed_8cpp_a6e5897ef96871846779d1666c5573964}\label{move__group__action__server__fixed_8cpp_a6e5897ef96871846779d1666c5573964}} 
+const double {\bfseries H\+A\+N\+D\+\_\+\+O\+R\+I\+E\+N\+T\+A\+T\+I\+O\+N\+\_\+\+D\+I\+S\+T\+\_\+\+T\+OL} = 0.\+001
+\item 
+\mbox{\Hypertarget{move__group__action__server__fixed_8cpp_aa332c5c5d8b143edaedf0b405fe82613}\label{move__group__action__server__fixed_8cpp_aa332c5c5d8b143edaedf0b405fe82613}} 
+const double {\bfseries J\+I\+G\+G\+L\+E\+\_\+\+C\+O\+N\+ST} = 0.\+005
+\item 
+\mbox{\Hypertarget{move__group__action__server__fixed_8cpp_acfbaea5c4bdf582b5f84f93780759290}\label{move__group__action__server__fixed_8cpp_acfbaea5c4bdf582b5f84f93780759290}} 
+const int {\bfseries M\+A\+X\+\_\+\+A\+T\+T\+E\+M\+P\+TS} = 6
+\item 
+\mbox{\Hypertarget{move__group__action__server__fixed_8cpp_af59c2008be27200c9e8416dffb7d0698}\label{move__group__action__server__fixed_8cpp_af59c2008be27200c9e8416dffb7d0698}} 
+bool {\bfseries constrain\+\_\+hand\+\_\+orientation} = false
+\item 
+\mbox{\Hypertarget{move__group__action__server__fixed_8cpp_a09c231088ac406b093390ff9d0fa53f9}\label{move__group__action__server__fixed_8cpp_a09c231088ac406b093390ff9d0fa53f9}} 
+bool {\bfseries is\+\_\+hand\+\_\+closed}
+\item 
+\mbox{\Hypertarget{move__group__action__server__fixed_8cpp_a08be64f06cc479812b2eea80b8fdf12d}\label{move__group__action__server__fixed_8cpp_a08be64f06cc479812b2eea80b8fdf12d}} 
+bool {\bfseries is\+\_\+hand\+\_\+opened}
+\item 
+\mbox{\Hypertarget{move__group__action__server__fixed_8cpp_ab79d5c4162b149fb46ced4351235ed73}\label{move__group__action__server__fixed_8cpp_ab79d5c4162b149fb46ced4351235ed73}} 
+bool {\bfseries is\+\_\+hand\+\_\+grasping\+\_\+tool}
+\item 
+\mbox{\Hypertarget{move__group__action__server__fixed_8cpp_a45b9319ba7697865c8843e994063da29}\label{move__group__action__server__fixed_8cpp_a45b9319ba7697865c8843e994063da29}} 
+bool {\bfseries close\+\_\+hand}
+\item 
+\mbox{\Hypertarget{move__group__action__server__fixed_8cpp_ab587792f33e705caa7f7115697badb78}\label{move__group__action__server__fixed_8cpp_ab587792f33e705caa7f7115697badb78}} 
+bool {\bfseries open\+\_\+hand}
+\item 
+\mbox{\Hypertarget{move__group__action__server__fixed_8cpp_a578eefa96c192b83058abe9990b4065e}\label{move__group__action__server__fixed_8cpp_a578eefa96c192b83058abe9990b4065e}} 
+bool {\bfseries grasp\+\_\+tool}
+\item 
+\mbox{\Hypertarget{move__group__action__server__fixed_8cpp_a2fe7852821be343d052f99a4c6316c7f}\label{move__group__action__server__fixed_8cpp_a2fe7852821be343d052f99a4c6316c7f}} 
+bool {\bfseries release\+\_\+tool}
+\item 
+\mbox{\Hypertarget{move__group__action__server__fixed_8cpp_a9bf61856b99e3a217b247da1259fcf0f}\label{move__group__action__server__fixed_8cpp_a9bf61856b99e3a217b247da1259fcf0f}} 
+double {\bfseries finger\+\_\+proximal\+\_\+closed\+\_\+limit}
+\item 
+\mbox{\Hypertarget{move__group__action__server__fixed_8cpp_a03764c8e5ed91616337212c993c56756}\label{move__group__action__server__fixed_8cpp_a03764c8e5ed91616337212c993c56756}} 
+double {\bfseries finger\+\_\+proximal\+\_\+opened\+\_\+limit}
+\item 
+\mbox{\Hypertarget{move__group__action__server__fixed_8cpp_af9ab4262caebca6145600288a641dfcb}\label{move__group__action__server__fixed_8cpp_af9ab4262caebca6145600288a641dfcb}} 
+double {\bfseries open\+\_\+fingers\+\_\+currentmode\+\_\+value} = -\/50.\+0
+\item 
+\mbox{\Hypertarget{move__group__action__server__fixed_8cpp_a62ac7da5e782b505ab3df96fcf6fa174}\label{move__group__action__server__fixed_8cpp_a62ac7da5e782b505ab3df96fcf6fa174}} 
+double {\bfseries close\+\_\+fingers\+\_\+currentmode\+\_\+value} = 50.\+0
+\item 
+\mbox{\Hypertarget{move__group__action__server__fixed_8cpp_a95d62cd9f87a1e9f9c2d88d73ce5ca69}\label{move__group__action__server__fixed_8cpp_a95d62cd9f87a1e9f9c2d88d73ce5ca69}} 
+double {\bfseries stop\+\_\+fingers\+\_\+currentmode\+\_\+value} = 0.\+0
+\item 
+\mbox{\Hypertarget{move__group__action__server__fixed_8cpp_aa9133bff9434821c2edbb1a11491b1f8}\label{move__group__action__server__fixed_8cpp_aa9133bff9434821c2edbb1a11491b1f8}} 
+double {\bfseries duration\+\_\+b4\+\_\+stopping\+\_\+fingers}
+\item 
+\mbox{\Hypertarget{move__group__action__server__fixed_8cpp_a5afe62b49c3ba6fa6c2077d124f68b89}\label{move__group__action__server__fixed_8cpp_a5afe62b49c3ba6fa6c2077d124f68b89}} 
+double {\bfseries duration\+\_\+b4\+\_\+stopping\+\_\+fingers\+\_\+no\+\_\+tool} = 6.\+0
+\item 
+\mbox{\Hypertarget{move__group__action__server__fixed_8cpp_ac263af543ce27caa78621cf79d39075e}\label{move__group__action__server__fixed_8cpp_ac263af543ce27caa78621cf79d39075e}} 
+double {\bfseries duration\+\_\+b4\+\_\+stopping\+\_\+fingers\+\_\+with\+\_\+tool}
+\item 
+\mbox{\Hypertarget{move__group__action__server__fixed_8cpp_aab451c9750174e2b3d13c36807d405f2}\label{move__group__action__server__fixed_8cpp_aab451c9750174e2b3d13c36807d405f2}} 
+int {\bfseries tool\+\_\+type}
+\item 
+\mbox{\Hypertarget{move__group__action__server__fixed_8cpp_a98f4c9e4652328cf70d45630a3e6c6c7}\label{move__group__action__server__fixed_8cpp_a98f4c9e4652328cf70d45630a3e6c6c7}} 
+double {\bfseries tol\+\_\+finger} = 0.\+5
+\item 
+\mbox{\Hypertarget{move__group__action__server__fixed_8cpp_a518194af8efffd373d5aee8ae60dded3}\label{move__group__action__server__fixed_8cpp_a518194af8efffd373d5aee8ae60dded3}} 
+double {\bfseries finger\+\_\+target\+\_\+right1}
+\item 
+\mbox{\Hypertarget{move__group__action__server__fixed_8cpp_aa4680fb032760cf41dd57b0089b54083}\label{move__group__action__server__fixed_8cpp_aa4680fb032760cf41dd57b0089b54083}} 
+double {\bfseries finger\+\_\+target\+\_\+right2}
+\item 
+\mbox{\Hypertarget{move__group__action__server__fixed_8cpp_add484c65d9ce2676da3f9054513da994}\label{move__group__action__server__fixed_8cpp_add484c65d9ce2676da3f9054513da994}} 
+double {\bfseries finger\+\_\+live\+\_\+right1}
+\item 
+\mbox{\Hypertarget{move__group__action__server__fixed_8cpp_aafcf497836915082d54a5c539441d86a}\label{move__group__action__server__fixed_8cpp_aafcf497836915082d54a5c539441d86a}} 
+double {\bfseries finger\+\_\+live\+\_\+right2}
+\item 
+\mbox{\Hypertarget{move__group__action__server__fixed_8cpp_a9c881df11c57fc88cd9454eaab0da7fa}\label{move__group__action__server__fixed_8cpp_a9c881df11c57fc88cd9454eaab0da7fa}} 
+double {\bfseries finger\+\_\+target\+\_\+left1}
+\item 
+\mbox{\Hypertarget{move__group__action__server__fixed_8cpp_a49c07325fd28c2579ba0c2db26b3b57d}\label{move__group__action__server__fixed_8cpp_a49c07325fd28c2579ba0c2db26b3b57d}} 
+double {\bfseries finger\+\_\+target\+\_\+left2}
+\item 
+\mbox{\Hypertarget{move__group__action__server__fixed_8cpp_a762d7fa94a4a7c9f96dd9343732d1938}\label{move__group__action__server__fixed_8cpp_a762d7fa94a4a7c9f96dd9343732d1938}} 
+double {\bfseries finger\+\_\+live\+\_\+left1}
+\item 
+\mbox{\Hypertarget{move__group__action__server__fixed_8cpp_ab93a9656bd9169849773f7873fdbbb77}\label{move__group__action__server__fixed_8cpp_ab93a9656bd9169849773f7873fdbbb77}} 
+double {\bfseries finger\+\_\+live\+\_\+left2}
+\item 
+\mbox{\Hypertarget{move__group__action__server__fixed_8cpp_a24fa26fd80119473e6d5acca51112db0}\label{move__group__action__server__fixed_8cpp_a24fa26fd80119473e6d5acca51112db0}} 
+bool {\bfseries rf1\+\_\+target\+\_\+reached} = false
+\item 
+\mbox{\Hypertarget{move__group__action__server__fixed_8cpp_aa003cba7b7923656acb2835ee79cdabd}\label{move__group__action__server__fixed_8cpp_aa003cba7b7923656acb2835ee79cdabd}} 
+bool {\bfseries rf2\+\_\+target\+\_\+reached} = false
+\item 
+\mbox{\Hypertarget{move__group__action__server__fixed_8cpp_ae9668106f14af1efe733ae82a1d27c18}\label{move__group__action__server__fixed_8cpp_ae9668106f14af1efe733ae82a1d27c18}} 
+bool {\bfseries finger\+\_\+1\+\_\+target\+\_\+received} = false
+\item 
+\mbox{\Hypertarget{move__group__action__server__fixed_8cpp_abf0dc59e5e20546c460f16d944539540}\label{move__group__action__server__fixed_8cpp_abf0dc59e5e20546c460f16d944539540}} 
+bool {\bfseries finger\+\_\+2\+\_\+target\+\_\+received} = false
+\item 
+\mbox{\Hypertarget{move__group__action__server__fixed_8cpp_a78163afeb02cecdc6ddeaa0da4ecdbdc}\label{move__group__action__server__fixed_8cpp_a78163afeb02cecdc6ddeaa0da4ecdbdc}} 
+bool {\bfseries finger1\+\_\+reached} = false
+\item 
+\mbox{\Hypertarget{move__group__action__server__fixed_8cpp_a5e0022910e3c7d6da1a2fe1b32d7dbb8}\label{move__group__action__server__fixed_8cpp_a5e0022910e3c7d6da1a2fe1b32d7dbb8}} 
+bool {\bfseries finger2\+\_\+reached} = false
+\item 
+\mbox{\Hypertarget{move__group__action__server__fixed_8cpp_abd1f34d857f54a2bd331a290e18e31ec}\label{move__group__action__server__fixed_8cpp_abd1f34d857f54a2bd331a290e18e31ec}} 
+kaist\+\_\+msgs\+::\+Finger\+Move\+Request {\bfseries finger\+\_\+cmd}
+\item 
+\mbox{\Hypertarget{move__group__action__server__fixed_8cpp_a14f780404054f45888e3048125a6d494}\label{move__group__action__server__fixed_8cpp_a14f780404054f45888e3048125a6d494}} 
+ros\+::\+Publisher {\bfseries fingers\+\_\+pub}
+\item 
+\mbox{\Hypertarget{move__group__action__server__fixed_8cpp_ae76aa7ed15e5b7e6d9781490eb58b18f}\label{move__group__action__server__fixed_8cpp_ae76aa7ed15e5b7e6d9781490eb58b18f}} 
+ros\+::\+Publisher {\bfseries whole\+\_\+body\+\_\+pub}
+\item 
+\mbox{\Hypertarget{move__group__action__server__fixed_8cpp_a008f788cd0ea8202906eb98b21f61a5d}\label{move__group__action__server__fixed_8cpp_a008f788cd0ea8202906eb98b21f61a5d}} 
+ros\+::\+Publisher {\bfseries test\+\_\+pub}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Moveit action server. All the actions of olivia is planned and execute here. version 2.\+0, revised. 
+
+\begin{DoxyAuthor}{Author}
+\href{mailto:samuel_cheong@i2r.a-star.edu.sg}{\tt samuel\+\_\+cheong@i2r.\+a-\/star.\+edu.\+sg} 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2019-\/02-\/10
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+Copyright (c) 2019 
+\end{DoxyCopyright}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{move__group__action__server__fixed_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}\label{move__group__action__server__fixed_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}} 
+\index{move\+\_\+group\+\_\+action\+\_\+server\+\_\+fixed.\+cpp@{move\+\_\+group\+\_\+action\+\_\+server\+\_\+fixed.\+cpp}!main@{main}}
+\index{main@{main}!move\+\_\+group\+\_\+action\+\_\+server\+\_\+fixed.\+cpp@{move\+\_\+group\+\_\+action\+\_\+server\+\_\+fixed.\+cpp}}
+\subsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char $\ast$$\ast$}]{argv }\end{DoxyParamCaption})}
+
+
+
+main program, this moveit action server will be running in background. In tool experiment, when Olivia robot needs to move, it will do the planning and execution upon goal recieved. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em argc} & \\
+\hline
+{\em argv} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}

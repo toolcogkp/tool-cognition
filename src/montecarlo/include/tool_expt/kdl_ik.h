@@ -1,22 +1,38 @@
+/**
+ * @file kdl_ik.h
+ * @author samuel_cheong@i2r.a-star.edu.sg
+ * @brief 
+ * class to use KDL library to solve Inverse Kinematics(IK)
+ * @version 0.1
+ * @date 2019-03-02
+ * 
+ * @copyright Copyright (c) 2019
+ * 
+ */
+
 #ifndef KDL_IK_HPP_INCLUDED
 #define KDL_IK_HPP_INCLUDED
 
+// ros
 #include "ros/ros.h"
 #include <iostream>
 #include <fstream>
 #include <std_msgs/Int32.h>
 #include <std_msgs/Bool.h>
 
+// eigen
 #include <Eigen/Core>
 #include <Eigen/SVD>
 
+// conversions
 #include <eigen_conversions/eigen_msg.h>
 #include <Eigen/Geometry>
 #include <tf_conversions/tf_eigen.h>
 
+// math
 #include <math.h>
 
-//KDL
+// KDL
 #include <kdl_parser/kdl_parser.hpp>
 #include <kdl/chaindynparam.hpp>
 
@@ -30,22 +46,48 @@
 #include <kdl/frames.hpp>
 #include <eigen_conversions/eigen_kdl.h>
 
+// definition
 #include <tool_expt/definitions.h>
 
 using namespace std;
 using namespace Eigen;
 using namespace KDL;
 
+/// Degree to radian
 #define D2R M_PI/180.0 
+
+/// radian to degree
 #define R2D 180.0/M_PI
 
-//ik solver using moveit for node.m, samuel was here
+/**
+ * @brief ik solver using KDL for node.m
+ * ROS library usage, KDL setup class to quickly solve IK
+ */
 class KDL_IK
 {
 public:
+
+    /**
+     * @brief Construct a new kdl ik object
+     * 
+     */
 	KDL_IK(){};
+
+    /**
+     * @brief Destroy the kdl ik object
+     * 
+     */
 	~KDL_IK(){};
 
+    /**
+     * @brief initialise kdl ik object
+     * KDL requires reading the urdf of robot to form a KDL tree.
+     * Unable to handle tree with more than one branches
+     * Hence, separated with a boolean flag for left or right arm branches of the tree.
+     * Solves IK fast with mathematics
+     * 
+     * @param right true = right arm of olivia, false = left arm of olivia
+     */
     void init(bool right=true)
     {
         ros::NodeHandle nh("~");
@@ -103,6 +145,13 @@ public:
         cout << "KDL_ik initalised\n" << endl;
     };
 
+    /**
+     * @brief Function to solve the IK for the given target pose
+     * 
+     * @param target_KS Affine matrix for the target
+     * @return true IK solved successfully
+     * @return false error encountered 
+     */
     bool ik_solve(Affine3d target_KS)
     {
         bool ikFlag = false;
@@ -157,6 +206,11 @@ public:
         return ikFlag;
     };
 
+    /**
+     * @brief Get the Desired joint values in an array format
+     * 
+     * @return JntArray KDL joint array data format
+     */
     JntArray getDesired()
     {
         ROS_WARN_STREAM("KDL IK sol: ");
@@ -168,21 +222,37 @@ public:
         return armAngles_d;
     }
 
-    //update arm
+    /**
+     * @brief update the arm values to given joint array values
+     * 
+     * @param joint_values KDL joint array data format
+     */
     void update( JntArray joint_values )
     {
         armAngles = joint_values;
     };
 
-    //reset to init arm_values
+    /**
+     * @brief reset and reinitialise the joint values of the arm to home position
+     * this function is used to reset position of KDL tree
+     */
     void reset()
     {
+        //reset to init arm_values
         armAngles = armAngles_Home;
     };
 
-    //update to current position using the FK solver
+    /**
+     * @brief perform forward kinematics (FK) and store the position of given joint values as the home position 
+     * 
+     * @param joint_values the given joint values
+     * @param max Maximum value of each joints
+     * @param min Minimum value of each joints
+     */
     void init_home( vector<double> joint_values, JntArray max, JntArray min )
     {
+        //update to current position using the FK solver
+        
         cout << "jv: [";
         for(int i = 0; i < joint_values.size(); i++){
             cout << " " << joint_values[i];
@@ -219,6 +289,11 @@ public:
         cout << "kdl kinematic_state updated\n" << endl;
     };
 
+    /**
+     * @brief solve the jacobian matrix of the KDL tree
+     * 
+     * @return MatrixXd jacobian matrix
+     */
     MatrixXd jacobian_solve()
     {
         //RS to ee
@@ -234,24 +309,41 @@ public:
 
 private:
 
+    /// store the KDL tree
     KDL::Tree my_tree; 
+
+    /// store the kdl chain up to the arm
     KDL::Chain arm_chain;
+
+    /// store the kdl chain up to the right shoulder (RS)
     KDL::Chain RS_chain;
 
+    /// store the joint values
     std::vector<double> joint_values;
     
+    /// store the arm values for 'Home' position
     JntArray armAngles_Home;
 
+    /// store the current arm joint values
     JntArray armAngles;
+
+    /// store the current right shoulder(RS) joint values
     JntArray RSAngles;
 
+    /// store the delta (difference) of each joint in the arm
     JntArray armAngles_d;
+
+    /// store the Right shoulder (RS) kinematics solution (KS)
     Affine3d RS_KS;
 
+    /// the arm's number 
     int arm_no;
+
+    /// the right shoulder number
     int rs_no;
 
+    /// store the maximum and minimum values of each joint
     JntArray maxJnt, minJnt;
 };
 
-#endif //KDL_IK_HPP_INCLUDED
+#endif //end KDL_IK_HPP_INCLUDED

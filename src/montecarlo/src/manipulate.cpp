@@ -855,7 +855,6 @@ int Manipulate::Home2(double waist_val){
         return -1;
     }else{
         cout << "Reached home position.\n";
-        //current_tilt_angle = 13.3;
     }
 
     #ifdef USE_NECK_PAN
@@ -1143,7 +1142,6 @@ void Manipulate::CheckObjectLocation(){
         Speech("Found them...");
         cout << "Object and target detected ." << endl;
         
-        //snapshot of object and target positions at this moment for current manipulation trial. Not changed by "object_target_positions_callback".
         object_in_base = object_in_base_live;
         target_in_base = target_in_base_live;
 
@@ -1213,17 +1211,13 @@ void Manipulate::CheckObjectLocation(){
             double x_dif = (target_in_base.pose.position.x - object_in_base.pose.position.x);
             cout << "x dif=" << x_dif << ", y_dif=" << y_dif << endl; 
             //south angle is negative
-            radian = std::atan2(x_dif,y_dif);       //atan2 is -180 to 180 range; 
-            //round off to int, double hard to sort into range
+            radian = std::atan2(x_dif,y_dif);       
             angle = round(radian * 180.0 / PI); //in degree;
 
             ROS_WARN("\nangle obj2tar: deg= %f , radian= %f", angle, radian);
 
             cout << "==========================================" << endl;
 
-            // TurnHeadToObjTarCenter();
-
-             //transit< ReadyState >();
 
             if(fabs(y_dif) < target_tol && fabs(x_dif) < target_tol)
             {
@@ -1313,7 +1307,6 @@ vector<geometry_msgs::Point> Manipulate::load_boundary(const int functionality){
     }
     else{
         cout << "unable to open " << filename.c_str() <<endl;
-//        return NULL;
     }
 
     return boundary;
@@ -1650,7 +1643,7 @@ int Manipulate::OpenFingers(const string side, int mode){
 
     target_fingers.mode = mode;
     ac_fingers.sendGoal(target_fingers);
-    ac_fingers.waitForResult(ros::Duration(20.0)); //will w8 till receive result
+    ac_fingers.waitForResult(ros::Duration(20.0)); 
 
     result_fingers = ac_fingers.getResult();
     if(result_fingers->error_code == result_fingers->FAIL){
@@ -1811,7 +1804,6 @@ int Manipulate::pinchFingers(const string side, double diameter_in_cm, int mode)
     target_fingers.side = side;
     
     double encoder_val = 0.7373452465 * diameter_in_cm + 20.289836858;
-    //encoder_val += 0.2; //be more conservative
     
     std::cout << "Moving fingers in " << side << " hand to encoder value = " << encoder_val << " " << std::endl;
     
@@ -1885,7 +1877,7 @@ int Manipulate::powerFingers(const string side, double diameter_in_cm, int mode)
     else{                                                                          //logarithmic interpolation
         encoder_val = 25.3635690023 * log(diameter_in_cm) - 31.2123226127;
     }
-    encoder_val += 0.25; //be more conservative
+    encoder_val += 0.25; 
     
     std::cout << "Moving fingers in " << side << " hand to encoder value = " << encoder_val << " " << std::endl;
     
@@ -1986,14 +1978,12 @@ int Manipulate::NeckPan(double pan_angle, double pan_speed){
     cout << "Moving to neck pan angle = "<< pan_angle << "rads\n";
 
     neck_ac.sendGoal(goal);
-    //boost::bind(&Manipulate::ActionClientNeckPanDoneCallback, this, _1, _2));
     neck_ac.waitForResult(ros::Duration(10.0));
     neck_pan::NeckPanResultConstPtr result  = neck_ac.getResult();
 
     if (result->result == neck_pan::NeckPanResult::K_RESULT_OK)
     {
         cout << "neck PANNING done!" << endl;
-        //current_pan_angle = pan_angle;
         return 1;
     }
     else
@@ -2097,7 +2087,6 @@ int Manipulate::TurnHeadToObjTarCenter(){
     cout << "current pan angle = " << current_pan_angle << endl;
 
     cout << "moving head to face obj and target Done" << endl;
-    //cin.ignore();
 
     return 1;
 }
@@ -2114,7 +2103,6 @@ int Manipulate::TurnHeadTiltPan(double neck_tilt_angle, double neck_pan_angle){
     cout << "current pan angle = " << current_pan_angle << endl;
 
     cout << "move head to tilt= " << neck_tilt_angle << " and pan= " << neck_pan_angle << " >> press enter to continue";
-    // cin.ignore();
 
     //must perform tilt first before pan;
     if(NeckTilt(neck_tilt_angle)< 0){
@@ -2136,7 +2124,6 @@ int Manipulate::TurnHeadTiltPan(double neck_tilt_angle, double neck_pan_angle){
     cout << "current pan angle = " << current_pan_angle << endl;
 
     cout << "move head Done" << endl;
-    //cin.ignore();
 
     return 1;
 }
@@ -2510,7 +2497,6 @@ int Manipulate::PickupBendTool(){
     Npts = 1;
     target.end_eff.poses.resize(Npts);
     target.end_eff.poses[0].position = bendtool_offset_right_hand;
-//    target.end_eff.poses[0].orientation = bendtool_orientation_right_hand;
     target.end_eff.poses[0].position.x += bendtool_in_base.pose.position.x+0.05;
     target.end_eff.poses[0].position.y += bendtool_in_base.pose.position.y-0.3;
     target.end_eff.poses[0].position.z += bendtool_in_base.pose.position.z - bendtool_offset_right_hand.z + BENDTOOL_RADIUS + 0.13;
@@ -2716,7 +2702,7 @@ bool Manipulate::ToolInHandCalibration(std::string hand){
     calib_wrist_poses.poses.resize(n_calib_poses*n_calib_poses_meta);
 
     int N_angle_steps = n_calib_poses-1;
-    double angle_step = 0.25*3.14159265359/((double) N_angle_steps);//0.3
+    double angle_step = 0.25*3.14159265359/((double) N_angle_steps);
     int ind;
 
     //im-th meta pose, followed by wrist roll
@@ -2726,7 +2712,7 @@ bool Manipulate::ToolInHandCalibration(std::string hand){
         if(im == 0){
             calib_hand_poses.poses[ind].position.x = 0.35+0.1;
             calib_hand_poses.poses[ind].position.y = -0.25;
-            calib_hand_poses.poses[ind].position.z = TABLE_HEIGHT + 0.15;//0.2;
+            calib_hand_poses.poses[ind].position.z = TABLE_HEIGHT + 0.15;
             calib_hand_poses.poses[ind].orientation.w = 0.5;
             calib_hand_poses.poses[ind].orientation.x = 0.5;
             calib_hand_poses.poses[ind].orientation.y = 0.5;
@@ -3179,10 +3165,6 @@ int Manipulate::ActionPullBackRightArm(){
         cout << "Motion DONE. \n";
     }
 
-
-    //cout << "Press Enter to Continue";
-    //cin.ignore();
-
     // Pullback
     //============================================
     Npts = 1;
@@ -3212,9 +3194,6 @@ int Manipulate::ActionPullBackRightArm(){
     }
     
 
-    //cout << "Press Enter to Continue";
-    //cin.ignore();
-
 
     // Retract
     //============================================
@@ -3222,7 +3201,7 @@ int Manipulate::ActionPullBackRightArm(){
     target.end_eff.poses.clear();
     target.end_eff.poses.resize(Npts);
     target.end_eff.poses[0].position = object_to_hand_position_offset;
-    //target.end_eff.poses[0].orientation = pushforward_orientation_right_hand;
+
     target.end_eff.poses[0].orientation.w = 0.2706;
     target.end_eff.poses[0].orientation.x = 0.2706;
     target.end_eff.poses[0].orientation.y = 0.65328;
@@ -3368,10 +3347,6 @@ int Manipulate::ActionPullBackBendTool(){
 
     // via point to avoid disturbing the object during next move
     //==========================================================
-    //MoveWaistFromCurrent(0.0);
-    //MoveWaist(45.0);
-    //return 0;
-
     target.end_eff.poses[0].position.x += 0.1;
     target.end_eff.poses[0].position.y += -0.1;
     target.end_eff.poses[0].position.z += 0.1;
@@ -3430,7 +3405,6 @@ int Manipulate::ActionPullBackRightArmTool(){
     // Pre-positioning
     //=============================================
     target.end_eff.poses[0].position = object_to_hand_position_offset;
-//    target.end_eff.poses[0].orientation = pushsideways_orientation_right_hand;
     target.end_eff.poses[0].orientation = object_to_hand_orientation_offset;
     target.end_eff.poses[0].position.x += object_in_base.pose.position.x + shiftx1;
     target.end_eff.poses[0].position.y += object_in_base.pose.position.y + shifty1;
@@ -3454,7 +3428,6 @@ int Manipulate::ActionPullBackRightArmTool(){
     }
     
     target.end_eff.poses[0].position = object_to_hand_position_offset;
-//    target.end_eff.poses[0].orientation = pushsideways_orientation_right_hand;
     target.end_eff.poses[0].orientation = object_to_hand_orientation_offset;
     target.end_eff.poses[0].position.x += object_in_base.pose.position.x + shiftx1;
     target.end_eff.poses[0].position.y += object_in_base.pose.position.y + shifty1;
@@ -3500,10 +3473,7 @@ int Manipulate::ActionPullBackRightArmTool(){
         cout << "Motion DONE. \n";
     }
     
-    //cout << "Press ENTER to continue" << endl;
-    //cin.ignore();
-
-
+ 
     // Pullback
     //============================================
     target.end_eff.poses[0].position = object_to_hand_position_offset;
@@ -3696,7 +3666,6 @@ sc::result Manipulate::react( const EvTargetOmniObject & ){
         double temp_x_dif = fabs(target_in_base.pose.position.x - ee_Vec[0]);
         temp_radian = std::atan2(temp_y_dif,temp_x_dif);       //atan2 is -180 to 180 range; 
         
-        //cout << "x temp=" << temp_x_dif << ", y temp=" << temp_y_dif << endl; 
 
         pitch2 = temp_radian + PI/2.0;
 
@@ -3817,8 +3786,6 @@ sc::result Manipulate::react( const EvTargetOmniObject & ){
     }
     else{
         cout << "exit" << endl;
-
-        //return transit< Startup >();
         return transit< ReadyState >();
     }
 }
@@ -4664,14 +4631,6 @@ int Manipulate::ActionPushbackS(){      //right arm only
         cout << "position 2 = \n" << target.end_eff.poses[1].position << endl;
     cout << "orientation 2 = \n" << target.end_eff.poses[1].orientation << endl;
     
-    /*
-    //to target
-    target.end_eff.poses[2].orientation = object_to_hand_orientation_offset;
-    target.end_eff.poses[2].position.x = target_in_base.pose.position.x + shiftx + finetune_x;
-    target.end_eff.poses[2].position.y = target_in_base.pose.position.y + shifty + finetune_y;
-    target.end_eff.poses[2].position.z = target_in_base.pose.position.z + 0.02;
-    */
-
     target.plan_only = true;
     ac.sendGoal(target);
     target.plan_only = false;
@@ -4706,13 +4665,6 @@ int Manipulate::ActionPushbackS(){      //right arm only
         
         cout << "position 2 = \n" << target.end_eff.poses[1].position << endl;
         cout << "orientation 2 = \n" << target.end_eff.poses[1].orientation << endl;
-        /*
-        //backhand push to target
-        target.end_eff.poses[2].orientation = object_to_hand_orientation_offset;
-        target.end_eff.poses[2].position.x = target_in_base.pose.position.x + shiftx + finetune_x;
-        target.end_eff.poses[2].position.y = target_in_base.pose.position.y + shifty + finetune_y;
-        target.end_eff.poses[2].position.z = target_in_base.pose.position.z + 0.02;
-        */
 
         target.plan_only = true;
         ac.sendGoal(target);
@@ -4893,7 +4845,6 @@ int Manipulate::ExSouthTool(bool object_within_reach, bool target_within_reach){
     Speech("Let's see over here...");
     MoveWaist(WAIST_TOOL);
 
-    //MoveWaist(30.0);
     cout << "functionality = " << functionality << endl;
 
     int tool_type;
@@ -4985,14 +4936,15 @@ int Manipulate::ActionPushbackS_Tool(){
     std::cout << "ActionPushbackS with TOOL" << std::endl;
     std::cout << "==========================" << std::endl;
 
-    //Below is reference to toolinhandcalibration only, dun uncomment
+    //Below is reference to toolinhandcalibration only
     //object_to_hand_position_offset = obj2hand.position;
     //object_to_hand_orientation_offset = obj2hand.orientation;
+    
     shiftx = -(PUCK_RADIUS) * std::sin(radian);
     shifty = (PUCK_RADIUS) * std::cos(radian);
 
-        cout << "offsetx = " << shiftx << endl;
-        cout << "offsety = " << shifty << endl;
+    cout << "offsetx = " << shiftx << endl;
+    cout << "offsety = " << shifty << endl;
 
     target.end_eff.poses.clear();
     target.end_eff.poses.resize(3);
@@ -5111,7 +5063,7 @@ int Manipulate::ActionPushbackS_Tool(){
         //postion directly above obj
     target.end_eff.poses[0].position = object_to_hand_position_offset;
     target.end_eff.poses[0].orientation = object_to_hand_orientation_offset;
-    target.end_eff.poses[0].position.x += object_in_base.pose.position.x + shiftx;  //shiftx and y max is 0.12 away
+    target.end_eff.poses[0].position.x += object_in_base.pose.position.x + shiftx;  
     target.end_eff.poses[0].position.y += object_in_base.pose.position.y + shifty;
     target.end_eff.poses[0].position.z += object_in_base.pose.position.z + 0.07;
     
@@ -5148,9 +5100,7 @@ int Manipulate::ActionPushbackS_Tool(){
     cout << "position 2 = \n" << target.end_eff.poses[0].position << endl;
     cout << "orientation 2 = \n" << target.end_eff.poses[0].orientation << endl;
 
-    //target.plan_only = true;
     ac.sendGoal(target);
-    //target.plan_only = false;
     ac.waitForResult(ros::Duration(20.0));
     result = ac.getResult();
     sleep(sleep_time);
@@ -5183,9 +5133,8 @@ int Manipulate::ActionPushbackS_Tool(){
     cout << "position 3 = \n" << target.end_eff.poses[0].position << endl;
     cout << "orientation 3 = \n" << target.end_eff.poses[0].orientation << endl;
 
-    //target.plan_only = true;
+
     ac.sendGoal(target);
-    //target.plan_only = false;
     ac.waitForResult(ros::Duration(20.0));
     result = ac.getResult();
     sleep(sleep_time);
@@ -5217,12 +5166,11 @@ int Manipulate::ActionPushbackS_Tool(){
         target.end_eff.poses[0].position = omnistraight.position;
         target.end_eff.poses[0].orientation = omnistraight.orientation;
     }
-    target.end_eff.poses[0].position.x += target_in_base.pose.position.x + shiftx*1.3;  //shiftx and y max is 0.12 away
+    target.end_eff.poses[0].position.x += target_in_base.pose.position.x + shiftx*1.3;  
     target.end_eff.poses[0].position.y += target_in_base.pose.position.y + shifty*1.3;
     target.end_eff.poses[0].position.z += target_in_base.pose.position.z + 0.07;
 
     std::cout << "Retracting back with right hand...\n";
-    //std::cout << target.end_eff.poses[0] << std::endl;
 
     cout << "position 4 = \n" << target.end_eff.poses[0].position << endl;
     cout << "orientation 4 = \n" << target.end_eff.poses[0].orientation << endl;
@@ -5234,12 +5182,10 @@ int Manipulate::ActionPushbackS_Tool(){
 
     if(result->error_code == result->FAIL){
         cout << "retraction with right hand FAILED!\n";
-        //return -1;
     }
     else{
         Speech("Done!");
         cout << "retraction with right hand DONE. \n";
-        //return 1;
     }
     return 1;
 }
@@ -5374,8 +5320,6 @@ int Manipulate::ActionPushForwardN(){
 
     actionlib::SimpleActionClient<m3_moveit::MoveitSingleAction> ac("cart_single", true);
     ac.waitForServer(ros::Duration(20.0));
-    //actionlib::SimpleActionClient<m3_moveit::MoveitSingleAction> ac2("task_single", true);
-    //ac2.waitForServer(ros::Duration(20.0));
 
     m3_moveit::MoveitSingleGoal target;
     m3_moveit::MoveitSingleResultConstPtr result;
@@ -5675,14 +5619,10 @@ int Manipulate::ExNorthTool(bool object_within_reach, bool target_within_reach){
                 if(!ToolInHandCalibration("right")){
                     Speech("Sorry, I cannot get complete the tool calibration...");
                     cout << "Tool-in-hand calibration cannot be completed! \n";
-    //                cout << "Press Enter to Continue";
-    //                cin.ignore();
                 }
                 else{
                     Speech("I will use this tool to complete the task.");
                     MoveWaist(WAIST_INIT);
-    //                cout << "Press Enter to Continue";
-    //                cin.ignore();
                     sleep(sleep_time);
 
                     TurnHeadToObjTarCenter();
@@ -5695,25 +5635,9 @@ int Manipulate::ExNorthTool(bool object_within_reach, bool target_within_reach){
                     Home();
                 }
 
-    //            CheckFakeToolTransform();
-    //            MoveWaist(WAIST_INIT);
-    //            cout << "Press Enter to Continue";
-    //            cin.ignore();
-    //            if(ActionPushSidewaysRightArm()==0)
-    //                sleep(sleep_time); // wait for real robot motion to finish.
 
-
-
-//                for(int i=1; i<=4; i++){
-//                    cout << "iteration " << i+1 << endl;
-//                    CheckObjectLocation();
-//                    if(ActionPushSidewaysRightArm()==0)
-//                        sleep(sleep_time);
-//                }
-    //            cout << "Press Enter to Release Tool!!";
-    //            cin.ignore();
                 ActionReturnToolRightArm();
-                //post_event(EvPerceiveObject());
+
                 if(actionFail)
                     return -1;
             }
@@ -5824,9 +5748,7 @@ int Manipulate::ActionPushForwardN_Tool(){
     cout << "position 1 = \n" << target.end_eff.poses[0].position << endl;
     cout << "orientation 1 = \n" << target.end_eff.poses[0].orientation << endl;
 
-    //target.plan_only = true;
     ac.sendGoal(target);
-    //target.plan_only = false;
     ac.waitForResult(ros::Duration(20.0));
     result = ac.getResult();
     sleep(sleep_time);
@@ -5853,9 +5775,7 @@ int Manipulate::ActionPushForwardN_Tool(){
     cout << "position 2 = \n" << target.end_eff.poses[0].position << endl;
     cout << "orientation 2 = \n" << target.end_eff.poses[0].orientation << endl;
 
-    //target.plan_only = true;
     ac.sendGoal(target);
-    //target.plan_only = false;
     ac.waitForResult(ros::Duration(20.0));
     result = ac.getResult();
     sleep(sleep_time);
@@ -5882,9 +5802,7 @@ int Manipulate::ActionPushForwardN_Tool(){
     cout << "position 3 = \n" << target.end_eff.poses[0].position << endl;
     cout << "orientation 3 = \n" << target.end_eff.poses[0].orientation << endl;
 
-    //target.plan_only = true;
     ac.sendGoal(target);
-    //target.plan_only = false;
     ac.waitForResult(ros::Duration(20.0));
     result = ac.getResult();
     sleep(sleep_time);
@@ -5915,7 +5833,6 @@ int Manipulate::ActionPushForwardN_Tool(){
     target.end_eff.poses[0].position.z += target_in_base.pose.position.z + 0.05;
 
     std::cout << "Retracting back with right hand...\n";
-    //std::cout << target.end_eff.poses[0] << std::endl;
 
     cout << "position 4 = \n" << target.end_eff.poses[0].position << endl;
     cout << "orientation 4 = \n" << target.end_eff.poses[0].orientation << endl;
@@ -5927,12 +5844,10 @@ int Manipulate::ActionPushForwardN_Tool(){
 
     if(result->error_code == result->FAIL){
         cout << "retraction with right hand FAILED!\n";
-        //return -1;
     }
     else{
         Speech("Done!");
         cout << "retraction with right hand DONE. \n";
-        //return 1;
     }
     return 1;
 }
@@ -5970,7 +5885,6 @@ int Manipulate::ActionPushSidewaysRightArm(){
     target.end_eff.poses[0].position.x += object_in_base.pose.position.x ;
     target.end_eff.poses[0].position.y += object_in_base.pose.position.y + shifty;
     target.end_eff.poses[0].position.z += object_in_base.pose.position.z + 0.1;
-    //target.end_eff.poses[0].position.z += 1.0 ;
 
     std::cout << "Pre-positioning target.end_eff: \n";
     std::cout << target.end_eff.poses[0] << std::endl;
@@ -6012,12 +5926,8 @@ int Manipulate::ActionPushSidewaysRightArm(){
     }
 
 
-    //cout << "Press Enter to Continue";
-    //cin.ignore();
-
     // Push sideways
     //=============================================
-
     target.end_eff.poses[0].position = object_to_hand_position_offset;
     target.end_eff.poses[0].orientation = object_to_hand_orientation_offset;
     target.end_eff.poses[0].position.x += object_in_base.pose.position.x ;
@@ -6041,19 +5951,11 @@ int Manipulate::ActionPushSidewaysRightArm(){
     }
 
 
-    //cout << "Press Enter to Continue";
-    //cin.ignore();
-
-
     // via point to avoid disturbing the object during next move
     //==========================================================
-    
-    //double shiftz = 0.15;
-    //target.end_eff.poses[0].position.z = 0.9;
-//    target.end_eff.poses[0].position.y = object_in_base.pose.position.y - 0.05;
-//    target.end_eff.poses[0].position.z = object_in_base.pose.position.z + 0.05;
+   
     target.end_eff.poses[0].position.y += -0.05;
-    target.end_eff.poses[0].position.z += 0.1; //0.05
+    target.end_eff.poses[0].position.z += 0.1; 
     target.end_eff.poses[0].orientation.w = 0.5;
     target.end_eff.poses[0].orientation.x = 0.5;
     target.end_eff.poses[0].orientation.y = 0.5;
@@ -7110,8 +7012,6 @@ bool Manipulate::getCurrentTransform(const std::string link, geometry_msgs::Pose
     output.pose.orientation.z = tfQuat.getZ();
     output.pose.orientation.w = tfQuat.getW();
 
-    // tf::Stamped<tf::Pose> tf_stamp = transform;
-    // tf::poseStampedTFToMsg( tf_stamp, output);
     return true;
 }
 
@@ -7124,8 +7024,6 @@ void Manipulate::translateHandFromCurrent(const std::string link, const vector<d
     tf::Quaternion tfQuat;
     tf::Vector3 tfVec;
     getCurrentTransform(link, tfQuat, tfVec);
-
-    //cout << "tfVec= " << tfVec << endl;
 
     geometry_msgs::Pose pose_target;
     pose_target.position.x = tfVec.getX();

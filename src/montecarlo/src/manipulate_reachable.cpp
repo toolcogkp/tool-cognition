@@ -197,7 +197,7 @@ bool Manipulate::EvReachable(bool PICK_FLAG)
 			    if(PICK_FLAG)
 			    {
 				    //attach puck
-				    cout << "attach puck planner" << endl; //cihan+jennifer pkg
+				    cout << "attach puck planner" << endl; 
 				    ROS_INFO_STREAM("Press anykey to continue...");
 				    cin.ignore();
 				    ActionAttachObj("left", "puck", puck_collision);
@@ -249,7 +249,7 @@ bool Manipulate::EvReachable(bool PICK_FLAG)
 
 
 				    //detach
-			        cout << "detach puck planner" << endl; //cihan+jennifer pkg
+			        cout << "detach puck planner" << endl; 
 			        ROS_INFO_STREAM("Press anykey to continue...");
 			        cin.ignore();
 			        ActionDetachObj("left", "puck");
@@ -259,7 +259,7 @@ bool Manipulate::EvReachable(bool PICK_FLAG)
 	            object_in_base.pose.position.y = tar_vec(1);
 	            object_in_base.pose.position.z = tar_vec(2);
 	            addPuckCollision(PUCK_RADIUS);
-	            sleep(5.0);    //seems necessary to fix bug where collision not recognised!
+	            sleep(5.0);  
 
 		        //return
 		        cout << "go to return pose _ " << endl; cin.ignore();
@@ -305,14 +305,12 @@ bool Manipulate::EvReachable2()
 {
     ROS_ERROR_STREAM("DOING PUSH!");
 
-    // WAIST_INIT = 15.0;//45.0
     WAIST_INIT = -30.0;
-    WAIST_TOOL = 60.0;//-60.0
+    WAIST_TOOL = 60.0;
 
     OBST_RADIUS = 0.03;
     PUCK_RADIUS = 0.04;
 
-    //HARDCODED! FOR LEFT ONLY! When WAIST AT 0deg angle
     #ifdef USE_LOWER_TORSO
         init_x = 0.27;
         init_y = 0.45;
@@ -325,7 +323,6 @@ bool Manipulate::EvReachable2()
 
     std_msgs::Int32 sw;
     cout << "switch camera_olivia_node to mode 0. continue? _"; 
-    // cin.ignore(); 
     sw.data = 0;
     camera_swap_publisher.publish(sw);
     sleep(sleep_time);
@@ -346,7 +343,6 @@ bool Manipulate::EvReachable2()
     sleep(sleep_time);
 
     cout << "switch camera_olivia_node to mode 1. continue? _"; 
-    // cin.ignore(); 
     sw.data = 1;
     camera_swap_publisher.publish(sw);
     sleep(sleep_time);
@@ -387,7 +383,6 @@ bool Manipulate::EvReachable2()
 		Vector3d objpos( PUCK_RADIUS + hand_size + gap_size, 0, -0.01);
 	    double angle_func = atan2( 0, 1 );
 	    Affine3d T_task_func = create_affine(0, 0, angle_func, -objpos(0), -objpos(1), objpos(2));
-	    // cout << "T_task_func: \n" << T_task_func.matrix() << endl;
 	    Vector3d tarpos( PUCK_RADIUS + hand_size, 0, 0.0);
 	    Affine3d T_task_func_2 = create_affine(0, 0, angle_func, -tarpos(0), -tarpos(1), tarpos(2));
 	    
@@ -448,7 +443,6 @@ bool Manipulate::EvReachable2()
 			
 			objpos = Vector3d( PUCK_RADIUS + hand_size + gap_size, 0, -0.01);
 		    T_task_func = create_affine(0, 0, angle_func, -objpos(0), -objpos(1), objpos(2));
-		    // cout << "T_task_func: \n" << T_task_func.matrix() << endl;
 		    tarpos = Vector3d( PUCK_RADIUS + hand_size, 0, 0.0);
 		    T_task_func_2 = create_affine(0, 0, angle_func, -tarpos(0), -tarpos(1), tarpos(2));
 		    
@@ -544,7 +538,7 @@ bool Manipulate::EvReachable2()
 	            object_in_base.pose.position.y = tar_vec(1);
 	            object_in_base.pose.position.z = tar_vec(2);
 	            addPuckCollision(PUCK_RADIUS);
-	            sleep(5.0);    //seems necessary to fix bug where collision not recognised!
+	            sleep(5.0);    
 
 		        //return
 		        cout << "go to return pose _ " << endl; cin.ignore();

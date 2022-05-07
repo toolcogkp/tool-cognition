@@ -197,9 +197,8 @@ int Manipulate::findObjectTargetLocation2()
             cout << ">>>>> cal angle of obj to target <<<<<" << endl;
             //calculate the angle of object to target
             //south angle is negative
-            radian = std::atan2(x_dif,y_dif);       //atan2 is -180 to 180 range; 
-            //round off to int, double hard to sort into range
-            angle = round(radian * 180.0 / PI); //in degree;
+            radian = std::atan2(x_dif,y_dif);      
+            angle = round(radian * 180.0 / PI); 
             ROS_WARN("\nangle obj2tar: deg= %f , radian= %f", angle, radian);
             cout << "==========================================" << endl;
                 
@@ -222,12 +221,10 @@ int Manipulate::findToolTargetLocation2()
     ROS_WARN("NEXT -> FINDING TOOL!");
 
     cout << "switch camera frame transform to 2. continue? _\n"; 
-    // cin.ignore(); 
     ActionSwitchTF(2);
     sleep(sleep_time);
 
     cout << "switch camera_olivia_node to mode 2. continue? _\n"; 
-    // cin.ignore(); 
     sw.data = 2;
     camera_swap_publisher.publish(sw);
     sleep(sleep_time);
@@ -430,7 +427,7 @@ int Manipulate::mct_tool_experiment2()
     sleep(sleep_time);
 
     //main experiment
-    m_tool_expt2.init(&m_create_tool, &m_mct_search2, object_in_base.pose, target_in_base.pose/*, tool_in_base.pose*/);
+    m_tool_expt2.init(&m_create_tool, &m_mct_search2, object_in_base.pose, target_in_base.pose);
     m_tool_expt2.init_params(PUCK_RADIUS*2.0, OBST_RADIUS*2.0, N_VIA_CANDIDATES, obstacle_in_base.pose, MAX_GJK_ITER);
     m_tool_expt2.init_vision( v_list.at(0) );  //use vision module for first tool!
     sleep(sleep_time);
@@ -564,8 +561,8 @@ int Manipulate::perform_experiment2()
     tf_grab_hand1 = create_affine( M_PI, 0, -M_PI/2.0, 0.0, 0, grab_dist1); 
     grab_pose1 = tool_TF * m_result_grab * tf_grab_hand1 * tf_hand_atk; //world to tool * tool to grab * grab to hand orientation * hand orient to atk
 
-    double return_dist = 0.04 + current_tool_width;  //0.04 + tool_protrusion BUT towards the rack!
-    tf_return_hand = create_affine( M_PI, 0, -M_PI/2.0, 0.0, 0.0, return_dist); //move back by 8cm from center of robot ee to tool center
+    double return_dist = 0.04 + current_tool_width;  //towards the rack!
+    tf_return_hand = create_affine( M_PI, 0, -M_PI/2.0, 0.0, 0.0, return_dist); //move back from center of robot ee to tool center
     return_pose = tool_TF * m_result_grab * tf_return_hand * tf_hand_atk; //world to tool * tool to grab * grab to hand orientation * hand orient to atk
 
     #ifdef HARDCODE
@@ -601,7 +598,6 @@ int Manipulate::perform_experiment2()
     OpenFingers("right", 0);
     sleep(sleep_time);
 
-    // cout << "tool grabbing pos: \n" << grab_pose.matrix() << endl;
     cout << "go to grab tool" << endl;
     ROS_INFO_STREAM("Press anykey to continue...");
     cin.ignore();
@@ -622,8 +618,8 @@ int Manipulate::perform_experiment2()
     }
     sleep(sleep_time);
 
-    ROS_WARN_STREAM("check if position correct, if not ctrl+c here!"); //cihan+jennifer pkg
-    cout << "attach tool planner" << endl; //cihan+jennifer pkg
+    ROS_WARN_STREAM("check if position correct, if not ctrl+c here!"); 
+    cout << "attach tool planner" << endl; 
     ROS_INFO_STREAM("Press anykey to continue...");
     cin.ignore();
     ActionAttachObj("right", "vtool", tool_collision);
@@ -656,7 +652,6 @@ int Manipulate::perform_experiment2()
     half_home_pose.translation() = temp_hhp;
     
     home_path_poses.push_back(grab_pose1);
-    // home_path_poses.push_back(grab_pose0);
     home_path_poses.push_back(home_Tool);
     
     cout << "homing" << endl;
@@ -748,7 +743,6 @@ int Manipulate::perform_experiment2()
         cout << "homing" << endl;
         ROS_INFO_STREAM("Press anykey to continue...");
         cin.ignore();
-        // Home( m_result_atk);
         ActionGoToPos( home_pose, false, "task_single_right", true );
         finish_v(true, false);
         return -1;
@@ -863,10 +857,9 @@ int Manipulate::perform_experiment2()
     Affine3d last;
     last = m_result.at(return_idx);
     temp_tran = last.translation();
-    temp_tran(2) += 0.10; //temp_tran(0) = 0.3; temp_tran(1) = -0.2;
+    temp_tran(2) += 0.10; 
     last.translation() = temp_tran;
     cout << "return position:" << endl;
-    // sleep(1);
     if (ActionGoToPos(last, false, "task_single_right", true) >= 0)
     {
         ROS_INFO_STREAM("position okay~!\n");

@@ -1,0 +1,377 @@
+\hypertarget{classMCT__Search2}{}\section{M\+C\+T\+\_\+\+Search2 Class Reference}
+\label{classMCT__Search2}\index{M\+C\+T\+\_\+\+Search2@{M\+C\+T\+\_\+\+Search2}}
+
+
+Class object to perform monte carlo tree search algorithm recursive function, optimisation and memory save version 2.\+0.  
+
+
+
+
+{\ttfamily \#include $<$search2.\+h$>$}
+
+
+
+Collaboration diagram for M\+C\+T\+\_\+\+Search2\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classMCT__Search2__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classMCT__Search2_a887bedfbb47a67f217c6b661b1de9f0c}\label{classMCT__Search2_a887bedfbb47a67f217c6b661b1de9f0c}} 
+\hyperlink{classMCT__Search2_a887bedfbb47a67f217c6b661b1de9f0c}{M\+C\+T\+\_\+\+Search2} ()
+\begin{DoxyCompactList}\small\item\em Construct a new mct search2 object. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classMCT__Search2_aa3fe2b0773487f2eb40a91de50c55095}\label{classMCT__Search2_aa3fe2b0773487f2eb40a91de50c55095}} 
+\hyperlink{classMCT__Search2_aa3fe2b0773487f2eb40a91de50c55095}{$\sim$\+M\+C\+T\+\_\+\+Search2} ()
+\begin{DoxyCompactList}\small\item\em Destroy the mct search2 object. \end{DoxyCompactList}\item 
+void \hyperlink{classMCT__Search2_ac3b84aa47f5eaf6323419ad1711f9ad2}{init} (\hyperlink{classCreate__Tool}{Create\+\_\+\+Tool} $\ast$create\+\_\+tool, \hyperlink{classMOVEIT__IK}{M\+O\+V\+E\+I\+T\+\_\+\+IK} $\ast$moveit\+\_\+ik, \hyperlink{classKDL__IK}{K\+D\+L\+\_\+\+IK} $\ast$kdl\+\_\+ik=N\+U\+LL, bool right=true)
+\begin{DoxyCompactList}\small\item\em initialise class object \end{DoxyCompactList}\item 
+void \hyperlink{classMCT__Search2_aa29f243b21264b345036ee0692bd6fb4}{init\+\_\+params} (int num\+\_\+grasp, int num\+\_\+atk\+\_\+angle, int plays=500)
+\begin{DoxyCompactList}\small\item\em initialise other parameters for M\+C\+TS consideration \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classMCT__Search2_ac6aa270d31c6cdb77e4783acf26e6958}\label{classMCT__Search2_ac6aa270d31c6cdb77e4783acf26e6958}} 
+void \hyperlink{classMCT__Search2_ac6aa270d31c6cdb77e4783acf26e6958}{search} ()
+\begin{DoxyCompactList}\small\item\em Start the M\+C\+TS search. \end{DoxyCompactList}\item 
+\hyperlink{structNODE__DATA}{N\+O\+D\+E\+\_\+\+D\+A\+TA} \hyperlink{classMCT__Search2_aef5e7c7dd2c7184c021e969d6d0881a9}{set\+\_\+ndata} (int node\+\_\+idx\mbox{[}7\mbox{]}, bool cflag=false, bool sflag=false)
+\begin{DoxyCompactList}\small\item\em Set the node data. \end{DoxyCompactList}\item 
+vector$<$ Affine3d $>$ \hyperlink{classMCT__Search2_aa20bc38f16b562fcd6ece9605e371a30}{get\+Result} ()
+\begin{DoxyCompactList}\small\item\em Get the Resulting best Path to follow to pull/push object. \end{DoxyCompactList}\item 
+Affine3d \hyperlink{classMCT__Search2_a31bf88e51a19581db4957c73fc2d8a6b}{get\+Grab} ()
+\begin{DoxyCompactList}\small\item\em Get the Resulting best Grab pose. \end{DoxyCompactList}\item 
+double \hyperlink{classMCT__Search2_ae8ae2613e785dbcd18e861b12877c3a3}{get\+Atk\+Angle} ()
+\begin{DoxyCompactList}\small\item\em Get the Resulting best attach angle of the tool to object. \end{DoxyCompactList}\item 
+double \hyperlink{classMCT__Search2_a8cf59fa0e37982592de526ce450d1331}{get\+Score} ()
+\begin{DoxyCompactList}\small\item\em Get the Score of the best solution. \end{DoxyCompactList}\item 
+int \hyperlink{classMCT__Search2_a34c5b319ed38d852d2bbeadb80fe41e2}{get\+Via\+Pt} ()
+\begin{DoxyCompactList}\small\item\em Get the Resulting best Via Point index. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classMCT__Search2_a2cbaa67d3a44d77bbf2d9d378eb38c4c}\label{classMCT__Search2_a2cbaa67d3a44d77bbf2d9d378eb38c4c}} 
+void \hyperlink{classMCT__Search2_a2cbaa67d3a44d77bbf2d9d378eb38c4c}{compute\+Adjacent\+Seg} ()
+\begin{DoxyCompactList}\small\item\em Compute the adjacent segment indices. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classMCT__Search2_a777bc0064dc8c3c5c72193aa6941a075}\label{classMCT__Search2_a777bc0064dc8c3c5c72193aa6941a075}} 
+int {\bfseries N\+\_\+via\+\_\+pts}
+\item 
+\mbox{\Hypertarget{classMCT__Search2_a2e448c5a1ba0bca78d5679dcc3083f7f}\label{classMCT__Search2_a2e448c5a1ba0bca78d5679dcc3083f7f}} 
+int {\bfseries N\+\_\+intrapath\+\_\+pts}
+\item 
+\mbox{\Hypertarget{classMCT__Search2_ad943d84d36e9cd5bab03cef3e0511342}\label{classMCT__Search2_ad943d84d36e9cd5bab03cef3e0511342}} 
+int {\bfseries N\+\_\+path\+\_\+pts}
+\item 
+\mbox{\Hypertarget{classMCT__Search2_a007d6e4c6bd380a763fc115bdbdd4e94}\label{classMCT__Search2_a007d6e4c6bd380a763fc115bdbdd4e94}} 
+int {\bfseries max\+\_\+iter}
+\item 
+\mbox{\Hypertarget{classMCT__Search2_a859ecd6fc3d32b684714a5308a824a11}\label{classMCT__Search2_a859ecd6fc3d32b684714a5308a824a11}} 
+int {\bfseries N\+\_\+via\+\_\+candidates}
+\item 
+\mbox{\Hypertarget{classMCT__Search2_acb5523a775ace0c576076c539af05ac0}\label{classMCT__Search2_acb5523a775ace0c576076c539af05ac0}} 
+\hyperlink{structShape}{Shape} {\bfseries subtool1}
+\item 
+\mbox{\Hypertarget{classMCT__Search2_af2fad2760e627a34b632edc38d242d1b}\label{classMCT__Search2_af2fad2760e627a34b632edc38d242d1b}} 
+\hyperlink{structShape}{Shape} {\bfseries subtool2}
+\item 
+\mbox{\Hypertarget{classMCT__Search2_a16516baf0567e019dc9a8558168bd8c8}\label{classMCT__Search2_a16516baf0567e019dc9a8558168bd8c8}} 
+\hyperlink{structShape}{Shape} {\bfseries object}
+\item 
+\mbox{\Hypertarget{classMCT__Search2_a0805a6cbedfe230d83a2dae349463a1e}\label{classMCT__Search2_a0805a6cbedfe230d83a2dae349463a1e}} 
+\hyperlink{structShape}{Shape} {\bfseries obstacle}
+\item 
+\mbox{\Hypertarget{classMCT__Search2_a64bb0c7c4f80003ad962fae157c4d2f0}\label{classMCT__Search2_a64bb0c7c4f80003ad962fae157c4d2f0}} 
+bool {\bfseries percept\+Flag}
+\item 
+\mbox{\Hypertarget{classMCT__Search2_aba0d31516682de995fccb4c40ddd57cf}\label{classMCT__Search2_aba0d31516682de995fccb4c40ddd57cf}} 
+vector$<$ \hyperlink{structShape}{Shape} $>$ {\bfseries tool\+\_\+pieces}
+\item 
+\mbox{\Hypertarget{classMCT__Search2_a443bb2f6ea5558e6f377eaf814ff9c47}\label{classMCT__Search2_a443bb2f6ea5558e6f377eaf814ff9c47}} 
+bool {\bfseries obstruct\+\_\+flag}
+\item 
+\mbox{\Hypertarget{classMCT__Search2_a797e3e6792e0ea4b3dbf72deb1581d63}\label{classMCT__Search2_a797e3e6792e0ea4b3dbf72deb1581d63}} 
+Affine3d {\bfseries T\+\_\+obj\+\_\+task}
+\item 
+\mbox{\Hypertarget{classMCT__Search2_aa9241908a030cb7da9ec3bae1998bb52}\label{classMCT__Search2_aa9241908a030cb7da9ec3bae1998bb52}} 
+vector$<$ vector$<$ Affine3d $>$ $>$ {\bfseries all\+\_\+\+T\+\_\+world\+\_\+obj\+\_\+bb}
+\item 
+\mbox{\Hypertarget{classMCT__Search2_ac04dadebc1088e03c9cec4978123873d}\label{classMCT__Search2_ac04dadebc1088e03c9cec4978123873d}} 
+vector$<$ vector$<$ Affine3d $>$ $>$ {\bfseries all\+\_\+\+T\+\_\+world\+\_\+obst\+\_\+bb}
+\item 
+\mbox{\Hypertarget{classMCT__Search2_a7047fca52d876a66623a5c7ec3976ff2}\label{classMCT__Search2_a7047fca52d876a66623a5c7ec3976ff2}} 
+vector$<$ vector$<$ Affine3d $>$ $>$ {\bfseries all\+\_\+\+T\+\_\+world\+\_\+obj}
+\item 
+\mbox{\Hypertarget{classMCT__Search2_a47e8625c1ab998c604c52e34273653db}\label{classMCT__Search2_a47e8625c1ab998c604c52e34273653db}} 
+vector$<$ vector$<$ Vector3d $>$ $>$ {\bfseries all\+\_\+move\+\_\+vec}
+\item 
+\mbox{\Hypertarget{classMCT__Search2_afa879d5e96b9b087611cfe109acda352}\label{classMCT__Search2_afa879d5e96b9b087611cfe109acda352}} 
+vector$<$ vector$<$ Affine3d $>$ $>$ {\bfseries all\+\_\+\+T\+\_\+world\+\_\+func}
+\item 
+\mbox{\Hypertarget{classMCT__Search2_a43ab88db1e3c142f386e2a002e844e9d}\label{classMCT__Search2_a43ab88db1e3c142f386e2a002e844e9d}} 
+vector$<$ vector$<$ Affine3d $>$ $>$ {\bfseries all\+\_\+\+T\+\_\+obj\+\_\+func}
+\item 
+\mbox{\Hypertarget{classMCT__Search2_ad382344b939acd4978cbe58a0de436a0}\label{classMCT__Search2_ad382344b939acd4978cbe58a0de436a0}} 
+vector$<$ Affine3d $>$ {\bfseries grasp\+\_\+loci}
+\item 
+\mbox{\Hypertarget{classMCT__Search2_aeb10bb069e90a869860b2abd2d9c6eec}\label{classMCT__Search2_aeb10bb069e90a869860b2abd2d9c6eec}} 
+double {\bfseries score}
+\item 
+\mbox{\Hypertarget{classMCT__Search2_ad7a1ea07377879ddc5b9fecb32b6d016}\label{classMCT__Search2_ad7a1ea07377879ddc5b9fecb32b6d016}} 
+double {\bfseries value}
+\item 
+\mbox{\Hypertarget{classMCT__Search2_a70ec124e6107095b80c496d1c4700cb7}\label{classMCT__Search2_a70ec124e6107095b80c496d1c4700cb7}} 
+vector$<$ vector$<$ int $>$ $>$ {\bfseries adj\+\_\+indices}
+\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classMCT__Search2_a3189949ccb48da64c62e0c1c9ae66f15}\label{classMCT__Search2_a3189949ccb48da64c62e0c1c9ae66f15}} 
+void \hyperlink{classMCT__Search2_a3189949ccb48da64c62e0c1c9ae66f15}{monte\+\_\+carlo\+\_\+tree} ()
+\begin{DoxyCompactList}\small\item\em Construct the M\+C\+TS tree. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classMCT__Search2_a5c4aa4b4b1adcb8016490074fdd653f5}\label{classMCT__Search2_a5c4aa4b4b1adcb8016490074fdd653f5}} 
+void \hyperlink{classMCT__Search2_a5c4aa4b4b1adcb8016490074fdd653f5}{monte\+\_\+carlo\+\_\+search} ()
+\begin{DoxyCompactList}\small\item\em Perform the M\+C\+TS search through the tree. \end{DoxyCompactList}\item 
+Affine3d \hyperlink{classMCT__Search2_afabc664bbcbb6694a66c5a0b78bc0f68}{create\+\_\+affine} (double roll, double pitch, double yaw, double x, double y, double z)
+\begin{DoxyCompactList}\small\item\em Create a affine object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classMCT__Search2_a6cef53a4e6f78582c905a8319f4a2d02}\label{classMCT__Search2_a6cef53a4e6f78582c905a8319f4a2d02}} 
+bool {\bfseries m\+\_\+right}
+\item 
+\mbox{\Hypertarget{classMCT__Search2_ace5b703300f8e6f8e6b990300fcddcac}\label{classMCT__Search2_ace5b703300f8e6f8e6b990300fcddcac}} 
+int {\bfseries Nplays}
+\item 
+\mbox{\Hypertarget{classMCT__Search2_afeb55503e6e8b0988804695b5cc959c5}\label{classMCT__Search2_afeb55503e6e8b0988804695b5cc959c5}} 
+bool {\bfseries param\+Flag}
+\item 
+\mbox{\Hypertarget{classMCT__Search2_ac14215fc76a0fadbcdaf29820778ae2b}\label{classMCT__Search2_ac14215fc76a0fadbcdaf29820778ae2b}} 
+\hyperlink{classCreate__Tool}{Create\+\_\+\+Tool} $\ast$ {\bfseries m\+\_\+create\+\_\+tool}
+\item 
+\mbox{\Hypertarget{classMCT__Search2_a16ab381b7bd1c0ef17f8d13711e8a5b1}\label{classMCT__Search2_a16ab381b7bd1c0ef17f8d13711e8a5b1}} 
+\hyperlink{classMOVEIT__IK}{M\+O\+V\+E\+I\+T\+\_\+\+IK} $\ast$ {\bfseries m\+\_\+moveit\+\_\+ik}
+\item 
+\mbox{\Hypertarget{classMCT__Search2_afd53d98c514635059b80ff3b8a4ccd9f}\label{classMCT__Search2_afd53d98c514635059b80ff3b8a4ccd9f}} 
+\hyperlink{classKDL__IK}{K\+D\+L\+\_\+\+IK} $\ast$ {\bfseries m\+\_\+kdl\+\_\+ik}
+\item 
+\mbox{\Hypertarget{classMCT__Search2_a38fc36400f4ea6ca7a0eba6aafe8d84f}\label{classMCT__Search2_a38fc36400f4ea6ca7a0eba6aafe8d84f}} 
+\hyperlink{classGJK}{G\+JK} {\bfseries m\+\_\+gjk}
+\item 
+\mbox{\Hypertarget{classMCT__Search2_aed7488ccb84883ec97b6bdb82114bd0d}\label{classMCT__Search2_aed7488ccb84883ec97b6bdb82114bd0d}} 
+int {\bfseries N\+\_\+grasp}
+\item 
+\mbox{\Hypertarget{classMCT__Search2_a8284e23248c520ad883660a7f81ecc61}\label{classMCT__Search2_a8284e23248c520ad883660a7f81ecc61}} 
+int {\bfseries N\+\_\+atk\+\_\+angle}
+\item 
+\mbox{\Hypertarget{classMCT__Search2_a98b4050d66169ef7bdc434ebf6af9ecd}\label{classMCT__Search2_a98b4050d66169ef7bdc434ebf6af9ecd}} 
+double {\bfseries atk\+\_\+angle\+\_\+step}
+\item 
+\mbox{\Hypertarget{classMCT__Search2_a4af66928c3894e0a3e076553218d8d39}\label{classMCT__Search2_a4af66928c3894e0a3e076553218d8d39}} 
+Vector\+Xd {\bfseries atk\+\_\+angle}
+\item 
+\mbox{\Hypertarget{classMCT__Search2_ace3274d47de8b547410d03e3c3072ab4}\label{classMCT__Search2_ace3274d47de8b547410d03e3c3072ab4}} 
+Vector\+Xd {\bfseries N\+\_\+pts}
+\item 
+\mbox{\Hypertarget{classMCT__Search2_ac9007c514b07e8fe9778546f33ad01f9}\label{classMCT__Search2_ac9007c514b07e8fe9778546f33ad01f9}} 
+int {\bfseries N\+\_\+seg}
+\item 
+\mbox{\Hypertarget{classMCT__Search2_a5f725b246fd7983ad71a5ad3fa89153d}\label{classMCT__Search2_a5f725b246fd7983ad71a5ad3fa89153d}} 
+vector$<$ Vector3d $>$ {\bfseries nvec\+\_\+seg}
+\item 
+\mbox{\Hypertarget{classMCT__Search2_ae1f12aaae410cc588bf933e60844c40d}\label{classMCT__Search2_ae1f12aaae410cc588bf933e60844c40d}} 
+Vector\+Xd {\bfseries angle\+\_\+seg}
+\item 
+\mbox{\Hypertarget{classMCT__Search2_aa512eae7e5edbeca962a9e5376b361a5}\label{classMCT__Search2_aa512eae7e5edbeca962a9e5376b361a5}} 
+vector$<$ vector$<$ Vector3d $>$ $>$ {\bfseries tool\+\_\+seg}
+\item 
+\mbox{\Hypertarget{classMCT__Search2_ae46e0202a8de87514af28804c9998af6}\label{classMCT__Search2_ae46e0202a8de87514af28804c9998af6}} 
+\hyperlink{classMCT__NODE2}{M\+C\+T\+\_\+\+N\+O\+D\+E2} \hyperlink{classMCT__Search2_ae46e0202a8de87514af28804c9998af6}{root}
+\begin{DoxyCompactList}\small\item\em the root node of the recursive mcts tree \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classMCT__Search2_ad6e67e001645b1e495a6b53b6b4e16fa}\label{classMCT__Search2_ad6e67e001645b1e495a6b53b6b4e16fa}} 
+double {\bfseries max\+\_\+score}
+\item 
+\mbox{\Hypertarget{classMCT__Search2_a28e37393acafb6585057baa91d60c2c7}\label{classMCT__Search2_a28e37393acafb6585057baa91d60c2c7}} 
+vector$<$ int $>$ {\bfseries best}
+\item 
+\mbox{\Hypertarget{classMCT__Search2_a37113270700238ba6e3b6d3127d059b9}\label{classMCT__Search2_a37113270700238ba6e3b6d3127d059b9}} 
+vector$<$ Affine3d $>$ {\bfseries result\+\_\+\+T\+\_\+real\+\_\+grasp}
+\item 
+\mbox{\Hypertarget{classMCT__Search2_a8d8d1889224c49076725d99d218ff430}\label{classMCT__Search2_a8d8d1889224c49076725d99d218ff430}} 
+Affine3d {\bfseries result\+\_\+grab\+\_\+pos}
+\item 
+\mbox{\Hypertarget{classMCT__Search2_a9b29cb64bd967d71b0ef4a56d473a0cb}\label{classMCT__Search2_a9b29cb64bd967d71b0ef4a56d473a0cb}} 
+double {\bfseries result\+\_\+atk\+\_\+angle}
+\item 
+\mbox{\Hypertarget{classMCT__Search2_a3c6905ec9d8bddb1e1055cd01d11286f}\label{classMCT__Search2_a3c6905ec9d8bddb1e1055cd01d11286f}} 
+int {\bfseries result\+\_\+via\+\_\+pt\+\_\+index}
+\item 
+\mbox{\Hypertarget{classMCT__Search2_a93ad76aeefbab8848287f334e1494c46}\label{classMCT__Search2_a93ad76aeefbab8848287f334e1494c46}} 
+\hyperlink{classRecorder}{Recorder} \hyperlink{classMCT__Search2_a93ad76aeefbab8848287f334e1494c46}{rec}
+\begin{DoxyCompactList}\small\item\em logger \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Class object to perform monte carlo tree search algorithm recursive function, optimisation and memory save version 2.\+0. 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classMCT__Search2_afabc664bbcbb6694a66c5a0b78bc0f68}\label{classMCT__Search2_afabc664bbcbb6694a66c5a0b78bc0f68}} 
+\index{M\+C\+T\+\_\+\+Search2@{M\+C\+T\+\_\+\+Search2}!create\+\_\+affine@{create\+\_\+affine}}
+\index{create\+\_\+affine@{create\+\_\+affine}!M\+C\+T\+\_\+\+Search2@{M\+C\+T\+\_\+\+Search2}}
+\subsubsection{\texorpdfstring{create\+\_\+affine()}{create\_affine()}}
+{\footnotesize\ttfamily Affine3d M\+C\+T\+\_\+\+Search2\+::create\+\_\+affine (\begin{DoxyParamCaption}\item[{double}]{roll,  }\item[{double}]{pitch,  }\item[{double}]{yaw,  }\item[{double}]{x,  }\item[{double}]{y,  }\item[{double}]{z }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Create a affine object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em roll} & angle in radian \\
+\hline
+{\em pitch} & angle in radian \\
+\hline
+{\em yaw} & angle in radian \\
+\hline
+{\em x} & translation in x \\
+\hline
+{\em y} & translation in y \\
+\hline
+{\em z} & translation in z \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Affine3d eigen affine matrix 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classMCT__Search2_ae8ae2613e785dbcd18e861b12877c3a3}\label{classMCT__Search2_ae8ae2613e785dbcd18e861b12877c3a3}} 
+\index{M\+C\+T\+\_\+\+Search2@{M\+C\+T\+\_\+\+Search2}!get\+Atk\+Angle@{get\+Atk\+Angle}}
+\index{get\+Atk\+Angle@{get\+Atk\+Angle}!M\+C\+T\+\_\+\+Search2@{M\+C\+T\+\_\+\+Search2}}
+\subsubsection{\texorpdfstring{get\+Atk\+Angle()}{getAtkAngle()}}
+{\footnotesize\ttfamily double M\+C\+T\+\_\+\+Search2\+::get\+Atk\+Angle (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the Resulting best attach angle of the tool to object. 
+
+\begin{DoxyReturn}{Returns}
+double angle 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classMCT__Search2_a31bf88e51a19581db4957c73fc2d8a6b}\label{classMCT__Search2_a31bf88e51a19581db4957c73fc2d8a6b}} 
+\index{M\+C\+T\+\_\+\+Search2@{M\+C\+T\+\_\+\+Search2}!get\+Grab@{get\+Grab}}
+\index{get\+Grab@{get\+Grab}!M\+C\+T\+\_\+\+Search2@{M\+C\+T\+\_\+\+Search2}}
+\subsubsection{\texorpdfstring{get\+Grab()}{getGrab()}}
+{\footnotesize\ttfamily Affine3d M\+C\+T\+\_\+\+Search2\+::get\+Grab (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the Resulting best Grab pose. 
+
+\begin{DoxyReturn}{Returns}
+Affine3d grab pose 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classMCT__Search2_aa20bc38f16b562fcd6ece9605e371a30}\label{classMCT__Search2_aa20bc38f16b562fcd6ece9605e371a30}} 
+\index{M\+C\+T\+\_\+\+Search2@{M\+C\+T\+\_\+\+Search2}!get\+Result@{get\+Result}}
+\index{get\+Result@{get\+Result}!M\+C\+T\+\_\+\+Search2@{M\+C\+T\+\_\+\+Search2}}
+\subsubsection{\texorpdfstring{get\+Result()}{getResult()}}
+{\footnotesize\ttfamily vector$<$ Affine3d $>$ M\+C\+T\+\_\+\+Search2\+::get\+Result (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the Resulting best Path to follow to pull/push object. 
+
+\begin{DoxyReturn}{Returns}
+vector$<$ Affine3d $>$ best path 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classMCT__Search2_a8cf59fa0e37982592de526ce450d1331}\label{classMCT__Search2_a8cf59fa0e37982592de526ce450d1331}} 
+\index{M\+C\+T\+\_\+\+Search2@{M\+C\+T\+\_\+\+Search2}!get\+Score@{get\+Score}}
+\index{get\+Score@{get\+Score}!M\+C\+T\+\_\+\+Search2@{M\+C\+T\+\_\+\+Search2}}
+\subsubsection{\texorpdfstring{get\+Score()}{getScore()}}
+{\footnotesize\ttfamily double M\+C\+T\+\_\+\+Search2\+::get\+Score (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the Score of the best solution. 
+
+\begin{DoxyReturn}{Returns}
+double score 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classMCT__Search2_a34c5b319ed38d852d2bbeadb80fe41e2}\label{classMCT__Search2_a34c5b319ed38d852d2bbeadb80fe41e2}} 
+\index{M\+C\+T\+\_\+\+Search2@{M\+C\+T\+\_\+\+Search2}!get\+Via\+Pt@{get\+Via\+Pt}}
+\index{get\+Via\+Pt@{get\+Via\+Pt}!M\+C\+T\+\_\+\+Search2@{M\+C\+T\+\_\+\+Search2}}
+\subsubsection{\texorpdfstring{get\+Via\+Pt()}{getViaPt()}}
+{\footnotesize\ttfamily int M\+C\+T\+\_\+\+Search2\+::get\+Via\+Pt (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the Resulting best Via Point index. 
+
+\begin{DoxyReturn}{Returns}
+int index of the best via point 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classMCT__Search2_ac3b84aa47f5eaf6323419ad1711f9ad2}\label{classMCT__Search2_ac3b84aa47f5eaf6323419ad1711f9ad2}} 
+\index{M\+C\+T\+\_\+\+Search2@{M\+C\+T\+\_\+\+Search2}!init@{init}}
+\index{init@{init}!M\+C\+T\+\_\+\+Search2@{M\+C\+T\+\_\+\+Search2}}
+\subsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily void M\+C\+T\+\_\+\+Search2\+::init (\begin{DoxyParamCaption}\item[{\hyperlink{classCreate__Tool}{Create\+\_\+\+Tool} $\ast$}]{create\+\_\+tool,  }\item[{\hyperlink{classMOVEIT__IK}{M\+O\+V\+E\+I\+T\+\_\+\+IK} $\ast$}]{moveit\+\_\+ik,  }\item[{\hyperlink{classKDL__IK}{K\+D\+L\+\_\+\+IK} $\ast$}]{kdl\+\_\+ik = {\ttfamily NULL},  }\item[{bool}]{right = {\ttfamily true} }\end{DoxyParamCaption})}
+
+
+
+initialise class object 
+
+
+\begin{DoxyParams}{Parameters}
+{\em create\+\_\+tool} & pointer to create\+\_\+tool class object \\
+\hline
+{\em moveit\+\_\+ik} & pointer to moveit IK solver object \\
+\hline
+{\em kdl\+\_\+ik} & pointer to kdl IK solver object \\
+\hline
+{\em right} & which arm, true=right, false=left \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classMCT__Search2_aa29f243b21264b345036ee0692bd6fb4}\label{classMCT__Search2_aa29f243b21264b345036ee0692bd6fb4}} 
+\index{M\+C\+T\+\_\+\+Search2@{M\+C\+T\+\_\+\+Search2}!init\+\_\+params@{init\+\_\+params}}
+\index{init\+\_\+params@{init\+\_\+params}!M\+C\+T\+\_\+\+Search2@{M\+C\+T\+\_\+\+Search2}}
+\subsubsection{\texorpdfstring{init\+\_\+params()}{init\_params()}}
+{\footnotesize\ttfamily void M\+C\+T\+\_\+\+Search2\+::init\+\_\+params (\begin{DoxyParamCaption}\item[{int}]{num\+\_\+grasp,  }\item[{int}]{num\+\_\+atk\+\_\+angle,  }\item[{int}]{plays = {\ttfamily 500} }\end{DoxyParamCaption})}
+
+
+
+initialise other parameters for M\+C\+TS consideration 
+
+
+\begin{DoxyParams}{Parameters}
+{\em num\+\_\+grasp} & number of grasping pose to interpolate \\
+\hline
+{\em num\+\_\+atk\+\_\+angle} & the attack angle of the tool \\
+\hline
+{\em plays} & number of search iterations \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classMCT__Search2_aef5e7c7dd2c7184c021e969d6d0881a9}\label{classMCT__Search2_aef5e7c7dd2c7184c021e969d6d0881a9}} 
+\index{M\+C\+T\+\_\+\+Search2@{M\+C\+T\+\_\+\+Search2}!set\+\_\+ndata@{set\+\_\+ndata}}
+\index{set\+\_\+ndata@{set\+\_\+ndata}!M\+C\+T\+\_\+\+Search2@{M\+C\+T\+\_\+\+Search2}}
+\subsubsection{\texorpdfstring{set\+\_\+ndata()}{set\_ndata()}}
+{\footnotesize\ttfamily \hyperlink{structNODE__DATA}{N\+O\+D\+E\+\_\+\+D\+A\+TA} M\+C\+T\+\_\+\+Search2\+::set\+\_\+ndata (\begin{DoxyParamCaption}\item[{int}]{node\+\_\+idx\mbox{[}7\mbox{]},  }\item[{bool}]{cflag = {\ttfamily false},  }\item[{bool}]{sflag = {\ttfamily false} }\end{DoxyParamCaption})}
+
+
+
+Set the node data. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em node\+\_\+idx} & node index \\
+\hline
+{\em cflag} & is there a collision object? \\
+\hline
+{\em sflag} & is it a small segment? \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\hyperlink{structNODE__DATA}{N\+O\+D\+E\+\_\+\+D\+A\+TA} 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/samuel/\+Desktop/toolcog\+\_\+ws/montecarlo/include/tool\+\_\+expt/\hyperlink{search2_8h}{search2.\+h}\item 
+/home/samuel/\+Desktop/toolcog\+\_\+ws/montecarlo/src/search2.\+cpp\end{DoxyCompactItemize}

@@ -134,7 +134,6 @@ int Manipulate::findObjectTargetLocation()
         Speech("Found them...");
         cout << "Object and target detected ." << endl;
         
-        //snapshot of object and target positions at this moment for current manipulation trial. Not changed by "object_target_positions_callback".
         object_in_base = object_in_base_live;
         target_in_base = target_in_base_live;
         
@@ -192,9 +191,8 @@ int Manipulate::findObjectTargetLocation()
             cout << ">>>>> cal angle of obj to target <<<<<" << endl;
             //calculate the angle of object to target
             //south angle is negative
-            radian = std::atan2(x_dif,y_dif);       //atan2 is -180 to 180 range; 
-            //round off to int, double hard to sort into range
-            angle = round(radian * 180.0 / PI); //in degree;
+            radian = std::atan2(x_dif,y_dif);     
+            angle = round(radian * 180.0 / PI); 
             ROS_WARN("\nangle obj2tar: deg= %f , radian= %f", angle, radian);
             cout << "==========================================" << endl;
                 
@@ -243,7 +241,6 @@ int Manipulate::findToolTargetLocation()
     ros::Rate r(100); // in hz
     do
     {
-        // cout << "waiting for /vision/data to be published" << endl;
         ros::spinOnce(); //get vision_data from subscriber
         r.sleep();
     }while( ros::ok() && (!detected || !joint_updated) );
@@ -371,7 +368,7 @@ int Manipulate::mct_tool_experiment()
         cout << joint_values[i] << " ";
     cout << "] " << endl;
 
-    joint_values[0] =  WAIST_INIT/180 * 3.14159265;   //double check later
+    joint_values[0] =  WAIST_INIT/180 * 3.14159265;  
     cout << "fake set waist yaw to be zero for ik state planning ->  no movement" << endl;
 
     cout << "---------------------------------------------------" << endl;
@@ -382,9 +379,7 @@ int Manipulate::mct_tool_experiment()
 
     //moveit_ik_solver
     m_moveit_ik.init();
-    //sleep(1.0);
     m_moveit_ik.init_home(joint_values);
-    //sleep(1.0);
     m_moveit_ik.getJointLimits();
     sleep(1.0);
 
@@ -413,7 +408,7 @@ int Manipulate::mct_tool_experiment()
 
     //main experiment
     // Create_Tool, Search, obj pose, tar pose, tool_pose -> use vtool_pose;
-    m_tool_expt.init(&m_create_tool, &m_mct_search, object_in_base.pose, target_in_base.pose/*, vtool_in_base.pose*/);
+    m_tool_expt.init(&m_create_tool, &m_mct_search, object_in_base.pose, target_in_base.pose);
     // obj_diameter, N_via_pts, intra_pts, max_gjk_iterations, percept;
     m_tool_expt.init_params(PUCK_RADIUS*2.0, 0, 0, 6);
     m_tool_expt.init_vision( v_list.at(0) );  //use vision module for first tool!
@@ -490,8 +485,8 @@ int Manipulate::perform_experiment()
     Affine3d grab_pose2, grab_pose3;
 
     //note in the tool frame
-    double grab_dist = 0.04 + 0.005 + current_tool_width;  //0.04 + 0.02 + tool_protrusion
-    tf_grab_hand = create_affine( M_PI, 0, -M_PI/2.0, 0.0, 0.0, grab_dist); //move back by 8cm from center of robot ee to tool center
+    double grab_dist = 0.04 + 0.005 + current_tool_width;  //tool_protrusion
+    tf_grab_hand = create_affine( M_PI, 0, -M_PI/2.0, 0.0, 0.0, grab_dist); //move back from center of robot ee to tool center
     grab_pose = tool_TF * m_result_grab * tf_grab_hand * tf_hand_atk; //world to tool * tool to grab * grab to hand orientation * hand orient to atk
     
     grab_pose0 = grab_pose;
@@ -516,12 +511,12 @@ int Manipulate::perform_experiment()
     temp_gg(2) = 1.05;
     grab_pose3.translation() = temp_gg;
 
-    double grab_dist1 = 0.04 + 0.10 + current_tool_width;  //0.04 + 0.02 + tool_protrusion BUT 8 cm away!
-    tf_grab_hand1 = create_affine( M_PI, 0, -M_PI/2.0, 0.0, 0.0, grab_dist1); //move back by 8cm from center of robot ee to tool center
+    double grab_dist1 = 0.04 + 0.10 + current_tool_width;  //tool_protrusion 
+    tf_grab_hand1 = create_affine( M_PI, 0, -M_PI/2.0, 0.0, 0.0, grab_dist1); //move back from center of robot ee to tool center
     grab_pose1 = tool_TF * m_result_grab * tf_grab_hand1 * tf_hand_atk; //world to tool * tool to grab * grab to hand orientation * hand orient to atk
 
-    double return_dist = 0.04 + current_tool_width;  //0.04 + tool_protrusion BUT towards the rack!
-    tf_return_hand = create_affine( M_PI, 0, -M_PI/2.0, 0.0, 0.0, return_dist); //move back by 8cm from center of robot ee to tool center
+    double return_dist = 0.04 + current_tool_width;  //owards the rack!
+    tf_return_hand = create_affine( M_PI, 0, -M_PI/2.0, 0.0, 0.0, return_dist); //move back from center of robot ee to tool center
     return_pose = tool_TF * m_result_grab * tf_return_hand * tf_hand_atk; //world to tool * tool to grab * grab to hand orientation * hand orient to atk
 
     #ifdef HARDCODE
@@ -544,7 +539,6 @@ int Manipulate::perform_experiment()
     publishMarker();
     sleep(1);
 
-    // cout << "tool grabbing pos: \n" << grab_pose.matrix() << endl;
     cout << "go to grab tool" << endl;
     ROS_INFO_STREAM("Press anykey to continue...");
     cin.ignore();
@@ -595,7 +589,6 @@ int Manipulate::perform_experiment()
     half_home_pose.translation() = temp_hhp;
     
     home_path_poses.push_back(grab_pose1);
-    // home_path_poses.push_back(half_home_pose);
     #ifndef HARDCODE
         home_path_poses.push_back(home_Tool);
     #endif
@@ -670,7 +663,6 @@ int Manipulate::perform_experiment()
         cout << "homing" << endl;
         ROS_INFO_STREAM("Press anykey to continue...");
         cin.ignore();
-        // Home( m_result_atk);
         ActionGoToPos( home_pose, false, "task_single_right", true );
         finish_v(true, false);
         return -1;
@@ -708,10 +700,9 @@ int Manipulate::perform_experiment()
     else
         last = m_result.at(0);
     temp_tran = last.translation();
-    temp_tran(2) += 0.10; //temp_tran(0) = 0.3; temp_tran(1) = -0.2;
+    temp_tran(2) += 0.10; 
     last.translation() = temp_tran;
     cout << "return position:" << endl;
-    // sleep(1);
     if (ActionGoToPos(last, false, "task_single_right", true) >= 0)
     {
         ROS_INFO_STREAM("position okay~!\n");
@@ -768,12 +759,10 @@ void Manipulate::finish_v(bool tool_in_hand, bool okay, bool wflag)
         cout << "Return to home_pose" << endl;
         ROS_INFO_STREAM("Press anykey to return to home...");
         cin.ignore();
-        // Home();
-        // sleep(sleep_time);
         ActionGoToPos( home_pose, false, "task_single_right", true );
         sleep(sleep_time);
     }
-    else    // still at 60 deg waist
+    else    
     {
         cout << "Return to home_Tool" << endl;
         ROS_INFO_STREAM("Press anykey to return to home...");
@@ -822,7 +811,7 @@ void Manipulate::finish_v(bool tool_in_hand, bool okay, bool wflag)
     CloseFingers("right", 0, 0);
     sleep(sleep_time);
 
-    if(wflag)   //still at 60 deg waist
+    if(wflag)   
     {
         cout << "Move waist back to init" << endl;
         ROS_INFO_STREAM("Press anykey to continue...");

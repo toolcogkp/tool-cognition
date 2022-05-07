@@ -2,7 +2,7 @@
 <package>
   <name>monte_carlo</name>
   <version>1.0.0</version>
-  <description>The monte carlo tool expt package</description>
+  <description>The monte carlo tool experiment package</description>
 
   <maintainer email="samuel_cheong@i2r.a-star.edu.sg">Samuel Cheong</maintainer>
   <license>TBC</license>

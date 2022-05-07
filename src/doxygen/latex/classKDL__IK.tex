@@ -1,0 +1,183 @@
+\hypertarget{classKDL__IK}{}\section{K\+D\+L\+\_\+\+IK Class Reference}
+\label{classKDL__IK}\index{K\+D\+L\+\_\+\+IK@{K\+D\+L\+\_\+\+IK}}
+
+
+ik solver using K\+DL for node.\+m R\+OS library usage, K\+DL setup class to quickly solve IK  
+
+
+
+
+{\ttfamily \#include $<$kdl\+\_\+ik.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classKDL__IK_ab5bc497a769ea4b1fb2b121c2d26a895}\label{classKDL__IK_ab5bc497a769ea4b1fb2b121c2d26a895}} 
+\hyperlink{classKDL__IK_ab5bc497a769ea4b1fb2b121c2d26a895}{K\+D\+L\+\_\+\+IK} ()
+\begin{DoxyCompactList}\small\item\em Construct a new kdl ik object. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classKDL__IK_a3e2e2ebd42a8689c5761adbf04414e54}\label{classKDL__IK_a3e2e2ebd42a8689c5761adbf04414e54}} 
+\hyperlink{classKDL__IK_a3e2e2ebd42a8689c5761adbf04414e54}{$\sim$\+K\+D\+L\+\_\+\+IK} ()
+\begin{DoxyCompactList}\small\item\em Destroy the kdl ik object. \end{DoxyCompactList}\item 
+void \hyperlink{classKDL__IK_aa7fb5139673aaa0c24620c51fad7e1d6}{init} (bool right=true)
+\begin{DoxyCompactList}\small\item\em initialise kdl ik object K\+DL requires reading the urdf of robot to form a K\+DL tree. Unable to handle tree with more than one branches Hence, separated with a boolean flag for left or right arm branches of the tree. Solves IK fast with mathematics \end{DoxyCompactList}\item 
+bool \hyperlink{classKDL__IK_ac5840ffc7f30fd303ab5454d02456c54}{ik\+\_\+solve} (Affine3d target\+\_\+\+KS)
+\begin{DoxyCompactList}\small\item\em Function to solve the IK for the given target pose. \end{DoxyCompactList}\item 
+Jnt\+Array \hyperlink{classKDL__IK_a1e6c6aeb2f702fe462f593946c120f32}{get\+Desired} ()
+\begin{DoxyCompactList}\small\item\em Get the Desired joint values in an array format. \end{DoxyCompactList}\item 
+void \hyperlink{classKDL__IK_ad134c076c73720c08a77aaf80f9dfa94}{update} (Jnt\+Array \hyperlink{classKDL__IK_a0b1e97f5d23c79a40986acbf2d1d5472}{joint\+\_\+values})
+\begin{DoxyCompactList}\small\item\em update the arm values to given joint array values \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classKDL__IK_a94402e5421e60289a2593164c4c9c8db}\label{classKDL__IK_a94402e5421e60289a2593164c4c9c8db}} 
+void \hyperlink{classKDL__IK_a94402e5421e60289a2593164c4c9c8db}{reset} ()
+\begin{DoxyCompactList}\small\item\em reset and reinitialise the joint values of the arm to home position this function is used to reset position of K\+DL tree \end{DoxyCompactList}\item 
+void \hyperlink{classKDL__IK_ab9717f11ad7991e06ed688ce1c803b85}{init\+\_\+home} (vector$<$ double $>$ \hyperlink{classKDL__IK_a0b1e97f5d23c79a40986acbf2d1d5472}{joint\+\_\+values}, Jnt\+Array max, Jnt\+Array min)
+\begin{DoxyCompactList}\small\item\em perform forward kinematics (FK) and store the position of given joint values as the home position \end{DoxyCompactList}\item 
+Matrix\+Xd \hyperlink{classKDL__IK_a6560fe32bf60646cb298e9f6751c2d79}{jacobian\+\_\+solve} ()
+\begin{DoxyCompactList}\small\item\em solve the jacobian matrix of the K\+DL tree \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classKDL__IK_ab88c264c531d047146dd6042619ccc11}\label{classKDL__IK_ab88c264c531d047146dd6042619ccc11}} 
+K\+D\+L\+::\+Tree \hyperlink{classKDL__IK_ab88c264c531d047146dd6042619ccc11}{my\+\_\+tree}
+\begin{DoxyCompactList}\small\item\em store the K\+DL tree \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classKDL__IK_a5bfdf9991aecb31a19c542ed3e00445c}\label{classKDL__IK_a5bfdf9991aecb31a19c542ed3e00445c}} 
+K\+D\+L\+::\+Chain \hyperlink{classKDL__IK_a5bfdf9991aecb31a19c542ed3e00445c}{arm\+\_\+chain}
+\begin{DoxyCompactList}\small\item\em store the kdl chain up to the arm \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classKDL__IK_a108760856d54cff9d178c5cd7fed56dc}\label{classKDL__IK_a108760856d54cff9d178c5cd7fed56dc}} 
+K\+D\+L\+::\+Chain \hyperlink{classKDL__IK_a108760856d54cff9d178c5cd7fed56dc}{R\+S\+\_\+chain}
+\begin{DoxyCompactList}\small\item\em store the kdl chain up to the right shoulder (RS) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classKDL__IK_a0b1e97f5d23c79a40986acbf2d1d5472}\label{classKDL__IK_a0b1e97f5d23c79a40986acbf2d1d5472}} 
+std\+::vector$<$ double $>$ \hyperlink{classKDL__IK_a0b1e97f5d23c79a40986acbf2d1d5472}{joint\+\_\+values}
+\begin{DoxyCompactList}\small\item\em store the joint values \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classKDL__IK_ae5ce6ddb1594093232d33b3dc8b222ed}\label{classKDL__IK_ae5ce6ddb1594093232d33b3dc8b222ed}} 
+Jnt\+Array \hyperlink{classKDL__IK_ae5ce6ddb1594093232d33b3dc8b222ed}{arm\+Angles\+\_\+\+Home}
+\begin{DoxyCompactList}\small\item\em store the arm values for \textquotesingle{}Home\textquotesingle{} position \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classKDL__IK_a69b2c6c67e16aaec8a87b038361193e2}\label{classKDL__IK_a69b2c6c67e16aaec8a87b038361193e2}} 
+Jnt\+Array \hyperlink{classKDL__IK_a69b2c6c67e16aaec8a87b038361193e2}{arm\+Angles}
+\begin{DoxyCompactList}\small\item\em store the current arm joint values \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classKDL__IK_a11e0fd66cf9eb471f7041162d5c98004}\label{classKDL__IK_a11e0fd66cf9eb471f7041162d5c98004}} 
+Jnt\+Array \hyperlink{classKDL__IK_a11e0fd66cf9eb471f7041162d5c98004}{R\+S\+Angles}
+\begin{DoxyCompactList}\small\item\em store the current right shoulder(\+R\+S) joint values \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classKDL__IK_a7fb4557cb3d9e1bc2cd9aab192b824d3}\label{classKDL__IK_a7fb4557cb3d9e1bc2cd9aab192b824d3}} 
+Jnt\+Array \hyperlink{classKDL__IK_a7fb4557cb3d9e1bc2cd9aab192b824d3}{arm\+Angles\+\_\+d}
+\begin{DoxyCompactList}\small\item\em store the delta (difference) of each joint in the arm \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classKDL__IK_a27043e37e4187ab9a69b2fa4ed6743b7}\label{classKDL__IK_a27043e37e4187ab9a69b2fa4ed6743b7}} 
+Affine3d \hyperlink{classKDL__IK_a27043e37e4187ab9a69b2fa4ed6743b7}{R\+S\+\_\+\+KS}
+\begin{DoxyCompactList}\small\item\em store the Right shoulder (RS) kinematics solution (KS) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classKDL__IK_a3c1c05b65f0f06348fc234e928147ca8}\label{classKDL__IK_a3c1c05b65f0f06348fc234e928147ca8}} 
+int \hyperlink{classKDL__IK_a3c1c05b65f0f06348fc234e928147ca8}{arm\+\_\+no}
+\begin{DoxyCompactList}\small\item\em the arm\textquotesingle{}s number \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classKDL__IK_ade06f6d5bdbce0b39b12061fb767dafa}\label{classKDL__IK_ade06f6d5bdbce0b39b12061fb767dafa}} 
+int \hyperlink{classKDL__IK_ade06f6d5bdbce0b39b12061fb767dafa}{rs\+\_\+no}
+\begin{DoxyCompactList}\small\item\em the right shoulder number \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classKDL__IK_ace94ad54266c4b7099659dfabbb2a342}\label{classKDL__IK_ace94ad54266c4b7099659dfabbb2a342}} 
+Jnt\+Array \hyperlink{classKDL__IK_ace94ad54266c4b7099659dfabbb2a342}{max\+Jnt}
+\begin{DoxyCompactList}\small\item\em store the maximum and minimum values of each joint \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classKDL__IK_a3d9d9c11cf2847ae6a85e8241c7885e8}\label{classKDL__IK_a3d9d9c11cf2847ae6a85e8241c7885e8}} 
+Jnt\+Array {\bfseries min\+Jnt}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+ik solver using K\+DL for node.\+m R\+OS library usage, K\+DL setup class to quickly solve IK 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classKDL__IK_a1e6c6aeb2f702fe462f593946c120f32}\label{classKDL__IK_a1e6c6aeb2f702fe462f593946c120f32}} 
+\index{K\+D\+L\+\_\+\+IK@{K\+D\+L\+\_\+\+IK}!get\+Desired@{get\+Desired}}
+\index{get\+Desired@{get\+Desired}!K\+D\+L\+\_\+\+IK@{K\+D\+L\+\_\+\+IK}}
+\subsubsection{\texorpdfstring{get\+Desired()}{getDesired()}}
+{\footnotesize\ttfamily Jnt\+Array K\+D\+L\+\_\+\+I\+K\+::get\+Desired (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the Desired joint values in an array format. 
+
+\begin{DoxyReturn}{Returns}
+Jnt\+Array K\+DL joint array data format 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classKDL__IK_ac5840ffc7f30fd303ab5454d02456c54}\label{classKDL__IK_ac5840ffc7f30fd303ab5454d02456c54}} 
+\index{K\+D\+L\+\_\+\+IK@{K\+D\+L\+\_\+\+IK}!ik\+\_\+solve@{ik\+\_\+solve}}
+\index{ik\+\_\+solve@{ik\+\_\+solve}!K\+D\+L\+\_\+\+IK@{K\+D\+L\+\_\+\+IK}}
+\subsubsection{\texorpdfstring{ik\+\_\+solve()}{ik\_solve()}}
+{\footnotesize\ttfamily bool K\+D\+L\+\_\+\+I\+K\+::ik\+\_\+solve (\begin{DoxyParamCaption}\item[{Affine3d}]{target\+\_\+\+KS }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Function to solve the IK for the given target pose. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em target\+\_\+\+KS} & Affine matrix for the target \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true IK solved successfully 
+
+false error encountered 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classKDL__IK_aa7fb5139673aaa0c24620c51fad7e1d6}\label{classKDL__IK_aa7fb5139673aaa0c24620c51fad7e1d6}} 
+\index{K\+D\+L\+\_\+\+IK@{K\+D\+L\+\_\+\+IK}!init@{init}}
+\index{init@{init}!K\+D\+L\+\_\+\+IK@{K\+D\+L\+\_\+\+IK}}
+\subsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily void K\+D\+L\+\_\+\+I\+K\+::init (\begin{DoxyParamCaption}\item[{bool}]{right = {\ttfamily true} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+initialise kdl ik object K\+DL requires reading the urdf of robot to form a K\+DL tree. Unable to handle tree with more than one branches Hence, separated with a boolean flag for left or right arm branches of the tree. Solves IK fast with mathematics 
+
+
+\begin{DoxyParams}{Parameters}
+{\em right} & true = right arm of olivia, false = left arm of olivia \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classKDL__IK_ab9717f11ad7991e06ed688ce1c803b85}\label{classKDL__IK_ab9717f11ad7991e06ed688ce1c803b85}} 
+\index{K\+D\+L\+\_\+\+IK@{K\+D\+L\+\_\+\+IK}!init\+\_\+home@{init\+\_\+home}}
+\index{init\+\_\+home@{init\+\_\+home}!K\+D\+L\+\_\+\+IK@{K\+D\+L\+\_\+\+IK}}
+\subsubsection{\texorpdfstring{init\+\_\+home()}{init\_home()}}
+{\footnotesize\ttfamily void K\+D\+L\+\_\+\+I\+K\+::init\+\_\+home (\begin{DoxyParamCaption}\item[{vector$<$ double $>$}]{joint\+\_\+values,  }\item[{Jnt\+Array}]{max,  }\item[{Jnt\+Array}]{min }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+perform forward kinematics (FK) and store the position of given joint values as the home position 
+
+
+\begin{DoxyParams}{Parameters}
+{\em joint\+\_\+values} & the given joint values \\
+\hline
+{\em max} & Maximum value of each joints \\
+\hline
+{\em min} & Minimum value of each joints \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classKDL__IK_a6560fe32bf60646cb298e9f6751c2d79}\label{classKDL__IK_a6560fe32bf60646cb298e9f6751c2d79}} 
+\index{K\+D\+L\+\_\+\+IK@{K\+D\+L\+\_\+\+IK}!jacobian\+\_\+solve@{jacobian\+\_\+solve}}
+\index{jacobian\+\_\+solve@{jacobian\+\_\+solve}!K\+D\+L\+\_\+\+IK@{K\+D\+L\+\_\+\+IK}}
+\subsubsection{\texorpdfstring{jacobian\+\_\+solve()}{jacobian\_solve()}}
+{\footnotesize\ttfamily Matrix\+Xd K\+D\+L\+\_\+\+I\+K\+::jacobian\+\_\+solve (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+solve the jacobian matrix of the K\+DL tree 
+
+\begin{DoxyReturn}{Returns}
+Matrix\+Xd jacobian matrix 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classKDL__IK_ad134c076c73720c08a77aaf80f9dfa94}\label{classKDL__IK_ad134c076c73720c08a77aaf80f9dfa94}} 
+\index{K\+D\+L\+\_\+\+IK@{K\+D\+L\+\_\+\+IK}!update@{update}}
+\index{update@{update}!K\+D\+L\+\_\+\+IK@{K\+D\+L\+\_\+\+IK}}
+\subsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void K\+D\+L\+\_\+\+I\+K\+::update (\begin{DoxyParamCaption}\item[{Jnt\+Array}]{joint\+\_\+values }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+update the arm values to given joint array values 
+
+
+\begin{DoxyParams}{Parameters}
+{\em joint\+\_\+values} & K\+DL joint array data format \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/home/samuel/\+Desktop/toolcog\+\_\+ws/montecarlo/include/tool\+\_\+expt/\hyperlink{kdl__ik_8h}{kdl\+\_\+ik.\+h}\end{DoxyCompactItemize}

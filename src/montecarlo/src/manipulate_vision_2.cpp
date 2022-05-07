@@ -14,21 +14,21 @@ int Manipulate::display_poses_matrix2()
 {    
     cout << "---------------------------------------------" << endl;
  
-    tf::poseMsgToEigen(object_in_base.pose, obj_TF); //4x4
+    tf::poseMsgToEigen(object_in_base.pose, obj_TF); 
     cout << "obj_TF: \n"
          << obj_TF.matrix() << "\n\n"
          << endl;
 
     AddMarker(obj_TF, "object");
 
-    tf::poseMsgToEigen(target_in_base.pose, tar_TF); //4x4
+    tf::poseMsgToEigen(target_in_base.pose, tar_TF); 
     cout << "tar_TF: \n"
          << tar_TF.matrix() << "\n\n"
          << endl;
 
     AddMarker(tar_TF, "target");
 
-    tf::poseMsgToEigen(obstacle_in_base.pose, obst_TF); //4x4
+    tf::poseMsgToEigen(obstacle_in_base.pose, obst_TF); 
     cout << "obst_TF: \n"
          << obst_TF.matrix() << "\n\n"
          << endl;
@@ -43,7 +43,7 @@ int Manipulate::display_tool_matrix()
 {
     cout << "---------------------------------------------" << endl;
 
-    tf::poseMsgToEigen(tool_in_base.pose, tool_TF); //4x4
+    tf::poseMsgToEigen(tool_in_base.pose, tool_TF); 
     cout << "tool_TF: \n"
          << tool_TF.matrix() << "\n\n"
          << endl;
@@ -162,7 +162,7 @@ int Manipulate::mcts_demo_2()
     ResetObstacle();
 
     Affine3d vtool_TF;
-    tf::poseMsgToEigen(vtool_in_base.pose, vtool_TF); //4x4
+    tf::poseMsgToEigen(vtool_in_base.pose, vtool_TF); 
     cout << "vtool_TF: \n"
          << vtool_TF.matrix() << "\n\n"
          << endl;
@@ -317,11 +317,11 @@ int Manipulate::mcts_demo_2()
     grab_pose0.translation() = temp_gg;
     
     double grab_dist1 = 0.04 + 0.10 + tool_width;
-    tf_grab_hand1 = create_affine( M_PI, 0, -M_PI/2.0, 0.0, 0.0, grab_dist1);  //0.04 + 0.02 + tool_protrusion
+    tf_grab_hand1 = create_affine( M_PI, 0, -M_PI/2.0, 0.0, 0.0, grab_dist1);  //tool_protrusion
     grab_pose1 = vtool_TF * m_result_grab * tf_grab_hand1 * tf_hand_atk; //world to tool * tool to grab * grab to hand orientation
     
     double return_dist = 0.04 + tool_width; //nearer when returning tool
-    tf_return_hand = create_affine( M_PI, 0, -M_PI/2.0, 0.0, 0.0, return_dist);  //0.04 + 0.02 + tool_protrusion
+    tf_return_hand = create_affine( M_PI, 0, -M_PI/2.0, 0.0, 0.0, return_dist);  //tool_protrusion
     return_pose = vtool_TF * m_result_grab * tf_return_hand * tf_hand_atk; //world to tool * tool to grab * grab to hand orientation
     
     grabposes.push_back(grab_pose1);
@@ -353,8 +353,8 @@ int Manipulate::mcts_demo_2()
     }
     sleep(sleep_time);
 
-    ROS_WARN_STREAM("check if position correct, if not ctrl+c here!"); //cihan+jennifer pkg
-    cout << "attach tool planner" << endl; //cihan+jennifer pkg
+    ROS_WARN_STREAM("check if position correct, if not ctrl+c here!"); 
+    cout << "attach tool planner" << endl; 
     ROS_INFO_STREAM("Press anykey to continue...");
     cin.ignore();
     ActionAttachObj("right", "vtool", tool_collision);

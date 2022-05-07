@@ -15,15 +15,11 @@ sc::result Manipulate::react( const EvMonteCarloExpt3_left & )
 {
     ROS_ERROR_STREAM("DOING LEFT!");
 
-    // WAIST_INIT = 15.0;//45.0
     WAIST_INIT = -30.0;
-    WAIST_TOOL = 60.0;//-60.0
-
+    WAIST_TOOL = 60.0;
     OBST_RADIUS = 0.03;
-    // PUCK_RADIUS = 0.03;
     PUCK_RADIUS = 0.045;
 
-    //HARDCODED! FOR LEFT ONLY! When WAIST AT 0deg angle
     #ifdef USE_LOWER_TORSO
         init_x = 0.27;
         init_y = 0.45;
@@ -36,7 +32,7 @@ sc::result Manipulate::react( const EvMonteCarloExpt3_left & )
 
     std_msgs::Int32 sw;
     cout << "switch camera_olivia_node to mode 0. continue? _"; 
-    // cin.ignore(); 
+
     sw.data = 0;
     camera_swap_publisher.publish(sw);
     sleep(sleep_time);
@@ -44,7 +40,6 @@ sc::result Manipulate::react( const EvMonteCarloExpt3_left & )
     #ifdef USE_LOWER_TORSO
         ActionSwitchTF(3);
     #else
-        // ActionSwitchTF(1);
         ActionSwitchTF(4);
     #endif
     sleep(sleep_time);
@@ -58,7 +53,7 @@ sc::result Manipulate::react( const EvMonteCarloExpt3_left & )
     sleep(sleep_time);
 
     cout << "switch camera_olivia_node to mode 4. continue? _"; 
-    // cin.ignore(); 
+
     sw.data = 1;
     camera_swap_publisher.publish(sw);
     sleep(sleep_time);
@@ -66,9 +61,6 @@ sc::result Manipulate::react( const EvMonteCarloExpt3_left & )
     //--- main here ---
     if( findObjectTargetLocation2_left() > 0 )
     {
-        // cout << "adding moveit collision..." << endl;    
-        // addVisualToolCollision(toolMeshes.at(0));
-        
         addTableCollision();
         addPuckCollision(PUCK_RADIUS);
         if(obstacle_detected)
@@ -80,47 +72,34 @@ sc::result Manipulate::react( const EvMonteCarloExpt3_left & )
         if( findToolTargetLocation3() > 0 )
         {                   
             cout << "continue? _"; cin.ignore();
+		    cout << "switch camera_olivia_node to mode 0.\n"; 
+		    sw.data = 0;
+		    camera_swap_publisher.publish(sw);
+		    sleep(sleep_time);
 
-            // if( mct_tool_experiment3_left() > 0)
-            // {
-                // cout << "continue? _"; cin.ignore();
+		    cout << "---------------------------------------------" << endl;
+		    cout << "rotating body CCW! beware of left side! continue? _"; cin.ignore();
 
-                cout << "switch camera_olivia_node to mode 0.\n"; 
-                // cin.ignore(); 
-                sw.data = 0;
-                camera_swap_publisher.publish(sw);
-                sleep(sleep_time);
+		    #ifdef USE_LOWER_TORSO
+		        neck_and_waist_trunk( -13.3, 0.4, 0.05, WAIST_TOOL, 80.0);
+		    #else
+		        neck_and_waist_trunk( 0.0, 0.2, 0.05, WAIST_TOOL, 47.44);
+		    #endif
+		    sleep(sleep_time);
+		
+		    cout << "switch camera frame transform to 2. continue? _\n"; 
+		    ActionSwitchTF(2);
+		    sleep(sleep_time);
 
-                cout << "---------------------------------------------" << endl;
-                cout << "rotating body CCW! beware of left side! continue? _"; cin.ignore();
-                // MoveWaistFromCurrent(WAIST_TOOL);
-                // sleep(sleep_time);
-                // cout << "tilting head upwards to see! continue? _"; cin.ignore();
-                #ifdef USE_LOWER_TORSO
-                    // TurnHeadTiltPan(-13.3, 0.4);
-                    neck_and_waist_trunk( -13.3, 0.4, 0.05, WAIST_TOOL, 80.0);
-                #else
-                    // TurnHeadTiltPan(-13.3, 0.2);
-                    neck_and_waist_trunk( 0.0, 0.2, 0.05, WAIST_TOOL, 47.44);
-                #endif
-                sleep(sleep_time);
-            
-                cout << "switch camera frame transform to 2. continue? _\n"; 
-                // cin.ignore(); 
-                ActionSwitchTF(2);
-                sleep(sleep_time);
+		    cout << "switch camera_olivia_node to mode 2. continue? _\n"; 
+		    sw.data = 2;
+		    camera_swap_publisher.publish(sw);
+		    sleep(sleep_time);
 
-                cout << "switch camera_olivia_node to mode 2. continue? _\n"; 
-                // cin.ignore(); 
-                sw.data = 2;
-                camera_swap_publisher.publish(sw);
-                sleep(sleep_time);
+		    cout << "get TF here! continue?_" << endl; cin.ignore();
+		    findToolLoca();
+		    display_tool_matrix(); 
 
-                cout << "get TF here! continue?_" << endl; cin.ignore();
-                findToolLoca();
-                display_tool_matrix(); 
-                // perform_experiment2_left();
-            // }
         }    
     }
 
@@ -179,7 +158,6 @@ int Manipulate::neck_and_waist_trunk(double tilt_angle, double pan_angle, double
 
     if(!joint_state.name.empty())
     {
-//        torso_joint.positions[0] = angle_deg/180*3.14159265;
         target_joint.torso_trajectory.points[0].positions[0] = (angle_deg/180.0*3.14159265);
         target_joint.torso_trajectory.points[0].positions[2] = (angle_deg_2/180.0*3.14159265);
         target_joint.head_trajectory.points[0].positions[0] =  tilt_angle/180*3.14159265; 
@@ -201,7 +179,6 @@ int Manipulate::neck_and_waist_trunk(double tilt_angle, double pan_angle, double
         if (result->result == neck_pan::NeckPanResult::K_RESULT_OK)
         {
             cout << "neck PANNING done!" << endl;
-            //current_pan_angle = pan_angle;
             return 1;
         }
         else
@@ -388,7 +365,7 @@ int Manipulate::mct_tool_experiment3_left()
         cout << joint_values_l[i] << " ";
     cout << "] " << endl;
 
-    joint_values_l[0] =  WAIST_INIT/180 * 3.14159265;   //double check later
+    joint_values_l[0] =  WAIST_INIT/180 * 3.14159265;  
     cout << "fake set waist yaw to be zero for ik state planning ->  no movement" << endl;
 
     cout << "---------------------------------------------------" << endl;

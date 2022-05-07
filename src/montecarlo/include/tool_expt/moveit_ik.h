@@ -1,21 +1,37 @@
+/**
+ * @file moveit_ik.h
+ * @author samuel_cheong@i2r.a-star.edu.sg
+ * @brief 
+ * class to use Moveit library to solve Inverse Kinematics(IK)
+ * @version 0.1
+ * @date 2019-03-02
+ * 
+ * @copyright Copyright (c) 2019
+ * 
+ */
 #ifndef MOVEIT_IK_HPP_INCLUDED
 #define MOVEIT_IK_HPP_INCLUDED
 
+// ros
 #include "ros/ros.h"
 #include <iostream>
 #include <fstream>
 #include <std_msgs/Int32.h>
 #include <std_msgs/Bool.h>
 
+// eigen
 #include <Eigen/Core>
 #include <Eigen/SVD>
 
+// conversions
 #include <eigen_conversions/eigen_msg.h>
 #include <Eigen/Geometry>
 #include <tf_conversions/tf_eigen.h>
 
+// maths
 #include <math.h>
 
+// moveit 
 #include <moveit/planning_scene/planning_scene.h>
 #include <moveit/kinematic_constraints/utils.h>
 
@@ -29,21 +45,47 @@
 #include <moveit_msgs/DisplayRobotState.h>
 #include <moveit/robot_state/conversions.h>
 
+// definitions
 #include <tool_expt/definitions.h>
 
 using namespace std;
 using namespace Eigen;
 
+/// number of attempts at solving IK
 #define ATTEMPTS 2
+
+/// update rate of this class object
 #define UPDATE_RATE 50.0
 
 //ik solver using moveit for node.m, samuel was here
+/**
+ * @brief ik solver using moveit for node.m
+ * ROS library usage, moveit kinematics setup class to quickly solve IK
+ */
 class MOVEIT_IK
 {
 public:
+    /**
+     * @brief Construct a new moveit ik object
+     * 
+     */
 	MOVEIT_IK(){};
+
+    /**
+     * @brief Destroy the moveit ik object
+     * 
+     */
 	~MOVEIT_IK(){};
 
+    /**
+     * @brief initialise moveit ik object
+     * moveit requires to load the robot model as a moveit kinematics model
+     * the planning scene will update using this kinematics model
+     * ik is solved by setting this kinematics model with the given joint values,
+     * and returning the solution of its end-effector in cartesian space
+     * 
+     * @param right true = right arm of Olivia, false = left arm of Olivia
+     */
     void init(bool right=true)
     {
         //=======================================================//
@@ -96,6 +138,11 @@ public:
         cout << "moveit_ik initalised\n" << endl;
     };
 
+    /**
+     * @brief perform forward kinematics (FK) and store the position of given joint values as the home position 
+     * 
+     * @param joint_values 
+     */
     void init_home( vector<double> joint_values )
     {
         for(int i = 3; i<10; i++)
@@ -116,6 +163,13 @@ public:
         //sleep(0.5);
     };
 
+    /**
+     * @brief Function to solve the IK for the given target pose
+     * 
+     * @param target_KS Affine matrix for the target
+     * @return true IK solved successfully
+     * @return false error encountered 
+     */
     bool ik_solve(Affine3d target_KS)
     {
         bool ik_moveit = false;
@@ -177,6 +231,11 @@ public:
     };
 
     //arm only
+    /**
+     * @brief update the kinematic state of the arm with the given joint values
+     * 
+     * @param arm_joint_values input joint values for the olivia arm
+     */
     void update_arm( vector<double> arm_joint_values ) //set only arm to next joint position
     {
         // cout << "av: \n[";
@@ -190,6 +249,11 @@ public:
     };
 
     //arm + torso
+    /**
+     * @brief update the kinematic state of the arm+torso with the given joint values
+     * 
+     * @param joint_values input joint values for the olivia arm+torso
+     */
     void update( vector<double> joint_values )  //set model to next joint position
     {
         // cout << "moveit jv: \n[";
@@ -202,6 +266,10 @@ public:
         //cout << "moveit kinematic_state updated\n" << endl;
     };
 
+    /**
+     * @brief reset both the arm and torso kinematics model to the 'Home' position
+     * 
+     */
     void reset() //set model to home joint position
     {
         // cout << "reset to home!" << endl;
@@ -213,6 +281,11 @@ public:
         // cout << "moveit kinematic_state reset to home\n" << endl;
     }
 
+    /**
+     * @brief compute the jacobian for the kinematics model
+     * 
+     * @return MatrixXd jacobian matrix
+     */
     MatrixXd jacobian_solve()
     {
         Vector3d reference_point_position(0.0,  0.0,  0.0);
@@ -224,6 +297,11 @@ public:
         return jacobian;
     }
 
+    /**
+     * @brief Get the Joint Limits form the moveit kinematics model
+     * must be stated in the urdf
+     * 
+     */
     void getJointLimits()
     {
         const std::vector<const moveit::core::JointModel*>& joints = arm_model_group->getActiveJointModels();
@@ -249,6 +327,13 @@ public:
         }//end for;
     }
 
+    /**
+     * @brief check if joint values of IK solution exceeds software joint limits
+     * Sometimes kinematics model exceeds acceptable joint limits (double-check to eliminate bug)
+     * 
+     * @return true solution within joint limits
+     * @return false exceeds the joint limits = reject solution
+     */
     bool checkJointLimits()
     {
         cout << "checking joint limits" << endl;
@@ -280,27 +365,50 @@ public:
         return true;
     }
 
+    /// store the maximum joint limit
     vector< double > max_limit;
+
+    /// store the minimum joint limit
     vector< double > min_limit;
+    
+    /// store the desired joint values for the arm
     vector< double > desired_arm_values;
+
+    /// store the desired joint values for the arm+torso
     vector< double > desired_joint_values;
 
-    //for moveit ik solver
+    //for moveit ik solver----------------------------//
+
+    /// store moveit kinematics model object
     robot_model::RobotModelPtr kinematic_model;
+
+    /// store moveit kinematics state object
     robot_state::RobotStatePtr kinematic_state;
 
 private:
 
+    /// store a planning scene object
     planning_scene::PlanningScenePtr planning_scene_;
 
+    /// store the joint names
     std::vector<std::string> mv_joint_names;
+
+    /// pointer to robot joint model group
     robot_state::JointModelGroup *joint_model_group;
+    
+    /// joint names for the arm
     std::vector<std::string> arm_joint_names;
+
+    /// pointer to the moveit arm group
     robot_state::JointModelGroup *arm_model_group;
 
+    /// store joint values for the arm's 'Home' pose
     std::vector<double> home_arm;
+
+    /// store joint values for the arm+torso's 'Home' pose
     std::vector<double> home;
 
+    /// pointer to a set of joint limits
     vector< moveit_msgs::JointLimits >  *jvl;
 };
 

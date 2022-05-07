@@ -1,5 +1,14 @@
 #!/usr/bin/env python
 
+"""
+##
+#  Copyright 2019 by Institute for Infocomm Research, Singapore (I2R). All rights reserved.
+#  Python script to send request to Kaist Daemon to control fingers:
+#  rf1: Ring Finger 1
+#  rf2: Ring Finger 2
+##
+"""
+
 import rospy
 from kaist_msgs.msg import FingerMoveRequest
 import time

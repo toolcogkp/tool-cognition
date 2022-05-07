@@ -154,7 +154,6 @@ void MCT_Search2::monte_carlo_tree()
             for( int i = 0; i < N_atk_angle; i++)
             {
                 string aa = "a-" + to_string(f) + "-" + to_string(h) + "-" + to_string(i);
-                // vector<int> aa_idx = {f, h, i, -1, -1};
                 int aa_idx[] = {f, h, i, -1, -1, -1, -1};
                 NODE_DATA aa_ndata = set_ndata(aa_idx, false, false);
  
@@ -206,7 +205,6 @@ void MCT_Search2::monte_carlo_tree()
                         
                         // cout << "===========================================" << endl;
                         string pp = "p-" + to_string(f) + "-" + to_string(h) + "-" + to_string(i) + "-" + to_string(j) + "-" + to_string(k);
-                        // vector<int> pp_idx = {f, h, i, j, k};
                         int pp_idx[] = {f, h, i, j, k, -1, -1};
                         cout << pp << endl;
 
@@ -445,7 +443,6 @@ void MCT_Search2::monte_carlo_tree()
                                         T_world_hand_2nd.push_back(T_world_hand_2);
                     
                                         //======================compute the SV collision===================================
-                                        // Affine3d A_w_t = T_world_tool_1st.at(0); //T_world_tool
                                         Affine3d A_w_t = T_world_tool_2; //T_world_tool
                                         Matrix3d R_temp = A_w_t.rotation();
                                         Vector3d T_temp = A_w_t.translation();
@@ -507,10 +504,6 @@ void MCT_Search2::monte_carlo_tree()
                                     bool sf = smallFlag || smallFlag2;
 
                                     NODE_DATA mm_ndata = set_ndata(mm_idx, collision_Flag, sf);   //node index, collision, small_seg                            
-                                    
-                                        // cout << "T_world_tool size: " << T_world_tool_2nd.size() << endl;
-                                        // cout << "T_world_grasp size: " << T_world_grasp_2nd.size() << endl;
-                                        // cout << "T_world_hand size: " << T_world_hand_2nd.size() << endl;
 
                                     mm_ndata.state = T_real_grasp = T_world_hand_2nd;
                                     mm_ndata.state2 = T_world_grasp_save = T_world_grasp_2nd;   //for checking only
@@ -526,41 +519,24 @@ void MCT_Search2::monte_carlo_tree()
                                     // cout << "++++++++++++++++++++++++++++++" << endl;
 
                                     ptr = ptr->parentNode;//move up
-                                    // cout << ptr->label << endl;
-                                    // cout << "return l" << endl;
-                        
+
                                 }//end lvl 7++ points 2
 
                                 ptr = ptr->parentNode;//move up
-                                // cout << ptr->label << endl;
-                                // cout << "return k" << endl;
+
                             }//end lvl 6++ adj indicies
                                 
-                            //     current_leg = current_leg + 2;
-                            // }//end while each leg
-
                         }//end pp collision check
-                        // cout << "===========================================" << endl;
-                        
+                        // cout << "===========================================" << endl;                    
                         ptr = ptr->parentNode;//move up
-                        // cout << ptr->label << endl;
-                        // cout << "return j" << endl;
                     }// end lvl 5 N_pts
                     ptr = ptr->parentNode;//move up
-                    // cout << ptr->label << endl;
-                    // cout << "return i" << endl;
                 }// end lvl 4 N_segment
                 ptr = ptr->parentNode;//move up
-                // cout << ptr->label << endl;
-                // cout << "return h" << endl;
             }// end lvl 3 atk_angle
             ptr = ptr->parentNode;//move up
-            // cout << ptr->label << endl;
-            // cout << "return f" << endl;
         }// end lvl 2 grasp
         ptr = ptr->parentNode;//move up
-        // cout << ptr->label << endl;
-        // cout << "return root" << endl;
     }// end lvl 1 via_pt
 
     cout << ".. mcts tree done \n";
@@ -708,8 +684,6 @@ void MCT_Search2::search()
 
     if(!perceptFlag)    //no perception
     {
-        //hardcoded grasp location
-
         grasp_loci.clear();
         for(int i=0; i < N_grasp; i++)
         {
@@ -737,7 +711,6 @@ void MCT_Search2::search()
         N_grasp = grasp_loci.size();
 
         //attack angle PI
-        // N_atk_angle = 2;    //0 or 180deg
         atk_angle_step = 2.0*M_PI / N_atk_angle;
         atk_angle.resize(N_atk_angle);
         for(int i = 0; i < N_atk_angle; i++)

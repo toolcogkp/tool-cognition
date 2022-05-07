@@ -133,7 +133,7 @@ void MCT_Search::monte_carlo_tree()
                         Vector3d trans2 = 0.5*( tool_seg.at(j).at(0) + tool_seg.at(j).at(1) );
                         T_tool_func = create_affine(0, 0, angle_nvec, trans2(0), trans2(1), trans2(2));
                     }
-                    else    //excude extreme_pts/edges so +1
+                    else    //exclude extreme_pts/edges 
                     {
                         Vector3d trans2 = tool_seg.at(j).at(k+1);
                         T_tool_func = create_affine(0, 0, angle_nvec, trans2(0), trans2(1), trans2(2));    
@@ -147,8 +147,8 @@ void MCT_Search::monte_carlo_tree()
                         
                         Affine3d T_world_grasp = T_world_tool * T_tool_grasp;
 
-                        Affine3d T_gh_z = create_affine( 0, 0, -M_PI/2.0, 0, 0, 0);      //z by -90
-                        Affine3d T_gh_y = create_affine( 0, M_PI, 0, 0, 0, 0);           //y by 180
+                        Affine3d T_gh_z = create_affine( 0, 0, -M_PI/2.0, 0, 0, 0);      
+                        Affine3d T_gh_y = create_affine( 0, M_PI, 0, 0, 0, 0);          
                         Affine3d T_grasp_hand = T_gh_z * T_gh_y;
 
                         Affine3d temp = T_world_grasp * T_grasp_hand /* T_atk_angle*/;
@@ -194,7 +194,7 @@ void MCT_Search::monte_carlo_tree()
                         else
                         {
                             vector< Shape > this_tool_pieces = tool_pieces;
-                            //with lijun perception
+                            //with perception
                             for(int n = 0; n < this_tool_pieces.size(); n++)
                             {
                                 for(int p =0; p < this_tool_pieces.at(n).vertices.size(); p++)
@@ -370,7 +370,6 @@ void MCT_Search::monte_carlo_search()
             double curr_score = ptr->childs.at(n).score;
             best_score = ptr->childs.at(best_idx).score;
             cout << "    curr score: " << curr_score << endl;
-            // cout << "    best score: " << best_score << endl;
 
             if( curr_score > best_score )
                 best_idx = n;

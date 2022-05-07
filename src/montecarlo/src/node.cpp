@@ -32,7 +32,6 @@ void MCT_NODE::init()
 
 double MCT_NODE::update()
 {
-    // cout << "node " << label << ": " << endl;
 
     if(num_childs > 0)
     {
@@ -61,7 +60,6 @@ double MCT_NODE::update()
                     best_idx = i;
                 }
             }
-            // cout << "  allvisited -> selection: " << best_idx << endl;
             node_value = childs.at(best_idx).update();
         }
         else
@@ -69,16 +67,14 @@ double MCT_NODE::update()
             //random rollout
             type = "rollout";
             int random_idx = rand() % num_childs;
-            // cout << "  random -> rollout: " << random_idx << endl;
             node_value = childs.at(random_idx).update();
         }
     }
     else
     {
-        // cout << "  terminal" << endl;
         type = "terminal";
 
-        if(num_visit <= 0)                  //samuel - only calculate once
+        if(num_visit <= 0)                  
             node_value = calculate_value();
     }
 
@@ -112,16 +108,11 @@ double MCT_NODE::calculate_value()
     double value = 0;
     double ik_value = 1;
     Vector3d f_arm_len = arm_len;
-
-    // cout << "cal value@" << endl;
-    // cout << "  label: " << label << endl;
-    // cout << "    N_path: " << N_path << endl;
     
     int ipath = 0;
     bool ikFlag = false;
     bool okFlag = true;
 
-    // cout << "    ik reset: " << endl;
     m_moveit_ik->reset();
 
     while( ipath < N_path && okFlag)

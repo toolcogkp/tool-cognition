@@ -1,0 +1,1489 @@
+\hypertarget{classM3MoveGroup}{}\section{M3\+Move\+Group Class Reference}
+\label{classM3MoveGroup}\index{M3\+Move\+Group@{M3\+Move\+Group}}
+
+
+Moveit action server.  
+
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classM3MoveGroup_aeb66c992c2a648e53f823a6058669c4c}\label{classM3MoveGroup_aeb66c992c2a648e53f823a6058669c4c}} 
+{\bfseries M3\+Move\+Group} (std\+::string name)
+\item 
+void \hyperlink{classM3MoveGroup_a0d53e8cfafd00e1a22f1cf5e091b63a1}{Input\+Callback} (const std\+\_\+msgs\+::\+Int32\+Const\+Ptr \&input)
+\begin{DoxyCompactList}\small\item\em user input function \end{DoxyCompactList}\item 
+void \hyperlink{classM3MoveGroup_a754821f89a28e5b3e6924d9f9e040946}{finger\+Timeout\+Callback} (const std\+\_\+msgs\+::\+Bool timeout)
+\begin{DoxyCompactList}\small\item\em action server timeout callback for finger \end{DoxyCompactList}\item 
+void \hyperlink{classM3MoveGroup_a78c1d36f86d5ade3dc73b6239227a512}{finger\+Timer\+Timeout\+Callback} (const ros\+::\+Timer\+Event \&e)
+\begin{DoxyCompactList}\small\item\em Using ros timer to check for finger timeout. \end{DoxyCompactList}\item 
+void \hyperlink{classM3MoveGroup_ada2b7b9e5a402676eff8747267385f6b}{Collision\+Object\+Callback} (const moveit\+\_\+msgs\+::\+Collision\+Object\+Const\+Ptr \&obj)
+\begin{DoxyCompactList}\small\item\em Action server to add collision object into moveit planning scene. \end{DoxyCompactList}\item 
+void \hyperlink{classM3MoveGroup_a9b982c9f3cd26755ed9b6ecca1286c50}{callback\+\_\+testpub} (const ros\+::\+Timer\+Event \&e)
+\begin{DoxyCompactList}\small\item\em callback test for fingers \end{DoxyCompactList}\item 
+void \hyperlink{classM3MoveGroup_a1a515c13453033a4ab89b5599d58f23f}{callback\+\_\+stop\+\_\+fingers} (const ros\+::\+Timer\+Event \&e)
+\begin{DoxyCompactList}\small\item\em callback to stop fingers. Time based control of olivia fingers \end{DoxyCompactList}\item 
+void \hyperlink{classM3MoveGroup_af7c4ca891be62a8c3fdb7cd0cc0cb2a0}{callback\+\_\+stop\+\_\+fingers1} (const ros\+::\+Timer\+Event \&e)
+\begin{DoxyCompactList}\small\item\em time-\/based control to stop olivia finger1 \end{DoxyCompactList}\item 
+void \hyperlink{classM3MoveGroup_af6a7a1d4aab641328a9213689f7b9ce1}{callback\+\_\+stop\+\_\+fingers2} (const ros\+::\+Timer\+Event \&e)
+\begin{DoxyCompactList}\small\item\em time based control to stop olivia finger2 \end{DoxyCompactList}\item 
+void \hyperlink{classM3MoveGroup_aedb5d4a4aaeebd2ef3fa0d54edb0efaa}{stop\+\_\+fingers} (std\+::vector$<$ std\+::string $>$ names)
+\begin{DoxyCompactList}\small\item\em time based control to stop all olivia fingers \end{DoxyCompactList}\item 
+void \hyperlink{classM3MoveGroup_a7208ba7725391ea9ffd98d3d31ae5f0d}{Finger\+Encoder\+Callback} (const kaist\+\_\+msgs\+::\+Joint\+Encoder\+Status\+Const\+Ptr \&joint)
+\begin{DoxyCompactList}\small\item\em encoder position based control to stop olivia fingers \end{DoxyCompactList}\item 
+void \hyperlink{classM3MoveGroup_ab202574f8621d26c6369c1b794014251}{Fingers\+Encoders\+Action\+CB} (const m3\+\_\+moveit\+::\+Moveit\+Fingers\+Goal\+Const\+Ptr \&goal)
+\begin{DoxyCompactList}\small\item\em action server to control olivia fingers using encoders \end{DoxyCompactList}\item 
+void \hyperlink{classM3MoveGroup_a50f3c0ec424696c8d613cbfb18829384}{Fingers\+Action\+CB} (const m3\+\_\+moveit\+::\+Moveit\+Fingers\+Goal\+Const\+Ptr \&goal)
+\begin{DoxyCompactList}\small\item\em Action server to control olivia fingers. \end{DoxyCompactList}\item 
+void \hyperlink{classM3MoveGroup_a71fc79c75e8e96881d0cfa6629f5e11d}{Cart\+Single\+Action\+CB} (const m3\+\_\+moveit\+::\+Moveit\+Single\+Goal\+Const\+Ptr \&goal)
+\begin{DoxyCompactList}\small\item\em Moveit action server\+: planning using cartesian space for single arm. \end{DoxyCompactList}\item 
+void \hyperlink{classM3MoveGroup_a6ce4ef5d30fc1e93826f4f8104f8db04}{Cart\+Single\+Right\+Action\+CB} (const m3\+\_\+moveit\+::\+Moveit\+Single\+Goal\+Const\+Ptr \&goal)
+\begin{DoxyCompactList}\small\item\em Moveit Action server\+: Using cartesian space planning for single right arm. \end{DoxyCompactList}\item 
+double \hyperlink{classM3MoveGroup_a08ae3af12542a9dd44d5f823c8b3bb46}{r2d} (double rad)
+\begin{DoxyCompactList}\small\item\em radian to degree conversion \end{DoxyCompactList}\item 
+std\+::vector$<$ double $>$ \hyperlink{classM3MoveGroup_a76eed72085b10fa6fea6f9cc773a7901}{Convert\+To\+Olivia\+Coordinates} (const std\+::vector$<$ double $>$ input)
+\begin{DoxyCompactList}\small\item\em Remap and convert joint angles to Olivia differences in real robot and urdf, this is to remap the joints before sending to real robot. \end{DoxyCompactList}\item 
+std\+::vector$<$ double $>$ \hyperlink{classM3MoveGroup_a59d8555d6560673417be20d6bf5d6aae}{Convert\+To\+Olivia\+Head} (const std\+::vector$<$ double $>$ input)
+\begin{DoxyCompactList}\small\item\em Remap and convert joint angles to Olivia A separate dynamixel is used for the head. Joint value need to be send separately. \end{DoxyCompactList}\item 
+std\+::vector$<$ double $>$ \hyperlink{classM3MoveGroup_a422eebf405bc0b3187bb6e692b361fa0}{Convert\+Olivia\+Arm} (const std\+::vector$<$ double $>$ input, std\+::string arm)
+\begin{DoxyCompactList}\small\item\em Remap and convert joint angles to Olivia (for the arm only) \end{DoxyCompactList}\item 
+void \hyperlink{classM3MoveGroup_a0b0b4680d729b8878a89ba03c6d59303}{Send2\+Olivia\+Single\+Arm} (moveit\+\_\+msgs\+::\+Robot\+Trajectory trajectory, std\+::string link\+\_\+name)
+\begin{DoxyCompactList}\small\item\em send joint values to kaist daemon to move real olivia \end{DoxyCompactList}\item 
+void \hyperlink{classM3MoveGroup_a8adcfcf74c2e2350189be855dca572de}{Send2\+Olivia\+Whole\+Body} (moveit\+\_\+msgs\+::\+Robot\+Trajectory trajectory)
+\begin{DoxyCompactList}\small\item\em send joint values to kaist daemon to move real olivia (for whole body) \end{DoxyCompactList}\item 
+void \hyperlink{classM3MoveGroup_a5f4c7d0260a2d987e5abaf1b1365c657}{Send2\+Olivia\+Head} (moveit\+\_\+msgs\+::\+Robot\+Trajectory trajectory)
+\begin{DoxyCompactList}\small\item\em send joint values to dynamixel to move real olivia head only \end{DoxyCompactList}\item 
+void \hyperlink{classM3MoveGroup_a5cbdff90f02f8067d55c1b4592b24b72}{Task\+Single\+Action\+CB} (const m3\+\_\+moveit\+::\+Moveit\+Single\+Goal\+Const\+Ptr \&goal)
+\begin{DoxyCompactList}\small\item\em Moveit Action server\+: moveit group task planning, movement less predictable, but higher rate of success. \end{DoxyCompactList}\item 
+void \hyperlink{classM3MoveGroup_aee17065b5aa40384dcca5a6589261ded}{Task\+Single\+Right\+Action\+CB} (const m3\+\_\+moveit\+::\+Moveit\+Single\+Goal\+Const\+Ptr \&goal)
+\begin{DoxyCompactList}\small\item\em Moveit Action server\+: moveit group task planning (for right single arm only) \end{DoxyCompactList}\item 
+void \hyperlink{classM3MoveGroup_abbc7367f21a594bd3ae7a91fe6441480}{Attach\+Right\+Action\+CB} (const m3\+\_\+moveit\+::\+Moveit\+Pick\+Place\+Goal\+Const\+Ptr \&goal)
+\begin{DoxyCompactList}\small\item\em Moveit Action server\+: attaching objects in planning scene to arm (works for both left or right) \end{DoxyCompactList}\item 
+void \hyperlink{classM3MoveGroup_a0e43c201d45fd9d987dd5b57f57e6402}{Detach\+Right\+Action\+CB} (const m3\+\_\+moveit\+::\+Moveit\+Pick\+Place\+Goal\+Const\+Ptr \&goal)
+\begin{DoxyCompactList}\small\item\em Moveit Action server\+: detach objects in planning scene from arm (works for both left or right) \end{DoxyCompactList}\item 
+void \hyperlink{classM3MoveGroup_afad468e11f51e093ef704ebe974ecc28}{Remove\+Collision\+Action\+CB} (const m3\+\_\+moveit\+::\+Moveit\+Collide\+Goal\+Const\+Ptr \&goal)
+\begin{DoxyCompactList}\small\item\em Moveit Action server\+: Remove objects from planning scene. \end{DoxyCompactList}\item 
+void \hyperlink{classM3MoveGroup_aa1aa80c1a53d3829ed0e535f728cbe63}{Add\+Collision\+Action\+CB} (const m3\+\_\+moveit\+::\+Moveit\+Collide\+Goal\+Const\+Ptr \&goal)
+\begin{DoxyCompactList}\small\item\em Moveit Action server\+: add object into planning scene for collision-\/free planning. \end{DoxyCompactList}\item 
+void \hyperlink{classM3MoveGroup_a4999726d3def40e06217e81fb7f095ab}{Task\+Dual\+Action\+CB} (const m3\+\_\+moveit\+::\+Moveit\+Dual\+Goal\+Const\+Ptr \&goal)
+\begin{DoxyCompactList}\small\item\em Moveit Action server\+: group task planning for both arms. \end{DoxyCompactList}\item 
+void \hyperlink{classM3MoveGroup_a3cb5511476fb082b891ac3de867ee8b8}{Mixed\+Whole\+Body\+Action\+CB} (const m3\+\_\+moveit\+::\+Moveit\+Whole\+Body\+Goal\+Const\+Ptr \&goal)
+\begin{DoxyCompactList}\small\item\em Moveit Action server\+: joint space planning for whole body. \end{DoxyCompactList}\item 
+void \hyperlink{classM3MoveGroup_adcf08e40ebf2191e9d717e2baf275f18}{Joint\+Whole\+Body\+Action\+CB} (const m3\+\_\+moveit\+::\+Moveit\+Whole\+Body\+Goal\+Const\+Ptr \&goal)
+\begin{DoxyCompactList}\small\item\em Moveit Action server\+: joint space planning. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classM3MoveGroup_aef5fd5bd7565b10b0e5d568bce824773}\label{classM3MoveGroup_aef5fd5bd7565b10b0e5d568bce824773}} 
+void {\bfseries Neck\+Single\+Action\+CB} (const m3\+\_\+moveit\+::\+Neck\+Tilt\+Goal\+Const\+Ptr \&goal)
+\item 
+bool \hyperlink{classM3MoveGroup_a65ac544bc2275fc3823bc66c3a2a7a19}{Check\+Hand\+Orientation} (const moveit\+::planning\+\_\+interface\+::\+Move\+Group\+::\+Plan plan, const geometry\+\_\+msgs\+::\+Pose pose\+\_\+left, const geometry\+\_\+msgs\+::\+Pose pose\+\_\+right)
+\begin{DoxyCompactList}\small\item\em check the planning scene kinematics models for hand orientation \end{DoxyCompactList}\item 
+bool \hyperlink{classM3MoveGroup_a89b6d3658b6884d6a19a2975193e444a}{Check\+Hand\+Orientation} (const moveit\+::planning\+\_\+interface\+::\+Move\+Group\+::\+Plan plan, const geometry\+\_\+msgs\+::\+Pose pose, std\+::string name)
+\begin{DoxyCompactList}\small\item\em check the hand orientation in moveit planning \end{DoxyCompactList}\item 
+double \hyperlink{classM3MoveGroup_a000211da0f2ad520583f9efff2401e7a}{Get\+Quaternion\+Distance} (std\+::vector$<$ double $>$ quat1, std\+::vector$<$ double $>$ quat2)
+\begin{DoxyCompactList}\small\item\em Get the delta distance between 2 quaternion. \end{DoxyCompactList}\item 
+void \hyperlink{classM3MoveGroup_adf12117d8738588cadfa6ab62e008fea}{Jiggle\+Target} (int i\+Attempt, geometry\+\_\+msgs\+::\+Pose pose, std\+::string name)
+\begin{DoxyCompactList}\small\item\em Attempt to jiggle the target pose to achieve higher success rate when moveit fails to plan. \end{DoxyCompactList}\item 
+void \hyperlink{classM3MoveGroup_a01c4d2e768a050ad0652ecc2b612946c}{Jiggle\+Target} (int i\+Attempt, geometry\+\_\+msgs\+::\+Pose pose\+\_\+left, geometry\+\_\+msgs\+::\+Pose pose\+\_\+right, std\+::string name\+\_\+left, std\+::string name\+\_\+right)
+\begin{DoxyCompactList}\small\item\em Attempt to jiggle the target pose to achieve higher success rate when moveit fails to plan. \end{DoxyCompactList}\item 
+\hyperlink{classM3MoveGroup_aeb66c992c2a648e53f823a6058669c4c}{M3\+Move\+Group} (std\+::string name)
+\begin{DoxyCompactList}\small\item\em Construct a new \hyperlink{classM3MoveGroup}{M3\+Move\+Group} object. \end{DoxyCompactList}\item 
+void \hyperlink{classM3MoveGroup_a0d53e8cfafd00e1a22f1cf5e091b63a1}{Input\+Callback} (const std\+\_\+msgs\+::\+Int32\+Const\+Ptr \&input)
+\begin{DoxyCompactList}\small\item\em user input function \end{DoxyCompactList}\item 
+void \hyperlink{classM3MoveGroup_a754821f89a28e5b3e6924d9f9e040946}{finger\+Timeout\+Callback} (const std\+\_\+msgs\+::\+Bool timeout)
+\begin{DoxyCompactList}\small\item\em action server timeout callback for finger \end{DoxyCompactList}\item 
+void \hyperlink{classM3MoveGroup_a78c1d36f86d5ade3dc73b6239227a512}{finger\+Timer\+Timeout\+Callback} (const ros\+::\+Timer\+Event \&e)
+\begin{DoxyCompactList}\small\item\em Using ros timer to check for finger timeout. \end{DoxyCompactList}\item 
+void \hyperlink{classM3MoveGroup_ada2b7b9e5a402676eff8747267385f6b}{Collision\+Object\+Callback} (const moveit\+\_\+msgs\+::\+Collision\+Object\+Const\+Ptr \&obj)
+\begin{DoxyCompactList}\small\item\em Action server to add collision object into moveit planning scene. \end{DoxyCompactList}\item 
+void \hyperlink{classM3MoveGroup_a9b982c9f3cd26755ed9b6ecca1286c50}{callback\+\_\+testpub} (const ros\+::\+Timer\+Event \&e)
+\begin{DoxyCompactList}\small\item\em callback test for fingers \end{DoxyCompactList}\item 
+void \hyperlink{classM3MoveGroup_a1a515c13453033a4ab89b5599d58f23f}{callback\+\_\+stop\+\_\+fingers} (const ros\+::\+Timer\+Event \&e)
+\begin{DoxyCompactList}\small\item\em callback to stop fingers. Time based control of olivia fingers \end{DoxyCompactList}\item 
+void \hyperlink{classM3MoveGroup_af7c4ca891be62a8c3fdb7cd0cc0cb2a0}{callback\+\_\+stop\+\_\+fingers1} (const ros\+::\+Timer\+Event \&e)
+\begin{DoxyCompactList}\small\item\em time-\/based control to stop olivia finger1 \end{DoxyCompactList}\item 
+void \hyperlink{classM3MoveGroup_af6a7a1d4aab641328a9213689f7b9ce1}{callback\+\_\+stop\+\_\+fingers2} (const ros\+::\+Timer\+Event \&e)
+\begin{DoxyCompactList}\small\item\em time based control to stop olivia finger2 \end{DoxyCompactList}\item 
+void \hyperlink{classM3MoveGroup_aedb5d4a4aaeebd2ef3fa0d54edb0efaa}{stop\+\_\+fingers} (std\+::vector$<$ std\+::string $>$ names)
+\begin{DoxyCompactList}\small\item\em time based control to stop all olivia fingers \end{DoxyCompactList}\item 
+void \hyperlink{classM3MoveGroup_a7208ba7725391ea9ffd98d3d31ae5f0d}{Finger\+Encoder\+Callback} (const kaist\+\_\+msgs\+::\+Joint\+Encoder\+Status\+Const\+Ptr \&joint)
+\begin{DoxyCompactList}\small\item\em encoder position based control to stop olivia fingers \end{DoxyCompactList}\item 
+void \hyperlink{classM3MoveGroup_ab202574f8621d26c6369c1b794014251}{Fingers\+Encoders\+Action\+CB} (const m3\+\_\+moveit\+::\+Moveit\+Fingers\+Goal\+Const\+Ptr \&goal)
+\begin{DoxyCompactList}\small\item\em action server to control olivia fingers using encoders \end{DoxyCompactList}\item 
+void \hyperlink{classM3MoveGroup_a50f3c0ec424696c8d613cbfb18829384}{Fingers\+Action\+CB} (const m3\+\_\+moveit\+::\+Moveit\+Fingers\+Goal\+Const\+Ptr \&goal)
+\begin{DoxyCompactList}\small\item\em Action server to control olivia fingers. \end{DoxyCompactList}\item 
+void \hyperlink{classM3MoveGroup_a71fc79c75e8e96881d0cfa6629f5e11d}{Cart\+Single\+Action\+CB} (const m3\+\_\+moveit\+::\+Moveit\+Single\+Goal\+Const\+Ptr \&goal)
+\begin{DoxyCompactList}\small\item\em Moveit action server\+: planning using cartesian space for single arm. \end{DoxyCompactList}\item 
+void \hyperlink{classM3MoveGroup_a6ce4ef5d30fc1e93826f4f8104f8db04}{Cart\+Single\+Right\+Action\+CB} (const m3\+\_\+moveit\+::\+Moveit\+Single\+Goal\+Const\+Ptr \&goal)
+\begin{DoxyCompactList}\small\item\em Moveit Action server\+: Using cartesian space planning for single right arm. \end{DoxyCompactList}\item 
+double \hyperlink{classM3MoveGroup_a08ae3af12542a9dd44d5f823c8b3bb46}{r2d} (double rad)
+\begin{DoxyCompactList}\small\item\em radian to degree conversion \end{DoxyCompactList}\item 
+std\+::vector$<$ double $>$ \hyperlink{classM3MoveGroup_a76eed72085b10fa6fea6f9cc773a7901}{Convert\+To\+Olivia\+Coordinates} (const std\+::vector$<$ double $>$ input)
+\begin{DoxyCompactList}\small\item\em Remap and convert joint angles to Olivia differences in real robot and urdf, this is to remap the joints before sending to real robot. \end{DoxyCompactList}\item 
+std\+::vector$<$ double $>$ \hyperlink{classM3MoveGroup_a59d8555d6560673417be20d6bf5d6aae}{Convert\+To\+Olivia\+Head} (const std\+::vector$<$ double $>$ input)
+\begin{DoxyCompactList}\small\item\em Remap and convert joint angles to Olivia A separate dynamixel is used for the head. Joint value need to be send separately. \end{DoxyCompactList}\item 
+std\+::vector$<$ double $>$ \hyperlink{classM3MoveGroup_a422eebf405bc0b3187bb6e692b361fa0}{Convert\+Olivia\+Arm} (const std\+::vector$<$ double $>$ input, std\+::string arm)
+\begin{DoxyCompactList}\small\item\em Remap and convert joint angles to Olivia (for the arm only) \end{DoxyCompactList}\item 
+void \hyperlink{classM3MoveGroup_a0b0b4680d729b8878a89ba03c6d59303}{Send2\+Olivia\+Single\+Arm} (moveit\+\_\+msgs\+::\+Robot\+Trajectory trajectory, std\+::string link\+\_\+name)
+\begin{DoxyCompactList}\small\item\em send joint values to kaist daemon to move real olivia \end{DoxyCompactList}\item 
+void \hyperlink{classM3MoveGroup_a8adcfcf74c2e2350189be855dca572de}{Send2\+Olivia\+Whole\+Body} (moveit\+\_\+msgs\+::\+Robot\+Trajectory trajectory)
+\begin{DoxyCompactList}\small\item\em send joint values to kaist daemon to move real olivia (for whole body) \end{DoxyCompactList}\item 
+void \hyperlink{classM3MoveGroup_a5f4c7d0260a2d987e5abaf1b1365c657}{Send2\+Olivia\+Head} (moveit\+\_\+msgs\+::\+Robot\+Trajectory trajectory)
+\begin{DoxyCompactList}\small\item\em send joint values to dynamixel to move real olivia head only \end{DoxyCompactList}\item 
+void \hyperlink{classM3MoveGroup_a5cbdff90f02f8067d55c1b4592b24b72}{Task\+Single\+Action\+CB} (const m3\+\_\+moveit\+::\+Moveit\+Single\+Goal\+Const\+Ptr \&goal)
+\begin{DoxyCompactList}\small\item\em Moveit Action server\+: moveit group task planning, movement less predictable, but higher rate of success. \end{DoxyCompactList}\item 
+void \hyperlink{classM3MoveGroup_aee17065b5aa40384dcca5a6589261ded}{Task\+Single\+Right\+Action\+CB} (const m3\+\_\+moveit\+::\+Moveit\+Single\+Goal\+Const\+Ptr \&goal)
+\begin{DoxyCompactList}\small\item\em Moveit Action server\+: moveit group task planning (for right single arm only) \end{DoxyCompactList}\item 
+void \hyperlink{classM3MoveGroup_abbc7367f21a594bd3ae7a91fe6441480}{Attach\+Right\+Action\+CB} (const m3\+\_\+moveit\+::\+Moveit\+Pick\+Place\+Goal\+Const\+Ptr \&goal)
+\begin{DoxyCompactList}\small\item\em Moveit Action server\+: attaching objects in planning scene to arm (works for both left or right) \end{DoxyCompactList}\item 
+void \hyperlink{classM3MoveGroup_a0e43c201d45fd9d987dd5b57f57e6402}{Detach\+Right\+Action\+CB} (const m3\+\_\+moveit\+::\+Moveit\+Pick\+Place\+Goal\+Const\+Ptr \&goal)
+\begin{DoxyCompactList}\small\item\em Moveit Action server\+: detach objects in planning scene from arm (works for both left or right) \end{DoxyCompactList}\item 
+void \hyperlink{classM3MoveGroup_afad468e11f51e093ef704ebe974ecc28}{Remove\+Collision\+Action\+CB} (const m3\+\_\+moveit\+::\+Moveit\+Collide\+Goal\+Const\+Ptr \&goal)
+\begin{DoxyCompactList}\small\item\em Moveit Action server\+: Remove objects from planning scene. \end{DoxyCompactList}\item 
+void \hyperlink{classM3MoveGroup_aa1aa80c1a53d3829ed0e535f728cbe63}{Add\+Collision\+Action\+CB} (const m3\+\_\+moveit\+::\+Moveit\+Collide\+Goal\+Const\+Ptr \&goal)
+\begin{DoxyCompactList}\small\item\em Moveit Action server\+: add object into planning scene for collision-\/free planning. \end{DoxyCompactList}\item 
+void \hyperlink{classM3MoveGroup_a4999726d3def40e06217e81fb7f095ab}{Task\+Dual\+Action\+CB} (const m3\+\_\+moveit\+::\+Moveit\+Dual\+Goal\+Const\+Ptr \&goal)
+\begin{DoxyCompactList}\small\item\em Moveit Action server\+: group task planning for both arms. \end{DoxyCompactList}\item 
+void \hyperlink{classM3MoveGroup_a3cb5511476fb082b891ac3de867ee8b8}{Mixed\+Whole\+Body\+Action\+CB} (const m3\+\_\+moveit\+::\+Moveit\+Whole\+Body\+Goal\+Const\+Ptr \&goal)
+\begin{DoxyCompactList}\small\item\em Moveit Action server\+: joint space planning for whole body. \end{DoxyCompactList}\item 
+void \hyperlink{classM3MoveGroup_adcf08e40ebf2191e9d717e2baf275f18}{Joint\+Whole\+Body\+Action\+CB} (const m3\+\_\+moveit\+::\+Moveit\+Whole\+Body\+Goal\+Const\+Ptr \&goal)
+\begin{DoxyCompactList}\small\item\em Moveit Action server\+: joint space planning. \end{DoxyCompactList}\item 
+void \hyperlink{classM3MoveGroup_aef5fd5bd7565b10b0e5d568bce824773}{Neck\+Single\+Action\+CB} (const m3\+\_\+moveit\+::\+Neck\+Tilt\+Goal\+Const\+Ptr \&goal)
+\begin{DoxyCompactList}\small\item\em Moveit Action server\+: Moving the neck only. \end{DoxyCompactList}\item 
+bool \hyperlink{classM3MoveGroup_a65ac544bc2275fc3823bc66c3a2a7a19}{Check\+Hand\+Orientation} (const moveit\+::planning\+\_\+interface\+::\+Move\+Group\+::\+Plan plan, const geometry\+\_\+msgs\+::\+Pose pose\+\_\+left, const geometry\+\_\+msgs\+::\+Pose pose\+\_\+right)
+\begin{DoxyCompactList}\small\item\em check the planning scene kinematics models for hand orientation \end{DoxyCompactList}\item 
+bool \hyperlink{classM3MoveGroup_a89b6d3658b6884d6a19a2975193e444a}{Check\+Hand\+Orientation} (const moveit\+::planning\+\_\+interface\+::\+Move\+Group\+::\+Plan plan, const geometry\+\_\+msgs\+::\+Pose pose, std\+::string name)
+\begin{DoxyCompactList}\small\item\em check the hand orientation in moveit planning \end{DoxyCompactList}\item 
+double \hyperlink{classM3MoveGroup_a000211da0f2ad520583f9efff2401e7a}{Get\+Quaternion\+Distance} (std\+::vector$<$ double $>$ quat1, std\+::vector$<$ double $>$ quat2)
+\begin{DoxyCompactList}\small\item\em Get the delta distance between 2 quaternion. \end{DoxyCompactList}\item 
+void \hyperlink{classM3MoveGroup_adf12117d8738588cadfa6ab62e008fea}{Jiggle\+Target} (int i\+Attempt, geometry\+\_\+msgs\+::\+Pose pose, std\+::string name)
+\begin{DoxyCompactList}\small\item\em Attempt to jiggle the target pose to achieve higher success rate when moveit fails to plan. \end{DoxyCompactList}\item 
+void \hyperlink{classM3MoveGroup_a01c4d2e768a050ad0652ecc2b612946c}{Jiggle\+Target} (int i\+Attempt, geometry\+\_\+msgs\+::\+Pose pose\+\_\+left, geometry\+\_\+msgs\+::\+Pose pose\+\_\+right, std\+::string name\+\_\+left, std\+::string name\+\_\+right)
+\begin{DoxyCompactList}\small\item\em Attempt to jiggle the target pose to achieve higher success rate when moveit fails to plan. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classM3MoveGroup_a11d211d48cb3a6538546436770a4a636}\label{classM3MoveGroup_a11d211d48cb3a6538546436770a4a636}} 
+bool {\bfseries replan} = false
+\item 
+\mbox{\Hypertarget{classM3MoveGroup_a726d32f722db2d932e88c5edcbfc6b93}\label{classM3MoveGroup_a726d32f722db2d932e88c5edcbfc6b93}} 
+bool {\bfseries response\+Flag} = false
+\item 
+\mbox{\Hypertarget{classM3MoveGroup_a26e3a6a95c9e3b3bc587dfdec2d44dc4}\label{classM3MoveGroup_a26e3a6a95c9e3b3bc587dfdec2d44dc4}} 
+bool {\bfseries quit\+Flag} = false
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classM3MoveGroup_a2de02d08a1143bc922b9c6064390feec}\label{classM3MoveGroup_a2de02d08a1143bc922b9c6064390feec}} 
+double {\bfseries speed}
+\item 
+\mbox{\Hypertarget{classM3MoveGroup_af48585e7365e3f074da979dd9a9f5ec6}\label{classM3MoveGroup_af48585e7365e3f074da979dd9a9f5ec6}} 
+int {\bfseries counter}
+\item 
+\mbox{\Hypertarget{classM3MoveGroup_ae1027e3ba7e32e7d484a41bc21ca9f33}\label{classM3MoveGroup_ae1027e3ba7e32e7d484a41bc21ca9f33}} 
+ros\+::\+Node\+Handle {\bfseries nh}
+\item 
+\mbox{\Hypertarget{classM3MoveGroup_aae8528cc0600cff3dc0c6379dd024475}\label{classM3MoveGroup_aae8528cc0600cff3dc0c6379dd024475}} 
+ros\+::\+Subscriber {\bfseries sub}
+\item 
+\mbox{\Hypertarget{classM3MoveGroup_a242c957ef30ddaa0603eea58183c77f1}\label{classM3MoveGroup_a242c957ef30ddaa0603eea58183c77f1}} 
+ros\+::\+Subscriber {\bfseries input\+\_\+sub}
+\item 
+\mbox{\Hypertarget{classM3MoveGroup_a21f6ef43a6a977e44417edf695bb9e51}\label{classM3MoveGroup_a21f6ef43a6a977e44417edf695bb9e51}} 
+string {\bfseries input}
+\item 
+\mbox{\Hypertarget{classM3MoveGroup_a35aa642a8075093804905a6a2ba53bf4}\label{classM3MoveGroup_a35aa642a8075093804905a6a2ba53bf4}} 
+actionlib\+::\+Simple\+Action\+Server$<$ m3\+\_\+moveit\+::\+Moveit\+Single\+Action $>$ {\bfseries cart\+\_\+single\+\_\+as\+\_\+}
+\item 
+\mbox{\Hypertarget{classM3MoveGroup_a45220388a7610bdced386b9f72634664}\label{classM3MoveGroup_a45220388a7610bdced386b9f72634664}} 
+actionlib\+::\+Simple\+Action\+Server$<$ m3\+\_\+moveit\+::\+Moveit\+Fingers\+Action $>$ {\bfseries fingers\+\_\+as\+\_\+}
+\item 
+\mbox{\Hypertarget{classM3MoveGroup_a9488a0b143372a7fcb9183a0e0077f0b}\label{classM3MoveGroup_a9488a0b143372a7fcb9183a0e0077f0b}} 
+actionlib\+::\+Simple\+Action\+Server$<$ m3\+\_\+moveit\+::\+Moveit\+Fingers\+Action $>$ {\bfseries fingers\+\_\+encoders\+\_\+as\+\_\+}
+\item 
+\mbox{\Hypertarget{classM3MoveGroup_a4e85f645b84b284722ff2161b4c09a53}\label{classM3MoveGroup_a4e85f645b84b284722ff2161b4c09a53}} 
+actionlib\+::\+Simple\+Action\+Server$<$ m3\+\_\+moveit\+::\+Moveit\+Single\+Action $>$ {\bfseries task\+\_\+single\+\_\+as\+\_\+}
+\item 
+\mbox{\Hypertarget{classM3MoveGroup_a147f3ffea79b2cc41b0d1dd56eb351fc}\label{classM3MoveGroup_a147f3ffea79b2cc41b0d1dd56eb351fc}} 
+actionlib\+::\+Simple\+Action\+Server$<$ m3\+\_\+moveit\+::\+Moveit\+Dual\+Action $>$ {\bfseries task\+\_\+dual\+\_\+as\+\_\+}
+\item 
+\mbox{\Hypertarget{classM3MoveGroup_a1d3fb944130d30f0b67ae0f43a44f015}\label{classM3MoveGroup_a1d3fb944130d30f0b67ae0f43a44f015}} 
+actionlib\+::\+Simple\+Action\+Server$<$ m3\+\_\+moveit\+::\+Moveit\+Whole\+Body\+Action $>$ {\bfseries mixed\+\_\+whole\+\_\+body\+\_\+as\+\_\+}
+\item 
+\mbox{\Hypertarget{classM3MoveGroup_a6178e9c498cb85202da04878c6348814}\label{classM3MoveGroup_a6178e9c498cb85202da04878c6348814}} 
+actionlib\+::\+Simple\+Action\+Server$<$ m3\+\_\+moveit\+::\+Moveit\+Whole\+Body\+Action $>$ {\bfseries joint\+\_\+whole\+\_\+body\+\_\+as\+\_\+}
+\item 
+\mbox{\Hypertarget{classM3MoveGroup_aba54e6c86c7547a1d8ab018a8abcb435}\label{classM3MoveGroup_aba54e6c86c7547a1d8ab018a8abcb435}} 
+actionlib\+::\+Simple\+Action\+Server$<$ m3\+\_\+moveit\+::\+Neck\+Tilt\+Action $>$ {\bfseries neck\+\_\+tilt\+\_\+as\+\_\+}
+\item 
+\mbox{\Hypertarget{classM3MoveGroup_a89e363644f1da3c9ea6a7f366407be6b}\label{classM3MoveGroup_a89e363644f1da3c9ea6a7f366407be6b}} 
+actionlib\+::\+Simple\+Action\+Server$<$ m3\+\_\+moveit\+::\+Moveit\+Pick\+Place\+Action $>$ {\bfseries attach\+\_\+action\+\_\+as\+\_\+}
+\item 
+\mbox{\Hypertarget{classM3MoveGroup_aa0f9fa4a773acb86ffdc5eccd02e9620}\label{classM3MoveGroup_aa0f9fa4a773acb86ffdc5eccd02e9620}} 
+actionlib\+::\+Simple\+Action\+Server$<$ m3\+\_\+moveit\+::\+Moveit\+Pick\+Place\+Action $>$ {\bfseries detach\+\_\+action\+\_\+as\+\_\+}
+\item 
+\mbox{\Hypertarget{classM3MoveGroup_a7f7e0ce3ab9874af9ceb4ac0d0ed918c}\label{classM3MoveGroup_a7f7e0ce3ab9874af9ceb4ac0d0ed918c}} 
+actionlib\+::\+Simple\+Action\+Server$<$ m3\+\_\+moveit\+::\+Moveit\+Collide\+Action $>$ {\bfseries add\+\_\+collision\+\_\+as\+\_\+}
+\item 
+\mbox{\Hypertarget{classM3MoveGroup_a9123cb84f6c5c07b3f23423ca5350446}\label{classM3MoveGroup_a9123cb84f6c5c07b3f23423ca5350446}} 
+actionlib\+::\+Simple\+Action\+Server$<$ m3\+\_\+moveit\+::\+Moveit\+Collide\+Action $>$ {\bfseries remove\+\_\+collision\+\_\+as\+\_\+}
+\item 
+\mbox{\Hypertarget{classM3MoveGroup_ad288b520fde219efc3e7955e80657fb4}\label{classM3MoveGroup_ad288b520fde219efc3e7955e80657fb4}} 
+actionlib\+::\+Simple\+Action\+Server$<$ m3\+\_\+moveit\+::\+Moveit\+Single\+Action $>$ {\bfseries task\+\_\+single\+\_\+right\+\_\+as\+\_\+}
+\item 
+\mbox{\Hypertarget{classM3MoveGroup_a70fb5a8f33b7d6fd4198f23eb56ec439}\label{classM3MoveGroup_a70fb5a8f33b7d6fd4198f23eb56ec439}} 
+actionlib\+::\+Simple\+Action\+Server$<$ m3\+\_\+moveit\+::\+Moveit\+Single\+Action $>$ {\bfseries cart\+\_\+single\+\_\+right\+\_\+as\+\_\+}
+\item 
+\mbox{\Hypertarget{classM3MoveGroup_a927f730062fc4485e57af9f44183dc3d}\label{classM3MoveGroup_a927f730062fc4485e57af9f44183dc3d}} 
+ros\+::\+Publisher {\bfseries planning\+\_\+scene\+\_\+diff\+\_\+pub}
+\item 
+\mbox{\Hypertarget{classM3MoveGroup_abfbeb8941ce265c30ab6509b5e951c75}\label{classM3MoveGroup_abfbeb8941ce265c30ab6509b5e951c75}} 
+ros\+::\+Service\+Client {\bfseries get\+\_\+planning\+\_\+scene}
+\item 
+\mbox{\Hypertarget{classM3MoveGroup_a69e8c12ee1246bd56a523599445027c5}\label{classM3MoveGroup_a69e8c12ee1246bd56a523599445027c5}} 
+ros\+::\+Subscriber {\bfseries sub\+\_\+collision\+\_\+object}
+\item 
+\mbox{\Hypertarget{classM3MoveGroup_a808c577edf16a04592f664f01ce5586a}\label{classM3MoveGroup_a808c577edf16a04592f664f01ce5586a}} 
+ros\+::\+Subscriber {\bfseries sub\+\_\+finger\+\_\+encoder}
+\item 
+\mbox{\Hypertarget{classM3MoveGroup_a3fc5ec3b4bbbc60849dd53860a84ced4}\label{classM3MoveGroup_a3fc5ec3b4bbbc60849dd53860a84ced4}} 
+ros\+::\+Subscriber {\bfseries sub\+\_\+finger\+\_\+timeout}
+\item 
+\mbox{\Hypertarget{classM3MoveGroup_a01b49af975aad4adf9bdd8c183dbad96}\label{classM3MoveGroup_a01b49af975aad4adf9bdd8c183dbad96}} 
+moveit\+::planning\+\_\+interface\+::\+Move\+Group {\bfseries group}
+\item 
+\mbox{\Hypertarget{classM3MoveGroup_a19d5a6f059e146382018c4e73880ff63}\label{classM3MoveGroup_a19d5a6f059e146382018c4e73880ff63}} 
+moveit\+::planning\+\_\+interface\+::\+Move\+Group\+::\+Plan {\bfseries my\+\_\+plan}
+\item 
+\mbox{\Hypertarget{classM3MoveGroup_aae4a2f78dcc5b36b9d81f729c46e9ea9}\label{classM3MoveGroup_aae4a2f78dcc5b36b9d81f729c46e9ea9}} 
+moveit\+::planning\+\_\+interface\+::\+Planning\+Scene\+Interface {\bfseries planning\+\_\+scene\+\_\+interface}
+\item 
+\mbox{\Hypertarget{classM3MoveGroup_a6915d8381d3f920de1cf8da14570f85d}\label{classM3MoveGroup_a6915d8381d3f920de1cf8da14570f85d}} 
+moveit\+::planning\+\_\+interface\+::\+Move\+Group {\bfseries group\+\_\+right}
+\item 
+\mbox{\Hypertarget{classM3MoveGroup_ad2ab3f8321ce20dcf03e56fff4db1fcd}\label{classM3MoveGroup_ad2ab3f8321ce20dcf03e56fff4db1fcd}} 
+moveit\+::planning\+\_\+interface\+::\+Move\+Group {\bfseries group\+\_\+left}
+\item 
+\mbox{\Hypertarget{classM3MoveGroup_a0ea65d533f4ea9d8316fed07fc275f4a}\label{classM3MoveGroup_a0ea65d533f4ea9d8316fed07fc275f4a}} 
+std\+::string {\bfseries lgrp\+\_\+name}
+\item 
+\mbox{\Hypertarget{classM3MoveGroup_a85ba7e1cee1212a2f57f1a62b19cca2e}\label{classM3MoveGroup_a85ba7e1cee1212a2f57f1a62b19cca2e}} 
+std\+::string {\bfseries rgrp\+\_\+name}
+\item 
+\mbox{\Hypertarget{classM3MoveGroup_a3cc83beee6f89f60cc5d2fe15f788ab6}\label{classM3MoveGroup_a3cc83beee6f89f60cc5d2fe15f788ab6}} 
+std\+::vector$<$ std\+::string $>$ {\bfseries attachedlist}
+\item 
+\mbox{\Hypertarget{classM3MoveGroup_ae72bfc37b9dffd62ef13ddba8a8b9e69}\label{classM3MoveGroup_ae72bfc37b9dffd62ef13ddba8a8b9e69}} 
+std\+::vector$<$ std\+::string $>$ {\bfseries right\+Hand\+Link\+Names}
+\item 
+\mbox{\Hypertarget{classM3MoveGroup_aba01671142feb7c3254d44be29d1127d}\label{classM3MoveGroup_aba01671142feb7c3254d44be29d1127d}} 
+std\+::vector$<$ std\+::string $>$ {\bfseries left\+Hand\+Link\+Names}
+\item 
+\mbox{\Hypertarget{classM3MoveGroup_af2d7b7e7684185e9610705b48abd9ce2}\label{classM3MoveGroup_af2d7b7e7684185e9610705b48abd9ce2}} 
+std\+::string {\bfseries rightpalm\+Link\+Name} = \char`\"{}handmount\+\_\+\+R\+I\+G\+HT\char`\"{}
+\item 
+\mbox{\Hypertarget{classM3MoveGroup_a2ac2ba2389c7790242dd3dbeadbb2838}\label{classM3MoveGroup_a2ac2ba2389c7790242dd3dbeadbb2838}} 
+std\+::string {\bfseries leftpalm\+Link\+Name} = \char`\"{}handmount\+\_\+\+L\+E\+FT\char`\"{}
+\item 
+\mbox{\Hypertarget{classM3MoveGroup_aaa009ee7cda688cef56adfc4f9af01b8}\label{classM3MoveGroup_aaa009ee7cda688cef56adfc4f9af01b8}} 
+std\+::string {\bfseries finger1\+\_\+name}
+\item 
+\mbox{\Hypertarget{classM3MoveGroup_a8b0db8435a640b34e10e82e56bc5bfb4}\label{classM3MoveGroup_a8b0db8435a640b34e10e82e56bc5bfb4}} 
+std\+::string {\bfseries finger2\+\_\+name}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Moveit action server. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classM3MoveGroup_aeb66c992c2a648e53f823a6058669c4c}\label{classM3MoveGroup_aeb66c992c2a648e53f823a6058669c4c}} 
+\index{M3\+Move\+Group@{M3\+Move\+Group}!M3\+Move\+Group@{M3\+Move\+Group}}
+\index{M3\+Move\+Group@{M3\+Move\+Group}!M3\+Move\+Group@{M3\+Move\+Group}}
+\subsubsection{\texorpdfstring{M3\+Move\+Group()}{M3MoveGroup()}}
+{\footnotesize\ttfamily M3\+Move\+Group\+::\+M3\+Move\+Group (\begin{DoxyParamCaption}\item[{std\+::string}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Construct a new \hyperlink{classM3MoveGroup}{M3\+Move\+Group} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classM3MoveGroup_aa1aa80c1a53d3829ed0e535f728cbe63}\label{classM3MoveGroup_aa1aa80c1a53d3829ed0e535f728cbe63}} 
+\index{M3\+Move\+Group@{M3\+Move\+Group}!Add\+Collision\+Action\+CB@{Add\+Collision\+Action\+CB}}
+\index{Add\+Collision\+Action\+CB@{Add\+Collision\+Action\+CB}!M3\+Move\+Group@{M3\+Move\+Group}}
+\subsubsection{\texorpdfstring{Add\+Collision\+Action\+C\+B()}{AddCollisionActionCB()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void M3\+Move\+Group\+::\+Add\+Collision\+Action\+CB (\begin{DoxyParamCaption}\item[{const m3\+\_\+moveit\+::\+Moveit\+Collide\+Goal\+Const\+Ptr \&}]{goal }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Moveit Action server\+: add object into planning scene for collision-\/free planning. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em goal} & target \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classM3MoveGroup_aa1aa80c1a53d3829ed0e535f728cbe63}\label{classM3MoveGroup_aa1aa80c1a53d3829ed0e535f728cbe63}} 
+\index{M3\+Move\+Group@{M3\+Move\+Group}!Add\+Collision\+Action\+CB@{Add\+Collision\+Action\+CB}}
+\index{Add\+Collision\+Action\+CB@{Add\+Collision\+Action\+CB}!M3\+Move\+Group@{M3\+Move\+Group}}
+\subsubsection{\texorpdfstring{Add\+Collision\+Action\+C\+B()}{AddCollisionActionCB()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void M3\+Move\+Group\+::\+Add\+Collision\+Action\+CB (\begin{DoxyParamCaption}\item[{const m3\+\_\+moveit\+::\+Moveit\+Collide\+Goal\+Const\+Ptr \&}]{goal }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Moveit Action server\+: add object into planning scene for collision-\/free planning. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em goal} & target \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classM3MoveGroup_abbc7367f21a594bd3ae7a91fe6441480}\label{classM3MoveGroup_abbc7367f21a594bd3ae7a91fe6441480}} 
+\index{M3\+Move\+Group@{M3\+Move\+Group}!Attach\+Right\+Action\+CB@{Attach\+Right\+Action\+CB}}
+\index{Attach\+Right\+Action\+CB@{Attach\+Right\+Action\+CB}!M3\+Move\+Group@{M3\+Move\+Group}}
+\subsubsection{\texorpdfstring{Attach\+Right\+Action\+C\+B()}{AttachRightActionCB()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void M3\+Move\+Group\+::\+Attach\+Right\+Action\+CB (\begin{DoxyParamCaption}\item[{const m3\+\_\+moveit\+::\+Moveit\+Pick\+Place\+Goal\+Const\+Ptr \&}]{goal }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Moveit Action server\+: attaching objects in planning scene to arm (works for both left or right) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em goal} & target \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classM3MoveGroup_abbc7367f21a594bd3ae7a91fe6441480}\label{classM3MoveGroup_abbc7367f21a594bd3ae7a91fe6441480}} 
+\index{M3\+Move\+Group@{M3\+Move\+Group}!Attach\+Right\+Action\+CB@{Attach\+Right\+Action\+CB}}
+\index{Attach\+Right\+Action\+CB@{Attach\+Right\+Action\+CB}!M3\+Move\+Group@{M3\+Move\+Group}}
+\subsubsection{\texorpdfstring{Attach\+Right\+Action\+C\+B()}{AttachRightActionCB()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void M3\+Move\+Group\+::\+Attach\+Right\+Action\+CB (\begin{DoxyParamCaption}\item[{const m3\+\_\+moveit\+::\+Moveit\+Pick\+Place\+Goal\+Const\+Ptr \&}]{goal }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Moveit Action server\+: attaching objects in planning scene to arm (works for both left or right) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em goal} & target \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classM3MoveGroup_a1a515c13453033a4ab89b5599d58f23f}\label{classM3MoveGroup_a1a515c13453033a4ab89b5599d58f23f}} 
+\index{M3\+Move\+Group@{M3\+Move\+Group}!callback\+\_\+stop\+\_\+fingers@{callback\+\_\+stop\+\_\+fingers}}
+\index{callback\+\_\+stop\+\_\+fingers@{callback\+\_\+stop\+\_\+fingers}!M3\+Move\+Group@{M3\+Move\+Group}}
+\subsubsection{\texorpdfstring{callback\+\_\+stop\+\_\+fingers()}{callback\_stop\_fingers()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void M3\+Move\+Group\+::callback\+\_\+stop\+\_\+fingers (\begin{DoxyParamCaption}\item[{const ros\+::\+Timer\+Event \&}]{e }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+callback to stop fingers. Time based control of olivia fingers 
+
+
+\begin{DoxyParams}{Parameters}
+{\em e} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classM3MoveGroup_a1a515c13453033a4ab89b5599d58f23f}\label{classM3MoveGroup_a1a515c13453033a4ab89b5599d58f23f}} 
+\index{M3\+Move\+Group@{M3\+Move\+Group}!callback\+\_\+stop\+\_\+fingers@{callback\+\_\+stop\+\_\+fingers}}
+\index{callback\+\_\+stop\+\_\+fingers@{callback\+\_\+stop\+\_\+fingers}!M3\+Move\+Group@{M3\+Move\+Group}}
+\subsubsection{\texorpdfstring{callback\+\_\+stop\+\_\+fingers()}{callback\_stop\_fingers()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void M3\+Move\+Group\+::callback\+\_\+stop\+\_\+fingers (\begin{DoxyParamCaption}\item[{const ros\+::\+Timer\+Event \&}]{e }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+callback to stop fingers. Time based control of olivia fingers 
+
+
+\begin{DoxyParams}{Parameters}
+{\em e} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classM3MoveGroup_af7c4ca891be62a8c3fdb7cd0cc0cb2a0}\label{classM3MoveGroup_af7c4ca891be62a8c3fdb7cd0cc0cb2a0}} 
+\index{M3\+Move\+Group@{M3\+Move\+Group}!callback\+\_\+stop\+\_\+fingers1@{callback\+\_\+stop\+\_\+fingers1}}
+\index{callback\+\_\+stop\+\_\+fingers1@{callback\+\_\+stop\+\_\+fingers1}!M3\+Move\+Group@{M3\+Move\+Group}}
+\subsubsection{\texorpdfstring{callback\+\_\+stop\+\_\+fingers1()}{callback\_stop\_fingers1()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void M3\+Move\+Group\+::callback\+\_\+stop\+\_\+fingers1 (\begin{DoxyParamCaption}\item[{const ros\+::\+Timer\+Event \&}]{e }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+time-\/based control to stop olivia finger1 
+
+
+\begin{DoxyParams}{Parameters}
+{\em e} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classM3MoveGroup_af7c4ca891be62a8c3fdb7cd0cc0cb2a0}\label{classM3MoveGroup_af7c4ca891be62a8c3fdb7cd0cc0cb2a0}} 
+\index{M3\+Move\+Group@{M3\+Move\+Group}!callback\+\_\+stop\+\_\+fingers1@{callback\+\_\+stop\+\_\+fingers1}}
+\index{callback\+\_\+stop\+\_\+fingers1@{callback\+\_\+stop\+\_\+fingers1}!M3\+Move\+Group@{M3\+Move\+Group}}
+\subsubsection{\texorpdfstring{callback\+\_\+stop\+\_\+fingers1()}{callback\_stop\_fingers1()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void M3\+Move\+Group\+::callback\+\_\+stop\+\_\+fingers1 (\begin{DoxyParamCaption}\item[{const ros\+::\+Timer\+Event \&}]{e }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+time-\/based control to stop olivia finger1 
+
+
+\begin{DoxyParams}{Parameters}
+{\em e} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classM3MoveGroup_af6a7a1d4aab641328a9213689f7b9ce1}\label{classM3MoveGroup_af6a7a1d4aab641328a9213689f7b9ce1}} 
+\index{M3\+Move\+Group@{M3\+Move\+Group}!callback\+\_\+stop\+\_\+fingers2@{callback\+\_\+stop\+\_\+fingers2}}
+\index{callback\+\_\+stop\+\_\+fingers2@{callback\+\_\+stop\+\_\+fingers2}!M3\+Move\+Group@{M3\+Move\+Group}}
+\subsubsection{\texorpdfstring{callback\+\_\+stop\+\_\+fingers2()}{callback\_stop\_fingers2()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void M3\+Move\+Group\+::callback\+\_\+stop\+\_\+fingers2 (\begin{DoxyParamCaption}\item[{const ros\+::\+Timer\+Event \&}]{e }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+time based control to stop olivia finger2 
+
+
+\begin{DoxyParams}{Parameters}
+{\em e} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classM3MoveGroup_af6a7a1d4aab641328a9213689f7b9ce1}\label{classM3MoveGroup_af6a7a1d4aab641328a9213689f7b9ce1}} 
+\index{M3\+Move\+Group@{M3\+Move\+Group}!callback\+\_\+stop\+\_\+fingers2@{callback\+\_\+stop\+\_\+fingers2}}
+\index{callback\+\_\+stop\+\_\+fingers2@{callback\+\_\+stop\+\_\+fingers2}!M3\+Move\+Group@{M3\+Move\+Group}}
+\subsubsection{\texorpdfstring{callback\+\_\+stop\+\_\+fingers2()}{callback\_stop\_fingers2()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void M3\+Move\+Group\+::callback\+\_\+stop\+\_\+fingers2 (\begin{DoxyParamCaption}\item[{const ros\+::\+Timer\+Event \&}]{e }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+time based control to stop olivia finger2 
+
+
+\begin{DoxyParams}{Parameters}
+{\em e} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classM3MoveGroup_a9b982c9f3cd26755ed9b6ecca1286c50}\label{classM3MoveGroup_a9b982c9f3cd26755ed9b6ecca1286c50}} 
+\index{M3\+Move\+Group@{M3\+Move\+Group}!callback\+\_\+testpub@{callback\+\_\+testpub}}
+\index{callback\+\_\+testpub@{callback\+\_\+testpub}!M3\+Move\+Group@{M3\+Move\+Group}}
+\subsubsection{\texorpdfstring{callback\+\_\+testpub()}{callback\_testpub()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void M3\+Move\+Group\+::callback\+\_\+testpub (\begin{DoxyParamCaption}\item[{const ros\+::\+Timer\+Event \&}]{e }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+callback test for fingers 
+
+
+\begin{DoxyParams}{Parameters}
+{\em e} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classM3MoveGroup_a9b982c9f3cd26755ed9b6ecca1286c50}\label{classM3MoveGroup_a9b982c9f3cd26755ed9b6ecca1286c50}} 
+\index{M3\+Move\+Group@{M3\+Move\+Group}!callback\+\_\+testpub@{callback\+\_\+testpub}}
+\index{callback\+\_\+testpub@{callback\+\_\+testpub}!M3\+Move\+Group@{M3\+Move\+Group}}
+\subsubsection{\texorpdfstring{callback\+\_\+testpub()}{callback\_testpub()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void M3\+Move\+Group\+::callback\+\_\+testpub (\begin{DoxyParamCaption}\item[{const ros\+::\+Timer\+Event \&}]{e }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+callback test for fingers 
+
+
+\begin{DoxyParams}{Parameters}
+{\em e} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classM3MoveGroup_a71fc79c75e8e96881d0cfa6629f5e11d}\label{classM3MoveGroup_a71fc79c75e8e96881d0cfa6629f5e11d}} 
+\index{M3\+Move\+Group@{M3\+Move\+Group}!Cart\+Single\+Action\+CB@{Cart\+Single\+Action\+CB}}
+\index{Cart\+Single\+Action\+CB@{Cart\+Single\+Action\+CB}!M3\+Move\+Group@{M3\+Move\+Group}}
+\subsubsection{\texorpdfstring{Cart\+Single\+Action\+C\+B()}{CartSingleActionCB()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void M3\+Move\+Group\+::\+Cart\+Single\+Action\+CB (\begin{DoxyParamCaption}\item[{const m3\+\_\+moveit\+::\+Moveit\+Single\+Goal\+Const\+Ptr \&}]{goal }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Moveit action server\+: planning using cartesian space for single arm. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em goal} & target \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classM3MoveGroup_a71fc79c75e8e96881d0cfa6629f5e11d}\label{classM3MoveGroup_a71fc79c75e8e96881d0cfa6629f5e11d}} 
+\index{M3\+Move\+Group@{M3\+Move\+Group}!Cart\+Single\+Action\+CB@{Cart\+Single\+Action\+CB}}
+\index{Cart\+Single\+Action\+CB@{Cart\+Single\+Action\+CB}!M3\+Move\+Group@{M3\+Move\+Group}}
+\subsubsection{\texorpdfstring{Cart\+Single\+Action\+C\+B()}{CartSingleActionCB()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void M3\+Move\+Group\+::\+Cart\+Single\+Action\+CB (\begin{DoxyParamCaption}\item[{const m3\+\_\+moveit\+::\+Moveit\+Single\+Goal\+Const\+Ptr \&}]{goal }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Moveit action server\+: planning using cartesian space for single arm. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em goal} & target \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classM3MoveGroup_a6ce4ef5d30fc1e93826f4f8104f8db04}\label{classM3MoveGroup_a6ce4ef5d30fc1e93826f4f8104f8db04}} 
+\index{M3\+Move\+Group@{M3\+Move\+Group}!Cart\+Single\+Right\+Action\+CB@{Cart\+Single\+Right\+Action\+CB}}
+\index{Cart\+Single\+Right\+Action\+CB@{Cart\+Single\+Right\+Action\+CB}!M3\+Move\+Group@{M3\+Move\+Group}}
+\subsubsection{\texorpdfstring{Cart\+Single\+Right\+Action\+C\+B()}{CartSingleRightActionCB()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void M3\+Move\+Group\+::\+Cart\+Single\+Right\+Action\+CB (\begin{DoxyParamCaption}\item[{const m3\+\_\+moveit\+::\+Moveit\+Single\+Goal\+Const\+Ptr \&}]{goal }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Moveit Action server\+: Using cartesian space planning for single right arm. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em goal} & target \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classM3MoveGroup_a6ce4ef5d30fc1e93826f4f8104f8db04}\label{classM3MoveGroup_a6ce4ef5d30fc1e93826f4f8104f8db04}} 
+\index{M3\+Move\+Group@{M3\+Move\+Group}!Cart\+Single\+Right\+Action\+CB@{Cart\+Single\+Right\+Action\+CB}}
+\index{Cart\+Single\+Right\+Action\+CB@{Cart\+Single\+Right\+Action\+CB}!M3\+Move\+Group@{M3\+Move\+Group}}
+\subsubsection{\texorpdfstring{Cart\+Single\+Right\+Action\+C\+B()}{CartSingleRightActionCB()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void M3\+Move\+Group\+::\+Cart\+Single\+Right\+Action\+CB (\begin{DoxyParamCaption}\item[{const m3\+\_\+moveit\+::\+Moveit\+Single\+Goal\+Const\+Ptr \&}]{goal }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Moveit Action server\+: Using cartesian space planning for single right arm. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em goal} & target \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classM3MoveGroup_a65ac544bc2275fc3823bc66c3a2a7a19}\label{classM3MoveGroup_a65ac544bc2275fc3823bc66c3a2a7a19}} 
+\index{M3\+Move\+Group@{M3\+Move\+Group}!Check\+Hand\+Orientation@{Check\+Hand\+Orientation}}
+\index{Check\+Hand\+Orientation@{Check\+Hand\+Orientation}!M3\+Move\+Group@{M3\+Move\+Group}}
+\subsubsection{\texorpdfstring{Check\+Hand\+Orientation()}{CheckHandOrientation()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily bool M3\+Move\+Group\+::\+Check\+Hand\+Orientation (\begin{DoxyParamCaption}\item[{const moveit\+::planning\+\_\+interface\+::\+Move\+Group\+::\+Plan}]{plan,  }\item[{const geometry\+\_\+msgs\+::\+Pose}]{pose\+\_\+left,  }\item[{const geometry\+\_\+msgs\+::\+Pose}]{pose\+\_\+right }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+check the planning scene kinematics models for hand orientation 
+
+
+\begin{DoxyParams}{Parameters}
+{\em plan} & moveit solution \\
+\hline
+{\em pose\+\_\+left} & left arm \\
+\hline
+{\em pose\+\_\+right} & right arm \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true success 
+
+false failed 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classM3MoveGroup_a65ac544bc2275fc3823bc66c3a2a7a19}\label{classM3MoveGroup_a65ac544bc2275fc3823bc66c3a2a7a19}} 
+\index{M3\+Move\+Group@{M3\+Move\+Group}!Check\+Hand\+Orientation@{Check\+Hand\+Orientation}}
+\index{Check\+Hand\+Orientation@{Check\+Hand\+Orientation}!M3\+Move\+Group@{M3\+Move\+Group}}
+\subsubsection{\texorpdfstring{Check\+Hand\+Orientation()}{CheckHandOrientation()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily bool M3\+Move\+Group\+::\+Check\+Hand\+Orientation (\begin{DoxyParamCaption}\item[{const moveit\+::planning\+\_\+interface\+::\+Move\+Group\+::\+Plan}]{plan,  }\item[{const geometry\+\_\+msgs\+::\+Pose}]{pose\+\_\+left,  }\item[{const geometry\+\_\+msgs\+::\+Pose}]{pose\+\_\+right }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+check the planning scene kinematics models for hand orientation 
+
+
+\begin{DoxyParams}{Parameters}
+{\em plan} & moveit solution \\
+\hline
+{\em pose\+\_\+left} & left arm \\
+\hline
+{\em pose\+\_\+right} & right arm \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true success 
+
+false failed 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classM3MoveGroup_a89b6d3658b6884d6a19a2975193e444a}\label{classM3MoveGroup_a89b6d3658b6884d6a19a2975193e444a}} 
+\index{M3\+Move\+Group@{M3\+Move\+Group}!Check\+Hand\+Orientation@{Check\+Hand\+Orientation}}
+\index{Check\+Hand\+Orientation@{Check\+Hand\+Orientation}!M3\+Move\+Group@{M3\+Move\+Group}}
+\subsubsection{\texorpdfstring{Check\+Hand\+Orientation()}{CheckHandOrientation()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily bool M3\+Move\+Group\+::\+Check\+Hand\+Orientation (\begin{DoxyParamCaption}\item[{const moveit\+::planning\+\_\+interface\+::\+Move\+Group\+::\+Plan}]{plan,  }\item[{const geometry\+\_\+msgs\+::\+Pose}]{pose,  }\item[{std\+::string}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+check the hand orientation in moveit planning 
+
+
+\begin{DoxyParams}{Parameters}
+{\em plan} & moveit solution \\
+\hline
+{\em pose} & desired pose \\
+\hline
+{\em name} & link\+\_\+name \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true success 
+
+false failed 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classM3MoveGroup_a89b6d3658b6884d6a19a2975193e444a}\label{classM3MoveGroup_a89b6d3658b6884d6a19a2975193e444a}} 
+\index{M3\+Move\+Group@{M3\+Move\+Group}!Check\+Hand\+Orientation@{Check\+Hand\+Orientation}}
+\index{Check\+Hand\+Orientation@{Check\+Hand\+Orientation}!M3\+Move\+Group@{M3\+Move\+Group}}
+\subsubsection{\texorpdfstring{Check\+Hand\+Orientation()}{CheckHandOrientation()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily bool M3\+Move\+Group\+::\+Check\+Hand\+Orientation (\begin{DoxyParamCaption}\item[{const moveit\+::planning\+\_\+interface\+::\+Move\+Group\+::\+Plan}]{plan,  }\item[{const geometry\+\_\+msgs\+::\+Pose}]{pose,  }\item[{std\+::string}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+check the hand orientation in moveit planning 
+
+
+\begin{DoxyParams}{Parameters}
+{\em plan} & moveit solution \\
+\hline
+{\em pose} & desired pose \\
+\hline
+{\em name} & link\+\_\+name \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true success 
+
+false failed 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classM3MoveGroup_ada2b7b9e5a402676eff8747267385f6b}\label{classM3MoveGroup_ada2b7b9e5a402676eff8747267385f6b}} 
+\index{M3\+Move\+Group@{M3\+Move\+Group}!Collision\+Object\+Callback@{Collision\+Object\+Callback}}
+\index{Collision\+Object\+Callback@{Collision\+Object\+Callback}!M3\+Move\+Group@{M3\+Move\+Group}}
+\subsubsection{\texorpdfstring{Collision\+Object\+Callback()}{CollisionObjectCallback()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void M3\+Move\+Group\+::\+Collision\+Object\+Callback (\begin{DoxyParamCaption}\item[{const moveit\+\_\+msgs\+::\+Collision\+Object\+Const\+Ptr \&}]{obj }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Action server to add collision object into moveit planning scene. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em obj} & collision object \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classM3MoveGroup_ada2b7b9e5a402676eff8747267385f6b}\label{classM3MoveGroup_ada2b7b9e5a402676eff8747267385f6b}} 
+\index{M3\+Move\+Group@{M3\+Move\+Group}!Collision\+Object\+Callback@{Collision\+Object\+Callback}}
+\index{Collision\+Object\+Callback@{Collision\+Object\+Callback}!M3\+Move\+Group@{M3\+Move\+Group}}
+\subsubsection{\texorpdfstring{Collision\+Object\+Callback()}{CollisionObjectCallback()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void M3\+Move\+Group\+::\+Collision\+Object\+Callback (\begin{DoxyParamCaption}\item[{const moveit\+\_\+msgs\+::\+Collision\+Object\+Const\+Ptr \&}]{obj }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Action server to add collision object into moveit planning scene. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em obj} & collision object \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classM3MoveGroup_a422eebf405bc0b3187bb6e692b361fa0}\label{classM3MoveGroup_a422eebf405bc0b3187bb6e692b361fa0}} 
+\index{M3\+Move\+Group@{M3\+Move\+Group}!Convert\+Olivia\+Arm@{Convert\+Olivia\+Arm}}
+\index{Convert\+Olivia\+Arm@{Convert\+Olivia\+Arm}!M3\+Move\+Group@{M3\+Move\+Group}}
+\subsubsection{\texorpdfstring{Convert\+Olivia\+Arm()}{ConvertOliviaArm()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily std\+::vector$<$double$>$ M3\+Move\+Group\+::\+Convert\+Olivia\+Arm (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ double $>$}]{input,  }\item[{std\+::string}]{arm }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Remap and convert joint angles to Olivia (for the arm only) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input} & joint values \\
+\hline
+{\em arm} & name (left or right) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::vector$<$double$>$ real joint values 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classM3MoveGroup_a422eebf405bc0b3187bb6e692b361fa0}\label{classM3MoveGroup_a422eebf405bc0b3187bb6e692b361fa0}} 
+\index{M3\+Move\+Group@{M3\+Move\+Group}!Convert\+Olivia\+Arm@{Convert\+Olivia\+Arm}}
+\index{Convert\+Olivia\+Arm@{Convert\+Olivia\+Arm}!M3\+Move\+Group@{M3\+Move\+Group}}
+\subsubsection{\texorpdfstring{Convert\+Olivia\+Arm()}{ConvertOliviaArm()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily std\+::vector$<$double$>$ M3\+Move\+Group\+::\+Convert\+Olivia\+Arm (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ double $>$}]{input,  }\item[{std\+::string}]{arm }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Remap and convert joint angles to Olivia (for the arm only) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input} & joint values \\
+\hline
+{\em arm} & name (left or right) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::vector$<$double$>$ real joint values 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classM3MoveGroup_a76eed72085b10fa6fea6f9cc773a7901}\label{classM3MoveGroup_a76eed72085b10fa6fea6f9cc773a7901}} 
+\index{M3\+Move\+Group@{M3\+Move\+Group}!Convert\+To\+Olivia\+Coordinates@{Convert\+To\+Olivia\+Coordinates}}
+\index{Convert\+To\+Olivia\+Coordinates@{Convert\+To\+Olivia\+Coordinates}!M3\+Move\+Group@{M3\+Move\+Group}}
+\subsubsection{\texorpdfstring{Convert\+To\+Olivia\+Coordinates()}{ConvertToOliviaCoordinates()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily std\+::vector$<$double$>$ M3\+Move\+Group\+::\+Convert\+To\+Olivia\+Coordinates (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ double $>$}]{input }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Remap and convert joint angles to Olivia differences in real robot and urdf, this is to remap the joints before sending to real robot. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input} & joint values \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::vector$<$double$>$ real joint values 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classM3MoveGroup_a76eed72085b10fa6fea6f9cc773a7901}\label{classM3MoveGroup_a76eed72085b10fa6fea6f9cc773a7901}} 
+\index{M3\+Move\+Group@{M3\+Move\+Group}!Convert\+To\+Olivia\+Coordinates@{Convert\+To\+Olivia\+Coordinates}}
+\index{Convert\+To\+Olivia\+Coordinates@{Convert\+To\+Olivia\+Coordinates}!M3\+Move\+Group@{M3\+Move\+Group}}
+\subsubsection{\texorpdfstring{Convert\+To\+Olivia\+Coordinates()}{ConvertToOliviaCoordinates()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily std\+::vector$<$double$>$ M3\+Move\+Group\+::\+Convert\+To\+Olivia\+Coordinates (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ double $>$}]{input }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Remap and convert joint angles to Olivia differences in real robot and urdf, this is to remap the joints before sending to real robot. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input} & joint values \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::vector$<$double$>$ real joint values 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classM3MoveGroup_a59d8555d6560673417be20d6bf5d6aae}\label{classM3MoveGroup_a59d8555d6560673417be20d6bf5d6aae}} 
+\index{M3\+Move\+Group@{M3\+Move\+Group}!Convert\+To\+Olivia\+Head@{Convert\+To\+Olivia\+Head}}
+\index{Convert\+To\+Olivia\+Head@{Convert\+To\+Olivia\+Head}!M3\+Move\+Group@{M3\+Move\+Group}}
+\subsubsection{\texorpdfstring{Convert\+To\+Olivia\+Head()}{ConvertToOliviaHead()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily std\+::vector$<$double$>$ M3\+Move\+Group\+::\+Convert\+To\+Olivia\+Head (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ double $>$}]{input }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Remap and convert joint angles to Olivia A separate dynamixel is used for the head. Joint value need to be send separately. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input} & joint values \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::vector$<$double$>$ real joint values 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classM3MoveGroup_a59d8555d6560673417be20d6bf5d6aae}\label{classM3MoveGroup_a59d8555d6560673417be20d6bf5d6aae}} 
+\index{M3\+Move\+Group@{M3\+Move\+Group}!Convert\+To\+Olivia\+Head@{Convert\+To\+Olivia\+Head}}
+\index{Convert\+To\+Olivia\+Head@{Convert\+To\+Olivia\+Head}!M3\+Move\+Group@{M3\+Move\+Group}}
+\subsubsection{\texorpdfstring{Convert\+To\+Olivia\+Head()}{ConvertToOliviaHead()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily std\+::vector$<$double$>$ M3\+Move\+Group\+::\+Convert\+To\+Olivia\+Head (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ double $>$}]{input }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Remap and convert joint angles to Olivia A separate dynamixel is used for the head. Joint value need to be send separately. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input} & joint values \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::vector$<$double$>$ real joint values 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classM3MoveGroup_a0e43c201d45fd9d987dd5b57f57e6402}\label{classM3MoveGroup_a0e43c201d45fd9d987dd5b57f57e6402}} 
+\index{M3\+Move\+Group@{M3\+Move\+Group}!Detach\+Right\+Action\+CB@{Detach\+Right\+Action\+CB}}
+\index{Detach\+Right\+Action\+CB@{Detach\+Right\+Action\+CB}!M3\+Move\+Group@{M3\+Move\+Group}}
+\subsubsection{\texorpdfstring{Detach\+Right\+Action\+C\+B()}{DetachRightActionCB()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void M3\+Move\+Group\+::\+Detach\+Right\+Action\+CB (\begin{DoxyParamCaption}\item[{const m3\+\_\+moveit\+::\+Moveit\+Pick\+Place\+Goal\+Const\+Ptr \&}]{goal }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Moveit Action server\+: detach objects in planning scene from arm (works for both left or right) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em goal} & target \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classM3MoveGroup_a0e43c201d45fd9d987dd5b57f57e6402}\label{classM3MoveGroup_a0e43c201d45fd9d987dd5b57f57e6402}} 
+\index{M3\+Move\+Group@{M3\+Move\+Group}!Detach\+Right\+Action\+CB@{Detach\+Right\+Action\+CB}}
+\index{Detach\+Right\+Action\+CB@{Detach\+Right\+Action\+CB}!M3\+Move\+Group@{M3\+Move\+Group}}
+\subsubsection{\texorpdfstring{Detach\+Right\+Action\+C\+B()}{DetachRightActionCB()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void M3\+Move\+Group\+::\+Detach\+Right\+Action\+CB (\begin{DoxyParamCaption}\item[{const m3\+\_\+moveit\+::\+Moveit\+Pick\+Place\+Goal\+Const\+Ptr \&}]{goal }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Moveit Action server\+: detach objects in planning scene from arm (works for both left or right) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em goal} & target \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classM3MoveGroup_a7208ba7725391ea9ffd98d3d31ae5f0d}\label{classM3MoveGroup_a7208ba7725391ea9ffd98d3d31ae5f0d}} 
+\index{M3\+Move\+Group@{M3\+Move\+Group}!Finger\+Encoder\+Callback@{Finger\+Encoder\+Callback}}
+\index{Finger\+Encoder\+Callback@{Finger\+Encoder\+Callback}!M3\+Move\+Group@{M3\+Move\+Group}}
+\subsubsection{\texorpdfstring{Finger\+Encoder\+Callback()}{FingerEncoderCallback()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void M3\+Move\+Group\+::\+Finger\+Encoder\+Callback (\begin{DoxyParamCaption}\item[{const kaist\+\_\+msgs\+::\+Joint\+Encoder\+Status\+Const\+Ptr \&}]{joint }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+encoder position based control to stop olivia fingers 
+
+
+\begin{DoxyParams}{Parameters}
+{\em joint} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classM3MoveGroup_a7208ba7725391ea9ffd98d3d31ae5f0d}\label{classM3MoveGroup_a7208ba7725391ea9ffd98d3d31ae5f0d}} 
+\index{M3\+Move\+Group@{M3\+Move\+Group}!Finger\+Encoder\+Callback@{Finger\+Encoder\+Callback}}
+\index{Finger\+Encoder\+Callback@{Finger\+Encoder\+Callback}!M3\+Move\+Group@{M3\+Move\+Group}}
+\subsubsection{\texorpdfstring{Finger\+Encoder\+Callback()}{FingerEncoderCallback()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void M3\+Move\+Group\+::\+Finger\+Encoder\+Callback (\begin{DoxyParamCaption}\item[{const kaist\+\_\+msgs\+::\+Joint\+Encoder\+Status\+Const\+Ptr \&}]{joint }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+encoder position based control to stop olivia fingers 
+
+
+\begin{DoxyParams}{Parameters}
+{\em joint} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classM3MoveGroup_a50f3c0ec424696c8d613cbfb18829384}\label{classM3MoveGroup_a50f3c0ec424696c8d613cbfb18829384}} 
+\index{M3\+Move\+Group@{M3\+Move\+Group}!Fingers\+Action\+CB@{Fingers\+Action\+CB}}
+\index{Fingers\+Action\+CB@{Fingers\+Action\+CB}!M3\+Move\+Group@{M3\+Move\+Group}}
+\subsubsection{\texorpdfstring{Fingers\+Action\+C\+B()}{FingersActionCB()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void M3\+Move\+Group\+::\+Fingers\+Action\+CB (\begin{DoxyParamCaption}\item[{const m3\+\_\+moveit\+::\+Moveit\+Fingers\+Goal\+Const\+Ptr \&}]{goal }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Action server to control olivia fingers. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em goal} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classM3MoveGroup_a50f3c0ec424696c8d613cbfb18829384}\label{classM3MoveGroup_a50f3c0ec424696c8d613cbfb18829384}} 
+\index{M3\+Move\+Group@{M3\+Move\+Group}!Fingers\+Action\+CB@{Fingers\+Action\+CB}}
+\index{Fingers\+Action\+CB@{Fingers\+Action\+CB}!M3\+Move\+Group@{M3\+Move\+Group}}
+\subsubsection{\texorpdfstring{Fingers\+Action\+C\+B()}{FingersActionCB()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void M3\+Move\+Group\+::\+Fingers\+Action\+CB (\begin{DoxyParamCaption}\item[{const m3\+\_\+moveit\+::\+Moveit\+Fingers\+Goal\+Const\+Ptr \&}]{goal }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Action server to control olivia fingers. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em goal} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classM3MoveGroup_ab202574f8621d26c6369c1b794014251}\label{classM3MoveGroup_ab202574f8621d26c6369c1b794014251}} 
+\index{M3\+Move\+Group@{M3\+Move\+Group}!Fingers\+Encoders\+Action\+CB@{Fingers\+Encoders\+Action\+CB}}
+\index{Fingers\+Encoders\+Action\+CB@{Fingers\+Encoders\+Action\+CB}!M3\+Move\+Group@{M3\+Move\+Group}}
+\subsubsection{\texorpdfstring{Fingers\+Encoders\+Action\+C\+B()}{FingersEncodersActionCB()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void M3\+Move\+Group\+::\+Fingers\+Encoders\+Action\+CB (\begin{DoxyParamCaption}\item[{const m3\+\_\+moveit\+::\+Moveit\+Fingers\+Goal\+Const\+Ptr \&}]{goal }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+action server to control olivia fingers using encoders 
+
+
+\begin{DoxyParams}{Parameters}
+{\em goal} & target goal \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classM3MoveGroup_ab202574f8621d26c6369c1b794014251}\label{classM3MoveGroup_ab202574f8621d26c6369c1b794014251}} 
+\index{M3\+Move\+Group@{M3\+Move\+Group}!Fingers\+Encoders\+Action\+CB@{Fingers\+Encoders\+Action\+CB}}
+\index{Fingers\+Encoders\+Action\+CB@{Fingers\+Encoders\+Action\+CB}!M3\+Move\+Group@{M3\+Move\+Group}}
+\subsubsection{\texorpdfstring{Fingers\+Encoders\+Action\+C\+B()}{FingersEncodersActionCB()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void M3\+Move\+Group\+::\+Fingers\+Encoders\+Action\+CB (\begin{DoxyParamCaption}\item[{const m3\+\_\+moveit\+::\+Moveit\+Fingers\+Goal\+Const\+Ptr \&}]{goal }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+action server to control olivia fingers using encoders 
+
+
+\begin{DoxyParams}{Parameters}
+{\em goal} & target goal \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classM3MoveGroup_a754821f89a28e5b3e6924d9f9e040946}\label{classM3MoveGroup_a754821f89a28e5b3e6924d9f9e040946}} 
+\index{M3\+Move\+Group@{M3\+Move\+Group}!finger\+Timeout\+Callback@{finger\+Timeout\+Callback}}
+\index{finger\+Timeout\+Callback@{finger\+Timeout\+Callback}!M3\+Move\+Group@{M3\+Move\+Group}}
+\subsubsection{\texorpdfstring{finger\+Timeout\+Callback()}{fingerTimeoutCallback()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void M3\+Move\+Group\+::finger\+Timeout\+Callback (\begin{DoxyParamCaption}\item[{const std\+\_\+msgs\+::\+Bool}]{timeout }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+action server timeout callback for finger 
+
+
+\begin{DoxyParams}{Parameters}
+{\em timeout} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classM3MoveGroup_a754821f89a28e5b3e6924d9f9e040946}\label{classM3MoveGroup_a754821f89a28e5b3e6924d9f9e040946}} 
+\index{M3\+Move\+Group@{M3\+Move\+Group}!finger\+Timeout\+Callback@{finger\+Timeout\+Callback}}
+\index{finger\+Timeout\+Callback@{finger\+Timeout\+Callback}!M3\+Move\+Group@{M3\+Move\+Group}}
+\subsubsection{\texorpdfstring{finger\+Timeout\+Callback()}{fingerTimeoutCallback()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void M3\+Move\+Group\+::finger\+Timeout\+Callback (\begin{DoxyParamCaption}\item[{const std\+\_\+msgs\+::\+Bool}]{timeout }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+action server timeout callback for finger 
+
+
+\begin{DoxyParams}{Parameters}
+{\em timeout} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classM3MoveGroup_a78c1d36f86d5ade3dc73b6239227a512}\label{classM3MoveGroup_a78c1d36f86d5ade3dc73b6239227a512}} 
+\index{M3\+Move\+Group@{M3\+Move\+Group}!finger\+Timer\+Timeout\+Callback@{finger\+Timer\+Timeout\+Callback}}
+\index{finger\+Timer\+Timeout\+Callback@{finger\+Timer\+Timeout\+Callback}!M3\+Move\+Group@{M3\+Move\+Group}}
+\subsubsection{\texorpdfstring{finger\+Timer\+Timeout\+Callback()}{fingerTimerTimeoutCallback()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void M3\+Move\+Group\+::finger\+Timer\+Timeout\+Callback (\begin{DoxyParamCaption}\item[{const ros\+::\+Timer\+Event \&}]{e }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Using ros timer to check for finger timeout. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em e} & timer event \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classM3MoveGroup_a78c1d36f86d5ade3dc73b6239227a512}\label{classM3MoveGroup_a78c1d36f86d5ade3dc73b6239227a512}} 
+\index{M3\+Move\+Group@{M3\+Move\+Group}!finger\+Timer\+Timeout\+Callback@{finger\+Timer\+Timeout\+Callback}}
+\index{finger\+Timer\+Timeout\+Callback@{finger\+Timer\+Timeout\+Callback}!M3\+Move\+Group@{M3\+Move\+Group}}
+\subsubsection{\texorpdfstring{finger\+Timer\+Timeout\+Callback()}{fingerTimerTimeoutCallback()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void M3\+Move\+Group\+::finger\+Timer\+Timeout\+Callback (\begin{DoxyParamCaption}\item[{const ros\+::\+Timer\+Event \&}]{e }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Using ros timer to check for finger timeout. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em e} & timer event \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classM3MoveGroup_a000211da0f2ad520583f9efff2401e7a}\label{classM3MoveGroup_a000211da0f2ad520583f9efff2401e7a}} 
+\index{M3\+Move\+Group@{M3\+Move\+Group}!Get\+Quaternion\+Distance@{Get\+Quaternion\+Distance}}
+\index{Get\+Quaternion\+Distance@{Get\+Quaternion\+Distance}!M3\+Move\+Group@{M3\+Move\+Group}}
+\subsubsection{\texorpdfstring{Get\+Quaternion\+Distance()}{GetQuaternionDistance()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily double M3\+Move\+Group\+::\+Get\+Quaternion\+Distance (\begin{DoxyParamCaption}\item[{std\+::vector$<$ double $>$}]{quat1,  }\item[{std\+::vector$<$ double $>$}]{quat2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the delta distance between 2 quaternion. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em quat1} & input1 \\
+\hline
+{\em quat2} & input2 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+double distance 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classM3MoveGroup_a000211da0f2ad520583f9efff2401e7a}\label{classM3MoveGroup_a000211da0f2ad520583f9efff2401e7a}} 
+\index{M3\+Move\+Group@{M3\+Move\+Group}!Get\+Quaternion\+Distance@{Get\+Quaternion\+Distance}}
+\index{Get\+Quaternion\+Distance@{Get\+Quaternion\+Distance}!M3\+Move\+Group@{M3\+Move\+Group}}
+\subsubsection{\texorpdfstring{Get\+Quaternion\+Distance()}{GetQuaternionDistance()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily double M3\+Move\+Group\+::\+Get\+Quaternion\+Distance (\begin{DoxyParamCaption}\item[{std\+::vector$<$ double $>$}]{quat1,  }\item[{std\+::vector$<$ double $>$}]{quat2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the delta distance between 2 quaternion. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em quat1} & input1 \\
+\hline
+{\em quat2} & input2 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+double distance 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classM3MoveGroup_a0d53e8cfafd00e1a22f1cf5e091b63a1}\label{classM3MoveGroup_a0d53e8cfafd00e1a22f1cf5e091b63a1}} 
+\index{M3\+Move\+Group@{M3\+Move\+Group}!Input\+Callback@{Input\+Callback}}
+\index{Input\+Callback@{Input\+Callback}!M3\+Move\+Group@{M3\+Move\+Group}}
+\subsubsection{\texorpdfstring{Input\+Callback()}{InputCallback()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void M3\+Move\+Group\+::\+Input\+Callback (\begin{DoxyParamCaption}\item[{const std\+\_\+msgs\+::\+Int32\+Const\+Ptr \&}]{input }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+user input function 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classM3MoveGroup_a0d53e8cfafd00e1a22f1cf5e091b63a1}\label{classM3MoveGroup_a0d53e8cfafd00e1a22f1cf5e091b63a1}} 
+\index{M3\+Move\+Group@{M3\+Move\+Group}!Input\+Callback@{Input\+Callback}}
+\index{Input\+Callback@{Input\+Callback}!M3\+Move\+Group@{M3\+Move\+Group}}
+\subsubsection{\texorpdfstring{Input\+Callback()}{InputCallback()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void M3\+Move\+Group\+::\+Input\+Callback (\begin{DoxyParamCaption}\item[{const std\+\_\+msgs\+::\+Int32\+Const\+Ptr \&}]{input }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+user input function 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classM3MoveGroup_adf12117d8738588cadfa6ab62e008fea}\label{classM3MoveGroup_adf12117d8738588cadfa6ab62e008fea}} 
+\index{M3\+Move\+Group@{M3\+Move\+Group}!Jiggle\+Target@{Jiggle\+Target}}
+\index{Jiggle\+Target@{Jiggle\+Target}!M3\+Move\+Group@{M3\+Move\+Group}}
+\subsubsection{\texorpdfstring{Jiggle\+Target()}{JiggleTarget()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily void M3\+Move\+Group\+::\+Jiggle\+Target (\begin{DoxyParamCaption}\item[{int}]{i\+Attempt,  }\item[{geometry\+\_\+msgs\+::\+Pose}]{pose,  }\item[{std\+::string}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Attempt to jiggle the target pose to achieve higher success rate when moveit fails to plan. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i\+Attempt} & number of jiggles \\
+\hline
+{\em pose} & current pose \\
+\hline
+{\em name} & link\+\_\+name \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classM3MoveGroup_adf12117d8738588cadfa6ab62e008fea}\label{classM3MoveGroup_adf12117d8738588cadfa6ab62e008fea}} 
+\index{M3\+Move\+Group@{M3\+Move\+Group}!Jiggle\+Target@{Jiggle\+Target}}
+\index{Jiggle\+Target@{Jiggle\+Target}!M3\+Move\+Group@{M3\+Move\+Group}}
+\subsubsection{\texorpdfstring{Jiggle\+Target()}{JiggleTarget()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily void M3\+Move\+Group\+::\+Jiggle\+Target (\begin{DoxyParamCaption}\item[{int}]{i\+Attempt,  }\item[{geometry\+\_\+msgs\+::\+Pose}]{pose,  }\item[{std\+::string}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Attempt to jiggle the target pose to achieve higher success rate when moveit fails to plan. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i\+Attempt} & number of jiggles \\
+\hline
+{\em pose} & current pose \\
+\hline
+{\em name} & link\+\_\+name \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classM3MoveGroup_a01c4d2e768a050ad0652ecc2b612946c}\label{classM3MoveGroup_a01c4d2e768a050ad0652ecc2b612946c}} 
+\index{M3\+Move\+Group@{M3\+Move\+Group}!Jiggle\+Target@{Jiggle\+Target}}
+\index{Jiggle\+Target@{Jiggle\+Target}!M3\+Move\+Group@{M3\+Move\+Group}}
+\subsubsection{\texorpdfstring{Jiggle\+Target()}{JiggleTarget()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily void M3\+Move\+Group\+::\+Jiggle\+Target (\begin{DoxyParamCaption}\item[{int}]{i\+Attempt,  }\item[{geometry\+\_\+msgs\+::\+Pose}]{pose\+\_\+left,  }\item[{geometry\+\_\+msgs\+::\+Pose}]{pose\+\_\+right,  }\item[{std\+::string}]{name\+\_\+left,  }\item[{std\+::string}]{name\+\_\+right }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Attempt to jiggle the target pose to achieve higher success rate when moveit fails to plan. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i\+Attempt} & number of jiggles \\
+\hline
+{\em pose\+\_\+left} & left arm \\
+\hline
+{\em pose\+\_\+right} & right arm \\
+\hline
+{\em name\+\_\+left} & link\+\_\+name of left \\
+\hline
+{\em name\+\_\+right} & link\+\_\+name of right \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classM3MoveGroup_a01c4d2e768a050ad0652ecc2b612946c}\label{classM3MoveGroup_a01c4d2e768a050ad0652ecc2b612946c}} 
+\index{M3\+Move\+Group@{M3\+Move\+Group}!Jiggle\+Target@{Jiggle\+Target}}
+\index{Jiggle\+Target@{Jiggle\+Target}!M3\+Move\+Group@{M3\+Move\+Group}}
+\subsubsection{\texorpdfstring{Jiggle\+Target()}{JiggleTarget()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily void M3\+Move\+Group\+::\+Jiggle\+Target (\begin{DoxyParamCaption}\item[{int}]{i\+Attempt,  }\item[{geometry\+\_\+msgs\+::\+Pose}]{pose\+\_\+left,  }\item[{geometry\+\_\+msgs\+::\+Pose}]{pose\+\_\+right,  }\item[{std\+::string}]{name\+\_\+left,  }\item[{std\+::string}]{name\+\_\+right }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Attempt to jiggle the target pose to achieve higher success rate when moveit fails to plan. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i\+Attempt} & number of jiggles \\
+\hline
+{\em pose\+\_\+left} & left arm \\
+\hline
+{\em pose\+\_\+right} & right arm \\
+\hline
+{\em name\+\_\+left} & link\+\_\+name of left \\
+\hline
+{\em name\+\_\+right} & link\+\_\+name of right \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classM3MoveGroup_adcf08e40ebf2191e9d717e2baf275f18}\label{classM3MoveGroup_adcf08e40ebf2191e9d717e2baf275f18}} 
+\index{M3\+Move\+Group@{M3\+Move\+Group}!Joint\+Whole\+Body\+Action\+CB@{Joint\+Whole\+Body\+Action\+CB}}
+\index{Joint\+Whole\+Body\+Action\+CB@{Joint\+Whole\+Body\+Action\+CB}!M3\+Move\+Group@{M3\+Move\+Group}}
+\subsubsection{\texorpdfstring{Joint\+Whole\+Body\+Action\+C\+B()}{JointWholeBodyActionCB()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void M3\+Move\+Group\+::\+Joint\+Whole\+Body\+Action\+CB (\begin{DoxyParamCaption}\item[{const m3\+\_\+moveit\+::\+Moveit\+Whole\+Body\+Goal\+Const\+Ptr \&}]{goal }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Moveit Action server\+: joint space planning. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em goal} & target \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classM3MoveGroup_adcf08e40ebf2191e9d717e2baf275f18}\label{classM3MoveGroup_adcf08e40ebf2191e9d717e2baf275f18}} 
+\index{M3\+Move\+Group@{M3\+Move\+Group}!Joint\+Whole\+Body\+Action\+CB@{Joint\+Whole\+Body\+Action\+CB}}
+\index{Joint\+Whole\+Body\+Action\+CB@{Joint\+Whole\+Body\+Action\+CB}!M3\+Move\+Group@{M3\+Move\+Group}}
+\subsubsection{\texorpdfstring{Joint\+Whole\+Body\+Action\+C\+B()}{JointWholeBodyActionCB()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void M3\+Move\+Group\+::\+Joint\+Whole\+Body\+Action\+CB (\begin{DoxyParamCaption}\item[{const m3\+\_\+moveit\+::\+Moveit\+Whole\+Body\+Goal\+Const\+Ptr \&}]{goal }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Moveit Action server\+: joint space planning. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em goal} & target \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classM3MoveGroup_a3cb5511476fb082b891ac3de867ee8b8}\label{classM3MoveGroup_a3cb5511476fb082b891ac3de867ee8b8}} 
+\index{M3\+Move\+Group@{M3\+Move\+Group}!Mixed\+Whole\+Body\+Action\+CB@{Mixed\+Whole\+Body\+Action\+CB}}
+\index{Mixed\+Whole\+Body\+Action\+CB@{Mixed\+Whole\+Body\+Action\+CB}!M3\+Move\+Group@{M3\+Move\+Group}}
+\subsubsection{\texorpdfstring{Mixed\+Whole\+Body\+Action\+C\+B()}{MixedWholeBodyActionCB()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void M3\+Move\+Group\+::\+Mixed\+Whole\+Body\+Action\+CB (\begin{DoxyParamCaption}\item[{const m3\+\_\+moveit\+::\+Moveit\+Whole\+Body\+Goal\+Const\+Ptr \&}]{goal }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Moveit Action server\+: joint space planning for whole body. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em goal} & target \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classM3MoveGroup_a3cb5511476fb082b891ac3de867ee8b8}\label{classM3MoveGroup_a3cb5511476fb082b891ac3de867ee8b8}} 
+\index{M3\+Move\+Group@{M3\+Move\+Group}!Mixed\+Whole\+Body\+Action\+CB@{Mixed\+Whole\+Body\+Action\+CB}}
+\index{Mixed\+Whole\+Body\+Action\+CB@{Mixed\+Whole\+Body\+Action\+CB}!M3\+Move\+Group@{M3\+Move\+Group}}
+\subsubsection{\texorpdfstring{Mixed\+Whole\+Body\+Action\+C\+B()}{MixedWholeBodyActionCB()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void M3\+Move\+Group\+::\+Mixed\+Whole\+Body\+Action\+CB (\begin{DoxyParamCaption}\item[{const m3\+\_\+moveit\+::\+Moveit\+Whole\+Body\+Goal\+Const\+Ptr \&}]{goal }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Moveit Action server\+: joint space planning for whole body. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em goal} & target \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classM3MoveGroup_aef5fd5bd7565b10b0e5d568bce824773}\label{classM3MoveGroup_aef5fd5bd7565b10b0e5d568bce824773}} 
+\index{M3\+Move\+Group@{M3\+Move\+Group}!Neck\+Single\+Action\+CB@{Neck\+Single\+Action\+CB}}
+\index{Neck\+Single\+Action\+CB@{Neck\+Single\+Action\+CB}!M3\+Move\+Group@{M3\+Move\+Group}}
+\subsubsection{\texorpdfstring{Neck\+Single\+Action\+C\+B()}{NeckSingleActionCB()}}
+{\footnotesize\ttfamily void M3\+Move\+Group\+::\+Neck\+Single\+Action\+CB (\begin{DoxyParamCaption}\item[{const m3\+\_\+moveit\+::\+Neck\+Tilt\+Goal\+Const\+Ptr \&}]{goal }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Moveit Action server\+: Moving the neck only. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em goal} & target \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classM3MoveGroup_a08ae3af12542a9dd44d5f823c8b3bb46}\label{classM3MoveGroup_a08ae3af12542a9dd44d5f823c8b3bb46}} 
+\index{M3\+Move\+Group@{M3\+Move\+Group}!r2d@{r2d}}
+\index{r2d@{r2d}!M3\+Move\+Group@{M3\+Move\+Group}}
+\subsubsection{\texorpdfstring{r2d()}{r2d()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily double M3\+Move\+Group\+::r2d (\begin{DoxyParamCaption}\item[{double}]{rad }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+radian to degree conversion 
+
+
+\begin{DoxyParams}{Parameters}
+{\em rad} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+double degree 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classM3MoveGroup_a08ae3af12542a9dd44d5f823c8b3bb46}\label{classM3MoveGroup_a08ae3af12542a9dd44d5f823c8b3bb46}} 
+\index{M3\+Move\+Group@{M3\+Move\+Group}!r2d@{r2d}}
+\index{r2d@{r2d}!M3\+Move\+Group@{M3\+Move\+Group}}
+\subsubsection{\texorpdfstring{r2d()}{r2d()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily double M3\+Move\+Group\+::r2d (\begin{DoxyParamCaption}\item[{double}]{rad }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+radian to degree conversion 
+
+
+\begin{DoxyParams}{Parameters}
+{\em rad} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+double degree 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classM3MoveGroup_afad468e11f51e093ef704ebe974ecc28}\label{classM3MoveGroup_afad468e11f51e093ef704ebe974ecc28}} 
+\index{M3\+Move\+Group@{M3\+Move\+Group}!Remove\+Collision\+Action\+CB@{Remove\+Collision\+Action\+CB}}
+\index{Remove\+Collision\+Action\+CB@{Remove\+Collision\+Action\+CB}!M3\+Move\+Group@{M3\+Move\+Group}}
+\subsubsection{\texorpdfstring{Remove\+Collision\+Action\+C\+B()}{RemoveCollisionActionCB()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void M3\+Move\+Group\+::\+Remove\+Collision\+Action\+CB (\begin{DoxyParamCaption}\item[{const m3\+\_\+moveit\+::\+Moveit\+Collide\+Goal\+Const\+Ptr \&}]{goal }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Moveit Action server\+: Remove objects from planning scene. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em goal} & target \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classM3MoveGroup_afad468e11f51e093ef704ebe974ecc28}\label{classM3MoveGroup_afad468e11f51e093ef704ebe974ecc28}} 
+\index{M3\+Move\+Group@{M3\+Move\+Group}!Remove\+Collision\+Action\+CB@{Remove\+Collision\+Action\+CB}}
+\index{Remove\+Collision\+Action\+CB@{Remove\+Collision\+Action\+CB}!M3\+Move\+Group@{M3\+Move\+Group}}
+\subsubsection{\texorpdfstring{Remove\+Collision\+Action\+C\+B()}{RemoveCollisionActionCB()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void M3\+Move\+Group\+::\+Remove\+Collision\+Action\+CB (\begin{DoxyParamCaption}\item[{const m3\+\_\+moveit\+::\+Moveit\+Collide\+Goal\+Const\+Ptr \&}]{goal }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Moveit Action server\+: Remove objects from planning scene. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em goal} & target \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classM3MoveGroup_a5f4c7d0260a2d987e5abaf1b1365c657}\label{classM3MoveGroup_a5f4c7d0260a2d987e5abaf1b1365c657}} 
+\index{M3\+Move\+Group@{M3\+Move\+Group}!Send2\+Olivia\+Head@{Send2\+Olivia\+Head}}
+\index{Send2\+Olivia\+Head@{Send2\+Olivia\+Head}!M3\+Move\+Group@{M3\+Move\+Group}}
+\subsubsection{\texorpdfstring{Send2\+Olivia\+Head()}{Send2OliviaHead()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void M3\+Move\+Group\+::\+Send2\+Olivia\+Head (\begin{DoxyParamCaption}\item[{moveit\+\_\+msgs\+::\+Robot\+Trajectory}]{trajectory }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+send joint values to dynamixel to move real olivia head only 
+
+
+\begin{DoxyParams}{Parameters}
+{\em trajectory} & target \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classM3MoveGroup_a5f4c7d0260a2d987e5abaf1b1365c657}\label{classM3MoveGroup_a5f4c7d0260a2d987e5abaf1b1365c657}} 
+\index{M3\+Move\+Group@{M3\+Move\+Group}!Send2\+Olivia\+Head@{Send2\+Olivia\+Head}}
+\index{Send2\+Olivia\+Head@{Send2\+Olivia\+Head}!M3\+Move\+Group@{M3\+Move\+Group}}
+\subsubsection{\texorpdfstring{Send2\+Olivia\+Head()}{Send2OliviaHead()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void M3\+Move\+Group\+::\+Send2\+Olivia\+Head (\begin{DoxyParamCaption}\item[{moveit\+\_\+msgs\+::\+Robot\+Trajectory}]{trajectory }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+send joint values to dynamixel to move real olivia head only 
+
+
+\begin{DoxyParams}{Parameters}
+{\em trajectory} & target \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classM3MoveGroup_a0b0b4680d729b8878a89ba03c6d59303}\label{classM3MoveGroup_a0b0b4680d729b8878a89ba03c6d59303}} 
+\index{M3\+Move\+Group@{M3\+Move\+Group}!Send2\+Olivia\+Single\+Arm@{Send2\+Olivia\+Single\+Arm}}
+\index{Send2\+Olivia\+Single\+Arm@{Send2\+Olivia\+Single\+Arm}!M3\+Move\+Group@{M3\+Move\+Group}}
+\subsubsection{\texorpdfstring{Send2\+Olivia\+Single\+Arm()}{Send2OliviaSingleArm()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void M3\+Move\+Group\+::\+Send2\+Olivia\+Single\+Arm (\begin{DoxyParamCaption}\item[{moveit\+\_\+msgs\+::\+Robot\+Trajectory}]{trajectory,  }\item[{std\+::string}]{link\+\_\+name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+send joint values to kaist daemon to move real olivia 
+
+
+\begin{DoxyParams}{Parameters}
+{\em trajectory} & solution from moveit \\
+\hline
+{\em link\+\_\+name} & end-\/effector name \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classM3MoveGroup_a0b0b4680d729b8878a89ba03c6d59303}\label{classM3MoveGroup_a0b0b4680d729b8878a89ba03c6d59303}} 
+\index{M3\+Move\+Group@{M3\+Move\+Group}!Send2\+Olivia\+Single\+Arm@{Send2\+Olivia\+Single\+Arm}}
+\index{Send2\+Olivia\+Single\+Arm@{Send2\+Olivia\+Single\+Arm}!M3\+Move\+Group@{M3\+Move\+Group}}
+\subsubsection{\texorpdfstring{Send2\+Olivia\+Single\+Arm()}{Send2OliviaSingleArm()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void M3\+Move\+Group\+::\+Send2\+Olivia\+Single\+Arm (\begin{DoxyParamCaption}\item[{moveit\+\_\+msgs\+::\+Robot\+Trajectory}]{trajectory,  }\item[{std\+::string}]{link\+\_\+name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+send joint values to kaist daemon to move real olivia 
+
+
+\begin{DoxyParams}{Parameters}
+{\em trajectory} & solution from moveit \\
+\hline
+{\em link\+\_\+name} & end-\/effector name \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classM3MoveGroup_a8adcfcf74c2e2350189be855dca572de}\label{classM3MoveGroup_a8adcfcf74c2e2350189be855dca572de}} 
+\index{M3\+Move\+Group@{M3\+Move\+Group}!Send2\+Olivia\+Whole\+Body@{Send2\+Olivia\+Whole\+Body}}
+\index{Send2\+Olivia\+Whole\+Body@{Send2\+Olivia\+Whole\+Body}!M3\+Move\+Group@{M3\+Move\+Group}}
+\subsubsection{\texorpdfstring{Send2\+Olivia\+Whole\+Body()}{Send2OliviaWholeBody()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void M3\+Move\+Group\+::\+Send2\+Olivia\+Whole\+Body (\begin{DoxyParamCaption}\item[{moveit\+\_\+msgs\+::\+Robot\+Trajectory}]{trajectory }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+send joint values to kaist daemon to move real olivia (for whole body) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em trajectory} & solution from moveit \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classM3MoveGroup_a8adcfcf74c2e2350189be855dca572de}\label{classM3MoveGroup_a8adcfcf74c2e2350189be855dca572de}} 
+\index{M3\+Move\+Group@{M3\+Move\+Group}!Send2\+Olivia\+Whole\+Body@{Send2\+Olivia\+Whole\+Body}}
+\index{Send2\+Olivia\+Whole\+Body@{Send2\+Olivia\+Whole\+Body}!M3\+Move\+Group@{M3\+Move\+Group}}
+\subsubsection{\texorpdfstring{Send2\+Olivia\+Whole\+Body()}{Send2OliviaWholeBody()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void M3\+Move\+Group\+::\+Send2\+Olivia\+Whole\+Body (\begin{DoxyParamCaption}\item[{moveit\+\_\+msgs\+::\+Robot\+Trajectory}]{trajectory }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+send joint values to kaist daemon to move real olivia (for whole body) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em trajectory} & solution from moveit \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classM3MoveGroup_aedb5d4a4aaeebd2ef3fa0d54edb0efaa}\label{classM3MoveGroup_aedb5d4a4aaeebd2ef3fa0d54edb0efaa}} 
+\index{M3\+Move\+Group@{M3\+Move\+Group}!stop\+\_\+fingers@{stop\+\_\+fingers}}
+\index{stop\+\_\+fingers@{stop\+\_\+fingers}!M3\+Move\+Group@{M3\+Move\+Group}}
+\subsubsection{\texorpdfstring{stop\+\_\+fingers()}{stop\_fingers()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void M3\+Move\+Group\+::stop\+\_\+fingers (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::string $>$}]{names }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+time based control to stop all olivia fingers 
+
+
+\begin{DoxyParams}{Parameters}
+{\em names} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classM3MoveGroup_aedb5d4a4aaeebd2ef3fa0d54edb0efaa}\label{classM3MoveGroup_aedb5d4a4aaeebd2ef3fa0d54edb0efaa}} 
+\index{M3\+Move\+Group@{M3\+Move\+Group}!stop\+\_\+fingers@{stop\+\_\+fingers}}
+\index{stop\+\_\+fingers@{stop\+\_\+fingers}!M3\+Move\+Group@{M3\+Move\+Group}}
+\subsubsection{\texorpdfstring{stop\+\_\+fingers()}{stop\_fingers()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void M3\+Move\+Group\+::stop\+\_\+fingers (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::string $>$}]{names }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+time based control to stop all olivia fingers 
+
+
+\begin{DoxyParams}{Parameters}
+{\em names} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classM3MoveGroup_a4999726d3def40e06217e81fb7f095ab}\label{classM3MoveGroup_a4999726d3def40e06217e81fb7f095ab}} 
+\index{M3\+Move\+Group@{M3\+Move\+Group}!Task\+Dual\+Action\+CB@{Task\+Dual\+Action\+CB}}
+\index{Task\+Dual\+Action\+CB@{Task\+Dual\+Action\+CB}!M3\+Move\+Group@{M3\+Move\+Group}}
+\subsubsection{\texorpdfstring{Task\+Dual\+Action\+C\+B()}{TaskDualActionCB()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void M3\+Move\+Group\+::\+Task\+Dual\+Action\+CB (\begin{DoxyParamCaption}\item[{const m3\+\_\+moveit\+::\+Moveit\+Dual\+Goal\+Const\+Ptr \&}]{goal }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Moveit Action server\+: group task planning for both arms. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em goal} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classM3MoveGroup_a4999726d3def40e06217e81fb7f095ab}\label{classM3MoveGroup_a4999726d3def40e06217e81fb7f095ab}} 
+\index{M3\+Move\+Group@{M3\+Move\+Group}!Task\+Dual\+Action\+CB@{Task\+Dual\+Action\+CB}}
+\index{Task\+Dual\+Action\+CB@{Task\+Dual\+Action\+CB}!M3\+Move\+Group@{M3\+Move\+Group}}
+\subsubsection{\texorpdfstring{Task\+Dual\+Action\+C\+B()}{TaskDualActionCB()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void M3\+Move\+Group\+::\+Task\+Dual\+Action\+CB (\begin{DoxyParamCaption}\item[{const m3\+\_\+moveit\+::\+Moveit\+Dual\+Goal\+Const\+Ptr \&}]{goal }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Moveit Action server\+: group task planning for both arms. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em goal} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classM3MoveGroup_a5cbdff90f02f8067d55c1b4592b24b72}\label{classM3MoveGroup_a5cbdff90f02f8067d55c1b4592b24b72}} 
+\index{M3\+Move\+Group@{M3\+Move\+Group}!Task\+Single\+Action\+CB@{Task\+Single\+Action\+CB}}
+\index{Task\+Single\+Action\+CB@{Task\+Single\+Action\+CB}!M3\+Move\+Group@{M3\+Move\+Group}}
+\subsubsection{\texorpdfstring{Task\+Single\+Action\+C\+B()}{TaskSingleActionCB()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void M3\+Move\+Group\+::\+Task\+Single\+Action\+CB (\begin{DoxyParamCaption}\item[{const m3\+\_\+moveit\+::\+Moveit\+Single\+Goal\+Const\+Ptr \&}]{goal }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Moveit Action server\+: moveit group task planning, movement less predictable, but higher rate of success. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em goal} & target \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classM3MoveGroup_a5cbdff90f02f8067d55c1b4592b24b72}\label{classM3MoveGroup_a5cbdff90f02f8067d55c1b4592b24b72}} 
+\index{M3\+Move\+Group@{M3\+Move\+Group}!Task\+Single\+Action\+CB@{Task\+Single\+Action\+CB}}
+\index{Task\+Single\+Action\+CB@{Task\+Single\+Action\+CB}!M3\+Move\+Group@{M3\+Move\+Group}}
+\subsubsection{\texorpdfstring{Task\+Single\+Action\+C\+B()}{TaskSingleActionCB()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void M3\+Move\+Group\+::\+Task\+Single\+Action\+CB (\begin{DoxyParamCaption}\item[{const m3\+\_\+moveit\+::\+Moveit\+Single\+Goal\+Const\+Ptr \&}]{goal }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Moveit Action server\+: moveit group task planning, movement less predictable, but higher rate of success. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em goal} & target \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classM3MoveGroup_aee17065b5aa40384dcca5a6589261ded}\label{classM3MoveGroup_aee17065b5aa40384dcca5a6589261ded}} 
+\index{M3\+Move\+Group@{M3\+Move\+Group}!Task\+Single\+Right\+Action\+CB@{Task\+Single\+Right\+Action\+CB}}
+\index{Task\+Single\+Right\+Action\+CB@{Task\+Single\+Right\+Action\+CB}!M3\+Move\+Group@{M3\+Move\+Group}}
+\subsubsection{\texorpdfstring{Task\+Single\+Right\+Action\+C\+B()}{TaskSingleRightActionCB()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void M3\+Move\+Group\+::\+Task\+Single\+Right\+Action\+CB (\begin{DoxyParamCaption}\item[{const m3\+\_\+moveit\+::\+Moveit\+Single\+Goal\+Const\+Ptr \&}]{goal }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Moveit Action server\+: moveit group task planning (for right single arm only) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em goal} & target \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classM3MoveGroup_aee17065b5aa40384dcca5a6589261ded}\label{classM3MoveGroup_aee17065b5aa40384dcca5a6589261ded}} 
+\index{M3\+Move\+Group@{M3\+Move\+Group}!Task\+Single\+Right\+Action\+CB@{Task\+Single\+Right\+Action\+CB}}
+\index{Task\+Single\+Right\+Action\+CB@{Task\+Single\+Right\+Action\+CB}!M3\+Move\+Group@{M3\+Move\+Group}}
+\subsubsection{\texorpdfstring{Task\+Single\+Right\+Action\+C\+B()}{TaskSingleRightActionCB()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void M3\+Move\+Group\+::\+Task\+Single\+Right\+Action\+CB (\begin{DoxyParamCaption}\item[{const m3\+\_\+moveit\+::\+Moveit\+Single\+Goal\+Const\+Ptr \&}]{goal }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Moveit Action server\+: moveit group task planning (for right single arm only) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em goal} & target \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/samuel/\+Desktop/toolcog\+\_\+ws/m3\+\_\+moveit/planning/src/\hyperlink{move__group__action__server_8cpp}{move\+\_\+group\+\_\+action\+\_\+server.\+cpp}\item 
+/home/samuel/\+Desktop/toolcog\+\_\+ws/m3\+\_\+moveit/planning/src/\hyperlink{move__group__action__server__fixed_8cpp}{move\+\_\+group\+\_\+action\+\_\+server\+\_\+fixed.\+cpp}\end{DoxyCompactItemize}

@@ -1,0 +1,103 @@
+\hypertarget{classRecorder}{}\section{Recorder Class Reference}
+\label{classRecorder}\index{Recorder@{Recorder}}
+
+
+class to export data into csv file  
+
+
+
+
+{\ttfamily \#include $<$recorder.\+h$>$}
+
+
+
+Collaboration diagram for Recorder\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=144pt]{classRecorder__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classRecorder_af0b4f40e7c67f16b0ffff13712149d78}\label{classRecorder_af0b4f40e7c67f16b0ffff13712149d78}} 
+\hyperlink{classRecorder_af0b4f40e7c67f16b0ffff13712149d78}{Recorder} ()
+\begin{DoxyCompactList}\small\item\em Construct a new \hyperlink{classRecorder}{Recorder} object. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classRecorder_a6b3c569577fcdc298d8d4a6a2b96e9a9}\label{classRecorder_a6b3c569577fcdc298d8d4a6a2b96e9a9}} 
+virtual \hyperlink{classRecorder_a6b3c569577fcdc298d8d4a6a2b96e9a9}{$\sim$\+Recorder} ()
+\begin{DoxyCompactList}\small\item\em Destroy the \hyperlink{classRecorder}{Recorder} object. \end{DoxyCompactList}\item 
+void \hyperlink{classRecorder_af6314348fd2c47bd074feb6506b6464d}{save\+Data} (\hyperlink{structdataset}{dataset} d)
+\begin{DoxyCompactList}\small\item\em save the data into the records \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classRecorder_a635023e6472fcf2422b4d814936cf771}\label{classRecorder_a635023e6472fcf2422b4d814936cf771}} 
+void \hyperlink{classRecorder_a635023e6472fcf2422b4d814936cf771}{save2\+File} ()
+\begin{DoxyCompactList}\small\item\em export out to csv file \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classRecorder_a79eefa7ff1ed1f6da3cb1e094d675776}\label{classRecorder_a79eefa7ff1ed1f6da3cb1e094d675776}} 
+void \hyperlink{classRecorder_a79eefa7ff1ed1f6da3cb1e094d675776}{clear\+Records} ()
+\begin{DoxyCompactList}\small\item\em clear all the records and free up memory \end{DoxyCompactList}\item 
+void \hyperlink{classRecorder_a77bb320101cee41ef8c6e3c24829c0a9}{set\+Name} (string ss)
+\begin{DoxyCompactList}\small\item\em Set the Name of object. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classRecorder_ade21528ae33a118fa8ef0a2d1481585f}\label{classRecorder_ade21528ae33a118fa8ef0a2d1481585f}} 
+void \hyperlink{classRecorder_ade21528ae33a118fa8ef0a2d1481585f}{show\+Address} ()
+\begin{DoxyCompactList}\small\item\em show current pointer address \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classRecorder_a9e7bc99c5b525b9ba90b213b9ceb8b0a}\label{classRecorder_a9e7bc99c5b525b9ba90b213b9ceb8b0a}} 
+int {\bfseries fileidx}
+\item 
+\mbox{\Hypertarget{classRecorder_aa462a9878994011343830c7addf84127}\label{classRecorder_aa462a9878994011343830c7addf84127}} 
+int {\bfseries size}
+\item 
+\mbox{\Hypertarget{classRecorder_a58cefe30b461b4c1ca3791bef272e388}\label{classRecorder_a58cefe30b461b4c1ca3791bef272e388}} 
+int {\bfseries idx}
+\item 
+\mbox{\Hypertarget{classRecorder_a762c30c53f299264670e969b8fe0004d}\label{classRecorder_a762c30c53f299264670e969b8fe0004d}} 
+string {\bfseries name}
+\item 
+\mbox{\Hypertarget{classRecorder_acf45c430df53a77b90b6de1715116770}\label{classRecorder_acf45c430df53a77b90b6de1715116770}} 
+struct \hyperlink{structdataset}{dataset} $\ast$ {\bfseries records}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+class to export data into csv file 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classRecorder_af6314348fd2c47bd074feb6506b6464d}\label{classRecorder_af6314348fd2c47bd074feb6506b6464d}} 
+\index{Recorder@{Recorder}!save\+Data@{save\+Data}}
+\index{save\+Data@{save\+Data}!Recorder@{Recorder}}
+\subsubsection{\texorpdfstring{save\+Data()}{saveData()}}
+{\footnotesize\ttfamily void Recorder\+::save\+Data (\begin{DoxyParamCaption}\item[{\hyperlink{structdataset}{dataset}}]{d }\end{DoxyParamCaption})}
+
+
+
+save the data into the records 
+
+
+\begin{DoxyParams}{Parameters}
+{\em d} & data to save \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classRecorder_a77bb320101cee41ef8c6e3c24829c0a9}\label{classRecorder_a77bb320101cee41ef8c6e3c24829c0a9}} 
+\index{Recorder@{Recorder}!set\+Name@{set\+Name}}
+\index{set\+Name@{set\+Name}!Recorder@{Recorder}}
+\subsubsection{\texorpdfstring{set\+Name()}{setName()}}
+{\footnotesize\ttfamily void Recorder\+::set\+Name (\begin{DoxyParamCaption}\item[{string}]{ss }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Set the Name of object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ss} & name \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/samuel/\+Desktop/toolcog\+\_\+ws/montecarlo/include/tool\+\_\+expt/\hyperlink{recorder_8h}{recorder.\+h}\item 
+/home/samuel/\+Desktop/toolcog\+\_\+ws/montecarlo/src/recorder.\+cpp\end{DoxyCompactItemize}

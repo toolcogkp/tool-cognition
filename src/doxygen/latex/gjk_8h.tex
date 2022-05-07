@@ -1,0 +1,62 @@
+\hypertarget{gjk_8h}{}\section{/home/samuel/\+Desktop/toolcog\+\_\+ws/montecarlo/include/tool\+\_\+expt/gjk.h File Reference}
+\label{gjk_8h}\index{/home/samuel/\+Desktop/toolcog\+\_\+ws/montecarlo/include/tool\+\_\+expt/gjk.\+h@{/home/samuel/\+Desktop/toolcog\+\_\+ws/montecarlo/include/tool\+\_\+expt/gjk.\+h}}
+
+
+Gilbert–\+Johnson–\+Keerthi (\hyperlink{classGJK}{G\+JK}) algorithm for object collision check \hyperlink{classGJK}{G\+JK} Header structure and functions.  
+
+
+{\ttfamily \#include \char`\"{}ros/ros.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$fstream$>$}\newline
+{\ttfamily \#include $<$std\+\_\+msgs/\+Int32.\+h$>$}\newline
+{\ttfamily \#include $<$std\+\_\+msgs/\+Bool.\+h$>$}\newline
+{\ttfamily \#include $<$Eigen/\+Core$>$}\newline
+{\ttfamily \#include $<$Eigen/\+S\+VD$>$}\newline
+{\ttfamily \#include $<$Eigen/\+Geometry$>$}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
+Include dependency graph for gjk.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{gjk_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{gjk_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structShape}{Shape}
+\begin{DoxyCompactList}\small\item\em shape for \hyperlink{classGJK}{G\+JK} object Contains verticles of object, eg. A C\+U\+BE have 8 vertices Using Eigen Vector3d format for 3 values coordinates (x,y,z) in type double. \end{DoxyCompactList}\item 
+class \hyperlink{classGJK}{G\+JK}
+\begin{DoxyCompactList}\small\item\em \hyperlink{classGJK}{G\+JK} algothrim wrapper Use this class for fast collision check between 2 objects. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{gjk_8h_ae06aadfb7b79753d2adbc7c7751dd288}\label{gjk_8h_ae06aadfb7b79753d2adbc7c7751dd288}} 
+\hyperlink{structShape}{Shape} {\bfseries gen\+Swept\+Vol\+Obj} (\hyperlink{structShape}{Shape} tool, Vector3d move\+\_\+vec)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Gilbert–\+Johnson–\+Keerthi (\hyperlink{classGJK}{G\+JK}) algorithm for object collision check \hyperlink{classGJK}{G\+JK} Header structure and functions. 
+
+\begin{DoxyAuthor}{Author}
+\href{mailto:samuel_cheong@i2r.a-star.edu.sg}{\tt samuel\+\_\+cheong@i2r.\+a-\/star.\+edu.\+sg} 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2019-\/03-\/02
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+Copyright (c) 2019 
+\end{DoxyCopyright}

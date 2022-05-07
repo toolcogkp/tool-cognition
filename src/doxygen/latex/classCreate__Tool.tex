@@ -1,0 +1,420 @@
+\hypertarget{classCreate__Tool}{}\section{Create\+\_\+\+Tool Class Reference}
+\label{classCreate__Tool}\index{Create\+\_\+\+Tool@{Create\+\_\+\+Tool}}
+
+
+Create Tool class object Contains required information for a detect Tool object.  
+
+
+
+
+{\ttfamily \#include $<$create\+\_\+tool.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classCreate__Tool_a8b1dfbba2c00f29ba9923a68d55bd508}\label{classCreate__Tool_a8b1dfbba2c00f29ba9923a68d55bd508}} 
+\hyperlink{classCreate__Tool_a8b1dfbba2c00f29ba9923a68d55bd508}{Create\+\_\+\+Tool} ()
+\begin{DoxyCompactList}\small\item\em Construct a new \hyperlink{classCreate__Tool}{Create\+\_\+\+Tool} object. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classCreate__Tool_af61d80c8faa7752af37806921ddc35e1}\label{classCreate__Tool_af61d80c8faa7752af37806921ddc35e1}} 
+\hyperlink{classCreate__Tool_af61d80c8faa7752af37806921ddc35e1}{$\sim$\+Create\+\_\+\+Tool} ()
+\begin{DoxyCompactList}\small\item\em Destroy the \hyperlink{classCreate__Tool}{Create\+\_\+\+Tool} object. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classCreate__Tool_a55627b189b24891751d7101598c6aa0d}\label{classCreate__Tool_a55627b189b24891751d7101598c6aa0d}} 
+void \hyperlink{classCreate__Tool_a55627b189b24891751d7101598c6aa0d}{init} ()
+\begin{DoxyCompactList}\small\item\em initialise function to set default parameters/stucture objects 1) initialise step size required for monte carlo computation 2) initialise empty tool\+\_\+pose and tool\+\_\+affine 3) initialise a default \textquotesingle{}Tool\textquotesingle{} stucture 4) initialise perception Flag \end{DoxyCompactList}\item 
+void \hyperlink{classCreate__Tool_ac8a58a01a4da4d08ae5603e7fee061d6}{create} ()
+\begin{DoxyCompactList}\small\item\em function to create 3D Tool object Compute vertices of tested \textquotesingle{}Tool\textquotesingle{} object Fill 3D rotation matrix based on object Generate 3D segment of given object \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classCreate__Tool_acf5f95173cd6baaf110cafb5ff318560}\label{classCreate__Tool_acf5f95173cd6baaf110cafb5ff318560}} 
+void \hyperlink{classCreate__Tool_acf5f95173cd6baaf110cafb5ff318560}{display\+Details} (void)
+\begin{DoxyCompactList}\small\item\em printing for debug check \end{DoxyCompactList}\item 
+vector$<$ Vector3d $>$ \hyperlink{classCreate__Tool_a1393c24c8f96f4e1b41d73db18b720c3}{get\+Vertices} ()
+\begin{DoxyCompactList}\small\item\em Get the Vertices object return sets of vertices in 3d coordinates frame. \end{DoxyCompactList}\item 
+Vector\+Xd \hyperlink{classCreate__Tool_a0a76e83b7d85e64bb0c9aa8306a0b0f6}{get\+\_\+n\+\_\+pts} ()
+\begin{DoxyCompactList}\small\item\em Store the number of point for each segement of each \textquotesingle{}Tool\textquotesingle{} object the number of points in each segment (exclude the edges/extreme\+\_\+pts) \end{DoxyCompactList}\item 
+int \hyperlink{classCreate__Tool_a1140f90d5c44110f44939e564646a316}{get\+\_\+\+N\+\_\+seg} ()
+\begin{DoxyCompactList}\small\item\em Get the number of segment for this \textquotesingle{}Tool\textquotesingle{} object. \end{DoxyCompactList}\item 
+vector$<$ Vector3d $>$ \hyperlink{classCreate__Tool_ac997ba484168b43803bad484f2e4eaaa}{get\+\_\+nvec\+\_\+seg} ()
+\begin{DoxyCompactList}\small\item\em Return the normal vector for each segment of this \textquotesingle{}Tool\textquotesingle{} object. \end{DoxyCompactList}\item 
+vector$<$ vector$<$ Vector3d $>$ $>$ \hyperlink{classCreate__Tool_a328623ee81b8c11ea9e4dbe8bf863392}{get\+\_\+tool\+\_\+seg} ()
+\begin{DoxyCompactList}\small\item\em Get the tool seg object. \end{DoxyCompactList}\item 
+Vector\+Xd \hyperlink{classCreate__Tool_a83213666dbbdd99333d84906d1be80e4}{get\+\_\+angle\+\_\+seg} ()
+\begin{DoxyCompactList}\small\item\em Get the rotational angles for each segment of the \textquotesingle{}Tool\textquotesingle{} object. \end{DoxyCompactList}\item 
+int \hyperlink{classCreate__Tool_a59a084db075fa28aad8251f8c9aee653}{create\+\_\+percept\+Tool} (\hyperlink{structvision__each}{vision\+\_\+each} vdat)
+\begin{DoxyCompactList}\small\item\em Create a \textquotesingle{}Tool\textquotesingle{} object from perception data Refer to \hyperlink{vision__data_8h}{vision\+\_\+data.\+h} for perceived object data structure and format. \end{DoxyCompactList}\item 
+vector$<$ vector$<$ Vector3d $>$ $>$ \hyperlink{classCreate__Tool_a6e11b0f95ff11d0bd67dade19e17377f}{get\+\_\+seg\+\_\+vertices} ()
+\begin{DoxyCompactList}\small\item\em Get every vertices in every segments of this \textquotesingle{}Tool\textquotesingle{} object Each vertice contains the 3d coordinates in (x,y,z) and double data\+\_\+type. \end{DoxyCompactList}\item 
+int \hyperlink{classCreate__Tool_a19085ace8b8a30757ba7b5c80cdd0f97}{find\+Grasp\+Loci} ()
+\begin{DoxyCompactList}\small\item\em Compute a set of possible grasping location for Olivia to hold. \end{DoxyCompactList}\item 
+int \hyperlink{classCreate__Tool_a2dd92335571099de8732d47d7e472865}{write2file} ()
+\begin{DoxyCompactList}\small\item\em logging function To record and export all of this \textquotesingle{}Tool\textquotesingle{} object information \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classCreate__Tool_a7302b3e168c45d380194eeed2e863955}\label{classCreate__Tool_a7302b3e168c45d380194eeed2e863955}} 
+vector$<$ Affine3d $>$ \hyperlink{classCreate__Tool_a7302b3e168c45d380194eeed2e863955}{grasp\+\_\+loci}
+\begin{DoxyCompactList}\small\item\em Store the set of Affine Matrix of possible grasping location in this Tool frame. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classCreate__Tool_a271f74ac5f1fe45a0ee1069f42fbadaf}{fill3\+D\+Rotation} (int idx)
+\begin{DoxyCompactList}\small\item\em function to compute and fill the rotational matrix of the selected segment of this \textquotesingle{}Tool\textquotesingle{} object \end{DoxyCompactList}\item 
+void \hyperlink{classCreate__Tool_ae2fa728fd141b1eea18ab82cb67c58de}{fill3\+D\+Segment} (int idx)
+\begin{DoxyCompactList}\small\item\em function to compute and fill the segmention of the selected segment of this \textquotesingle{}Tool\textquotesingle{} object \end{DoxyCompactList}\item 
+double \hyperlink{classCreate__Tool_a7f49a49b557bdde922b2bb7e9c230c6f}{euclidean\+\_\+distance} (Vector3d pt1, Vector3d pt2)
+\begin{DoxyCompactList}\small\item\em Function to compute the euclidean\+\_\+distance between 2 points. \end{DoxyCompactList}\item 
+std\+::vector$<$ double $>$ \hyperlink{classCreate__Tool_a419350e8721927d095385aa6bef0bc4b}{linspace} (double start\+\_\+in, double end\+\_\+in, int num\+\_\+in)
+\begin{DoxyCompactList}\small\item\em Compute linear spacing between a given length. \end{DoxyCompactList}\item 
+double \hyperlink{classCreate__Tool_ad015a621844305c141ae1e405402e617}{find\+\_\+angle} (Vector3d pt1, Vector3d pt2, Vector3d pt3)
+\begin{DoxyCompactList}\small\item\em compute the angle between 3 given points angle is computed between vector of point12 and point23, join pt1-\/pt2-\/pt3, find angle formed at pt2 between pt1 and pt3. \end{DoxyCompactList}\item 
+double \hyperlink{classCreate__Tool_a4a9c9e0219a63df284ece42c198d9c73}{find\+Angle\+Triangle} (Vector3d va, Vector3d vb, Vector3d vc)
+\begin{DoxyCompactList}\small\item\em Compute the angle in a triangle formed by 3 vectors assume a triangle and find angle theta at coordinate b (middle argument) a /\textbackslash{} / \textbackslash{} / \textbackslash{} angle@ b /\+\_\+)\+\_\+\+\_\+\+\_\+\+\_\+\textbackslash{} c. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classCreate__Tool_a2da4141fdf279a34ec7642e02e81ae6f}\label{classCreate__Tool_a2da4141fdf279a34ec7642e02e81ae6f}} 
+bool \hyperlink{classCreate__Tool_a2da4141fdf279a34ec7642e02e81ae6f}{percept\+Flag}
+\begin{DoxyCompactList}\small\item\em flag to track if this is a default(coded) or a percieved \textquotesingle{}Tool\textquotesingle{} object \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classCreate__Tool_a8751f23989211bc27690cba3aa369e0d}\label{classCreate__Tool_a8751f23989211bc27690cba3aa369e0d}} 
+bool \hyperlink{classCreate__Tool_a8751f23989211bc27690cba3aa369e0d}{init\+Flag}
+\begin{DoxyCompactList}\small\item\em flag to check if data is properly initialised before computation \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classCreate__Tool_a8d6fff2315a7198c8a59e7c0c48401bd}\label{classCreate__Tool_a8d6fff2315a7198c8a59e7c0c48401bd}} 
+int \hyperlink{classCreate__Tool_a8d6fff2315a7198c8a59e7c0c48401bd}{N\+\_\+seg}
+\begin{DoxyCompactList}\small\item\em number of segments in this \textquotesingle{}Tool\textquotesingle{} \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classCreate__Tool_aa7dcad369b209d4ee5352e7617762ecf}\label{classCreate__Tool_aa7dcad369b209d4ee5352e7617762ecf}} 
+int \hyperlink{classCreate__Tool_aa7dcad369b209d4ee5352e7617762ecf}{prev\+\_\+size}
+\begin{DoxyCompactList}\small\item\em store previous size of segment \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classCreate__Tool_a29cf141ff3ce17edd908185bbdb10e8d}\label{classCreate__Tool_a29cf141ff3ce17edd908185bbdb10e8d}} 
+double \hyperlink{classCreate__Tool_a29cf141ff3ce17edd908185bbdb10e8d}{len\+\_\+step}
+\begin{DoxyCompactList}\small\item\em store step size of each segment (segment length) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classCreate__Tool_a9f61a626e0c3b4853e0ba7a6834382d2}\label{classCreate__Tool_a9f61a626e0c3b4853e0ba7a6834382d2}} 
+double \hyperlink{classCreate__Tool_a9f61a626e0c3b4853e0ba7a6834382d2}{wid\+\_\+seg1}
+\begin{DoxyCompactList}\small\item\em store displacement between mesh axis and tool axis \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classCreate__Tool_a8c086a3533361ff6c1614ce3590183f2}\label{classCreate__Tool_a8c086a3533361ff6c1614ce3590183f2}} 
+double \hyperlink{classCreate__Tool_a8c086a3533361ff6c1614ce3590183f2}{tool\+\_\+yaw}
+\begin{DoxyCompactList}\small\item\em store the yawing(rotation) angle of tool \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classCreate__Tool_add39151bcacd8dec6f1864484f7815be}\label{classCreate__Tool_add39151bcacd8dec6f1864484f7815be}} 
+Vector\+Xd \hyperlink{classCreate__Tool_add39151bcacd8dec6f1864484f7815be}{len\+\_\+seg}
+\begin{DoxyCompactList}\small\item\em store the length of each segment \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classCreate__Tool_aa76196be75a54a73255131e9ce6b072a}\label{classCreate__Tool_aa76196be75a54a73255131e9ce6b072a}} 
+Vector\+Xd \hyperlink{classCreate__Tool_aa76196be75a54a73255131e9ce6b072a}{n\+\_\+pts\+\_\+seg}
+\begin{DoxyCompactList}\small\item\em store the number of points in each segment \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classCreate__Tool_a9e73fe1f442a53c41f917cf8937a4216}\label{classCreate__Tool_a9e73fe1f442a53c41f917cf8937a4216}} 
+Vector\+Xd \hyperlink{classCreate__Tool_a9e73fe1f442a53c41f917cf8937a4216}{angle\+\_\+seg}
+\begin{DoxyCompactList}\small\item\em store the angle of each segment \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classCreate__Tool_ad88f83e484d6945af84f521a2710e4bc}\label{classCreate__Tool_ad88f83e484d6945af84f521a2710e4bc}} 
+Vector\+Xd \hyperlink{classCreate__Tool_ad88f83e484d6945af84f521a2710e4bc}{delta\+\_\+angle}
+\begin{DoxyCompactList}\small\item\em store the delta (difference) angle for each segment \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classCreate__Tool_aa4242ad29b43cab5ab4d2df4ff44ba9a}\label{classCreate__Tool_aa4242ad29b43cab5ab4d2df4ff44ba9a}} 
+int \hyperlink{classCreate__Tool_aa4242ad29b43cab5ab4d2df4ff44ba9a}{prev\+\_\+size\+\_\+2}
+\begin{DoxyCompactList}\small\item\em store the previous size of segment \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classCreate__Tool_adaf26bd4949c41ce06895398ab4fa431}\label{classCreate__Tool_adaf26bd4949c41ce06895398ab4fa431}} 
+vector$<$ Matrix3d $>$ \hyperlink{classCreate__Tool_adaf26bd4949c41ce06895398ab4fa431}{R3}
+\begin{DoxyCompactList}\small\item\em store the rotational matrix for each segment \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classCreate__Tool_a1d9f7d42a254217cb04a7eb599f0fe0c}\label{classCreate__Tool_a1d9f7d42a254217cb04a7eb599f0fe0c}} 
+Affine3d \hyperlink{classCreate__Tool_a1d9f7d42a254217cb04a7eb599f0fe0c}{tool\+\_\+affine}
+\begin{DoxyCompactList}\small\item\em store the pose of the tool in eigen affine matrix \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classCreate__Tool_a0284095f336cd4847f53a457d1756d1a}\label{classCreate__Tool_a0284095f336cd4847f53a457d1756d1a}} 
+Vector3d \hyperlink{classCreate__Tool_a0284095f336cd4847f53a457d1756d1a}{tool\+\_\+trans}
+\begin{DoxyCompactList}\small\item\em store the translational vector of the tool \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classCreate__Tool_a086daeeb01921f90e75e49843f6f56e0}\label{classCreate__Tool_a086daeeb01921f90e75e49843f6f56e0}} 
+vector$<$ vector$<$ Vector3d $>$ $>$ \hyperlink{classCreate__Tool_a086daeeb01921f90e75e49843f6f56e0}{tool\+\_\+seg\+\_\+3d}
+\begin{DoxyCompactList}\small\item\em store the set of vertices that are contained in each segment of the \textquotesingle{}Tool\textquotesingle{} object \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classCreate__Tool_ae753f1f8f15b2e6739e6776642eb4c34}\label{classCreate__Tool_ae753f1f8f15b2e6739e6776642eb4c34}} 
+vector$<$ Vector3d $>$ \hyperlink{classCreate__Tool_ae753f1f8f15b2e6739e6776642eb4c34}{nvec\+\_\+seg\+\_\+3d}
+\begin{DoxyCompactList}\small\item\em store the normal vector for each segment of the \textquotesingle{}Tool\textquotesingle{} object \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classCreate__Tool_ae02f96935f6b0d5c2a6d76bd421707fc}\label{classCreate__Tool_ae02f96935f6b0d5c2a6d76bd421707fc}} 
+vector$<$ Vector3d $>$ \hyperlink{classCreate__Tool_ae02f96935f6b0d5c2a6d76bd421707fc}{tool\+\_\+vertices\+\_\+3d}
+\begin{DoxyCompactList}\small\item\em store the 3D vertices of the \textquotesingle{}Tool\textquotesingle{} object \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classCreate__Tool_ae6da0d94feda4e8bb996750d20bf7218}\label{classCreate__Tool_ae6da0d94feda4e8bb996750d20bf7218}} 
+vector$<$ float $>$ {\bfseries objheight2table}
+\item 
+\mbox{\Hypertarget{classCreate__Tool_a86c971fb3705f2d8113118209ca2fba0}\label{classCreate__Tool_a86c971fb3705f2d8113118209ca2fba0}} 
+vector$<$ Point\+Cloud$<$ Point\+X\+YZ $>$ $>$ \hyperlink{classCreate__Tool_a86c971fb3705f2d8113118209ca2fba0}{hull\+Clusters\+On\+Axis}
+\begin{DoxyCompactList}\small\item\em for each number of \textquotesingle{}Tool\textquotesingle{}, store the 3d coordinates of tool vertices \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classCreate__Tool_abb97ac15169e5df1831b8b8fbf5e4ece}\label{classCreate__Tool_abb97ac15169e5df1831b8b8fbf5e4ece}} 
+vector$<$ Matrix4f $>$ \hyperlink{classCreate__Tool_abb97ac15169e5df1831b8b8fbf5e4ece}{proj2\+Table\+T\+Fs}
+\begin{DoxyCompactList}\small\item\em for each percieved \textquotesingle{}Tool\textquotesingle{}, store the Transform(\+T\+F) of the tool projection from the table plane \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classCreate__Tool_a3da16d94dd66220185c1adcec47416af}\label{classCreate__Tool_a3da16d94dd66220185c1adcec47416af}} 
+vector$<$ vector$<$ Point\+Cloud$<$ Point\+X\+YZ $>$ $>$ $>$ \hyperlink{classCreate__Tool_a3da16d94dd66220185c1adcec47416af}{obj\+\_\+convex}
+\begin{DoxyCompactList}\small\item\em for each number of \textquotesingle{}Tool\textquotesingle{}, and for each number of segments in each \textquotesingle{}Tool\textquotesingle{}, store the convex pointcloud points \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classCreate__Tool_a22058ca58e880ab522b8b7872040d175}\label{classCreate__Tool_a22058ca58e880ab522b8b7872040d175}} 
+vector$<$ vector$<$ Vector3d $>$ $>$ \hyperlink{classCreate__Tool_a22058ca58e880ab522b8b7872040d175}{seg\+\_\+vertices\+\_\+3d}
+\begin{DoxyCompactList}\small\item\em for each number of \textquotesingle{}Tool\textquotesingle{}, and for each number of segments in each \textquotesingle{}Tool\textquotesingle{}, store the 3d coordinates of the vertices \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classCreate__Tool_a6de511d1a128fb0f665c0c70d2caa5f3}\label{classCreate__Tool_a6de511d1a128fb0f665c0c70d2caa5f3}} 
+double \hyperlink{classCreate__Tool_a6de511d1a128fb0f665c0c70d2caa5f3}{tool\+\_\+height}
+\begin{DoxyCompactList}\small\item\em store the tool height from the table plane \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classCreate__Tool_a59fc2168107cc01207ae6029ddfce8e6}\label{classCreate__Tool_a59fc2168107cc01207ae6029ddfce8e6}} 
+int \hyperlink{classCreate__Tool_a59fc2168107cc01207ae6029ddfce8e6}{N\+\_\+pieces}
+\begin{DoxyCompactList}\small\item\em how many pieces segmented using P\+CL \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Create Tool class object Contains required information for a detect Tool object. 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classCreate__Tool_ac8a58a01a4da4d08ae5603e7fee061d6}\label{classCreate__Tool_ac8a58a01a4da4d08ae5603e7fee061d6}} 
+\index{Create\+\_\+\+Tool@{Create\+\_\+\+Tool}!create@{create}}
+\index{create@{create}!Create\+\_\+\+Tool@{Create\+\_\+\+Tool}}
+\subsubsection{\texorpdfstring{create()}{create()}}
+{\footnotesize\ttfamily void Create\+\_\+\+Tool\+::create (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+function to create 3D Tool object Compute vertices of tested \textquotesingle{}Tool\textquotesingle{} object Fill 3D rotation matrix based on object Generate 3D segment of given object 
+
+W\+H\+EN U\+S\+I\+NG P\+E\+R\+C\+E\+P\+T\+I\+ON M\+O\+D\+U\+LE, U\+SE create\+\_\+percept\+Tool F\+U\+N\+C\+T\+I\+ON instead and provide visual data. \mbox{\Hypertarget{classCreate__Tool_a59a084db075fa28aad8251f8c9aee653}\label{classCreate__Tool_a59a084db075fa28aad8251f8c9aee653}} 
+\index{Create\+\_\+\+Tool@{Create\+\_\+\+Tool}!create\+\_\+percept\+Tool@{create\+\_\+percept\+Tool}}
+\index{create\+\_\+percept\+Tool@{create\+\_\+percept\+Tool}!Create\+\_\+\+Tool@{Create\+\_\+\+Tool}}
+\subsubsection{\texorpdfstring{create\+\_\+percept\+Tool()}{create\_perceptTool()}}
+{\footnotesize\ttfamily int Create\+\_\+\+Tool\+::create\+\_\+percept\+Tool (\begin{DoxyParamCaption}\item[{\hyperlink{structvision__each}{vision\+\_\+each}}]{vdat }\end{DoxyParamCaption})}
+
+
+
+Create a \textquotesingle{}Tool\textquotesingle{} object from perception data Refer to \hyperlink{vision__data_8h}{vision\+\_\+data.\+h} for perceived object data structure and format. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em vdat} & perception data \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classCreate__Tool_a7f49a49b557bdde922b2bb7e9c230c6f}\label{classCreate__Tool_a7f49a49b557bdde922b2bb7e9c230c6f}} 
+\index{Create\+\_\+\+Tool@{Create\+\_\+\+Tool}!euclidean\+\_\+distance@{euclidean\+\_\+distance}}
+\index{euclidean\+\_\+distance@{euclidean\+\_\+distance}!Create\+\_\+\+Tool@{Create\+\_\+\+Tool}}
+\subsubsection{\texorpdfstring{euclidean\+\_\+distance()}{euclidean\_distance()}}
+{\footnotesize\ttfamily double Create\+\_\+\+Tool\+::euclidean\+\_\+distance (\begin{DoxyParamCaption}\item[{Vector3d}]{pt1,  }\item[{Vector3d}]{pt2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Function to compute the euclidean\+\_\+distance between 2 points. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pt1} & xyz coordinate of point 1 \\
+\hline
+{\em pt2} & xyz coordinate of point 2 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+double distance between points 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classCreate__Tool_a271f74ac5f1fe45a0ee1069f42fbadaf}\label{classCreate__Tool_a271f74ac5f1fe45a0ee1069f42fbadaf}} 
+\index{Create\+\_\+\+Tool@{Create\+\_\+\+Tool}!fill3\+D\+Rotation@{fill3\+D\+Rotation}}
+\index{fill3\+D\+Rotation@{fill3\+D\+Rotation}!Create\+\_\+\+Tool@{Create\+\_\+\+Tool}}
+\subsubsection{\texorpdfstring{fill3\+D\+Rotation()}{fill3DRotation()}}
+{\footnotesize\ttfamily void Create\+\_\+\+Tool\+::fill3\+D\+Rotation (\begin{DoxyParamCaption}\item[{int}]{idx }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+function to compute and fill the rotational matrix of the selected segment of this \textquotesingle{}Tool\textquotesingle{} object 
+
+
+\begin{DoxyParams}{Parameters}
+{\em idx} & index of the segment \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classCreate__Tool_ae2fa728fd141b1eea18ab82cb67c58de}\label{classCreate__Tool_ae2fa728fd141b1eea18ab82cb67c58de}} 
+\index{Create\+\_\+\+Tool@{Create\+\_\+\+Tool}!fill3\+D\+Segment@{fill3\+D\+Segment}}
+\index{fill3\+D\+Segment@{fill3\+D\+Segment}!Create\+\_\+\+Tool@{Create\+\_\+\+Tool}}
+\subsubsection{\texorpdfstring{fill3\+D\+Segment()}{fill3DSegment()}}
+{\footnotesize\ttfamily void Create\+\_\+\+Tool\+::fill3\+D\+Segment (\begin{DoxyParamCaption}\item[{int}]{idx }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+function to compute and fill the segmention of the selected segment of this \textquotesingle{}Tool\textquotesingle{} object 
+
+
+\begin{DoxyParams}{Parameters}
+{\em idx} & index of the segment \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classCreate__Tool_ad015a621844305c141ae1e405402e617}\label{classCreate__Tool_ad015a621844305c141ae1e405402e617}} 
+\index{Create\+\_\+\+Tool@{Create\+\_\+\+Tool}!find\+\_\+angle@{find\+\_\+angle}}
+\index{find\+\_\+angle@{find\+\_\+angle}!Create\+\_\+\+Tool@{Create\+\_\+\+Tool}}
+\subsubsection{\texorpdfstring{find\+\_\+angle()}{find\_angle()}}
+{\footnotesize\ttfamily double Create\+\_\+\+Tool\+::find\+\_\+angle (\begin{DoxyParamCaption}\item[{Vector3d}]{pt1,  }\item[{Vector3d}]{pt2,  }\item[{Vector3d}]{pt3 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+compute the angle between 3 given points angle is computed between vector of point12 and point23, join pt1-\/pt2-\/pt3, find angle formed at pt2 between pt1 and pt3. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pt1} & point 1 \\
+\hline
+{\em pt2} & point 2 \\
+\hline
+{\em pt3} & point 3 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+double angle in radian 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classCreate__Tool_a4a9c9e0219a63df284ece42c198d9c73}\label{classCreate__Tool_a4a9c9e0219a63df284ece42c198d9c73}} 
+\index{Create\+\_\+\+Tool@{Create\+\_\+\+Tool}!find\+Angle\+Triangle@{find\+Angle\+Triangle}}
+\index{find\+Angle\+Triangle@{find\+Angle\+Triangle}!Create\+\_\+\+Tool@{Create\+\_\+\+Tool}}
+\subsubsection{\texorpdfstring{find\+Angle\+Triangle()}{findAngleTriangle()}}
+{\footnotesize\ttfamily double Create\+\_\+\+Tool\+::find\+Angle\+Triangle (\begin{DoxyParamCaption}\item[{Vector3d}]{va,  }\item[{Vector3d}]{vb,  }\item[{Vector3d}]{vc }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Compute the angle in a triangle formed by 3 vectors assume a triangle and find angle theta at coordinate b (middle argument) a /\textbackslash{} / \textbackslash{} / \textbackslash{} angle@ b /\+\_\+)\+\_\+\+\_\+\+\_\+\+\_\+\textbackslash{} c. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em va} & vector 1 \\
+\hline
+{\em vb} & vector 2 \\
+\hline
+{\em vc} & vector 3 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+double angle in radian 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classCreate__Tool_a19085ace8b8a30757ba7b5c80cdd0f97}\label{classCreate__Tool_a19085ace8b8a30757ba7b5c80cdd0f97}} 
+\index{Create\+\_\+\+Tool@{Create\+\_\+\+Tool}!find\+Grasp\+Loci@{find\+Grasp\+Loci}}
+\index{find\+Grasp\+Loci@{find\+Grasp\+Loci}!Create\+\_\+\+Tool@{Create\+\_\+\+Tool}}
+\subsubsection{\texorpdfstring{find\+Grasp\+Loci()}{findGraspLoci()}}
+{\footnotesize\ttfamily int Create\+\_\+\+Tool\+::find\+Grasp\+Loci (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Compute a set of possible grasping location for Olivia to hold. 
+
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classCreate__Tool_a83213666dbbdd99333d84906d1be80e4}\label{classCreate__Tool_a83213666dbbdd99333d84906d1be80e4}} 
+\index{Create\+\_\+\+Tool@{Create\+\_\+\+Tool}!get\+\_\+angle\+\_\+seg@{get\+\_\+angle\+\_\+seg}}
+\index{get\+\_\+angle\+\_\+seg@{get\+\_\+angle\+\_\+seg}!Create\+\_\+\+Tool@{Create\+\_\+\+Tool}}
+\subsubsection{\texorpdfstring{get\+\_\+angle\+\_\+seg()}{get\_angle\_seg()}}
+{\footnotesize\ttfamily Vector\+Xd Create\+\_\+\+Tool\+::get\+\_\+angle\+\_\+seg (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the rotational angles for each segment of the \textquotesingle{}Tool\textquotesingle{} object. 
+
+\begin{DoxyReturn}{Returns}
+Vector\+Xd 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classCreate__Tool_a0a76e83b7d85e64bb0c9aa8306a0b0f6}\label{classCreate__Tool_a0a76e83b7d85e64bb0c9aa8306a0b0f6}} 
+\index{Create\+\_\+\+Tool@{Create\+\_\+\+Tool}!get\+\_\+n\+\_\+pts@{get\+\_\+n\+\_\+pts}}
+\index{get\+\_\+n\+\_\+pts@{get\+\_\+n\+\_\+pts}!Create\+\_\+\+Tool@{Create\+\_\+\+Tool}}
+\subsubsection{\texorpdfstring{get\+\_\+n\+\_\+pts()}{get\_n\_pts()}}
+{\footnotesize\ttfamily Vector\+Xd Create\+\_\+\+Tool\+::get\+\_\+n\+\_\+pts (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Store the number of point for each segement of each \textquotesingle{}Tool\textquotesingle{} object the number of points in each segment (exclude the edges/extreme\+\_\+pts) 
+
+\begin{DoxyReturn}{Returns}
+Vector\+Xd 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classCreate__Tool_a1140f90d5c44110f44939e564646a316}\label{classCreate__Tool_a1140f90d5c44110f44939e564646a316}} 
+\index{Create\+\_\+\+Tool@{Create\+\_\+\+Tool}!get\+\_\+\+N\+\_\+seg@{get\+\_\+\+N\+\_\+seg}}
+\index{get\+\_\+\+N\+\_\+seg@{get\+\_\+\+N\+\_\+seg}!Create\+\_\+\+Tool@{Create\+\_\+\+Tool}}
+\subsubsection{\texorpdfstring{get\+\_\+\+N\+\_\+seg()}{get\_N\_seg()}}
+{\footnotesize\ttfamily int Create\+\_\+\+Tool\+::get\+\_\+\+N\+\_\+seg (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the number of segment for this \textquotesingle{}Tool\textquotesingle{} object. 
+
+\begin{DoxyReturn}{Returns}
+int number of segments 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classCreate__Tool_ac997ba484168b43803bad484f2e4eaaa}\label{classCreate__Tool_ac997ba484168b43803bad484f2e4eaaa}} 
+\index{Create\+\_\+\+Tool@{Create\+\_\+\+Tool}!get\+\_\+nvec\+\_\+seg@{get\+\_\+nvec\+\_\+seg}}
+\index{get\+\_\+nvec\+\_\+seg@{get\+\_\+nvec\+\_\+seg}!Create\+\_\+\+Tool@{Create\+\_\+\+Tool}}
+\subsubsection{\texorpdfstring{get\+\_\+nvec\+\_\+seg()}{get\_nvec\_seg()}}
+{\footnotesize\ttfamily vector$<$ Vector3d $>$ Create\+\_\+\+Tool\+::get\+\_\+nvec\+\_\+seg (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Return the normal vector for each segment of this \textquotesingle{}Tool\textquotesingle{} object. 
+
+\begin{DoxyReturn}{Returns}
+vector$<$ Vector3d $>$ sets of normal\+\_\+vector for each segment 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classCreate__Tool_a6e11b0f95ff11d0bd67dade19e17377f}\label{classCreate__Tool_a6e11b0f95ff11d0bd67dade19e17377f}} 
+\index{Create\+\_\+\+Tool@{Create\+\_\+\+Tool}!get\+\_\+seg\+\_\+vertices@{get\+\_\+seg\+\_\+vertices}}
+\index{get\+\_\+seg\+\_\+vertices@{get\+\_\+seg\+\_\+vertices}!Create\+\_\+\+Tool@{Create\+\_\+\+Tool}}
+\subsubsection{\texorpdfstring{get\+\_\+seg\+\_\+vertices()}{get\_seg\_vertices()}}
+{\footnotesize\ttfamily vector$<$ vector$<$Vector3d$>$ $>$ Create\+\_\+\+Tool\+::get\+\_\+seg\+\_\+vertices (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get every vertices in every segments of this \textquotesingle{}Tool\textquotesingle{} object Each vertice contains the 3d coordinates in (x,y,z) and double data\+\_\+type. 
+
+\begin{DoxyReturn}{Returns}
+vector$<$ vector$<$\+Vector3d$>$ $>$ 3d sets of verticles in every segment of this tool 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classCreate__Tool_a328623ee81b8c11ea9e4dbe8bf863392}\label{classCreate__Tool_a328623ee81b8c11ea9e4dbe8bf863392}} 
+\index{Create\+\_\+\+Tool@{Create\+\_\+\+Tool}!get\+\_\+tool\+\_\+seg@{get\+\_\+tool\+\_\+seg}}
+\index{get\+\_\+tool\+\_\+seg@{get\+\_\+tool\+\_\+seg}!Create\+\_\+\+Tool@{Create\+\_\+\+Tool}}
+\subsubsection{\texorpdfstring{get\+\_\+tool\+\_\+seg()}{get\_tool\_seg()}}
+{\footnotesize\ttfamily vector$<$ vector$<$Vector3d$>$ $>$ Create\+\_\+\+Tool\+::get\+\_\+tool\+\_\+seg (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the tool seg object. 
+
+\begin{DoxyReturn}{Returns}
+vector$<$ vector$<$\+Vector3d$>$ $>$ 3d coordinates for each point in each segment 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classCreate__Tool_a1393c24c8f96f4e1b41d73db18b720c3}\label{classCreate__Tool_a1393c24c8f96f4e1b41d73db18b720c3}} 
+\index{Create\+\_\+\+Tool@{Create\+\_\+\+Tool}!get\+Vertices@{get\+Vertices}}
+\index{get\+Vertices@{get\+Vertices}!Create\+\_\+\+Tool@{Create\+\_\+\+Tool}}
+\subsubsection{\texorpdfstring{get\+Vertices()}{getVertices()}}
+{\footnotesize\ttfamily vector$<$ Vector3d $>$ Create\+\_\+\+Tool\+::get\+Vertices (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the Vertices object return sets of vertices in 3d coordinates frame. 
+
+\begin{DoxyReturn}{Returns}
+vector$<$ Vector3d $>$ sets of verticles from created \textquotesingle{}Tool\textquotesingle{} object 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classCreate__Tool_a419350e8721927d095385aa6bef0bc4b}\label{classCreate__Tool_a419350e8721927d095385aa6bef0bc4b}} 
+\index{Create\+\_\+\+Tool@{Create\+\_\+\+Tool}!linspace@{linspace}}
+\index{linspace@{linspace}!Create\+\_\+\+Tool@{Create\+\_\+\+Tool}}
+\subsubsection{\texorpdfstring{linspace()}{linspace()}}
+{\footnotesize\ttfamily std\+::vector$<$ double $>$ Create\+\_\+\+Tool\+::linspace (\begin{DoxyParamCaption}\item[{double}]{start\+\_\+in,  }\item[{double}]{end\+\_\+in,  }\item[{int}]{num\+\_\+in }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Compute linear spacing between a given length. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em start\+\_\+in} & start coordinate \\
+\hline
+{\em end\+\_\+in} & end coordinate \\
+\hline
+{\em num\+\_\+in} & number of spacing \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::vector$<$double$>$ vector containing the coordinate of each spacing 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classCreate__Tool_a2dd92335571099de8732d47d7e472865}\label{classCreate__Tool_a2dd92335571099de8732d47d7e472865}} 
+\index{Create\+\_\+\+Tool@{Create\+\_\+\+Tool}!write2file@{write2file}}
+\index{write2file@{write2file}!Create\+\_\+\+Tool@{Create\+\_\+\+Tool}}
+\subsubsection{\texorpdfstring{write2file()}{write2file()}}
+{\footnotesize\ttfamily int Create\+\_\+\+Tool\+::write2file (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+logging function To record and export all of this \textquotesingle{}Tool\textquotesingle{} object information 
+
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/samuel/\+Desktop/toolcog\+\_\+ws/montecarlo/include/tool\+\_\+expt/\hyperlink{create__tool_8h}{create\+\_\+tool.\+h}\item 
+/home/samuel/\+Desktop/toolcog\+\_\+ws/montecarlo/src/create\+\_\+tool.\+cpp\end{DoxyCompactItemize}

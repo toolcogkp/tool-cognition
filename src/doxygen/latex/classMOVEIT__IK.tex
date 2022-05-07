@@ -1,0 +1,207 @@
+\hypertarget{classMOVEIT__IK}{}\section{M\+O\+V\+E\+I\+T\+\_\+\+IK Class Reference}
+\label{classMOVEIT__IK}\index{M\+O\+V\+E\+I\+T\+\_\+\+IK@{M\+O\+V\+E\+I\+T\+\_\+\+IK}}
+
+
+ik solver using moveit for node.\+m R\+OS library usage, moveit kinematics setup class to quickly solve IK  
+
+
+
+
+{\ttfamily \#include $<$moveit\+\_\+ik.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classMOVEIT__IK_a8f6dd02b0c1c1c4528552fdcdb8af1e1}\label{classMOVEIT__IK_a8f6dd02b0c1c1c4528552fdcdb8af1e1}} 
+\hyperlink{classMOVEIT__IK_a8f6dd02b0c1c1c4528552fdcdb8af1e1}{M\+O\+V\+E\+I\+T\+\_\+\+IK} ()
+\begin{DoxyCompactList}\small\item\em Construct a new moveit ik object. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classMOVEIT__IK_aff4d253c101968b8e756e9f179270109}\label{classMOVEIT__IK_aff4d253c101968b8e756e9f179270109}} 
+\hyperlink{classMOVEIT__IK_aff4d253c101968b8e756e9f179270109}{$\sim$\+M\+O\+V\+E\+I\+T\+\_\+\+IK} ()
+\begin{DoxyCompactList}\small\item\em Destroy the moveit ik object. \end{DoxyCompactList}\item 
+void \hyperlink{classMOVEIT__IK_a93f8e535f8fbbe54100d8eecdd2ee6e4}{init} (bool right=true)
+\begin{DoxyCompactList}\small\item\em initialise moveit ik object moveit requires to load the robot model as a moveit kinematics model the planning scene will update using this kinematics model ik is solved by setting this kinematics model with the given joint values, and returning the solution of its end-\/effector in cartesian space \end{DoxyCompactList}\item 
+void \hyperlink{classMOVEIT__IK_af5b81c18b576ae1371ddc866061df1d5}{init\+\_\+home} (vector$<$ double $>$ joint\+\_\+values)
+\begin{DoxyCompactList}\small\item\em perform forward kinematics (FK) and store the position of given joint values as the home position \end{DoxyCompactList}\item 
+bool \hyperlink{classMOVEIT__IK_a790708eba19044f34e00c2e78998ff09}{ik\+\_\+solve} (Affine3d target\+\_\+\+KS)
+\begin{DoxyCompactList}\small\item\em Function to solve the IK for the given target pose. \end{DoxyCompactList}\item 
+void \hyperlink{classMOVEIT__IK_a0bdc6f6a1cefeaad6651495c463dd6ed}{update\+\_\+arm} (vector$<$ double $>$ arm\+\_\+joint\+\_\+values)
+\begin{DoxyCompactList}\small\item\em update the kinematic state of the arm with the given joint values \end{DoxyCompactList}\item 
+void \hyperlink{classMOVEIT__IK_a1399d0e0159b8ed7af938116fee6dc93}{update} (vector$<$ double $>$ joint\+\_\+values)
+\begin{DoxyCompactList}\small\item\em update the kinematic state of the arm+torso with the given joint values \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classMOVEIT__IK_af059baeee7ac1bdfc109e775f710380a}\label{classMOVEIT__IK_af059baeee7ac1bdfc109e775f710380a}} 
+void \hyperlink{classMOVEIT__IK_af059baeee7ac1bdfc109e775f710380a}{reset} ()
+\begin{DoxyCompactList}\small\item\em reset both the arm and torso kinematics model to the \textquotesingle{}Home\textquotesingle{} position \end{DoxyCompactList}\item 
+Matrix\+Xd \hyperlink{classMOVEIT__IK_a0086f93313ee7036d8897d6156b1395b}{jacobian\+\_\+solve} ()
+\begin{DoxyCompactList}\small\item\em compute the jacobian for the kinematics model \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classMOVEIT__IK_a1cd828f223bc110073993c8df6b9a561}\label{classMOVEIT__IK_a1cd828f223bc110073993c8df6b9a561}} 
+void \hyperlink{classMOVEIT__IK_a1cd828f223bc110073993c8df6b9a561}{get\+Joint\+Limits} ()
+\begin{DoxyCompactList}\small\item\em Get the Joint Limits form the moveit kinematics model must be stated in the urdf. \end{DoxyCompactList}\item 
+bool \hyperlink{classMOVEIT__IK_aecc7b36de162360f11ad460d3fb2321c}{check\+Joint\+Limits} ()
+\begin{DoxyCompactList}\small\item\em check if joint values of IK solution exceeds software joint limits Sometimes kinematics model exceeds acceptable joint limits (double-\/check to eliminate bug) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classMOVEIT__IK_a96a7cdcec1cc5495fbefd8f7d0fb2abd}\label{classMOVEIT__IK_a96a7cdcec1cc5495fbefd8f7d0fb2abd}} 
+vector$<$ double $>$ \hyperlink{classMOVEIT__IK_a96a7cdcec1cc5495fbefd8f7d0fb2abd}{max\+\_\+limit}
+\begin{DoxyCompactList}\small\item\em store the maximum joint limit \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classMOVEIT__IK_acf4cefec4cf6a6a9f2c686e72ac5ca88}\label{classMOVEIT__IK_acf4cefec4cf6a6a9f2c686e72ac5ca88}} 
+vector$<$ double $>$ \hyperlink{classMOVEIT__IK_acf4cefec4cf6a6a9f2c686e72ac5ca88}{min\+\_\+limit}
+\begin{DoxyCompactList}\small\item\em store the minimum joint limit \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classMOVEIT__IK_a9a56827e336f026573086de4924f1b79}\label{classMOVEIT__IK_a9a56827e336f026573086de4924f1b79}} 
+vector$<$ double $>$ \hyperlink{classMOVEIT__IK_a9a56827e336f026573086de4924f1b79}{desired\+\_\+arm\+\_\+values}
+\begin{DoxyCompactList}\small\item\em store the desired joint values for the arm \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classMOVEIT__IK_a4dd561e5e04d724bd7bbe5bd68f1941c}\label{classMOVEIT__IK_a4dd561e5e04d724bd7bbe5bd68f1941c}} 
+vector$<$ double $>$ \hyperlink{classMOVEIT__IK_a4dd561e5e04d724bd7bbe5bd68f1941c}{desired\+\_\+joint\+\_\+values}
+\begin{DoxyCompactList}\small\item\em store the desired joint values for the arm+torso \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classMOVEIT__IK_a142336a7c121f66031ebfc760cb16f00}\label{classMOVEIT__IK_a142336a7c121f66031ebfc760cb16f00}} 
+robot\+\_\+model\+::\+Robot\+Model\+Ptr \hyperlink{classMOVEIT__IK_a142336a7c121f66031ebfc760cb16f00}{kinematic\+\_\+model}
+\begin{DoxyCompactList}\small\item\em store moveit kinematics model object \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classMOVEIT__IK_a30a052ada12389671b0042507d8eb9b7}\label{classMOVEIT__IK_a30a052ada12389671b0042507d8eb9b7}} 
+robot\+\_\+state\+::\+Robot\+State\+Ptr \hyperlink{classMOVEIT__IK_a30a052ada12389671b0042507d8eb9b7}{kinematic\+\_\+state}
+\begin{DoxyCompactList}\small\item\em store moveit kinematics state object \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classMOVEIT__IK_ad31a54376790256d55754c1d1a0c78f7}\label{classMOVEIT__IK_ad31a54376790256d55754c1d1a0c78f7}} 
+planning\+\_\+scene\+::\+Planning\+Scene\+Ptr \hyperlink{classMOVEIT__IK_ad31a54376790256d55754c1d1a0c78f7}{planning\+\_\+scene\+\_\+}
+\begin{DoxyCompactList}\small\item\em store a planning scene object \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classMOVEIT__IK_aa720def30962972d30dd6e0281683484}\label{classMOVEIT__IK_aa720def30962972d30dd6e0281683484}} 
+std\+::vector$<$ std\+::string $>$ \hyperlink{classMOVEIT__IK_aa720def30962972d30dd6e0281683484}{mv\+\_\+joint\+\_\+names}
+\begin{DoxyCompactList}\small\item\em store the joint names \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classMOVEIT__IK_a0222dac5b064cbff21ab98601bceadd1}\label{classMOVEIT__IK_a0222dac5b064cbff21ab98601bceadd1}} 
+robot\+\_\+state\+::\+Joint\+Model\+Group $\ast$ \hyperlink{classMOVEIT__IK_a0222dac5b064cbff21ab98601bceadd1}{joint\+\_\+model\+\_\+group}
+\begin{DoxyCompactList}\small\item\em pointer to robot joint model group \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classMOVEIT__IK_a11e1731426f82e3d6e17dcded5b93946}\label{classMOVEIT__IK_a11e1731426f82e3d6e17dcded5b93946}} 
+std\+::vector$<$ std\+::string $>$ \hyperlink{classMOVEIT__IK_a11e1731426f82e3d6e17dcded5b93946}{arm\+\_\+joint\+\_\+names}
+\begin{DoxyCompactList}\small\item\em joint names for the arm \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classMOVEIT__IK_a915a894a8c31ed440b5bde7dfb11b972}\label{classMOVEIT__IK_a915a894a8c31ed440b5bde7dfb11b972}} 
+robot\+\_\+state\+::\+Joint\+Model\+Group $\ast$ \hyperlink{classMOVEIT__IK_a915a894a8c31ed440b5bde7dfb11b972}{arm\+\_\+model\+\_\+group}
+\begin{DoxyCompactList}\small\item\em pointer to the moveit arm group \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classMOVEIT__IK_a54fb3f15c72e83b37c1aff9bb48dddd8}\label{classMOVEIT__IK_a54fb3f15c72e83b37c1aff9bb48dddd8}} 
+std\+::vector$<$ double $>$ \hyperlink{classMOVEIT__IK_a54fb3f15c72e83b37c1aff9bb48dddd8}{home\+\_\+arm}
+\begin{DoxyCompactList}\small\item\em store joint values for the arm\textquotesingle{}s \textquotesingle{}Home\textquotesingle{} pose \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classMOVEIT__IK_a40b5380aca0f43ac807a88a521c62eaf}\label{classMOVEIT__IK_a40b5380aca0f43ac807a88a521c62eaf}} 
+std\+::vector$<$ double $>$ \hyperlink{classMOVEIT__IK_a40b5380aca0f43ac807a88a521c62eaf}{home}
+\begin{DoxyCompactList}\small\item\em store joint values for the arm+torso\textquotesingle{}s \textquotesingle{}Home\textquotesingle{} pose \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classMOVEIT__IK_a189c9c745418ad99ab7236cabec0155a}\label{classMOVEIT__IK_a189c9c745418ad99ab7236cabec0155a}} 
+vector$<$ moveit\+\_\+msgs\+::\+Joint\+Limits $>$ $\ast$ \hyperlink{classMOVEIT__IK_a189c9c745418ad99ab7236cabec0155a}{jvl}
+\begin{DoxyCompactList}\small\item\em pointer to a set of joint limits \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+ik solver using moveit for node.\+m R\+OS library usage, moveit kinematics setup class to quickly solve IK 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classMOVEIT__IK_aecc7b36de162360f11ad460d3fb2321c}\label{classMOVEIT__IK_aecc7b36de162360f11ad460d3fb2321c}} 
+\index{M\+O\+V\+E\+I\+T\+\_\+\+IK@{M\+O\+V\+E\+I\+T\+\_\+\+IK}!check\+Joint\+Limits@{check\+Joint\+Limits}}
+\index{check\+Joint\+Limits@{check\+Joint\+Limits}!M\+O\+V\+E\+I\+T\+\_\+\+IK@{M\+O\+V\+E\+I\+T\+\_\+\+IK}}
+\subsubsection{\texorpdfstring{check\+Joint\+Limits()}{checkJointLimits()}}
+{\footnotesize\ttfamily bool M\+O\+V\+E\+I\+T\+\_\+\+I\+K\+::check\+Joint\+Limits (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+check if joint values of IK solution exceeds software joint limits Sometimes kinematics model exceeds acceptable joint limits (double-\/check to eliminate bug) 
+
+\begin{DoxyReturn}{Returns}
+true solution within joint limits 
+
+false exceeds the joint limits = reject solution 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classMOVEIT__IK_a790708eba19044f34e00c2e78998ff09}\label{classMOVEIT__IK_a790708eba19044f34e00c2e78998ff09}} 
+\index{M\+O\+V\+E\+I\+T\+\_\+\+IK@{M\+O\+V\+E\+I\+T\+\_\+\+IK}!ik\+\_\+solve@{ik\+\_\+solve}}
+\index{ik\+\_\+solve@{ik\+\_\+solve}!M\+O\+V\+E\+I\+T\+\_\+\+IK@{M\+O\+V\+E\+I\+T\+\_\+\+IK}}
+\subsubsection{\texorpdfstring{ik\+\_\+solve()}{ik\_solve()}}
+{\footnotesize\ttfamily bool M\+O\+V\+E\+I\+T\+\_\+\+I\+K\+::ik\+\_\+solve (\begin{DoxyParamCaption}\item[{Affine3d}]{target\+\_\+\+KS }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Function to solve the IK for the given target pose. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em target\+\_\+\+KS} & Affine matrix for the target \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true IK solved successfully 
+
+false error encountered 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classMOVEIT__IK_a93f8e535f8fbbe54100d8eecdd2ee6e4}\label{classMOVEIT__IK_a93f8e535f8fbbe54100d8eecdd2ee6e4}} 
+\index{M\+O\+V\+E\+I\+T\+\_\+\+IK@{M\+O\+V\+E\+I\+T\+\_\+\+IK}!init@{init}}
+\index{init@{init}!M\+O\+V\+E\+I\+T\+\_\+\+IK@{M\+O\+V\+E\+I\+T\+\_\+\+IK}}
+\subsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily void M\+O\+V\+E\+I\+T\+\_\+\+I\+K\+::init (\begin{DoxyParamCaption}\item[{bool}]{right = {\ttfamily true} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+initialise moveit ik object moveit requires to load the robot model as a moveit kinematics model the planning scene will update using this kinematics model ik is solved by setting this kinematics model with the given joint values, and returning the solution of its end-\/effector in cartesian space 
+
+
+\begin{DoxyParams}{Parameters}
+{\em right} & true = right arm of Olivia, false = left arm of Olivia \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classMOVEIT__IK_af5b81c18b576ae1371ddc866061df1d5}\label{classMOVEIT__IK_af5b81c18b576ae1371ddc866061df1d5}} 
+\index{M\+O\+V\+E\+I\+T\+\_\+\+IK@{M\+O\+V\+E\+I\+T\+\_\+\+IK}!init\+\_\+home@{init\+\_\+home}}
+\index{init\+\_\+home@{init\+\_\+home}!M\+O\+V\+E\+I\+T\+\_\+\+IK@{M\+O\+V\+E\+I\+T\+\_\+\+IK}}
+\subsubsection{\texorpdfstring{init\+\_\+home()}{init\_home()}}
+{\footnotesize\ttfamily void M\+O\+V\+E\+I\+T\+\_\+\+I\+K\+::init\+\_\+home (\begin{DoxyParamCaption}\item[{vector$<$ double $>$}]{joint\+\_\+values }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+perform forward kinematics (FK) and store the position of given joint values as the home position 
+
+
+\begin{DoxyParams}{Parameters}
+{\em joint\+\_\+values} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classMOVEIT__IK_a0086f93313ee7036d8897d6156b1395b}\label{classMOVEIT__IK_a0086f93313ee7036d8897d6156b1395b}} 
+\index{M\+O\+V\+E\+I\+T\+\_\+\+IK@{M\+O\+V\+E\+I\+T\+\_\+\+IK}!jacobian\+\_\+solve@{jacobian\+\_\+solve}}
+\index{jacobian\+\_\+solve@{jacobian\+\_\+solve}!M\+O\+V\+E\+I\+T\+\_\+\+IK@{M\+O\+V\+E\+I\+T\+\_\+\+IK}}
+\subsubsection{\texorpdfstring{jacobian\+\_\+solve()}{jacobian\_solve()}}
+{\footnotesize\ttfamily Matrix\+Xd M\+O\+V\+E\+I\+T\+\_\+\+I\+K\+::jacobian\+\_\+solve (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+compute the jacobian for the kinematics model 
+
+\begin{DoxyReturn}{Returns}
+Matrix\+Xd jacobian matrix 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classMOVEIT__IK_a1399d0e0159b8ed7af938116fee6dc93}\label{classMOVEIT__IK_a1399d0e0159b8ed7af938116fee6dc93}} 
+\index{M\+O\+V\+E\+I\+T\+\_\+\+IK@{M\+O\+V\+E\+I\+T\+\_\+\+IK}!update@{update}}
+\index{update@{update}!M\+O\+V\+E\+I\+T\+\_\+\+IK@{M\+O\+V\+E\+I\+T\+\_\+\+IK}}
+\subsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void M\+O\+V\+E\+I\+T\+\_\+\+I\+K\+::update (\begin{DoxyParamCaption}\item[{vector$<$ double $>$}]{joint\+\_\+values }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+update the kinematic state of the arm+torso with the given joint values 
+
+
+\begin{DoxyParams}{Parameters}
+{\em joint\+\_\+values} & input joint values for the olivia arm+torso \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classMOVEIT__IK_a0bdc6f6a1cefeaad6651495c463dd6ed}\label{classMOVEIT__IK_a0bdc6f6a1cefeaad6651495c463dd6ed}} 
+\index{M\+O\+V\+E\+I\+T\+\_\+\+IK@{M\+O\+V\+E\+I\+T\+\_\+\+IK}!update\+\_\+arm@{update\+\_\+arm}}
+\index{update\+\_\+arm@{update\+\_\+arm}!M\+O\+V\+E\+I\+T\+\_\+\+IK@{M\+O\+V\+E\+I\+T\+\_\+\+IK}}
+\subsubsection{\texorpdfstring{update\+\_\+arm()}{update\_arm()}}
+{\footnotesize\ttfamily void M\+O\+V\+E\+I\+T\+\_\+\+I\+K\+::update\+\_\+arm (\begin{DoxyParamCaption}\item[{vector$<$ double $>$}]{arm\+\_\+joint\+\_\+values }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+update the kinematic state of the arm with the given joint values 
+
+
+\begin{DoxyParams}{Parameters}
+{\em arm\+\_\+joint\+\_\+values} & input joint values for the olivia arm \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/home/samuel/\+Desktop/toolcog\+\_\+ws/montecarlo/include/tool\+\_\+expt/\hyperlink{moveit__ik_8h}{moveit\+\_\+ik.\+h}\end{DoxyCompactItemize}

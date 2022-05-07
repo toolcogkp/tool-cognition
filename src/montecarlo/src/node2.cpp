@@ -45,7 +45,6 @@ void MCT_NODE2::create_child( string str, NODE_DATA ndata)
 
 double MCT_NODE2::update()
 {
-    // cout << "node " << label << ": " << endl;
 
     if(num_childs > 0)
     {
@@ -88,7 +87,6 @@ double MCT_NODE2::update()
     }
     else
     {
-        // cout << "  terminal" << endl;
         type = "terminal";
      
         if(num_visit <= 0)
@@ -123,7 +121,6 @@ void MCT_NODE2::update_score(double val)
         cout << "error, recorder NULL" << endl;
     else
     { 
-        // cout << "m_recorder address: " << m_recorder << endl;
         write_dataset();
         m_recorder->saveData(data);
     }
@@ -149,9 +146,7 @@ double MCT_NODE2::calculate_value()
     double ik_value = 1;
     Vector3d f_arm_len = arm_len;
 
-    // cout << "cal value@" << endl;
     cout << "  label: " << label << endl;
-    // cout << "    N_path: " << N_path << endl;
     
     bool ikFlag = false;
     bool okFlag = true;
@@ -163,7 +158,6 @@ double MCT_NODE2::calculate_value()
     #endif
 
     if( m_ndata.collision_obj == true ){
-        // cout << "collision failed" << endl;
         okFlag = false;
         value = 0;
     }

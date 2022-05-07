@@ -1,0 +1,19 @@
+<map id="Manipulate" name="Manipulate">
+<area shape="rect" id="node3" href="$classCreate__Tool.html" title="Create Tool class object Contains required information for a detect Tool object. " alt="" coords="403,671,496,698"/>
+<area shape="rect" id="node5" href="$classMCT__Search.html" title="Class object to perform monte carlo tree search algorithm. " alt="" coords="640,270,739,297"/>
+<area shape="rect" id="node12" href="$classTool__Expt.html" title="Tool experiment class object save all the data and variables used for the tool experiment computes an..." alt="" coords="889,546,971,573"/>
+<area shape="rect" id="node16" href="$classMCT__Search2.html" title="Class object to perform monte carlo tree search algorithm recursive function, optimisation and memory..." alt="" coords="636,721,743,747"/>
+<area shape="rect" id="node4" href="$classMOVEIT__IK.html" title="ik solver using moveit for node.m ROS library usage, moveit kinematics setup class to quickly solve I..." alt="" coords="172,185,265,211"/>
+<area shape="rect" id="node6" href="$classMCT__NODE.html" title="class object for monte carlo tree search This is class for single node in the tree ..." alt="" coords="401,185,498,211"/>
+<area shape="rect" id="node17" href="$classMCT__NODE2.html" title="class object for monte carlo tree search This is class for single node in the tree version 2..." alt="" coords="397,823,501,850"/>
+<area shape="rect" id="node7" href="$structdataset.html" title="structure for data to record. Add more data entry here. " alt="" coords="5,483,71,510"/>
+<area shape="rect" id="node8" href="$classRecorder.html" title="class to export data into csv file " alt="" coords="181,483,256,510"/>
+<area shape="rect" id="node9" href="$classKDL__IK.html" title="ik solver using KDL for node.m ROS library usage, KDL setup class to quickly solve IK ..." alt="" coords="185,849,253,875"/>
+<area shape="rect" id="node10" href="$classGJK.html" title="GJK algothrim wrapper Use this class for fast collision check between 2 objects. " alt="" coords="425,361,473,387"/>
+<area shape="rect" id="node11" href="$structShape.html" title="shape for GJK object Contains verticles of object, eg. A CUBE have 8 vertices Using Eigen Vector3d fo..." alt="" coords="420,506,479,533"/>
+<area shape="rect" id="node19" href="$classTool__Expt__2.html" title="Tool experiment class object save all the data and variables used for the tool experiment computes an..." alt="" coords="1153,546,1247,573"/>
+<area shape="rect" id="node13" href="$structvision__each.html" title="vision data structure for each perceived object " alt="" coords="644,670,735,697"/>
+<area shape="rect" id="node14" href="$structFunc__Templ.html" title="Structure of the function template. " alt="" coords="642,465,737,491"/>
+<area shape="rect" id="node15" href="$structvision__data.html" title="vision data structure for large sets of perceived objects " alt="" coords="1156,730,1244,757"/>
+<area shape="rect" id="node18" href="$structNODE__DATA.html" title="structure for a mcts node " alt="" coords="167,735,271,762"/>
+</map>

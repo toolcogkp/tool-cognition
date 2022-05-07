@@ -1,0 +1,18 @@
+1) Install doxygen
+```
+sudo apt-get install doxygen
+```
+
+
+2) for this 'toolcog_ws' workspace, simply run:
+```
+cd toolcog_ws/doxygen
+doxygen doxygen_config
+ln -s html/index.html . 
+```
+
+
+3) 'latex' and 'html' folder will be generated.
+
+go into 'html' folder, open index.html with any browser to view.
+if softlink is done in step2, just open it.

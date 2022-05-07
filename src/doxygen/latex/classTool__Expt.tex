@@ -1,0 +1,391 @@
+\hypertarget{classTool__Expt}{}\section{Tool\+\_\+\+Expt Class Reference}
+\label{classTool__Expt}\index{Tool\+\_\+\+Expt@{Tool\+\_\+\+Expt}}
+
+
+Tool experiment class object save all the data and variables used for the tool experiment computes and create task, Handles and directs the M\+C\+TS experiment.  
+
+
+
+
+{\ttfamily \#include $<$tool\+\_\+expt.\+h$>$}
+
+
+
+Inheritance diagram for Tool\+\_\+\+Expt\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=151pt]{classTool__Expt__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Tool\+\_\+\+Expt\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classTool__Expt__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classTool__Expt_a6f244696f380875f00de3bfa4fd07403}\label{classTool__Expt_a6f244696f380875f00de3bfa4fd07403}} 
+\hyperlink{classTool__Expt_a6f244696f380875f00de3bfa4fd07403}{Tool\+\_\+\+Expt} ()
+\begin{DoxyCompactList}\small\item\em Construct a new \hyperlink{classTool__Expt}{Tool\+\_\+\+Expt} object. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classTool__Expt_af70ca9eca501d73dc41e548b33463aa9}\label{classTool__Expt_af70ca9eca501d73dc41e548b33463aa9}} 
+\hyperlink{classTool__Expt_af70ca9eca501d73dc41e548b33463aa9}{$\sim$\+Tool\+\_\+\+Expt} ()
+\begin{DoxyCompactList}\small\item\em Destroy the \hyperlink{classTool__Expt}{Tool\+\_\+\+Expt} object. \end{DoxyCompactList}\item 
+void \hyperlink{classTool__Expt_ac7fc861acae5fc088acda4034cd1ef7b}{init} (\hyperlink{classCreate__Tool}{Create\+\_\+\+Tool} $\ast$\hyperlink{classTool__Expt_ae15dbe96d503e8c03cb86d9f8e58937c}{create\+\_\+tool}, \hyperlink{classMCT__Search}{M\+C\+T\+\_\+\+Search} $\ast$mct\+\_\+search, geometry\+\_\+msgs\+::\+Pose obj\+\_\+pose, geometry\+\_\+msgs\+::\+Pose tar\+\_\+pose)
+\begin{DoxyCompactList}\small\item\em tool experiment initialization \end{DoxyCompactList}\item 
+void \hyperlink{classTool__Expt_a9bd0a2a625f485202d48636fcc920f04}{init\+\_\+params} (double obj\+\_\+dia, int num\+\_\+via\+\_\+pts, int num\+\_\+intra\+\_\+pts, int max\+\_\+iteration)
+\begin{DoxyCompactList}\small\item\em initialise other parameters used in the experiment \end{DoxyCompactList}\item 
+void \hyperlink{classTool__Expt_a37cf2a6c1c96828464c9db13ac6a8577}{init\+\_\+vision} (\hyperlink{structvision__each}{vision\+\_\+each} v\+\_\+data, bool percept=true)
+\begin{DoxyCompactList}\small\item\em initialise vision data obtain from perception module \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classTool__Expt_a9a0a2083192ef14bac6290b6635a28ed}\label{classTool__Expt_a9a0a2083192ef14bac6290b6635a28ed}} 
+void \hyperlink{classTool__Expt_a9a0a2083192ef14bac6290b6635a28ed}{main} ()
+\begin{DoxyCompactList}\small\item\em standalone main function to test experiment outside of state machine \end{DoxyCompactList}\item 
+Affine3d \hyperlink{classTool__Expt_a6d0d9c6287de98e81b26dff9e0e56863}{create\+\_\+affine} (double roll, double pitch, double yaw, double x, double y, double z)
+\begin{DoxyCompactList}\small\item\em Create an eigen affine. \end{DoxyCompactList}\item 
+Affine3d \hyperlink{classTool__Expt_a759fb0ce1b71d3153378e7897bef6f72}{create\+\_\+affine} (double roll, double pitch, double yaw, Vector3d xyz)
+\begin{DoxyCompactList}\small\item\em Create a eigen affine. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classTool__Expt_ad17747000a73814a34841eecda0ccc6a}\label{classTool__Expt_ad17747000a73814a34841eecda0ccc6a}} 
+void \hyperlink{classTool__Expt_ad17747000a73814a34841eecda0ccc6a}{create\+\_\+task} ()
+\begin{DoxyCompactList}\small\item\em Create the task. set up object, target and object\+\_\+to\+\_\+target vector and poses. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classTool__Expt_ae15dbe96d503e8c03cb86d9f8e58937c}\label{classTool__Expt_ae15dbe96d503e8c03cb86d9f8e58937c}} 
+void \hyperlink{classTool__Expt_ae15dbe96d503e8c03cb86d9f8e58937c}{create\+\_\+tool} ()
+\begin{DoxyCompactList}\small\item\em Create a tool. compute and set up tool vector and poses. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classTool__Expt_ae4e9248dd93aa40ad2dd8ae11cf694b7}\label{classTool__Expt_ae4e9248dd93aa40ad2dd8ae11cf694b7}} 
+void \hyperlink{classTool__Expt_ae4e9248dd93aa40ad2dd8ae11cf694b7}{create\+\_\+object} ()
+\begin{DoxyCompactList}\small\item\em Create a object. generate the object vertices and get ready for gjk collision check. set up object bounding box. \end{DoxyCompactList}\item 
+bool \hyperlink{classTool__Expt_a35d5f7c664b44e813c3e1777b723d651}{collision\+\_\+check} ()
+\begin{DoxyCompactList}\small\item\em perform \hyperlink{classGJK}{G\+JK} collision check \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classTool__Expt_a1909c4d9fad319e93cc7b92159e1b05f}\label{classTool__Expt_a1909c4d9fad319e93cc7b92159e1b05f}} 
+void \hyperlink{classTool__Expt_a1909c4d9fad319e93cc7b92159e1b05f}{create\+\_\+path} ()
+\begin{DoxyCompactList}\small\item\em Create all the via points between target and object. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classTool__Expt_a349b001e0a91bb223e6cd91622818b91}\label{classTool__Expt_a349b001e0a91bb223e6cd91622818b91}} 
+void \hyperlink{classTool__Expt_a349b001e0a91bb223e6cd91622818b91}{functionality} ()
+\begin{DoxyCompactList}\small\item\em create the task function matrix and object\+\_\+to\+\_\+functionality tf matrix. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classTool__Expt_a317cc269d335366dec7d88fdf27e5f68}\label{classTool__Expt_a317cc269d335366dec7d88fdf27e5f68}} 
+void \hyperlink{classTool__Expt_a317cc269d335366dec7d88fdf27e5f68}{search} ()
+\begin{DoxyCompactList}\small\item\em send all the data over to search class obj and perform M\+C\+TS tree search \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classTool__Expt_a53445178c772777722446614d5f3a966}\label{classTool__Expt_a53445178c772777722446614d5f3a966}} 
+void \hyperlink{classTool__Expt_a53445178c772777722446614d5f3a966}{create\+\_\+percept\+\_\+tool} ()
+\begin{DoxyCompactList}\small\item\em Create a percept tool object. This function creates tool object from perception data. compute and set up tool vector and poses. \end{DoxyCompactList}\item 
+vector$<$ Affine3d $>$ \hyperlink{classTool__Expt_a0cace0822f22745b9aa5b7abaa2cec2b}{get\+Result} ()
+\begin{DoxyCompactList}\small\item\em Get the Resulting best Path to follow to pull/push object. \end{DoxyCompactList}\item 
+Affine3d \hyperlink{classTool__Expt_ad6ca5e51647eee6b267bf51bed8de6a7}{get\+Grab} ()
+\begin{DoxyCompactList}\small\item\em Get the Resulting best Grab pose. \end{DoxyCompactList}\item 
+double \hyperlink{classTool__Expt_ae29bee730a8bbd7b0a183af404bb366f}{get\+Atk\+Angle} ()
+\begin{DoxyCompactList}\small\item\em Get the Resulting best attach angle of the tool to object. \end{DoxyCompactList}\item 
+double \hyperlink{classTool__Expt_a1fb8b0a8c2fe25b5e909dcde87b34dd3}{get\+Score} ()
+\begin{DoxyCompactList}\small\item\em Get the Score of the best solution. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classTool__Expt_a1dda864e4413125a1eb1e335171c9487}\label{classTool__Expt_a1dda864e4413125a1eb1e335171c9487}} 
+bool {\bfseries percept\+Flag}
+\item 
+\mbox{\Hypertarget{classTool__Expt_ab9b881e79fbe7c802c1fee961a67edb7}\label{classTool__Expt_ab9b881e79fbe7c802c1fee961a67edb7}} 
+bool {\bfseries param\+Flag}
+\item 
+\mbox{\Hypertarget{classTool__Expt_a4e85b2c1eeb6df93475a1b91d2814cf0}\label{classTool__Expt_a4e85b2c1eeb6df93475a1b91d2814cf0}} 
+double {\bfseries m\+\_\+obj\+\_\+dia}
+\item 
+\mbox{\Hypertarget{classTool__Expt_a39bd18941664411fbdc58dfdc5e08247}\label{classTool__Expt_a39bd18941664411fbdc58dfdc5e08247}} 
+int {\bfseries N\+\_\+via\+\_\+pts}
+\item 
+\mbox{\Hypertarget{classTool__Expt_a8ca80d494109ba43354e8ba6b4860c24}\label{classTool__Expt_a8ca80d494109ba43354e8ba6b4860c24}} 
+int {\bfseries N\+\_\+intrapath\+\_\+pts}
+\item 
+\mbox{\Hypertarget{classTool__Expt_a76afe1d39cf6c333f874a994df98ad71}\label{classTool__Expt_a76afe1d39cf6c333f874a994df98ad71}} 
+int {\bfseries N\+\_\+path\+\_\+pts}
+\item 
+\mbox{\Hypertarget{classTool__Expt_a1168be1098d4588f88898980d05d20f3}\label{classTool__Expt_a1168be1098d4588f88898980d05d20f3}} 
+geometry\+\_\+msgs\+::\+Pose {\bfseries m\+\_\+obj\+\_\+pose}
+\item 
+\mbox{\Hypertarget{classTool__Expt_a6ae2cc487858888b1b618cc663945790}\label{classTool__Expt_a6ae2cc487858888b1b618cc663945790}} 
+geometry\+\_\+msgs\+::\+Pose {\bfseries m\+\_\+tar\+\_\+pose}
+\item 
+\mbox{\Hypertarget{classTool__Expt_a4b0b77f19ef13848df7d207df0eb4e17}\label{classTool__Expt_a4b0b77f19ef13848df7d207df0eb4e17}} 
+Affine3d {\bfseries obj\+\_\+affine}
+\item 
+\mbox{\Hypertarget{classTool__Expt_a19a6a35069a280a506705386e4ccb808}\label{classTool__Expt_a19a6a35069a280a506705386e4ccb808}} 
+Affine3d {\bfseries tar\+\_\+affine}
+\item 
+\mbox{\Hypertarget{classTool__Expt_a06d1e46d87e5f9bad285be4d3c8564cf}\label{classTool__Expt_a06d1e46d87e5f9bad285be4d3c8564cf}} 
+Vector3d {\bfseries obj\+\_\+pos}
+\item 
+\mbox{\Hypertarget{classTool__Expt_ac661b0f3c0cde863b049080acb650cac}\label{classTool__Expt_ac661b0f3c0cde863b049080acb650cac}} 
+Vector3d {\bfseries tar\+\_\+pos}
+\item 
+\mbox{\Hypertarget{classTool__Expt_a2b9adb9f74761aa9be40e89c67389559}\label{classTool__Expt_a2b9adb9f74761aa9be40e89c67389559}} 
+Vector3d {\bfseries tool\+\_\+pos}
+\item 
+\mbox{\Hypertarget{classTool__Expt_af98857e25cd839ab9887746793655d47}\label{classTool__Expt_af98857e25cd839ab9887746793655d47}} 
+Vector3d {\bfseries via\+\_\+pt}
+\item 
+\mbox{\Hypertarget{classTool__Expt_a5deefee78883611c3317d92b7cfe63ea}\label{classTool__Expt_a5deefee78883611c3317d92b7cfe63ea}} 
+vector$<$ Affine3d $>$ {\bfseries T\+\_\+world\+\_\+obj}
+\item 
+\mbox{\Hypertarget{classTool__Expt_a1e489a80d56cae13e9bde5c7066d6dbc}\label{classTool__Expt_a1e489a80d56cae13e9bde5c7066d6dbc}} 
+Vector3d {\bfseries obj\+\_\+task}
+\item 
+\mbox{\Hypertarget{classTool__Expt_a634418684086eb5bac9009cfc1da11d7}\label{classTool__Expt_a634418684086eb5bac9009cfc1da11d7}} 
+double {\bfseries angle\+\_\+obj\+\_\+task}
+\item 
+\mbox{\Hypertarget{classTool__Expt_aaf040fdacac27ee03360d04dab647077}\label{classTool__Expt_aaf040fdacac27ee03360d04dab647077}} 
+Affine3d {\bfseries T\+\_\+obj\+\_\+task}
+\item 
+\mbox{\Hypertarget{classTool__Expt_a71ce08c1a0a9f5dd4ed7ee5b9d070d1b}\label{classTool__Expt_a71ce08c1a0a9f5dd4ed7ee5b9d070d1b}} 
+vector$<$ Vector3d $>$ {\bfseries path\+\_\+pts}
+\item 
+\mbox{\Hypertarget{classTool__Expt_a10152fd0b955160cbf82bd464a8dba22}\label{classTool__Expt_a10152fd0b955160cbf82bd464a8dba22}} 
+vector$<$ Affine3d $>$ {\bfseries T\+\_\+all\+\_\+path\+\_\+pts}
+\item 
+\mbox{\Hypertarget{classTool__Expt_a480f0bd09995c739a0df8e13fa8a49c4}\label{classTool__Expt_a480f0bd09995c739a0df8e13fa8a49c4}} 
+\hyperlink{classCreate__Tool}{Create\+\_\+\+Tool} $\ast$ {\bfseries m\+\_\+create\+\_\+tool}
+\item 
+\mbox{\Hypertarget{classTool__Expt_a6e42a261327a333699868cd3b0e8725d}\label{classTool__Expt_a6e42a261327a333699868cd3b0e8725d}} 
+\hyperlink{structShape}{Shape} {\bfseries subtool1}
+\item 
+\mbox{\Hypertarget{classTool__Expt_a6f6bfc3e326723d029e8f14f8a6da403}\label{classTool__Expt_a6f6bfc3e326723d029e8f14f8a6da403}} 
+\hyperlink{structShape}{Shape} {\bfseries subtool2}
+\item 
+\mbox{\Hypertarget{classTool__Expt_a81dcc95335cf6ace27fa04cf28f90997}\label{classTool__Expt_a81dcc95335cf6ace27fa04cf28f90997}} 
+\hyperlink{structShape}{Shape} {\bfseries object}
+\item 
+\mbox{\Hypertarget{classTool__Expt_aa72fab0ca7d9ee6074e62e017e3303d1}\label{classTool__Expt_aa72fab0ca7d9ee6074e62e017e3303d1}} 
+\hyperlink{structvision__each}{vision\+\_\+each} {\bfseries vdata}
+\item 
+\mbox{\Hypertarget{classTool__Expt_adbdfe0bba7f8bca47948dd24a9224cfd}\label{classTool__Expt_adbdfe0bba7f8bca47948dd24a9224cfd}} 
+vector$<$ \hyperlink{structShape}{Shape} $>$ {\bfseries tool\+\_\+pieces}
+\item 
+\mbox{\Hypertarget{classTool__Expt_a145601ee150aea9eb214a691973d4671}\label{classTool__Expt_a145601ee150aea9eb214a691973d4671}} 
+\hyperlink{classGJK}{G\+JK} {\bfseries m\+\_\+gjk}
+\item 
+\mbox{\Hypertarget{classTool__Expt_ae847e688d5ff22aeb80fafda679909f2}\label{classTool__Expt_ae847e688d5ff22aeb80fafda679909f2}} 
+int {\bfseries max\+\_\+iter}
+\item 
+\mbox{\Hypertarget{classTool__Expt_a9a0a21e153e26e58389ac38e96bce0df}\label{classTool__Expt_a9a0a21e153e26e58389ac38e96bce0df}} 
+\hyperlink{structFunc__Templ}{Func\+\_\+\+Templ} {\bfseries m\+\_\+func\+\_\+templ}
+\item 
+\mbox{\Hypertarget{classTool__Expt_a522f578d3e960ef521b38b679be470b4}\label{classTool__Expt_a522f578d3e960ef521b38b679be470b4}} 
+double {\bfseries angle\+\_\+task\+\_\+func}
+\item 
+\mbox{\Hypertarget{classTool__Expt_acdab35698a6af1afa27579a03a6b5f23}\label{classTool__Expt_acdab35698a6af1afa27579a03a6b5f23}} 
+Affine3d {\bfseries T\+\_\+task\+\_\+func}
+\item 
+\mbox{\Hypertarget{classTool__Expt_a42fb484a1a22411803e0f1ea78ef6563}\label{classTool__Expt_a42fb484a1a22411803e0f1ea78ef6563}} 
+vector$<$ Affine3d $>$ {\bfseries T\+\_\+obj\+\_\+func}
+\item 
+\mbox{\Hypertarget{classTool__Expt_a676a178c660520ac75c89094653fe662}\label{classTool__Expt_a676a178c660520ac75c89094653fe662}} 
+\hyperlink{classMCT__Search}{M\+C\+T\+\_\+\+Search} $\ast$ {\bfseries m\+\_\+mct\+\_\+search}
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classTool__Expt_ac6b5619c61756f3f3749649603a8ce87}\label{classTool__Expt_ac6b5619c61756f3f3749649603a8ce87}} 
+vector$<$ Affine3d $>$ {\bfseries result}
+\item 
+\mbox{\Hypertarget{classTool__Expt_a11ce5889eb57760312df22b12964b69e}\label{classTool__Expt_a11ce5889eb57760312df22b12964b69e}} 
+Affine3d {\bfseries result\+\_\+grab}
+\item 
+\mbox{\Hypertarget{classTool__Expt_a0d5edb8882f8313a4e3ac4e00399c671}\label{classTool__Expt_a0d5edb8882f8313a4e3ac4e00399c671}} 
+double {\bfseries result\+\_\+atk}
+\item 
+\mbox{\Hypertarget{classTool__Expt_a1c722dcf3fe2539d6c79f1c0cd364bc1}\label{classTool__Expt_a1c722dcf3fe2539d6c79f1c0cd364bc1}} 
+double {\bfseries max\+\_\+score}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Tool experiment class object save all the data and variables used for the tool experiment computes and create task, Handles and directs the M\+C\+TS experiment. 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classTool__Expt_a35d5f7c664b44e813c3e1777b723d651}\label{classTool__Expt_a35d5f7c664b44e813c3e1777b723d651}} 
+\index{Tool\+\_\+\+Expt@{Tool\+\_\+\+Expt}!collision\+\_\+check@{collision\+\_\+check}}
+\index{collision\+\_\+check@{collision\+\_\+check}!Tool\+\_\+\+Expt@{Tool\+\_\+\+Expt}}
+\subsubsection{\texorpdfstring{collision\+\_\+check()}{collision\_check()}}
+{\footnotesize\ttfamily bool Tool\+\_\+\+Expt\+::collision\+\_\+check (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+perform \hyperlink{classGJK}{G\+JK} collision check 
+
+\begin{DoxyReturn}{Returns}
+true collided 
+
+false no collision 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classTool__Expt_a6d0d9c6287de98e81b26dff9e0e56863}\label{classTool__Expt_a6d0d9c6287de98e81b26dff9e0e56863}} 
+\index{Tool\+\_\+\+Expt@{Tool\+\_\+\+Expt}!create\+\_\+affine@{create\+\_\+affine}}
+\index{create\+\_\+affine@{create\+\_\+affine}!Tool\+\_\+\+Expt@{Tool\+\_\+\+Expt}}
+\subsubsection{\texorpdfstring{create\+\_\+affine()}{create\_affine()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Affine3d Tool\+\_\+\+Expt\+::create\+\_\+affine (\begin{DoxyParamCaption}\item[{double}]{roll,  }\item[{double}]{pitch,  }\item[{double}]{yaw,  }\item[{double}]{x,  }\item[{double}]{y,  }\item[{double}]{z }\end{DoxyParamCaption})}
+
+
+
+Create an eigen affine. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em roll} & \\
+\hline
+{\em pitch} & \\
+\hline
+{\em yaw} & \\
+\hline
+{\em x} & \\
+\hline
+{\em y} & \\
+\hline
+{\em z} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Affine3d eigen 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classTool__Expt_a759fb0ce1b71d3153378e7897bef6f72}\label{classTool__Expt_a759fb0ce1b71d3153378e7897bef6f72}} 
+\index{Tool\+\_\+\+Expt@{Tool\+\_\+\+Expt}!create\+\_\+affine@{create\+\_\+affine}}
+\index{create\+\_\+affine@{create\+\_\+affine}!Tool\+\_\+\+Expt@{Tool\+\_\+\+Expt}}
+\subsubsection{\texorpdfstring{create\+\_\+affine()}{create\_affine()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Affine3d Tool\+\_\+\+Expt\+::create\+\_\+affine (\begin{DoxyParamCaption}\item[{double}]{roll,  }\item[{double}]{pitch,  }\item[{double}]{yaw,  }\item[{Vector3d}]{xyz }\end{DoxyParamCaption})}
+
+
+
+Create a eigen affine. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em roll} & \\
+\hline
+{\em pitch} & \\
+\hline
+{\em yaw} & \\
+\hline
+{\em xyz} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Affine3d 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classTool__Expt_ae29bee730a8bbd7b0a183af404bb366f}\label{classTool__Expt_ae29bee730a8bbd7b0a183af404bb366f}} 
+\index{Tool\+\_\+\+Expt@{Tool\+\_\+\+Expt}!get\+Atk\+Angle@{get\+Atk\+Angle}}
+\index{get\+Atk\+Angle@{get\+Atk\+Angle}!Tool\+\_\+\+Expt@{Tool\+\_\+\+Expt}}
+\subsubsection{\texorpdfstring{get\+Atk\+Angle()}{getAtkAngle()}}
+{\footnotesize\ttfamily double Tool\+\_\+\+Expt\+::get\+Atk\+Angle (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the Resulting best attach angle of the tool to object. 
+
+\begin{DoxyReturn}{Returns}
+double angle 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classTool__Expt_ad6ca5e51647eee6b267bf51bed8de6a7}\label{classTool__Expt_ad6ca5e51647eee6b267bf51bed8de6a7}} 
+\index{Tool\+\_\+\+Expt@{Tool\+\_\+\+Expt}!get\+Grab@{get\+Grab}}
+\index{get\+Grab@{get\+Grab}!Tool\+\_\+\+Expt@{Tool\+\_\+\+Expt}}
+\subsubsection{\texorpdfstring{get\+Grab()}{getGrab()}}
+{\footnotesize\ttfamily Affine3d Tool\+\_\+\+Expt\+::get\+Grab (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the Resulting best Grab pose. 
+
+\begin{DoxyReturn}{Returns}
+Affine3d grab pose 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classTool__Expt_a0cace0822f22745b9aa5b7abaa2cec2b}\label{classTool__Expt_a0cace0822f22745b9aa5b7abaa2cec2b}} 
+\index{Tool\+\_\+\+Expt@{Tool\+\_\+\+Expt}!get\+Result@{get\+Result}}
+\index{get\+Result@{get\+Result}!Tool\+\_\+\+Expt@{Tool\+\_\+\+Expt}}
+\subsubsection{\texorpdfstring{get\+Result()}{getResult()}}
+{\footnotesize\ttfamily vector$<$ Affine3d $>$ Tool\+\_\+\+Expt\+::get\+Result (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the Resulting best Path to follow to pull/push object. 
+
+\begin{DoxyReturn}{Returns}
+vector$<$ Affine3d $>$ best path 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classTool__Expt_a1fb8b0a8c2fe25b5e909dcde87b34dd3}\label{classTool__Expt_a1fb8b0a8c2fe25b5e909dcde87b34dd3}} 
+\index{Tool\+\_\+\+Expt@{Tool\+\_\+\+Expt}!get\+Score@{get\+Score}}
+\index{get\+Score@{get\+Score}!Tool\+\_\+\+Expt@{Tool\+\_\+\+Expt}}
+\subsubsection{\texorpdfstring{get\+Score()}{getScore()}}
+{\footnotesize\ttfamily double Tool\+\_\+\+Expt\+::get\+Score (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the Score of the best solution. 
+
+\begin{DoxyReturn}{Returns}
+double score 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classTool__Expt_ac7fc861acae5fc088acda4034cd1ef7b}\label{classTool__Expt_ac7fc861acae5fc088acda4034cd1ef7b}} 
+\index{Tool\+\_\+\+Expt@{Tool\+\_\+\+Expt}!init@{init}}
+\index{init@{init}!Tool\+\_\+\+Expt@{Tool\+\_\+\+Expt}}
+\subsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily void Tool\+\_\+\+Expt\+::init (\begin{DoxyParamCaption}\item[{\hyperlink{classCreate__Tool}{Create\+\_\+\+Tool} $\ast$}]{create\+\_\+tool,  }\item[{\hyperlink{classMCT__Search}{M\+C\+T\+\_\+\+Search} $\ast$}]{mct\+\_\+search,  }\item[{geometry\+\_\+msgs\+::\+Pose}]{obj\+\_\+pose,  }\item[{geometry\+\_\+msgs\+::\+Pose}]{tar\+\_\+pose }\end{DoxyParamCaption})}
+
+
+
+tool experiment initialization 
+
+
+\begin{DoxyParams}{Parameters}
+{\em create\+\_\+tool} & pointer to create\+\_\+tool obj \\
+\hline
+{\em mct\+\_\+search} & pointer to mct\+\_\+search obj \\
+\hline
+{\em obj\+\_\+pose} & object pose \\
+\hline
+{\em tar\+\_\+pose} & target pose \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classTool__Expt_a9bd0a2a625f485202d48636fcc920f04}\label{classTool__Expt_a9bd0a2a625f485202d48636fcc920f04}} 
+\index{Tool\+\_\+\+Expt@{Tool\+\_\+\+Expt}!init\+\_\+params@{init\+\_\+params}}
+\index{init\+\_\+params@{init\+\_\+params}!Tool\+\_\+\+Expt@{Tool\+\_\+\+Expt}}
+\subsubsection{\texorpdfstring{init\+\_\+params()}{init\_params()}}
+{\footnotesize\ttfamily void Tool\+\_\+\+Expt\+::init\+\_\+params (\begin{DoxyParamCaption}\item[{double}]{obj\+\_\+dia,  }\item[{int}]{num\+\_\+via\+\_\+pts,  }\item[{int}]{num\+\_\+intra\+\_\+pts,  }\item[{int}]{max\+\_\+iteration }\end{DoxyParamCaption})}
+
+
+
+initialise other parameters used in the experiment 
+
+
+\begin{DoxyParams}{Parameters}
+{\em obj\+\_\+dia} & object diameter \\
+\hline
+{\em num\+\_\+via\+\_\+pts} & number of via points to required \\
+\hline
+{\em num\+\_\+intra\+\_\+pts} & number of intra path points \\
+\hline
+{\em max\+\_\+iteration} & number of iterations for mcts \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classTool__Expt_a37cf2a6c1c96828464c9db13ac6a8577}\label{classTool__Expt_a37cf2a6c1c96828464c9db13ac6a8577}} 
+\index{Tool\+\_\+\+Expt@{Tool\+\_\+\+Expt}!init\+\_\+vision@{init\+\_\+vision}}
+\index{init\+\_\+vision@{init\+\_\+vision}!Tool\+\_\+\+Expt@{Tool\+\_\+\+Expt}}
+\subsubsection{\texorpdfstring{init\+\_\+vision()}{init\_vision()}}
+{\footnotesize\ttfamily void Tool\+\_\+\+Expt\+::init\+\_\+vision (\begin{DoxyParamCaption}\item[{\hyperlink{structvision__each}{vision\+\_\+each}}]{v\+\_\+data,  }\item[{bool}]{percept = {\ttfamily true} }\end{DoxyParamCaption})}
+
+
+
+initialise vision data obtain from perception module 
+
+
+\begin{DoxyParams}{Parameters}
+{\em v\+\_\+data} & vision data used for this experiment \\
+\hline
+{\em percept} & is data obtained from perception module? \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/samuel/\+Desktop/toolcog\+\_\+ws/montecarlo/include/tool\+\_\+expt/\hyperlink{tool__expt_8h}{tool\+\_\+expt.\+h}\item 
+/home/samuel/\+Desktop/toolcog\+\_\+ws/montecarlo/src/tool\+\_\+expt.\+cpp\end{DoxyCompactItemize}

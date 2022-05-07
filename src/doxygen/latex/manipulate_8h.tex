@@ -1,0 +1,69 @@
+\hypertarget{manipulate_8h}{}\section{/home/samuel/\+Desktop/toolcog\+\_\+ws/montecarlo/include/tool\+\_\+expt/manipulate.h File Reference}
+\label{manipulate_8h}\index{/home/samuel/\+Desktop/toolcog\+\_\+ws/montecarlo/include/tool\+\_\+expt/manipulate.\+h@{/home/samuel/\+Desktop/toolcog\+\_\+ws/montecarlo/include/tool\+\_\+expt/manipulate.\+h}}
+
+
+Copyright 2019 by Institute for Infocomm Research, Singapore (I2R). All rights reserved. manipulate state in the state machine.  
+
+
+{\ttfamily \#include $<$tool\+\_\+expt/machine.\+h$>$}\newline
+{\ttfamily \#include $<$Eigen/\+Core$>$}\newline
+{\ttfamily \#include $<$Eigen/\+S\+VD$>$}\newline
+{\ttfamily \#include $<$sensor\+\_\+msgs/\+Joint\+State.\+h$>$}\newline
+{\ttfamily \#include $<$sound\+\_\+play/sound\+\_\+play.\+h$>$}\newline
+{\ttfamily \#include $<$actionlib/client/simple\+\_\+action\+\_\+client.\+h$>$}\newline
+{\ttfamily \#include $<$m3\+\_\+moveit/\+Moveit\+Single\+Action.\+h$>$}\newline
+{\ttfamily \#include $<$m3\+\_\+moveit/\+Moveit\+Fingers\+Action.\+h$>$}\newline
+{\ttfamily \#include $<$m3\+\_\+moveit/\+Moveit\+Dual\+Action.\+h$>$}\newline
+{\ttfamily \#include $<$m3\+\_\+moveit/\+Moveit\+Whole\+Body\+Action.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}neck\+\_\+pan/\+Neck\+Pan\+Action.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}neck\+\_\+pan/\+Neck\+Pan\+Feedback.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}neck\+\_\+pan/\+Neck\+Pan\+Result.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$m3\+\_\+moveit/\+Neck\+Tilt\+Action.\+h$>$}\newline
+{\ttfamily \#include $<$m3\+\_\+moveit/\+Moveit\+Pick\+Place\+Action.\+h$>$}\newline
+{\ttfamily \#include $<$m3\+\_\+moveit/\+Moveit\+Collide\+Action.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}monte\+\_\+carlo/tf\+\_\+switch.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$tool\+\_\+expt/create\+\_\+tool.\+h$>$}\newline
+{\ttfamily \#include $<$tool\+\_\+expt/search.\+h$>$}\newline
+{\ttfamily \#include $<$tool\+\_\+expt/tool\+\_\+expt.\+h$>$}\newline
+{\ttfamily \#include $<$tool\+\_\+expt/moveit\+\_\+ik.\+h$>$}\newline
+{\ttfamily \#include $<$tool\+\_\+expt/kdl\+\_\+ik.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}tool\+\_\+expt/vision\+\_\+data.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$tool\+\_\+expt/search2.\+h$>$}\newline
+{\ttfamily \#include $<$tool\+\_\+expt/tool\+\_\+expt2.\+h$>$}\newline
+{\ttfamily \#include $<$tool\+\_\+expt/definitions.\+h$>$}\newline
+{\ttfamily \#include $<$geometric\+\_\+shapes/shape\+\_\+operations.\+h$>$}\newline
+{\ttfamily \#include $<$pcl\+\_\+conversions/pcl\+\_\+conversions.\+h$>$}\newline
+{\ttfamily \#include $<$visualization\+\_\+msgs/\+Marker.\+h$>$}\newline
+{\ttfamily \#include $<$visualization\+\_\+msgs/\+Marker\+Array.\+h$>$}\newline
+Include dependency graph for manipulate.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{manipulate_8h__incl}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structManipulate}{Manipulate}
+\begin{DoxyCompactList}\small\item\em State machine Event structure\+: Manipulation This event is invoked by Olivia state machine when in the \hyperlink{structActive}{Active} state. Perform sequences of action to manipulate object to a given target goal. \end{DoxyCompactList}\item 
+struct \hyperlink{structReadyState}{Ready\+State}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Copyright 2019 by Institute for Infocomm Research, Singapore (I2R). All rights reserved. manipulate state in the state machine. 
+
+\begin{DoxyAuthor}{Author}
+\href{mailto:samuel_cheong@i2r.a-star.edu.sg}{\tt samuel\+\_\+cheong@i2r.\+a-\/star.\+edu.\+sg} 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2019-\/02-\/14
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+Copyright (c) 2019 
+\end{DoxyCopyright}

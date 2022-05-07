@@ -1,0 +1,75 @@
+\hypertarget{moveit__ik_8h}{}\section{/home/samuel/\+Desktop/toolcog\+\_\+ws/montecarlo/include/tool\+\_\+expt/moveit\+\_\+ik.h File Reference}
+\label{moveit__ik_8h}\index{/home/samuel/\+Desktop/toolcog\+\_\+ws/montecarlo/include/tool\+\_\+expt/moveit\+\_\+ik.\+h@{/home/samuel/\+Desktop/toolcog\+\_\+ws/montecarlo/include/tool\+\_\+expt/moveit\+\_\+ik.\+h}}
+
+
+class to use Moveit library to solve Inverse Kinematics(\+I\+K)  
+
+
+{\ttfamily \#include \char`\"{}ros/ros.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$fstream$>$}\newline
+{\ttfamily \#include $<$std\+\_\+msgs/\+Int32.\+h$>$}\newline
+{\ttfamily \#include $<$std\+\_\+msgs/\+Bool.\+h$>$}\newline
+{\ttfamily \#include $<$Eigen/\+Core$>$}\newline
+{\ttfamily \#include $<$Eigen/\+S\+VD$>$}\newline
+{\ttfamily \#include $<$eigen\+\_\+conversions/eigen\+\_\+msg.\+h$>$}\newline
+{\ttfamily \#include $<$Eigen/\+Geometry$>$}\newline
+{\ttfamily \#include $<$tf\+\_\+conversions/tf\+\_\+eigen.\+h$>$}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
+{\ttfamily \#include $<$moveit/planning\+\_\+scene/planning\+\_\+scene.\+h$>$}\newline
+{\ttfamily \#include $<$moveit/kinematic\+\_\+constraints/utils.\+h$>$}\newline
+{\ttfamily \#include $<$moveit/robot\+\_\+model\+\_\+loader/robot\+\_\+model\+\_\+loader.\+h$>$}\newline
+{\ttfamily \#include $<$moveit/robot\+\_\+model/robot\+\_\+model.\+h$>$}\newline
+{\ttfamily \#include $<$moveit/robot\+\_\+state/robot\+\_\+state.\+h$>$}\newline
+{\ttfamily \#include $<$moveit/robot\+\_\+model/joint\+\_\+model.\+h$>$}\newline
+{\ttfamily \#include $<$moveit\+\_\+msgs/\+Joint\+Limits.\+h$>$}\newline
+{\ttfamily \#include $<$moveit\+\_\+msgs/\+Display\+Robot\+State.\+h$>$}\newline
+{\ttfamily \#include $<$moveit/robot\+\_\+state/conversions.\+h$>$}\newline
+{\ttfamily \#include $<$tool\+\_\+expt/definitions.\+h$>$}\newline
+Include dependency graph for moveit\+\_\+ik.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{moveit__ik_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{moveit__ik_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classMOVEIT__IK}{M\+O\+V\+E\+I\+T\+\_\+\+IK}
+\begin{DoxyCompactList}\small\item\em ik solver using moveit for node.\+m R\+OS library usage, moveit kinematics setup class to quickly solve IK \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{moveit__ik_8h_a8c730a41dcccce68039aea9f991e1868}\label{moveit__ik_8h_a8c730a41dcccce68039aea9f991e1868}} 
+\#define \hyperlink{moveit__ik_8h_a8c730a41dcccce68039aea9f991e1868}{A\+T\+T\+E\+M\+P\+TS}~2
+\begin{DoxyCompactList}\small\item\em number of attempts at solving IK \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{moveit__ik_8h_ad5dc0e8af1f24d8df0f2b5b74636e1a1}\label{moveit__ik_8h_ad5dc0e8af1f24d8df0f2b5b74636e1a1}} 
+\#define \hyperlink{moveit__ik_8h_ad5dc0e8af1f24d8df0f2b5b74636e1a1}{U\+P\+D\+A\+T\+E\+\_\+\+R\+A\+TE}~50.\+0
+\begin{DoxyCompactList}\small\item\em update rate of this class object \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+class to use Moveit library to solve Inverse Kinematics(\+I\+K) 
+
+\begin{DoxyAuthor}{Author}
+\href{mailto:samuel_cheong@i2r.a-star.edu.sg}{\tt samuel\+\_\+cheong@i2r.\+a-\/star.\+edu.\+sg} 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2019-\/03-\/02
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+Copyright (c) 2019 
+\end{DoxyCopyright}

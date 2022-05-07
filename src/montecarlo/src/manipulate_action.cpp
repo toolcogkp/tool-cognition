@@ -16,6 +16,12 @@ using namespace Eigen;
 #include <unistd.h>
 #include <fcntl.h>
 
+/**
+ * @brief Keyboard input function
+ * 
+ * @return true 
+ * @return false 
+ */
 bool Manipulate::kbhit()
 {
     termios term;

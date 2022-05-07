@@ -1,0 +1,246 @@
+\hypertarget{classMCT__NODE2}{}\section{M\+C\+T\+\_\+\+N\+O\+D\+E2 Class Reference}
+\label{classMCT__NODE2}\index{M\+C\+T\+\_\+\+N\+O\+D\+E2@{M\+C\+T\+\_\+\+N\+O\+D\+E2}}
+
+
+class object for monte carlo tree search This is class for single node in the tree version 2.\+0, setup node to perform as a recursive function  
+
+
+
+
+{\ttfamily \#include $<$node2.\+h$>$}
+
+
+
+Collaboration diagram for M\+C\+T\+\_\+\+N\+O\+D\+E2\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classMCT__NODE2__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classMCT__NODE2_a79a6d3015439b33c46ba184dc314f5e4}\label{classMCT__NODE2_a79a6d3015439b33c46ba184dc314f5e4}} 
+\hyperlink{classMCT__NODE2_a79a6d3015439b33c46ba184dc314f5e4}{M\+C\+T\+\_\+\+N\+O\+D\+E2} ()
+\begin{DoxyCompactList}\small\item\em Construct a new mct node2 object. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classMCT__NODE2_a180c6f50288efb2b93a44872b14e4d5e}\label{classMCT__NODE2_a180c6f50288efb2b93a44872b14e4d5e}} 
+\hyperlink{classMCT__NODE2_a180c6f50288efb2b93a44872b14e4d5e}{$\sim$\+M\+C\+T\+\_\+\+N\+O\+D\+E2} ()
+\begin{DoxyCompactList}\small\item\em Destroy the mct node2 object. \end{DoxyCompactList}\item 
+\hyperlink{classMCT__NODE2_a729c4d4e44b9de40835e51abb915008f}{M\+C\+T\+\_\+\+N\+O\+D\+E2} (string str, \hyperlink{structNODE__DATA}{N\+O\+D\+E\+\_\+\+D\+A\+TA} ndata, \hyperlink{classRecorder}{Recorder} $\ast$recorder, \hyperlink{classMOVEIT__IK}{M\+O\+V\+E\+I\+T\+\_\+\+IK} $\ast$moveit\+\_\+ik, \hyperlink{classKDL__IK}{K\+D\+L\+\_\+\+IK} $\ast$kdl\+\_\+ik=N\+U\+LL)
+\begin{DoxyCompactList}\small\item\em Construct a new mct node2 object. \end{DoxyCompactList}\item 
+\hyperlink{classMCT__NODE2_a8a3bb30fd398361d821d04a10f311a68}{M\+C\+T\+\_\+\+N\+O\+D\+E2} (\hyperlink{classMCT__NODE2}{M\+C\+T\+\_\+\+N\+O\+D\+E2} $\ast$parent, string str, \hyperlink{structNODE__DATA}{N\+O\+D\+E\+\_\+\+D\+A\+TA} ndata, \hyperlink{classRecorder}{Recorder} $\ast$recorder, \hyperlink{classMOVEIT__IK}{M\+O\+V\+E\+I\+T\+\_\+\+IK} $\ast$moveit\+\_\+ik, \hyperlink{classKDL__IK}{K\+D\+L\+\_\+\+IK} $\ast$kdl\+\_\+ik=N\+U\+LL)
+\begin{DoxyCompactList}\small\item\em Construct a new mct node2 object. \end{DoxyCompactList}\item 
+void \hyperlink{classMCT__NODE2_ab7b3824130219c1afdfd8d8358e52d76}{create\+\_\+child} (string str, \hyperlink{structNODE__DATA}{N\+O\+D\+E\+\_\+\+D\+A\+TA} ndata)
+\begin{DoxyCompactList}\small\item\em Create a child object. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classMCT__NODE2_a50143d6d92d93c4ede150b6b10c7dcab}\label{classMCT__NODE2_a50143d6d92d93c4ede150b6b10c7dcab}} 
+void \hyperlink{classMCT__NODE2_a50143d6d92d93c4ede150b6b10c7dcab}{init} ()
+\begin{DoxyCompactList}\small\item\em initialisation of node \end{DoxyCompactList}\item 
+double \hyperlink{classMCT__NODE2_a02b11b2ef3bc916dc8bb7fec7f475ca7}{update} ()
+\begin{DoxyCompactList}\small\item\em update node score \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classMCT__NODE2_a519001f81d9ed6e03cbd026d8c94bafa}\label{classMCT__NODE2_a519001f81d9ed6e03cbd026d8c94bafa}} 
+void \hyperlink{classMCT__NODE2_a519001f81d9ed6e03cbd026d8c94bafa}{write\+\_\+dataset} ()
+\begin{DoxyCompactList}\small\item\em Function to export node data to logger. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classMCT__NODE2_a9a39405216826460e11b0865556ee0db}\label{classMCT__NODE2_a9a39405216826460e11b0865556ee0db}} 
+\hyperlink{classMCT__NODE2}{M\+C\+T\+\_\+\+N\+O\+D\+E2} $\ast$ {\bfseries parent\+Node}
+\item 
+\mbox{\Hypertarget{classMCT__NODE2_aa60c90f3cbbcd3e355d7de9675048e7a}\label{classMCT__NODE2_aa60c90f3cbbcd3e355d7de9675048e7a}} 
+vector$<$ \hyperlink{classMCT__NODE2}{M\+C\+T\+\_\+\+N\+O\+D\+E2} $\ast$$>$ {\bfseries childs}
+\item 
+\mbox{\Hypertarget{classMCT__NODE2_a0e77e9354445bfc3609d50687179c76a}\label{classMCT__NODE2_a0e77e9354445bfc3609d50687179c76a}} 
+string {\bfseries label}
+\item 
+\mbox{\Hypertarget{classMCT__NODE2_a0e7e94393ff13d35c204f0008f194b21}\label{classMCT__NODE2_a0e7e94393ff13d35c204f0008f194b21}} 
+double {\bfseries score}
+\item 
+\mbox{\Hypertarget{classMCT__NODE2_aea3632ed0982534dee1f4a60d56c3f21}\label{classMCT__NODE2_aea3632ed0982534dee1f4a60d56c3f21}} 
+double {\bfseries node\+\_\+value}
+\item 
+\mbox{\Hypertarget{classMCT__NODE2_a613a6cf94f700df93f2d17d75cef5551}\label{classMCT__NODE2_a613a6cf94f700df93f2d17d75cef5551}} 
+int {\bfseries num\+\_\+visit}
+\item 
+\mbox{\Hypertarget{classMCT__NODE2_a287d39d9355208167d8af1859844d0bf}\label{classMCT__NODE2_a287d39d9355208167d8af1859844d0bf}} 
+int {\bfseries num\+\_\+childs}
+\item 
+\mbox{\Hypertarget{classMCT__NODE2_aa1e45aad90bb598289fb34c4da3971a0}\label{classMCT__NODE2_aa1e45aad90bb598289fb34c4da3971a0}} 
+string {\bfseries type}
+\item 
+\mbox{\Hypertarget{classMCT__NODE2_af82fcb1cce3a71b11d5d4f7309fa4ea9}\label{classMCT__NODE2_af82fcb1cce3a71b11d5d4f7309fa4ea9}} 
+Vector3d {\bfseries arm\+\_\+len}
+\item 
+\mbox{\Hypertarget{classMCT__NODE2_a30bd8b8058d5480cf5adfe53e621e0f5}\label{classMCT__NODE2_a30bd8b8058d5480cf5adfe53e621e0f5}} 
+\hyperlink{structNODE__DATA}{N\+O\+D\+E\+\_\+\+D\+A\+TA} {\bfseries m\+\_\+ndata}
+\item 
+\mbox{\Hypertarget{classMCT__NODE2_aaeabafd0d4bd2e7ed2304cfad542937e}\label{classMCT__NODE2_aaeabafd0d4bd2e7ed2304cfad542937e}} 
+double {\bfseries best\+\_\+score}
+\item 
+\mbox{\Hypertarget{classMCT__NODE2_a4169d8ff91cf7cd1e83e3899bcead531}\label{classMCT__NODE2_a4169d8ff91cf7cd1e83e3899bcead531}} 
+vector$<$ int $>$ {\bfseries best\+\_\+idx}
+\item 
+\mbox{\Hypertarget{classMCT__NODE2_a786433c1043c2f6659e69893e66d4bc7}\label{classMCT__NODE2_a786433c1043c2f6659e69893e66d4bc7}} 
+vector$<$ Affine3d $>$ {\bfseries best\+\_\+state}
+\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classMCT__NODE2_a7e14b83901a94e54e3ef87aa012078de}{update\+\_\+score} (double val)
+\begin{DoxyCompactList}\small\item\em update the score of the node \end{DoxyCompactList}\item 
+double \hyperlink{classMCT__NODE2_a54908b7091bfc9ef49c06b2310d94408}{calculate\+\_\+value} ()
+\begin{DoxyCompactList}\small\item\em calculate the score of the node check if IK solution is possible, then score depends of the errors, delta of movement, the size of the segment, the grasping position, the attack angle of the tool to object and etc. \end{DoxyCompactList}\item 
+bool \hyperlink{classMCT__NODE2_a86c2a067b3865746d0a1b39142c0c536}{all\+\_\+visited} ()
+\begin{DoxyCompactList}\small\item\em check if this branch \& child are all visited \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classMCT__NODE2_a8938cf11d3628ac8275515d2d8e56f3e}\label{classMCT__NODE2_a8938cf11d3628ac8275515d2d8e56f3e}} 
+\hyperlink{classRecorder}{Recorder} $\ast$ {\bfseries m\+\_\+recorder}
+\item 
+\mbox{\Hypertarget{classMCT__NODE2_acbda5193b6d56d41dadce675e6ca4874}\label{classMCT__NODE2_acbda5193b6d56d41dadce675e6ca4874}} 
+\hyperlink{classMOVEIT__IK}{M\+O\+V\+E\+I\+T\+\_\+\+IK} $\ast$ {\bfseries m\+\_\+moveit\+\_\+ik}
+\item 
+\mbox{\Hypertarget{classMCT__NODE2_aeb643d23a87bf5a2ef8a0058f4188abc}\label{classMCT__NODE2_aeb643d23a87bf5a2ef8a0058f4188abc}} 
+\hyperlink{classKDL__IK}{K\+D\+L\+\_\+\+IK} $\ast$ {\bfseries m\+\_\+kdl\+\_\+ik}
+\item 
+\mbox{\Hypertarget{classMCT__NODE2_a01fce094b0953fbd4269a22d4d77a9c4}\label{classMCT__NODE2_a01fce094b0953fbd4269a22d4d77a9c4}} 
+\hyperlink{structdataset}{dataset} {\bfseries data}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+class object for monte carlo tree search This is class for single node in the tree version 2.\+0, setup node to perform as a recursive function 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classMCT__NODE2_a729c4d4e44b9de40835e51abb915008f}\label{classMCT__NODE2_a729c4d4e44b9de40835e51abb915008f}} 
+\index{M\+C\+T\+\_\+\+N\+O\+D\+E2@{M\+C\+T\+\_\+\+N\+O\+D\+E2}!M\+C\+T\+\_\+\+N\+O\+D\+E2@{M\+C\+T\+\_\+\+N\+O\+D\+E2}}
+\index{M\+C\+T\+\_\+\+N\+O\+D\+E2@{M\+C\+T\+\_\+\+N\+O\+D\+E2}!M\+C\+T\+\_\+\+N\+O\+D\+E2@{M\+C\+T\+\_\+\+N\+O\+D\+E2}}
+\subsubsection{\texorpdfstring{M\+C\+T\+\_\+\+N\+O\+D\+E2()}{MCT\_NODE2()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily M\+C\+T\+\_\+\+N\+O\+D\+E2\+::\+M\+C\+T\+\_\+\+N\+O\+D\+E2 (\begin{DoxyParamCaption}\item[{string}]{str,  }\item[{\hyperlink{structNODE__DATA}{N\+O\+D\+E\+\_\+\+D\+A\+TA}}]{ndata,  }\item[{\hyperlink{classRecorder}{Recorder} $\ast$}]{recorder,  }\item[{\hyperlink{classMOVEIT__IK}{M\+O\+V\+E\+I\+T\+\_\+\+IK} $\ast$}]{moveit\+\_\+ik,  }\item[{\hyperlink{classKDL__IK}{K\+D\+L\+\_\+\+IK} $\ast$}]{kdl\+\_\+ik = {\ttfamily NULL} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Construct a new mct node2 object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em str} & name \\
+\hline
+{\em ndata} & node data \\
+\hline
+{\em recorder} & pointer to logging class obj \\
+\hline
+{\em moveit\+\_\+ik} & pointer to moveit IK solver class obj \\
+\hline
+{\em kdl\+\_\+ik} & pointer to kdl IK solver class obj \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classMCT__NODE2_a8a3bb30fd398361d821d04a10f311a68}\label{classMCT__NODE2_a8a3bb30fd398361d821d04a10f311a68}} 
+\index{M\+C\+T\+\_\+\+N\+O\+D\+E2@{M\+C\+T\+\_\+\+N\+O\+D\+E2}!M\+C\+T\+\_\+\+N\+O\+D\+E2@{M\+C\+T\+\_\+\+N\+O\+D\+E2}}
+\index{M\+C\+T\+\_\+\+N\+O\+D\+E2@{M\+C\+T\+\_\+\+N\+O\+D\+E2}!M\+C\+T\+\_\+\+N\+O\+D\+E2@{M\+C\+T\+\_\+\+N\+O\+D\+E2}}
+\subsubsection{\texorpdfstring{M\+C\+T\+\_\+\+N\+O\+D\+E2()}{MCT\_NODE2()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily M\+C\+T\+\_\+\+N\+O\+D\+E2\+::\+M\+C\+T\+\_\+\+N\+O\+D\+E2 (\begin{DoxyParamCaption}\item[{\hyperlink{classMCT__NODE2}{M\+C\+T\+\_\+\+N\+O\+D\+E2} $\ast$}]{parent,  }\item[{string}]{str,  }\item[{\hyperlink{structNODE__DATA}{N\+O\+D\+E\+\_\+\+D\+A\+TA}}]{ndata,  }\item[{\hyperlink{classRecorder}{Recorder} $\ast$}]{recorder,  }\item[{\hyperlink{classMOVEIT__IK}{M\+O\+V\+E\+I\+T\+\_\+\+IK} $\ast$}]{moveit\+\_\+ik,  }\item[{\hyperlink{classKDL__IK}{K\+D\+L\+\_\+\+IK} $\ast$}]{kdl\+\_\+ik = {\ttfamily NULL} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Construct a new mct node2 object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em parent} & pointer to parent node \\
+\hline
+{\em str} & name \\
+\hline
+{\em ndata} & node data \\
+\hline
+{\em recorder} & pointer to logging class obj \\
+\hline
+{\em moveit\+\_\+ik} & pointer to moveit IK solver class obj \\
+\hline
+{\em kdl\+\_\+ik} & pointer to kdl IK solver class obj \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classMCT__NODE2_a86c2a067b3865746d0a1b39142c0c536}\label{classMCT__NODE2_a86c2a067b3865746d0a1b39142c0c536}} 
+\index{M\+C\+T\+\_\+\+N\+O\+D\+E2@{M\+C\+T\+\_\+\+N\+O\+D\+E2}!all\+\_\+visited@{all\+\_\+visited}}
+\index{all\+\_\+visited@{all\+\_\+visited}!M\+C\+T\+\_\+\+N\+O\+D\+E2@{M\+C\+T\+\_\+\+N\+O\+D\+E2}}
+\subsubsection{\texorpdfstring{all\+\_\+visited()}{all\_visited()}}
+{\footnotesize\ttfamily bool M\+C\+T\+\_\+\+N\+O\+D\+E2\+::all\+\_\+visited (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+check if this branch \& child are all visited 
+
+\begin{DoxyReturn}{Returns}
+true visited 
+
+false not finished 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classMCT__NODE2_a54908b7091bfc9ef49c06b2310d94408}\label{classMCT__NODE2_a54908b7091bfc9ef49c06b2310d94408}} 
+\index{M\+C\+T\+\_\+\+N\+O\+D\+E2@{M\+C\+T\+\_\+\+N\+O\+D\+E2}!calculate\+\_\+value@{calculate\+\_\+value}}
+\index{calculate\+\_\+value@{calculate\+\_\+value}!M\+C\+T\+\_\+\+N\+O\+D\+E2@{M\+C\+T\+\_\+\+N\+O\+D\+E2}}
+\subsubsection{\texorpdfstring{calculate\+\_\+value()}{calculate\_value()}}
+{\footnotesize\ttfamily double M\+C\+T\+\_\+\+N\+O\+D\+E2\+::calculate\+\_\+value (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+calculate the score of the node check if IK solution is possible, then score depends of the errors, delta of movement, the size of the segment, the grasping position, the attack angle of the tool to object and etc. 
+
+\begin{DoxyReturn}{Returns}
+double score value 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classMCT__NODE2_ab7b3824130219c1afdfd8d8358e52d76}\label{classMCT__NODE2_ab7b3824130219c1afdfd8d8358e52d76}} 
+\index{M\+C\+T\+\_\+\+N\+O\+D\+E2@{M\+C\+T\+\_\+\+N\+O\+D\+E2}!create\+\_\+child@{create\+\_\+child}}
+\index{create\+\_\+child@{create\+\_\+child}!M\+C\+T\+\_\+\+N\+O\+D\+E2@{M\+C\+T\+\_\+\+N\+O\+D\+E2}}
+\subsubsection{\texorpdfstring{create\+\_\+child()}{create\_child()}}
+{\footnotesize\ttfamily void M\+C\+T\+\_\+\+N\+O\+D\+E2\+::create\+\_\+child (\begin{DoxyParamCaption}\item[{string}]{str,  }\item[{\hyperlink{structNODE__DATA}{N\+O\+D\+E\+\_\+\+D\+A\+TA}}]{ndata }\end{DoxyParamCaption})}
+
+
+
+Create a child object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em str} & name \\
+\hline
+{\em ndata} & node data \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classMCT__NODE2_a02b11b2ef3bc916dc8bb7fec7f475ca7}\label{classMCT__NODE2_a02b11b2ef3bc916dc8bb7fec7f475ca7}} 
+\index{M\+C\+T\+\_\+\+N\+O\+D\+E2@{M\+C\+T\+\_\+\+N\+O\+D\+E2}!update@{update}}
+\index{update@{update}!M\+C\+T\+\_\+\+N\+O\+D\+E2@{M\+C\+T\+\_\+\+N\+O\+D\+E2}}
+\subsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily double M\+C\+T\+\_\+\+N\+O\+D\+E2\+::update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+update node score 
+
+\begin{DoxyReturn}{Returns}
+double score 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classMCT__NODE2_a7e14b83901a94e54e3ef87aa012078de}\label{classMCT__NODE2_a7e14b83901a94e54e3ef87aa012078de}} 
+\index{M\+C\+T\+\_\+\+N\+O\+D\+E2@{M\+C\+T\+\_\+\+N\+O\+D\+E2}!update\+\_\+score@{update\+\_\+score}}
+\index{update\+\_\+score@{update\+\_\+score}!M\+C\+T\+\_\+\+N\+O\+D\+E2@{M\+C\+T\+\_\+\+N\+O\+D\+E2}}
+\subsubsection{\texorpdfstring{update\+\_\+score()}{update\_score()}}
+{\footnotesize\ttfamily void M\+C\+T\+\_\+\+N\+O\+D\+E2\+::update\+\_\+score (\begin{DoxyParamCaption}\item[{double}]{val }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+update the score of the node 
+
+
+\begin{DoxyParams}{Parameters}
+{\em val} & \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/samuel/\+Desktop/toolcog\+\_\+ws/montecarlo/include/tool\+\_\+expt/\hyperlink{node2_8h}{node2.\+h}\item 
+/home/samuel/\+Desktop/toolcog\+\_\+ws/montecarlo/src/node2.\+cpp\end{DoxyCompactItemize}

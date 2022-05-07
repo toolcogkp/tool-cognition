@@ -13,17 +13,13 @@ bool GJK::collision_check(Shape s1, Shape s2, int iterations)
     //cout << "-----------------gjk start-------------------" << endl;
     bool flag = false;
     iteration = iterations;
-    vec << 0.8, 0.5, 1.0;   //hardcoded weights
-
+    vec << 0.8, 0.5, 1.0;   
     Vector3d a, b, c, d;
 
-    // cout << "pickLine" << endl;
     pickLine(s2, s1, vec, a, b);
-    // cout << "pickTriangle" << endl;
     flag = pickTriangle(s2, s1, a, b, c);
 
     if(flag == true){
-        // cout << "pickTetrahedron" << endl;
         flag = pickTetrahedron(s2, s1, a, b, c, d);
     }
 
@@ -35,23 +31,11 @@ void GJK::pickLine(Shape s1, Shape s2, Vector3d v, Vector3d &a, Vector3d &b)
 {
     a = support(s2, s1,  v);
     b = support(s2, s1, -v);
-    
-    // cout << "pickline a:" << endl;
-    // cout << a.transpose() << endl;
-    // cout << "pickline b:" << endl;
-    // cout << b.transpose() << endl;
 }//end pick line
 
 bool GJK::pickTriangle( Shape s1, Shape s2, Vector3d &a, Vector3d &b, Vector3d &c )
 {   
     bool flag = false;
-
-    // cout << "pickTriangle a:" << endl;
-    // cout << a.transpose() << endl;
-    // cout << "pickTriangle b:" << endl;
-    // cout << b.transpose() << endl; 
-    // cout << "pickTriangle c:" << endl;
-    // cout << c.transpose() << endl;
 
     Vector3d ab, ao, ac, abc, abp, acp, v;
     ab = b - a;
@@ -97,15 +81,6 @@ bool GJK::pickTriangle( Shape s1, Shape s2, Vector3d &a, Vector3d &b, Vector3d &
 bool GJK::pickTetrahedron( Shape s1, Shape s2, Vector3d &a, Vector3d &b, Vector3d &c, Vector3d &d )
 {
     bool flag = false;
-
-    // cout << "pickTetrahedron a:" << endl;
-    // cout << a.transpose() << endl;
-    // cout << "pickTetrahedron b:" << endl;
-    // cout << b.transpose() << endl; 
-    // cout << "pickTetrahedron c:" << endl;
-    // cout << c.transpose() << endl;
-    // cout << "pickTetrahedron d:" << endl;
-    // cout << d.transpose() << endl;
     
     Vector3d ab, ao, ac, ad, abc, acd, abp, adb, acp, v;
     ab = b - a;
@@ -224,15 +199,10 @@ Vector3d GJK::getFurthestlnDir(Shape s1, Vector3d v)
         dot(i) = temp(0)*v(0) + temp(1)*v(1) + temp(2)*v(2);
     }// end for
 
-    // cout << "XData: \n" << XData.transpose() << endl;
-    // cout << "YData: \n" << YData.transpose() << endl;
-    // cout << "ZData: \n" << ZData.transpose() << endl;
-    // cout << "Dotted: \n" << dot.transpose() << endl;
 
     double max;
     int index;
     max = dot.maxCoeff(&index);
-    // cout << "max: " << max << "\nindex: " << index << endl;
 
     Vector3d point;
     point << XData(index), YData(index), ZData(index);
@@ -269,10 +239,6 @@ Shape genSweptVolObj( Shape tool, Vector3d move_vec)
         connect_v_indices.push_back(indice);
     }   
 
-    // cout << "connect_v_indices: " << endl;
-    // for(int z = 0; z < connect_v_indices.size(); z++)
-    //     cout << connect_v_indices.at(z).transpose() << endl;
-
     //generate normals
     vector< Vector3d > edge_normal;
     int num_edges = connect_v_indices.size();
@@ -292,9 +258,6 @@ Shape genSweptVolObj( Shape tool, Vector3d move_vec)
     }
     edge_normal.push_back( rot_z * ( tool.vertices.at(0)-tool.vertices.at(num_edges-1) ) );
     
-    // cout << "edge_normal: " << endl;
-    // for(int z = 0; z < edge_normal.size(); z++)
-    //     cout << edge_normal.at(z).transpose() << endl;
 
     //eliminating edges within SV
     vector< int > edges_init;
@@ -307,17 +270,10 @@ Shape genSweptVolObj( Shape tool, Vector3d move_vec)
             edges_final.push_back(j); //add
         else if( val < -tol)
             edges_init.push_back(j); //add
-        //else dun add if within tol
     }
 
-    // cout << "edges_init: " << endl;
-    // for(int z = 0; z < edges_init.size(); z++)
-    //     cout << edges_init.at(z) << endl;
-    // cout << "edges_final: " << endl;
-    // for(int z = 0; z < edges_final.size(); z++)
-    //     cout << edges_final.at(z) << endl;
 
-    //get vertice for init and final
+    //get vertices for init and final
     vector< int > vertice_index_init;
     for(int k = 0; k < edges_init.size(); k++)  //usable edges
     {
@@ -348,10 +304,7 @@ Shape genSweptVolObj( Shape tool, Vector3d move_vec)
     }
     sort( vertice_index_init.begin(), vertice_index_init.end()); //sort
 
-    // cout << "vertice_index_init: " << endl;
-    // for(int z = 0; z < vertice_index_init.size(); z++)
-    //     cout << vertice_index_init.at(z) << endl;
-   
+
     vector< int > vertice_index_final;
     for(int k = 0; k < edges_final.size(); k++)  //usable edges
     {
@@ -382,9 +335,6 @@ Shape genSweptVolObj( Shape tool, Vector3d move_vec)
     }
     sort( vertice_index_final.begin(), vertice_index_final.end()); //sort
 
-    // cout << "vertice_index_final: " << endl;
-    // for(int z = 0; z < vertice_index_final.size(); z++)
-    //     cout << vertice_index_final.at(z) << endl;
    
     Shape SV;
     for( int n = 0; n < vertice_index_init.size(); n++)
