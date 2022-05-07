@@ -1,1 +1,1 @@
-# tool-cognition
+This is the data and code repository for the paper "A framework for tool cognition in robots without prior tool learning or observation" by Keng Peng Tee, Samuel Cheong, Jun Li, and Ganesh Gowrishankar, submitted to Nature Machine Intelligence.
